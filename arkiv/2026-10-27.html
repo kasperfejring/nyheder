@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="da"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111213" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Nyheder">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="../icons/favicon-64.png">
+<title>Nyheder · tirsdag 27. oktober 2026</title>
+<link rel="preload" href="../fonts/InterVariable.latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url("../fonts/InterVariable.latin.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-style:italic;font-weight:100 900;font-display:swap;src:url("../fonts/InterVariable-Italic.latin.woff2") format("woff2")}
+:root{--bg:#fbfaf7;--fg:#151515;--fg2:#2b2a27;--muted:#5b5850;--rule:#e2ddd2;--accent:#b8431a;--card:#fff;--link:#174f9c;--hl:#f3efe6}
+@media (prefers-color-scheme:dark){:root{--bg:#111213;--fg:#eeece7;--fg2:#d9d6cf;--muted:#a7a39a;--rule:#2e2d2a;--accent:#f59a62;--card:#1a1b1c;--link:#93bdf2;--hl:#1d1e20}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-padding-top:16px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size:18px;line-height:1.65;font-optical-sizing:auto;font-feature-settings:"cv11","ss01";-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px 64px}
+a{color:var(--link)}
+header.mast{text-align:center;border-bottom:1px solid var(--fg);padding:34px 0 16px;margin-bottom:22px}
+.mast h1{font-size:clamp(2.5rem,9vw,4.4rem);line-height:1;margin:0;letter-spacing:-.04em;font-weight:800}
+.mast h1 a{color:inherit;text-decoration:none}
+.mast .greet{font-size:.95rem;font-weight:500;line-height:1.3;letter-spacing:-.005em;color:var(--muted);margin:0 0 10px}
+.mast .greet[hidden]{display:none}
+.mast .meta{font-size:.74rem;font-weight:600;line-height:1.4;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-top:12px}
+.intro{font-size:1.06em;color:var(--fg2);margin:0 0 22px;line-height:1.6}
+.layout{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"intro" "toc" "main"}
+.layout>.intro{grid-area:intro}.layout>nav.toc{grid-area:toc}.layout>main{grid-area:main;min-width:0}
+nav.toc{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:4px 0;margin-bottom:28px;font-size:.9rem;line-height:1.4}
+nav.toc summary{cursor:pointer;list-style:none;padding:10px 0;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--accent)}
+nav.toc summary::-webkit-details-marker{display:none}
+nav.toc summary::after{content:" ▾";color:var(--muted)}nav.toc details[open] summary::after{content:" ▴"}
+nav.toc summary .cnt{color:var(--muted);font-weight:600;letter-spacing:.08em}
+nav.toc ol{list-style:none;margin:0 0 10px;padding:0}
+nav.toc li{margin:0}
+nav.toc a{display:flex;gap:10px;color:var(--fg);text-decoration:none;padding:7px 10px 7px 0;border-left:2px solid transparent}
+nav.toc a:hover .h{text-decoration:underline}
+nav.toc .n{flex:0 0 1.7em;text-align:right;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+nav.toc .t{display:block;font-size:.78em;color:var(--muted);margin-top:2px}
+nav.toc li.sec a .n{color:var(--accent)}
+nav.toc a.on{border-left-color:var(--accent);background:var(--hl)}nav.toc a.on .n,nav.toc a.on .h{color:var(--accent)}
+nav.toc a.read .n{color:var(--muted);opacity:.5;font-weight:500}nav.toc a.read:not(.on) .h{color:var(--muted)}
+h2.sect,.nyt h2,.radar>h2{font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;margin:6px 0 12px;color:var(--accent)}
+article{border-bottom:1px solid var(--rule);padding:4px 0 30px;margin-bottom:28px;scroll-margin-top:16px}
+.kick{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:.7rem;font-weight:700;line-height:1.5;text-transform:uppercase;letter-spacing:.1em}
+.num{background:var(--fg);color:var(--bg);border-radius:4px;padding:1px 7px;font-variant-numeric:tabular-nums}
+.tag{border:1px solid currentColor;border-radius:4px;padding:0 6px}
+.t-ai{color:#2563a8}.t-kode{color:#0b7480}.t-inv{color:#25784a}.t-sund{color:#9a6510}.t-ivk{color:#8e2a8e}.t-tank{color:#52529a}.t-egne{color:#a84b14}.t-verden{color:#4a5568}.t-frem{color:#6440b8}.t-crea{color:#b4185a}.t-samf{color:#7c6232}.t-dk{color:#b42828}.t-godt{color:#1f8a5b}
+@media (prefers-color-scheme:dark){.t-ai{color:#82b6f2}.t-kode{color:#62d2da}.t-inv{color:#72d19a}.t-sund{color:#f0c264}.t-ivk{color:#e391e3}.t-tank{color:#adadf2}.t-egne{color:#f2a676}.t-verden{color:#bac4d2}.t-frem{color:#bba2f6}.t-crea{color:#f594b6}.t-samf{color:#dcc390}.t-dk{color:#f28a8a}.t-godt{color:#7fe0b0}}
+.unc{background:#9a6510;color:#fff;border-radius:4px;padding:1px 6px}
+article h2{font-size:clamp(1.5rem,5.2vw,2.15rem);line-height:1.18;letter-spacing:-.022em;font-weight:750;margin:12px 0 10px;text-wrap:balance}
+.sum{font-size:1.1em;line-height:1.5;font-weight:500;color:var(--fg2);margin:0 0 16px}
+.body p{margin:0 0 1em}.body p:last-child{margin-bottom:14px}
+figure.fig{margin:4px 0 20px}
+figure.fig img{display:block;width:100%;height:auto;border-radius:8px;background:var(--hl)}
+figure.fig figcaption{font-size:.76rem;line-height:1.45;color:var(--muted);margin-top:7px}
+.src{font-size:.85rem;color:var(--muted)}
+.src a{font-weight:600}
+.extra{font-size:.85rem;margin:8px 0 0;padding-left:1.1em;color:var(--muted)}
+.video{position:relative;width:100%;aspect-ratio:16/9;margin:4px 0 20px;background:#000;border-radius:8px;overflow:hidden}
+.video.short{aspect-ratio:9/16;max-width:340px;margin-left:auto;margin-right:auto}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.xembed{margin:4px 0 20px;display:flex;justify-content:center}
+.nyt{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:16px 20px;margin:10px 0 28px;scroll-margin-top:16px}
+.nyt ul{margin:0;padding-left:1.1em}.nyt li{margin:8px 0}.nyt a{font-weight:600}
+.radar{margin:10px 0 28px;scroll-margin-top:16px}
+.radar>p.lede{font-size:.88rem;color:var(--muted);margin:0 0 12px}
+.rcard{background:var(--card);border:1px solid var(--rule);border-left:4px solid #8e2a8e;border-radius:10px;padding:14px 20px;margin:0 0 16px;scroll-margin-top:16px}
+@media (prefers-color-scheme:dark){.rcard{border-left-color:#e391e3}}
+.rcard h3{font-size:clamp(1.25rem,4vw,1.55rem);line-height:1.2;letter-spacing:-.018em;margin:8px 0 8px}
+.rcard h3 a{color:inherit;text-decoration:none}.rcard h3 a:hover{text-decoration:underline}
+.rcard dl{margin:0 0 8px}
+.rcard dt{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:12px}
+.rcard dd{margin:2px 0 0}
+.term{position:relative;display:inline}
+.term-btn{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;cursor:help;text-align:inherit;
+  text-decoration:underline dotted;text-decoration-color:var(--muted);text-decoration-thickness:1.5px;text-underline-offset:.22em;-webkit-tap-highlight-color:transparent}
+.term-btn:hover,.term.open .term-btn{text-decoration-color:var(--accent)}
+.term-btn:focus-visible{outline:2px solid var(--link);outline-offset:2px;border-radius:3px}
+.term .ti{display:none;align-items:center;justify-content:center;width:1.05em;height:1.05em;margin-left:.18em;vertical-align:.12em;
+  border:1.2px solid currentColor;border-radius:50%;font-size:.62em;font-weight:700;font-style:normal;line-height:1;color:var(--muted)}
+.term-btn:hover .ti,.term.open .ti{color:var(--accent)}
+.term-pop{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 10px);width:min(23rem,calc(100vw - 24px));
+  background:var(--card);color:var(--fg);border:1px solid var(--rule);border-radius:10px;padding:12px 14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.14),0 2px 6px rgba(0,0,0,.08);font-size:.8em;font-weight:400;line-height:1.55;text-align:left;white-space:normal;letter-spacing:0}
+.term-pop::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+.term.up .term-pop{top:auto;bottom:calc(100% + 10px)}.term.up .term-pop::before{top:auto;bottom:-12px}
+.term-pop strong{display:block;font-weight:700;margin-bottom:3px;color:var(--accent)}
+.term.open .term-pop,.term-btn:focus-visible+.term-pop{display:block}
+@media (hover:hover) and (pointer:fine){.term:hover .term-pop{display:block}}
+@media (prefers-color-scheme:dark){.term-pop{box-shadow:0 10px 30px rgba(0,0,0,.55);border-color:#3a3936}}
+.wrap{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right));padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+header.mast{padding-top:calc(34px + env(safe-area-inset-top))}
+footer{font-size:.8rem;color:var(--muted);text-align:center;padding-top:12px}
+footer .ed-no{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+ul.arkiv{list-style:none;padding:0}ul.arkiv li{border-bottom:1px solid var(--rule);padding:12px 0}
+ul.arkiv a{color:var(--fg);font-weight:700;text-decoration:none}ul.arkiv span{display:block;color:var(--muted);font-size:.92rem}
+@media (min-width:1000px){
+  body{font-size:20px}
+  .wrap{max-width:1260px;padding-left:max(40px,env(safe-area-inset-left));padding-right:max(40px,env(safe-area-inset-right));padding-bottom:calc(80px + env(safe-area-inset-bottom))}
+  .layout{grid-template-columns:290px minmax(0,70ch);grid-template-areas:"toc intro" "toc main";column-gap:64px;justify-content:center}
+  nav.toc{position:sticky;top:20px;align-self:start;max-height:calc(100vh - 40px);overflow:auto;border:0;margin:0;padding:0 4px 0 0;font-size:.78rem}
+  nav.toc summary{pointer-events:none;padding:4px 0 10px}nav.toc summary::after{content:none}
+  nav.toc a{padding:7px 10px 7px 6px}
+  .intro{margin-top:4px}
+}
+</style></head>
+<body><div class="wrap"><header class="mast"><p class="greet" id="greet" data-name="Kasper" aria-live="off" hidden></p><script>(function(){var g=document.getElementById('greet');if(!g)return;var N=g.getAttribute('data-name');
+function upd(){var h=new Date().getHours();
+ var t=h>=5&&h<10?'Godmorgen':h>=10&&h<12?'God formiddag':h>=12&&h<18?'God eftermiddag':'God aften';
+ t=N?t+', '+N:t;if(g.textContent!==t)g.textContent=t;g.hidden=false;}
+upd();addEventListener('pageshow',upd);addEventListener('focus',upd);
+document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')upd();});
+setInterval(function(){if(document.visibilityState==='visible')upd();},60000);
+})();</script><h1><a href="../index.html">Nyheder</a></h1><div class="meta">tirsdag 27. oktober 2026</div></header>
+<div class="layout">
+<p class="intro">Dagens store historie er Anthropics børsprospekt – og den trækker tråde til SpaceX, Tesla og musikbranchen. Sig fx »uddyb 4« for mere om en historie.</p>
+<nav class="toc" aria-label="Indhold"><details open><summary>Indhold <span class="cnt">· 10 historier</span></summary><ol>
+<li><a href="#1"><span class="n">1</span><span><span class="h">Anthropic indleverer S-1: 1.400 % vækst og første overskud før børsnotering</span><span class="t">AI &amp; tech</span></span></a></li>
+<li><a href="#2"><span class="n">2</span><span><span class="h">Marc Lou: TrustMRR rundede 200 opkøb – og MailCheap nåede 1.000 dollar i MRR på 10 dage</span><span class="t">Iværksætteri</span></span></a></li>
+<li><a href="#3"><span class="n">3</span><span><span class="h">OpenAI lancerer GPT-6.1 Terra – hurtig og billig til computerbrug og vision</span><span class="t">AI &amp; tech</span></span></a></li>
+<li><a href="#4"><span class="n">4</span><span><span class="h">Tesla stiger 6 % efter Barclays-opgradering – ARK regner på en fusion med SpaceX</span><span class="t">Investering</span></span></a></li>
+<li><a href="#5"><span class="n">5</span><span><span class="h">SpaceX låser 40 mia. dollar fast til AI-chips med Apollo – »den største GPU-finansiering nogensinde«</span><span class="t">Investering</span></span></a></li>
+<li><a href="#6"><span class="n">6</span><span><span class="h">Elvis-rettighedshavere sagsøger Anthropic for 48,6 mio. dollar for sangtekster i Claude</span><span class="t">Iværksætteri</span></span></a></li>
+<li><a href="#7"><span class="n">7</span><span><span class="h">Instagram går efter YouTube med 90-minutters videoer – YouTube tester bonus for faste Shorts</span><span class="t">Iværksætteri</span></span></a></li>
+<li><a href="#8"><span class="n">8</span><span><span class="h">Pieter Levels: »Kun Big AI og Big Tech vinder« – softwareverdenen er et kapløb mod bunden</span><span class="t">Tænkning</span></span></a></li>
+<li><a href="#9"><span class="n">9</span><span><span class="h">Peter Attia er blevet mere i tvivl om rapamycin</span><span class="t">Sundhed</span></span></a></li>
+<li><a href="#10"><span class="n">10</span><span><span class="h">Norden går sammen mod techgiganterne med »Marienborg-manifestet«</span><span class="t">Danmark</span></span></a></li>
+<li class="sec"><a href="#nyt"><span class="n">+</span><span><span class="h">Nyt til dig</span></span></a></li>
+</ol></details></nav><main data-date="2026-10-27" data-total="10">
+<article id="1"><div class="kick"><span class="num">1</span><span class="tag t-ai">AI &amp; tech</span></div><h2>Anthropic indleverer S-1: 1.400 % vækst og første overskud før børsnotering</h2><p class="sum">Claude-firmaet går på Nasdaq under tickeren ANT – muligvis historiens største børsdebut.</p>
+<div class="body"><p>Anthropic offentliggjorde mandag sit <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-1-1" aria-describedby="term-1-1">S-1-prospekt<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-1-1" role="tooltip"><strong>S-1-prospekt</strong> Det dokument, et amerikansk selskab skal indlevere til børstilsynet SEC, før det kan børsnoteres, med regnskaber, risici og forretningsmodel. Anthropics fylder ca. 350 sider og er grundlaget for noteringen på Nasdaq under tickeren ANT.</span></span> (ca. 350 sider). Omsætningen var 16,3 mia. dollar i 1. halvår 2026, heraf 11,6 mia. i 2. kvartal (+1.368 % år/år), og 2. kvartal gav et <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-1-2" aria-describedby="term-1-2">driftsoverskud<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-1-2" role="tooltip"><strong>driftsoverskud</strong> Det, der er tilbage af omsætningen, når alle omkostninger til at drive selskabet (løn, computerkraft, forskning, salg) er betalt – før renter og skat. Her tjente Anthropic 974 mio. dollar på driften i 2. kvartal, hvor omsætningen var 11,6 mia. dollar.</span></span> på 974 mio. dollar. <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-1-3" aria-describedby="term-1-3">Bruttomarginen<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-1-3" role="tooltip"><strong>Bruttomarginen</strong> Den andel af omsætningen, der er tilbage, når de direkte omkostninger til at levere produktet er trukket fra. Her betyder 85 %, at Anthropic for hver 100 dollar i omsætning har 85 dollar tilbage efter bl.a. computerkraft til at køre Claude.</span></span> er steget til 85 %, og 48 % af omsætningen går gennem Bedrock, Vertex og Azure. Prospektet viser også <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-1-4" aria-describedby="term-1-4">compute-aftaler<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-1-4" role="tooltip"><strong>compute-aftaler</strong> Aftaler om at leje regnekraft – datacentre og servere med AI-chips – til at træne og køre AI-modeller. Anthropics aftaler via SpaceX løber op i op til 120,5 mia. dollar.</span></span> for op til 120,5 mia. dollar via SpaceX, at over 90 % af kodebidragene i september blev skrevet af Claude, og at træningen af en ny frontier-model blev udskudt. For dig er pointen dobbelt: Claude er dit værktøj til at bygge apps, og prisen på værktøjet hænger nu sammen med et børsnoteret selskabs marginer – samtidig med at Anthropic bliver en ny »Big AI«-aktie at eje.</p></div>
+<p class="src">Kilde: Latent Space · <a href="https://latent.space/p/ainews-anthropic-s1/" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm" rel="noopener">S-1 hos SEC</a></li><li><a href="https://news.ycombinator.com/item?id=50242939" rel="noopener">Hacker News-tråd (1.610 point)</a></li><li><a href="https://www.anthropic.com/news/s1-sec" rel="noopener">Anthropics meddelelse</a></li></ul>
+</article>
+<article id="2"><div class="kick"><span class="num">2</span><span class="tag t-ivk">Iværksætteri</span></div><h2>Marc Lou: TrustMRR rundede 200 opkøb – og MailCheap nåede 1.000 dollar i MRR på 10 dage</h2><p class="sum">Hans markedsplads for startups er nu hans største og mest profitable indtægtskilde.</p>
+<div class="body"><p>Marc Lou skrev mandag morgen, at TrustMRR har formidlet 200 opkøb på under et år. Projektet startede som en »<span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-2-1" aria-describedby="term-2-1">vibe-coded<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-2-1" role="tooltip"><strong>vibe-coded</strong> Software bygget ved at beskrive, hvad man vil have, til en AI og bruge koden uden at gennemgå den i detaljer. TrustMRR startede som et vibe-coded leaderboard, der døde efter en måned – og Marc Lous pointe er, at tillid ikke kan vibe-codes.</span></span>« omsætnings-leaderboard, der døde efter en måned, men brugerne bad om en markedsplads. Den er nu hans største indtægtskilde med over 90 % margin, 250.000 unikke besøgende om måneden og 25.000 købere. Han kalder den sit »anti-AI asset«: »Trust can&#x27;t be vibe-coded.« Søndag nåede hans nye produkt MailCheap 1.000 dollar i <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-2-2" aria-describedby="term-2-2">MRR<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-2-2" role="tooltip"><strong>MRR</strong> Monthly Recurring Revenue: den faste omsætning, et abonnementsprodukt får ind hver måned. At MailCheap nåede 1.000 dollar i MRR efter 10 dage betyder, at kunderne nu tilsammen betaler ca. 1.000 dollar om måneden – DataFast brugte 3 måneder på det samme.</span></span> efter 10 dage (DataFast brugte 3 måneder), og i dag rapporterede han en Resend-fejl, der ødelægger <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-2-3" aria-describedby="term-2-3">OTP<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-2-3" role="tooltip"><strong>OTP</strong> One-time password: en engangskode, fx en login-kode, der sendes på e-mail. Marc Lou rapporterede i dag en fejl hos e-mailtjenesten Resend, der ødelægger OTP-headere.</span></span>-headere. Pointen er, at tillid og netværkseffekter er svære at kopiere med AI.</p></div>
+<p class="src">Kilde: @marclou på X · <a href="https://x.com/marclou/status/2114628402409824311" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://x.com/marclou/status/2114292638325379507" rel="noopener">MailCheap: 1K MRR på 10 dage</a></li><li><a href="https://x.com/marclou/status/2114990093995778472" rel="noopener">Resend-fejlen</a></li></ul>
+</article>
+<article id="3"><div class="kick"><span class="num">3</span><span class="tag t-ai">AI &amp; tech</span></div><h2>OpenAI lancerer GPT-6.1 Terra – hurtig og billig til computerbrug og vision</h2><p class="sum">Mellemklassemodellen koster 1/5 dollar pr. million <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-3-1" aria-describedby="term-3-1">tokens<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-3-1" role="tooltip"><strong>tokens</strong> De små tekststykker (ord eller dele af ord), som en AI-model læser og skriver, og som man betaler efter. Terra koster 1 dollar pr. million tokens, man sender ind (input), og 5 dollar pr. million, modellen skriver (output).</span></span>, næsten halv pris af forgængeren.</p>
+<figure class="fig"><img src="../img/2026-10-27/3-terra-pelikan.jpg" alt="Simon Willisons faste test: en pelikan på cykel, tegnet som SVG af GPT-6.1 Terra på højeste ræsonneringsniveau (kostede 11,3 cent og tog 4 min. 11 sek.)" loading="lazy" decoding="async" width="1200" height="867"><figcaption>Billede: Simon Willison</figcaption></figure>
+<div class="body"><p>GPT-6.1 Terra er bygget til visuel forståelse, computer use (betjening af skærm og apps) og klarere skrivning. Ifølge Simon Willison koster den 1 dollar pr. million input-tokens og 5 dollar pr. million output-tokens, næsten halvdelen af GPT-5.6 Terra og GPT-6.1 Sol. OpenAI-medarbejderen Ted Sanders beskriver den som »en god mellemklasse-mulighed«: bedre end Sol til teknisk kommunikation og meget hurtigere til computerbrug, men svagere på det meste andet. OpenAI meldte samtidig tre AI-assisterede videnskabelige gennembrud inden for matematik, datalogi og fysik (891 point på Hacker News). Hvis du automatiserer gentagne opgaver i dine apps, fx upload, tagging eller formularer, er Terra værd at teste.</p></div>
+<p class="src">Kilde: Simon Willison · <a href="https://simonwillison.net/2026/Oct/26/gpt-61-terra/" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://openai.com/index/introducing-gpt-6-1-terra/" rel="noopener">OpenAI: GPT-6.1 Terra</a></li><li><a href="https://openai.com/index/building-scientific-understanding-with-academic-communities/" rel="noopener">OpenAI: tre nye opdagelser</a></li></ul>
+</article>
+<article id="4"><div class="kick"><span class="num">4</span><span class="tag t-inv">Investering</span></div><h2>Tesla stiger 6 % efter Barclays-opgradering – ARK regner på en fusion med SpaceX</h2><p class="sum">Barclays hæver <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-4-1" aria-describedby="term-4-1">kursmålet<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-4-1" role="tooltip"><strong>kursmålet</strong> Den kurs, en analytiker forventer, at aktien når inden for en given periode. Barclays hævede sit kursmål for Tesla fra 370 til 450 dollar, mens ARK&#x27;s basiskursmål er 4.400 dollar i 2031.</span></span> til 450 dollar. ARK mener, at både Tesla- og SpaceX-aktionærer vinder ved en sammenlægning.</p>
+<div class="body"><p>Barclays opgraderede mandag Tesla til <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-4-2" aria-describedby="term-4-2">Overweight<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-4-2" role="tooltip"><strong>Overweight</strong> Analytikersprog for, at man bør have mere af aktien end dens vægt i markedet – i praksis en købsanbefaling. Barclays løftede Tesla hertil, og aktien steg op mod 6 % i løbet af mandagen.</span></span> og hævede kursmålet fra 370 til 450 dollar, og aktien steg op mod 6 % i løbet af mandagen. Analytiker Dan Levy forventer, at SpaceX køber Tesla for aktier, men kalder aktionærgodkendelsen »en høj forhindring«. Han peger også på, at <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-4-3" aria-describedby="term-4-3">FSD<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-4-3" role="tooltip"><strong>FSD</strong> Full Self-Driving, Teslas software til (overvåget) selvkørsel, som kunderne betaler ekstra for. Ifølge Barclays var den med på over 75 % af nye Tesla-salg i Nordamerika i 3. kvartal.</span></span> var med på over 75 % af nye bilsalg i Nordamerika i 3. kvartal, at robotaxierne har kørt ca. 3,1 mio. førerløse miles, og at Megapacks er næsten udsolgt for 2027. ARK&#x27;s nyhedsbrev #531 regner på en fusion <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-4-4" aria-describedby="term-4-4">uden præmie<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-4-4" role="tooltip"><strong>uden præmie</strong> En fusion, hvor køberen ikke betaler et tillæg oven i aktiernes markedskurs. I ARK&#x27;s regnestykke får Tesla-aktionærerne alligevel 3,8 gange højere afkast pr. investeret dollar, og SpaceX-aktionærernes ekstra afkast bliver 7,2 gange højere.</span></span>: Tesla-aktionærerne får 3,8 gange højere afkast pr. investeret dollar, mens SpaceX-aktionærernes ekstra afkast bliver 7,2 gange højere. ARK fastholder et basiskursmål på 4.400 dollar i 2031, hvor Optimus udgør ca. 14 % af værdien. Nedenfor forklarer Cathie Wood kort, hvorfor Tesla og SpaceX efter hendes mening kan løfte BNP-væksten til 7–9 %.</p></div>
+<div class="video short"><iframe src="https://www.youtube-nocookie.com/embed/LPF97DcfsMA" title="Tesla stiger 6 % efter Barclays-opgradering – ARK regner på en fusion med SpaceX" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+<p class="src">Kilde: CNBC / ARK Invest · <a href="https://www.cnbc.com/2026/10/26/tesla-spacex-merger-barclays.html" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.ark-invest.com/newsletters/issue-531" rel="noopener">ARK #531: Tesla vil eje al transport</a></li><li><a href="https://finance.yahoo.com/markets/stocks/article/tesla-stock-jumps-as-barclays-bets-a-spacex-takeout-bump-is-coming-152118597.html" rel="noopener">Yahoo Finance: detaljer om Barclays-noten</a></li></ul>
+</article>
+<article id="5"><div class="kick"><span class="num">5</span><span class="tag t-inv">Investering</span></div><h2>SpaceX låser 40 mia. dollar fast til AI-chips med Apollo – »den største GPU-finansiering nogensinde«</h2><p class="sum">Apollo køber Nvidia Vera Rubin-chips og <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-5-1" aria-describedby="term-5-1">leaser<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-5-1" role="tooltip"><strong>leaser</strong> At leje noget i en fast periode i stedet for at købe det. Apollo køber chips og servere for ca. 40 mia. dollar og lejer dem ud til SpaceX i omkring fem år, så SpaceX slipper for at betale hele beløbet på én gang.</span></span> dem til SpaceX, og Pimco tager en bid til 4 mia. dollar.</p>
+<div class="body"><p>En enhed under Apollo køber chips og serverudstyr for ca. 40 mia. dollar og leaser dem til SpaceX i omkring fem år. Ifølge TechCrunch begynder leasingperioden i 1. halvår 2027, og ifølge Bloomberg har Pimco købt for 4 mia. dollar af gælden. SpaceX&#x27; finansdirektør taler om <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-5-2" aria-describedby="term-5-2">tilbagebetalingstider<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-5-2" role="tooltip"><strong>tilbagebetalingstider</strong> Hvor lang tid det tager, før en investering har tjent sig selv hjem. Under et år betyder, at AI-udstyret ifølge SpaceX&#x27; finansdirektør tjener sin pris ind på under 12 måneder.</span></span> på under et år for AI-infrastrukturen. AI-forretningen (Grok, Cursor og cloud) stod for 7,6 af 14,6 mia. dollar i omsætning i 3. kvartal, mere end Starlink og opsendelser tilsammen. Musk spår samtidig, at de over 200 »<span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-5-3" aria-describedby="term-5-3">neoclouds<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-5-3" role="tooltip"><strong>neoclouds</strong> Nyere cloud-selskaber, der lever af at udleje GPU-regnekraft til AI, i modsætning til de store generelle clouds som AWS og Azure. Musk spår, at de over 200 neoclouds går en »guppy-level« død i møde.</span></span>« går en »guppy-level« død i møde. Sammen med Anthropics compute-aftale gør det SpaceX til en af de største vindere af AI-boomet. I morges var der Falcon 9-opsendelse med 27 Starlink-satellitter fra Californien (se SpaceX&#x27; livestream nedenfor).</p></div>
+<div class="xembed"><blockquote class="twitter-tweet" data-media-max-width="560" data-dnt="true"><a href="https://twitter.com/SpaceX/status/2114979142638960965">Video på X</a></blockquote></div>
+<p class="src">Kilde: TechCrunch · <a href="https://techcrunch.com/2026/10/26/spacex-locks-in-40b-gpu-financing-deal-with-apollo/" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.ark-invest.com/newsletters/issue-531" rel="noopener">ARK: SpaceX&#x27; compute-svinghjul</a></li></ul>
+</article>
+<article id="6"><div class="kick"><span class="num">6</span><span class="tag t-ivk">Iværksætteri</span></div><h2>Elvis-rettighedshavere sagsøger Anthropic for 48,6 mio. dollar for sangtekster i Claude</h2><p class="sum">Sagen gælder 274 sange, og sagsøgerne kræver også, at kopier i <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-6-1" aria-describedby="term-6-1">modelvægtene<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-6-1" role="tooltip"><strong>modelvægtene</strong> De milliarder af tal, som en AI-model har lært under træningen, og som udgør selve modellen. Sagsøgerne mener, at teksterne til de 274 sange er gemt i Claudes vægte, og vil have de kopier destrueret.</span></span> destrueres.</p>
+<figure class="fig"><img src="../img/2026-10-27/6-elvis.jpg" alt="Elvis Presley i sort læderjakke, sort-hvid foto" loading="lazy" decoding="async" width="640" height="361"><figcaption>Billede: Music Business Worldwide</figcaption></figure>
+<div class="body"><p>Authentic Brands Group og Presley-forlagene (Raleigh/Abilene) anklager Anthropic for at have trænet Claude på teksterne til 274 sange uden licens. De påstår også, at Anthropic bevidst valgte et værktøj, der fjerner sangskriver- og forlagsoplysninger (<span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-6-2" aria-describedby="term-6-2">CMI<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-6-2" role="tooltip"><strong>CMI</strong> Copyright Management Information: oplysninger om ophavsmand, sangskriver og forlag, der følger med et værk. Sagsøgerne påstår, at Anthropic bevidst brugte et værktøj, der fjernede dem fra træningsdataene.</span></span>) fra træningsdata. Sagsøgerne kræver erstatning og vil have kopierne »inklusive i modelvægtene« destrueret. Sagen kommer oven i søgsmål fra UMPG, Concord, BMG, Sony og Warner Chappell og blev fremlagt med ordene »infringe now, and hope for a two-trillion-dollar <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-6-3" aria-describedby="term-6-3">IPO<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-6-3" role="tooltip"><strong>IPO</strong> Initial Public Offering: en børsnotering, hvor et selskab første gang sælger aktier til offentligheden. Citatet stikker til Anthropics kommende børsnotering (se historie 1).</span></span> later«. Anthropic afviser kravene. Retssagerne kan presse AI-firmaer til at købe licenser, og det kan gøre licenseret og sporbar musik mere værd.</p></div>
+<p class="src">Kilde: Music Business Worldwide · <a href="https://www.musicbusinessworldwide.com/rightsholders-behind-elvis-presleys-hits-sue-anthropic-for-more-than-48-6m-alleging-it-scraped-lyrics-to-274-songs-and-stripped-songwriter-credits-to-train-claude/" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://musically.com/2026/10/26/your-ais-nothin-but-a-hound-dog-elvis-presley-ip-owner-sues-anthropic/" rel="noopener">Music Ally om sagen</a></li></ul>
+</article>
+<article id="7"><div class="kick"><span class="num">7</span><span class="tag t-ivk">Iværksætteri</span></div><h2>Instagram går efter YouTube med 90-minutters videoer – YouTube tester bonus for faste Shorts</h2><p class="sum">Den nye funktion »Features« giver vandrette videoer på op til 90 min, og klip linker automatisk tilbage til hele videoen.</p>
+<div class="body"><p>Instagram tester »Features«, vandrette videoer på op til 90 minutter, også til et kommende TV-format. Med »Clips as Reels« kan skabere klippe korte Reels ud af den lange video, og klippene linker automatisk tilbage til den. Adam Mosseri indrømmer, at han længe var imod lange videoer. Indtjeningen er uafklaret: Meta siger, det er »for tidligt« at oplyse en model. YouTube tester samtidig bonusudbetalinger til skabere, der poster Shorts regelmæssigt. Lange videoer på Instagram betyder flere minutter, der skal have baggrundsmusik, og dermed større efterspørgsel efter royalty-fri musik. Colin &amp; Samir interviewer Mosseri nedenfor.</p></div>
+<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/sxizdQ2hRfk" title="Instagram går efter YouTube med 90-minutters videoer – YouTube tester bonus for faste Shorts" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+<p class="src">Kilde: Tubefilter / Colin and Samir · <a href="https://www.tubefilter.com/2026/10/26/instagram-features-longer-uploads-clips-as-reels/" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://techcrunch.com/2026/10/26/watch-out-youtube-instagram-goes-from-short-form-to-90-minute-videos/" rel="noopener">TechCrunch</a></li><li><a href="https://musically.com/2026/10/26/youtube-is-testing-out-bonus-payments-for-regular-shorts-posts/" rel="noopener">Music Ally: YouTube Shorts-bonus</a></li></ul>
+</article>
+<article id="8"><div class="kick"><span class="num">8</span><span class="tag t-tank">Tænkning</span></div><h2>Pieter Levels: »Kun Big AI og Big Tech vinder« – softwareverdenen er et kapløb mod bunden</h2><p class="sum">Hans råd er at blive medejer af Big AI-aktier. Selv har han købt Alphabet.</p>
+<div class="body"><p>Levels skriver, at enhver med forstand på basal økonomi kan se, at kun Big AI og Big Tech vinder, mens det er »et kapløb mod bunden for alle andre i software«. Hans råd er at blive medejer af Big AI- og Big Tech-aktier og leve af udbytte og kursstigninger, og samme dag fortalte han, at han har købt Alphabet (GOOGL), fordi aktien er »down bad«. Marc Lou skrev natten til mandag kort og godt »<span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-8-1" aria-describedby="term-8-1">SaaS<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-8-1" role="tooltip"><strong>SaaS</strong> Software as a Service: software, man betaler et løbende abonnement for i stedet for at købe den, fx de fleste webapps. Marc Lous »SaaS is so dead« dækker over frygten for, at AI gør den slags software billig at kopiere.</span></span> is so dead«. Opslaget har ca. 150.000 visninger og fanger en stemning blandt solo-byggere, som du bør forholde dig til: hvis AI gør software billigt, ligger værdien i distribution, data, community og ejerskab af platformene. Det passer med både Marc Lous TrustMRR-pointe og din egen investeringstese.</p></div>
+<p class="src">Kilde: levels.io · <a href="https://levels.io/only-big-ai-and-big-tech-winning" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://x.com/levelsio/status/2114700426528575817" rel="noopener">Opslaget på X</a></li><li><a href="https://x.com/levelsio/status/2114792905973838057" rel="noopener">Levels køber GOOGL</a></li><li><a href="https://x.com/marclou/status/2114562534262944098" rel="noopener">Marc Lou: »SaaS is so dead«</a></li></ul>
+</article>
+<article id="9"><div class="kick"><span class="num">9</span><span class="tag t-sund">Sundhed</span></div><h2>Peter Attia er blevet mere i tvivl om rapamycin</h2><p class="sum">Han nævner overbevisende dyreforsøg, men en uafklaret dosering hos mennesker – nyt klip fra AMA #90.</p>
+<div class="body"><p>I et nyt klip fra AMA #90 (The Drive #411) gennemgår Attia, hvorfor han er blevet mere usikker på <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-9-1" aria-describedby="term-9-1">rapamycin<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-9-1" role="tooltip"><strong>rapamycin</strong> Et lægemiddel, der oprindeligt dæmper immunforsvaret (bl.a. efter transplantationer), og som i dyreforsøg har forlænget levetiden. Attia er blevet mere usikker, fordi ingen ved endnu, hvilken dosering der virker hos mennesker.</span></span> som levetidsforlængende middel. Dyreforsøgene er stærke, men ingen ved endnu, hvilken dosering der virker hos mennesker. I samme afsnit forklarer han, at han ikke længere tager <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-9-2" aria-describedby="term-9-2">metformin<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-9-2" role="tooltip"><strong>metformin</strong> Et gammelt og billigt diabetesmiddel, som nogle tager i håb om at forlænge livet. Attia fortæller, at han ikke længere tager det af den grund.</span></span> for levetiden, og at længere faste kan koste muskelmasse. Han er også blevet mindre dogmatisk om 80/20 <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-9-3" aria-describedby="term-9-3">Zone 2-træning<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-9-3" role="tooltip"><strong>Zone 2-træning</strong> Rolig konditionstræning, hvor man stadig kan føre en samtale. 80/20 betyder ca. 80 % rolig træning og 20 % hård – Attia er blevet mindre dogmatisk om det, især når man har begrænset tid.</span></span>, især når man har begrænset tid, og har droppet tunge squats og dødløft for at mindske skadesrisikoen. Pointen er hans eget motto: »strong convictions, loosely held« – fundamentet (søvn, træning, kost) slår marginal optimering.</p></div>
+<div class="video short"><iframe src="https://www.youtube-nocookie.com/embed/TvNnPreLcow" title="Peter Attia er blevet mere i tvivl om rapamycin" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+<p class="src">Kilde: Peter Attia (YouTube) · <a href="https://peterattiamd.com/ama90/" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.youtube.com/shorts/igeLOCTR1MM" rel="noopener">Klip: hvorfor han skiftede mening om Zone 2</a></li></ul>
+</article>
+<article id="10"><div class="kick"><span class="num">10</span><span class="tag t-dk">Danmark</span></div><h2>Norden går sammen mod techgiganterne med »Marienborg-manifestet«</h2><p class="sum">Otte nordiske ledere vil regulere Big Tech for at beskytte børn og unge. Samtidig forlader Signe Munk regeringen.</p>
+<div class="body"><p>Danmark, Grønland, Færøerne, Sverige, Norge, Finland, Åland og Island har underskrevet et fælles manifest. De vil »stå sammen mod techgiganternes magt« og arbejde nationalt, i EU og globalt for at regulere platformene til gavn for børn og unge. »Vi har alle sammen været alt for naive,« siger Mette Frederiksen. Politiken kalder det en kulturkamp mod techgiganterne og AI-industrien. Det kan med tiden betyde strammere regler for apps og platforme, der henvender sig til unge brugere. Kort nyt: By-, land- og transportminister Signe Munk (SF) forlader regeringen på grund af stress og afløses af Karina Lorentzen Dehnhardt.</p></div>
+<p class="src">Kilde: DR · <a href="https://www.dr.dk/nyheder/seneste/nordiske-lande-vil-staa-sammen-mod-techgiganterne-med-nyt-manifest" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://politiken.dk/debat/art11036531/L%C3%A6s-Marienborg-manifestet-%C2%BBDette-er-kun-begyndelsen%C2%AB" rel="noopener">Politiken: Læs manifestet</a></li><li><a href="https://www.dr.dk/nyheder/politik/signe-munk-udtraeder-af-regeringen-paa-grund-af-stress" rel="noopener">DR: Signe Munk udtræder</a></li></ul>
+</article>
+<section class="nyt" id="nyt"><h2>Nyt til dig</h2><ul>
+<li><a href="https://x.com/SciGuySpace" rel="noopener">Eric Berger (@SciGuySpace) / Ars Technica Space</a> – Den mest velinformerede SpaceX- og Starship-journalist – godt modspil til Musks egne udmeldinger før Flight 15.</li>
+<li><a href="https://simonwillison.net/" rel="noopener">Simon Willison (@simonw)</a> – Dagligt, nøgternt overblik over nye modeller og priser, set fra en, der bygger med dem – han var først med Terra-analysen.</li>
+<li><a href="https://www.reddit.com/r/microsaas/" rel="noopener">r/microsaas</a> – Konkrete tal og lanceringer fra solo-byggere og små SaaS-produkter.</li>
+<li><a href="https://x.com/tibo_maker" rel="noopener">Tibo (@tibo_maker)</a> – Bygger og sælger små AI-SaaS-produkter i offentligheden – samme spil som Marc Lou, med åbne tal.</li>
+</ul></section>
+</main></div>
+<footer><div class="ed-no">Udgave nr. 1</div><a href="../index.html">Seneste udgave</a> · <a href="../arkiv/index.html">Arkiv</a> · Nyheder for Kasper</footer>
+</div><script>(function(){var d=document.querySelector('nav.toc details');if(!d)return;var mq=matchMedia('(min-width:1000px)');
+function fit(){d.open=mq.matches?true:d.dataset.u==='1';}d.querySelector('summary').addEventListener('click',function(){d.dataset.u=d.open?'0':'1';});
+fit();mq.addEventListener&&mq.addEventListener('change',fit);
+var links={};d.querySelectorAll('a[href^="#"]').forEach(function(a){links[decodeURIComponent(a.getAttribute('href').slice(1))]=a;});
+var cur;function on(id){if(cur)cur.classList.remove('on');cur=links[id];if(cur){cur.classList.add('on');if(mq.matches&&cur.scrollIntoView){var r=cur.getBoundingClientRect(),p=d.parentNode.getBoundingClientRect();if(r.top<p.top||r.bottom>p.bottom)cur.scrollIntoView({block:'nearest'});}}}
+if(!('IntersectionObserver' in window))return;var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)on(e.target.id);});},{rootMargin:'-20% 0px -70% 0px'});
+Object.keys(links).forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el);});})();</script><script>(function(){var m=document.querySelector('main[data-date]');if(!m)return;
+var D=m.dataset.date,LATEST=m.dataset.latest==='1',K='nyheder-read-'+D,arts=[].slice.call(document.querySelectorAll('main article[id]')),N=arts.length;
+var ls=null;try{ls=window.localStorage;ls.getItem(K);}catch(_){ls=null;}
+var read={};try{(JSON.parse((ls&&ls.getItem(K))||'[]')||[]).forEach(function(i){read[i]=1;});}catch(_){}
+function save(){if(!ls)return;try{ls.setItem(K,JSON.stringify(Object.keys(read).map(Number).sort(function(a,b){return a-b;})));
+ var ks=[];for(var i=0;i<ls.length;i++){var k=ls.key(i);if(k&&k.indexOf('nyheder-read-')===0)ks.push(k);}ks.sort();while(ks.length>30)ls.removeItem(ks.shift());}catch(_){}}
+var toc={};document.querySelectorAll('nav.toc a[href^="#"]').forEach(function(a){toc[a.getAttribute('href').slice(1)]=a;});
+function paint(i){var a=toc[i];if(a){a.classList.add('read');var n=a.querySelector('.n');if(n)n.setAttribute('aria-label',i+', læst');}}
+function mark(i){i=String(i);if(read[i]||!document.getElementById(i))return;read[i]=1;save();paint(i);}
+Object.keys(read).forEach(function(i){paint(i);});
+Object.keys(toc).forEach(function(i){if(/^\d+$/.test(i))toc[i].addEventListener('click',function(){mark(i);});});
+/* Read = ~60 % of the story (or of the screen, for stories taller than it) visible for 3 s while the page is visible. */
+if('IntersectionObserver' in window){var tm={};
+ var th=[];for(var t=0;t<=20;t++)th.push(t/20);
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){var id=e.target.id;if(read[id])return;
+  var need=0.6*Math.min(e.boundingClientRect.height,(e.rootBounds&&e.rootBounds.height)||innerHeight);
+  var ok=e.isIntersecting&&e.intersectionRect.height>=need;
+  if(ok&&!tm[id])tm[id]=setTimeout(function(){tm[id]=0;if(document.visibilityState!=='hidden')mark(id);else io.unobserve(e.target),io.observe(e.target);},3000);
+  else if(!ok&&tm[id]){clearTimeout(tm[id]);tm[id]=0;}});},{threshold:th});
+ arts.forEach(function(a){if(!read[a.id])io.observe(a);});
+ document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden'){Object.keys(tm).forEach(function(id){if(tm[id]){clearTimeout(tm[id]);tm[id]=0;}});}
+  else{arts.forEach(function(a){if(!read[a.id]){io.unobserve(a);io.observe(a);}});}});}
+if(location.hash){var h=location.hash;addEventListener('load',function(){var el=document.getElementById(decodeURIComponent(h.slice(1)));if(el&&location.hash===h)setTimeout(function(){el.scrollIntoView();},60);});}
+})();</script><script>(function(){var ts=document.querySelectorAll('.term');if(!ts.length)return;
+function place(t){var p=t.querySelector('.term-pop');t.classList.remove('up');p.style.left='0px';p.style.display='block';
+var vw=document.documentElement.clientWidth,r=p.getBoundingClientRect(),dx=0;if(r.right>vw-12)dx=vw-12-r.right;if(r.left+dx<12)dx=12-r.left;
+p.style.left=dx+'px';var b=p.getBoundingClientRect();if(b.bottom>innerHeight-8&&t.getBoundingClientRect().top>b.height+24)t.classList.add('up');p.style.display='';}
+function close(x){ts.forEach(function(t){if(t!==x&&t.classList.contains('open')){t.classList.remove('open');t.querySelector('.term-btn').setAttribute('aria-expanded','false');}});}
+ts.forEach(function(t){var b=t.querySelector('.term-btn');t.addEventListener('mouseenter',function(){place(t);});b.addEventListener('focus',function(){place(t);});
+b.addEventListener('click',function(ev){ev.stopPropagation();var o=!t.classList.contains('open');close(t);if(o)place(t);t.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');});
+t.querySelector('.term-pop').addEventListener('click',function(ev){ev.stopPropagation();});});
+document.addEventListener('click',function(){close(null);});
+document.addEventListener('keydown',function(ev){if(ev.key==='Escape'){var a=document.activeElement;close(null);if(a&&a.classList.contains('term-btn'))a.blur();}});
+addEventListener('resize',function(){document.querySelectorAll('.term.open').forEach(place);});})();</script><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script>(function(){var B='../';
+try{if('clearAppBadge' in navigator)Promise.resolve(navigator.clearAppBadge()).catch(function(){});}catch(_){}
+if(!('serviceWorker' in navigator))return;
+navigator.serviceWorker.register(B+'sw.js').then(function(r){
+ if(!r||!r.pushManager||!r.pushManager.getSubscription)return;
+ return r.pushManager.getSubscription().then(function(s){if(s)return s.unsubscribe();});}).catch(function(){});
+})();</script></body></html>

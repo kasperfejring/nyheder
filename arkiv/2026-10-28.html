@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="da"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111213" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Nyheder">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="../icons/favicon-64.png">
+<title>Nyheder · onsdag 28. oktober 2026</title>
+<link rel="preload" href="../fonts/InterVariable.latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url("../fonts/InterVariable.latin.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-style:italic;font-weight:100 900;font-display:swap;src:url("../fonts/InterVariable-Italic.latin.woff2") format("woff2")}
+:root{--bg:#fbfaf7;--fg:#151515;--fg2:#2b2a27;--muted:#5b5850;--rule:#e2ddd2;--accent:#b8431a;--card:#fff;--link:#174f9c;--hl:#f3efe6}
+@media (prefers-color-scheme:dark){:root{--bg:#111213;--fg:#eeece7;--fg2:#d9d6cf;--muted:#a7a39a;--rule:#2e2d2a;--accent:#f59a62;--card:#1a1b1c;--link:#93bdf2;--hl:#1d1e20}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-padding-top:16px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size:18px;line-height:1.65;font-optical-sizing:auto;font-feature-settings:"cv11","ss01";-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px 64px}
+a{color:var(--link)}
+header.mast{text-align:center;border-bottom:1px solid var(--fg);padding:34px 0 16px;margin-bottom:22px}
+.mast h1{font-size:clamp(2.5rem,9vw,4.4rem);line-height:1;margin:0;letter-spacing:-.04em;font-weight:800}
+.mast h1 a{color:inherit;text-decoration:none}
+.mast .greet{font-size:.95rem;font-weight:500;line-height:1.3;letter-spacing:-.005em;color:var(--muted);margin:0 0 10px}
+.mast .greet[hidden]{display:none}
+.mast .meta{font-size:.74rem;font-weight:600;line-height:1.4;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-top:12px}
+.intro{font-size:1.06em;color:var(--fg2);margin:0 0 22px;line-height:1.6}
+.layout{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"intro" "toc" "main"}
+.layout>.intro{grid-area:intro}.layout>nav.toc{grid-area:toc}.layout>main{grid-area:main;min-width:0}
+nav.toc{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:4px 0;margin-bottom:28px;font-size:.9rem;line-height:1.4}
+nav.toc summary{cursor:pointer;list-style:none;padding:10px 0;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--accent)}
+nav.toc summary::-webkit-details-marker{display:none}
+nav.toc summary::after{content:" ▾";color:var(--muted)}nav.toc details[open] summary::after{content:" ▴"}
+nav.toc summary .cnt{color:var(--muted);font-weight:600;letter-spacing:.08em}
+nav.toc ol{list-style:none;margin:0 0 10px;padding:0}
+nav.toc li{margin:0}
+nav.toc a{display:flex;gap:10px;color:var(--fg);text-decoration:none;padding:7px 10px 7px 0;border-left:2px solid transparent}
+nav.toc a:hover .h{text-decoration:underline}
+nav.toc .n{flex:0 0 1.7em;text-align:right;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+nav.toc .t{display:block;font-size:.78em;color:var(--muted);margin-top:2px}
+nav.toc li.sec a .n{color:var(--accent)}
+nav.toc a.on{border-left-color:var(--accent);background:var(--hl)}nav.toc a.on .n,nav.toc a.on .h{color:var(--accent)}
+nav.toc a.read .n{color:var(--muted);opacity:.5;font-weight:500}nav.toc a.read:not(.on) .h{color:var(--muted)}
+h2.sect,.nyt h2,.radar>h2{font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;margin:6px 0 12px;color:var(--accent)}
+article{border-bottom:1px solid var(--rule);padding:4px 0 30px;margin-bottom:28px;scroll-margin-top:16px}
+.kick{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:.7rem;font-weight:700;line-height:1.5;text-transform:uppercase;letter-spacing:.1em}
+.num{background:var(--fg);color:var(--bg);border-radius:4px;padding:1px 7px;font-variant-numeric:tabular-nums}
+.tag{border:1px solid currentColor;border-radius:4px;padding:0 6px}
+.t-ai{color:#2563a8}.t-kode{color:#0b7480}.t-inv{color:#25784a}.t-sund{color:#9a6510}.t-ivk{color:#8e2a8e}.t-tank{color:#52529a}.t-egne{color:#a84b14}.t-verden{color:#4a5568}.t-frem{color:#6440b8}.t-crea{color:#b4185a}.t-samf{color:#7c6232}.t-dk{color:#b42828}.t-godt{color:#1f8a5b}
+@media (prefers-color-scheme:dark){.t-ai{color:#82b6f2}.t-kode{color:#62d2da}.t-inv{color:#72d19a}.t-sund{color:#f0c264}.t-ivk{color:#e391e3}.t-tank{color:#adadf2}.t-egne{color:#f2a676}.t-verden{color:#bac4d2}.t-frem{color:#bba2f6}.t-crea{color:#f594b6}.t-samf{color:#dcc390}.t-dk{color:#f28a8a}.t-godt{color:#7fe0b0}}
+.unc{background:#9a6510;color:#fff;border-radius:4px;padding:1px 6px}
+article h2{font-size:clamp(1.5rem,5.2vw,2.15rem);line-height:1.18;letter-spacing:-.022em;font-weight:750;margin:12px 0 10px;text-wrap:balance}
+.sum{font-size:1.1em;line-height:1.5;font-weight:500;color:var(--fg2);margin:0 0 16px}
+.body p{margin:0 0 1em}.body p:last-child{margin-bottom:14px}
+figure.fig{margin:4px 0 20px}
+figure.fig img{display:block;width:100%;height:auto;border-radius:8px;background:var(--hl)}
+figure.fig figcaption{font-size:.76rem;line-height:1.45;color:var(--muted);margin-top:7px}
+.src{font-size:.85rem;color:var(--muted)}
+.src a{font-weight:600}
+.extra{font-size:.85rem;margin:8px 0 0;padding-left:1.1em;color:var(--muted)}
+.video{position:relative;width:100%;aspect-ratio:16/9;margin:4px 0 20px;background:#000;border-radius:8px;overflow:hidden}
+.video.short{aspect-ratio:9/16;max-width:340px;margin-left:auto;margin-right:auto}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.xembed{margin:4px 0 20px;display:flex;justify-content:center}
+.nyt{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:16px 20px;margin:10px 0 28px;scroll-margin-top:16px}
+.nyt ul{margin:0;padding-left:1.1em}.nyt li{margin:8px 0}.nyt a{font-weight:600}
+.radar{margin:10px 0 28px;scroll-margin-top:16px}
+.radar>p.lede{font-size:.88rem;color:var(--muted);margin:0 0 12px}
+.rcard{background:var(--card);border:1px solid var(--rule);border-left:4px solid #8e2a8e;border-radius:10px;padding:14px 20px;margin:0 0 16px;scroll-margin-top:16px}
+@media (prefers-color-scheme:dark){.rcard{border-left-color:#e391e3}}
+.rcard h3{font-size:clamp(1.25rem,4vw,1.55rem);line-height:1.2;letter-spacing:-.018em;margin:8px 0 8px}
+.rcard h3 a{color:inherit;text-decoration:none}.rcard h3 a:hover{text-decoration:underline}
+.rcard dl{margin:0 0 8px}
+.rcard dt{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:12px}
+.rcard dd{margin:2px 0 0}
+.term{position:relative;display:inline}
+.term-btn{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;cursor:help;text-align:inherit;
+  text-decoration:underline dotted;text-decoration-color:var(--muted);text-decoration-thickness:1.5px;text-underline-offset:.22em;-webkit-tap-highlight-color:transparent}
+.term-btn:hover,.term.open .term-btn{text-decoration-color:var(--accent)}
+.term-btn:focus-visible{outline:2px solid var(--link);outline-offset:2px;border-radius:3px}
+.term .ti{display:none;align-items:center;justify-content:center;width:1.05em;height:1.05em;margin-left:.18em;vertical-align:.12em;
+  border:1.2px solid currentColor;border-radius:50%;font-size:.62em;font-weight:700;font-style:normal;line-height:1;color:var(--muted)}
+.term-btn:hover .ti,.term.open .ti{color:var(--accent)}
+.term-pop{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 10px);width:min(23rem,calc(100vw - 24px));
+  background:var(--card);color:var(--fg);border:1px solid var(--rule);border-radius:10px;padding:12px 14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.14),0 2px 6px rgba(0,0,0,.08);font-size:.8em;font-weight:400;line-height:1.55;text-align:left;white-space:normal;letter-spacing:0}
+.term-pop::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+.term.up .term-pop{top:auto;bottom:calc(100% + 10px)}.term.up .term-pop::before{top:auto;bottom:-12px}
+.term-pop strong{display:block;font-weight:700;margin-bottom:3px;color:var(--accent)}
+.term.open .term-pop,.term-btn:focus-visible+.term-pop{display:block}
+@media (hover:hover) and (pointer:fine){.term:hover .term-pop{display:block}}
+@media (prefers-color-scheme:dark){.term-pop{box-shadow:0 10px 30px rgba(0,0,0,.55);border-color:#3a3936}}
+.wrap{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right));padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+header.mast{padding-top:calc(34px + env(safe-area-inset-top))}
+footer{font-size:.8rem;color:var(--muted);text-align:center;padding-top:12px}
+footer .ed-no{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+ul.arkiv{list-style:none;padding:0}ul.arkiv li{border-bottom:1px solid var(--rule);padding:12px 0}
+ul.arkiv a{color:var(--fg);font-weight:700;text-decoration:none}ul.arkiv span{display:block;color:var(--muted);font-size:.92rem}
+@media (min-width:1000px){
+  body{font-size:20px}
+  .wrap{max-width:1260px;padding-left:max(40px,env(safe-area-inset-left));padding-right:max(40px,env(safe-area-inset-right));padding-bottom:calc(80px + env(safe-area-inset-bottom))}
+  .layout{grid-template-columns:290px minmax(0,70ch);grid-template-areas:"toc intro" "toc main";column-gap:64px;justify-content:center}
+  nav.toc{position:sticky;top:20px;align-self:start;max-height:calc(100vh - 40px);overflow:auto;border:0;margin:0;padding:0 4px 0 0;font-size:.78rem}
+  nav.toc summary{pointer-events:none;padding:4px 0 10px}nav.toc summary::after{content:none}
+  nav.toc a{padding:7px 10px 7px 6px}
+  .intro{margin-top:4px}
+}
+</style></head>
+<body><div class="wrap"><header class="mast"><p class="greet" id="greet" data-name="Kasper" aria-live="off" hidden></p><script>(function(){var g=document.getElementById('greet');if(!g)return;var N=g.getAttribute('data-name');
+function upd(){var h=new Date().getHours();
+ var t=h>=5&&h<10?'Godmorgen':h>=10&&h<12?'God formiddag':h>=12&&h<18?'God eftermiddag':'God aften';
+ t=N?t+', '+N:t;if(g.textContent!==t)g.textContent=t;g.hidden=false;}
+upd();addEventListener('pageshow',upd);addEventListener('focus',upd);
+document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')upd();});
+setInterval(function(){if(document.visibilityState==='visible')upd();},60000);
+})();</script><h1><a href="../index.html">Nyheder</a></h1><div class="meta">onsdag 28. oktober 2026</div></header>
+<div class="layout">
+<p class="intro">Dagens store historie er Israels valg, hvor hverken Netanyahu eller Eisenkot fik flertal, og de arabiske partier blev den store vinder. Derudover viser Google DeepMind en verdensmodel med lyd og tale, pladeselskaberne strammer grebet om Suno, og Marc Lou har regnet på, om SaaS er ved at dø. Sig fx »uddyb 3« for mere om en historie.</p>
+<nav class="toc" aria-label="Indhold"><details open><summary>Indhold <span class="cnt">· 15 historier</span></summary><ol>
+<li><a href="#1"><span class="n">1</span><span><span class="h">Israels valg endte uafgjort: Netanyahu og Eisenkot hævder begge at have mandatet</span><span class="t">Verden</span></span></a></li>
+<li><a href="#2"><span class="n">2</span><span><span class="h">Google DeepMinds Genie 4 skaber virkelighedstro verdener med lyd og tale i realtid</span><span class="t">AI &amp; tech</span></span></a></li>
+<li><a href="#3"><span class="n">3</span><span><span class="h">Pladeselskaberne går efter Sunos investorer: tidligere Menlo-chef skal afhøres om et slettet tweet</span><span class="t">Musik</span></span></a></li>
+<li><a href="#4"><span class="n">4</span><span><span class="h">Marc Lou: Er SaaS ved at dø? Den typiske startup på TrustMRR skrumper en smule hver måned</span><span class="t">Iværksætteri</span></span></a></li>
+<li><a href="#5"><span class="n">5</span><span><span class="h">SK Hynix tjente rekordmange penge på AI-hukommelse og giver omkring 75 mia. dollar tilbage til aktionærerne</span><span class="t">Investering</span></span></a></li>
+<li><a href="#6"><span class="n">6</span><span><span class="h">Anthropic: Claude har designet 35.000 antistoffer på en måned og skrevet myndighedspapirer på fire timer</span><span class="t">AI &amp; tech</span></span></a></li>
+<li><a href="#7"><span class="n">7</span><span><span class="h">Første forsøg på mennesker med cellulær foryngelse: ingen alvorlige bivirkninger, og to ud af tre så bedre</span><span class="t">Sundhed</span></span></a></li>
+<li><a href="#8"><span class="n">8</span><span><span class="h">Finland og Norge ringede direkte til Putin for at presse på for fred</span><span class="t">Verden</span></span></a></li>
+<li><a href="#9"><span class="n">9</span><span><span class="h">Cathie Wood sælger AI-chips og køber flytaxaer</span><span class="t">Investering</span></span></a></li>
+<li><a href="#10"><span class="n">10</span><span><span class="h">OpenAI vil købe Googles AI-chips og gøre sig mindre afhængig af Nvidia</span><span class="t">AI &amp; tech</span></span></a></li>
+<li><a href="#11"><span class="n">11</span><span><span class="h">Ny MacBook Pro med M6: 25 % hurtigere AI og op til 24 timers batteri</span><span class="t">AI &amp; tech</span></span></a></li>
+<li><a href="#12"><span class="n">12</span><span><span class="h">Cursor lader dig tegne direkte på din app for at instruere agenten</span><span class="t">AI-kodning</span></span></a></li>
+<li><a href="#13"><span class="n">13</span><span><span class="h">Venstre smider Preben Bang Henriksen ud efter krisen om gødskningsloven</span><span class="t">Danmark</span></span></a></li>
+<li><a href="#14"><span class="n">14</span><span><span class="h">Musks AI-genererede »Odyssey« slagtes af anmelderne</span><span class="t">Samfund</span></span></a></li>
+<li><a href="#15"><span class="n">15</span><span><span class="h">Rubin-teleskopet har fundet en mulig ny dværgplanet ude bag Pluto</span><span class="t">Spændende</span></span></a></li>
+<li class="sec"><a href="#nyt"><span class="n">+</span><span><span class="h">Nyt til dig</span></span></a></li>
+</ol></details></nav><main data-date="2026-10-28" data-total="15" data-latest="1">
+<article id="1"><div class="kick"><span class="num">1</span><span class="tag t-verden">Verden</span></div><h2>Israels valg endte uafgjort: Netanyahu og Eisenkot hævder begge at have mandatet</h2><p class="sum">Begge blokke står til omkring 51 af de 61 mandater, der skal til, og de arabiske partier gik markant frem.</p>
+<div class="body"><p>Ifølge <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-1-1" aria-describedby="term-1-1">exit polls<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-1-1" role="tooltip"><strong>exit polls</strong> Rundspørger blandt vælgere, lige når de forlader stemmestedet, så man kan give et bud på resultatet, før stemmerne er talt op. Her gav de begge blokke omkring 51 mandater, men den endelige optælling kan flytte nogle stykker.</span></span> fik både Netanyahus højrefløj og oppositionen under eks-forsvarschef Gadi Eisenkot omkring 51 mandater, langt fra de 61, der giver flertal i Knesset. Valgdeltagelsen var knap 78 %, den højeste siden 1999. De arabiske lister står til 17–18 mandater mod 10 før, og Ra&#x27;am-lederen Mansour Abbas er åben over for at samarbejde med Eisenkot, som har stillet fire betingelser for et samarbejde med Den Fælles Liste. Netanyahu, 77, vil have »en stærk højreregering« og antydede endnu en bombekampagne mod Iran sammen med Trump. Præsident Herzog vælger, hvem der først får seks uger til at danne regering, og både en <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-1-2" aria-describedby="term-1-2">mindretalsregering<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-1-2" role="tooltip"><strong>mindretalsregering</strong> En regering, der ikke selv har flertal (her 61 af 120 mandater), men overlever, fordi partier uden for regeringen undlader at vælte den. Det kunne fx være en Eisenkot-regering, der støttes udefra af arabiske partier.</span></span> og et nyt valg er mulige. Udfaldet påvirker Gaza, Iran-konflikten og hele regionen.</p></div>
+<p class="src">Kilde: AFP · <a href="https://www.afp.com/en/netanyahu-and-rival-each-claim-mandate-after-tight-israel-election" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.theguardian.com/world/2026/oct/27/palestinian-parties-knesset-election-exit-polls-redraw-israel-political-landscape" rel="noopener">Guardian: De palæstinensiske partiers fremgang</a></li></ul>
+</article>
+<article id="2"><div class="kick"><span class="num">2</span><span class="tag t-ai">AI &amp; tech</span></div><h2>Google DeepMinds Genie 4 skaber virkelighedstro verdener med lyd og tale i realtid</h2><p class="sum">Den nye <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-2-1" aria-describedby="term-2-1">verdensmodel<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-2-1" role="tooltip"><strong>verdensmodel</strong> En AI, der har lært, hvordan verden ser ud, lyder og opfører sig, så den kan simulere, hvad der sker bagefter, når du handler. Genie 4 bruger det til at lave scener, man kan bevæge sig rundt i og ændre, mens de kører.</span></span> lader dig bevæge dig rundt i en genereret scene og styre den med tastatur og tekst, mens den kører.</p>
+<div class="body"><p>Genie 4 er DeepMinds nyeste verdensmodel. Den genererer interaktive verdener i realtid, som man styrer med tastaturet og tekstbeskeder, og for første gang med indbygget lyd og dialog. Fysikken og personerne er mere realistiske end i Genie 3. Gemini 3.8 Flash kører med som en guidende agent, og DeepMind viser den sammen med robotmodellen Gemini 4 Argon, hvor Apptroniks humanoide robot Apollo spiller dam. Svaghederne er, at verdenerne glider ud over længere sessioner, og at tekst i billedet ofte fejler. Indtil videre er det et forskningspreview for udvalgte testere, men det kommer snart til Google AI Ultra og udviklere via Gemini API. Det peger mod spil, film og robottræning bygget ud fra en tekstbeskrivelse.</p></div>
+<p class="src">Kilde: Google DeepMind · <a href="https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="3"><div class="kick"><span class="num">3</span><span class="tag t-egne">Musik</span></div><h2>Pladeselskaberne går efter Sunos investorer: tidligere Menlo-chef skal afhøres om et slettet tweet</h2><p class="sum">Universal og Sony vil bruge en investors »jeg lytter mest til Suno nu« som bevis på, at AI-musik æder markedet for rigtig musik.</p>
+<div class="body"><p>En dommer har godkendt, at C.C. Gong, tidligere principal hos Suno-investoren Menlo Ventures, skal <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-3-1" aria-describedby="term-3-1">afhøres<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-3-1" role="tooltip"><strong>afhøres</strong> Her en såkaldt deposition: en vidneafhøring under ed uden for retssalen, som parterne kan bruge i sagen. C.C. Gong skal afhøres inden for 30 dage om, hvorfor hun skrev, at hun hellere ville lytte til Suno end Spotify.</span></span> inden for 30 dage. Det handler om et tweet fra februar, hvor hun skrev, at hun havde flyttet det meste af sin lytning fra Spotify til Suno. Menlo og Lightspeed har fået <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-3-2" aria-describedby="term-3-2">stævninger<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-3-2" role="tooltip"><strong>stævninger</strong> Her retsbeslutninger (subpoenas), der pålægger nogen uden for selve sagen at udlevere dokumenter eller vidne. Pladeselskaberne har sendt dem til Menlo, Lightspeed og DistroKid.</span></span>, og Universal og Sony vil også have DistroKid til at udlevere tal fra sit AI-detektorværktøj om, hvor mange numre der markeres som AI, og hvor mange streams og royalties de får. Suno og Udio vil omvendt tvinge MLC til at udlevere data om streams. Kernen er Sunos <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-3-3" aria-describedby="term-3-3">fair use<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-3-3" role="tooltip"><strong>fair use</strong> En regel i amerikansk ophavsret, der tillader brug af beskyttet materiale uden tilladelse i visse tilfælde. En af de vigtigste faktorer er, om brugen skader markedet for originalen. Derfor er en investors tweet om at have skiftet Spotify ud med Suno så interessant for pladeselskaberne.</span></span>-forsvar: retten skal vurdere, om AI-musik skader markedet for den musik, den er trænet på. Udfaldet kan sætte rammen for, hvordan AI-musik må bruges og sælges.</p></div>
+<p class="src">Kilde: Digital Music News · <a href="https://www.digitalmusicnews.com/2026/10/26/cc-gong-suno-tweet-deposition/" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.billboard.com/pro/suno-vs-universal-sony-music-ai-lawsuit-companies-subpoenas/" rel="noopener">Billboard: Alle firmaer, der kæmper mod stævningerne</a></li></ul>
+</article>
+<article id="4"><div class="kick"><span class="num">4</span><span class="tag t-ivk">Iværksætteri</span></div><h2>Marc Lou: Er SaaS ved at dø? Den typiske startup på TrustMRR skrumper en smule hver måned</h2><p class="sum">Han har analyseret 758 startups med over 1.000 dollar i <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-4-1" aria-describedby="term-4-1">MRR<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-4-1" role="tooltip"><strong>MRR</strong> Monthly Recurring Revenue: den faste månedlige omsætning fra abonnementer. Analysen dækker kun startups, der får over 1.000 dollar ind om måneden.</span></span>, og medianen falder, men <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-4-2" aria-describedby="term-4-2">B2B<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-4-2" role="tooltip"><strong>B2B</strong> Business-to-business: produkter, som virksomheder betaler for. B2C er produkter til almindelige forbrugere. I Marc Lous tal ligger B2B på 0 % i medianvækst, mens B2C ligger på −6,2 %.</span></span> klarer sig bedre end B2C.</p>
+<figure class="fig"><img src="../img/2026-10-28/4-trustmrr-vaekst.jpg" alt="Marc Lous tabel fra TrustMRR: samlet omsætningsvækst og medianstartupens vækst for juni, juli, august og september 2026" loading="lazy" decoding="async" width="1200" height="932"><figcaption>Billede: @marclou på X</figcaption></figure>
+<div class="body"><p>Marc Lou har gennemgået 758 startups på TrustMRR med over 1.000 dollar i MRR. Den samlede omsætning steg i tre af de fire måneder fra juni til september, men <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-4-3" aria-describedby="term-4-3">medianvirksomheden<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-4-3" role="tooltip"><strong>medianvirksomheden</strong> Den virksomhed, der ligger i midten, hvis man stiller dem alle op efter vækst. Den samlede omsætning kan stige, fordi nogle få vokser meget, mens medianvirksomheden faldt hver måned fra juni til september.</span></span> faldt hver eneste måned. Han beregner, at et fortsat fald svarer til cirka 11 % om året og 45 % på fem år. B2B-produkterne har en medianvækst på 0 %, mens B2C-produkterne ligger på −6,2 %. Momentum holder: 54 % af dem, der voksede mindst 5 % fra juni til juli, blev ved med at vokse, mod 35 % af dem, der faldt.</p></div>
+<p class="src">Kilde: @marclou på X · <a href="https://x.com/marclou/status/2115048116693131297" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="5"><div class="kick"><span class="num">5</span><span class="tag t-inv">Investering</span></div><h2>SK Hynix tjente rekordmange penge på AI-hukommelse og giver omkring 75 mia. dollar tilbage til aktionærerne</h2><p class="sum">Driftsoverskuddet steg mere end syv gange på et år, og selskabet regner med mangel på hukommelseschips helt frem til 2030.</p>
+<div class="body"><p>Den sydkoreanske chipproducent, en af de største leverandører af hukommelse til AI-datacentre, havde en omsætning på 104,6 billioner won i tredje kvartal, for første gang over 100 billioner og 328 % mere end året før. Driftsoverskuddet var 83,3 billioner won, en <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-5-1" aria-describedby="term-5-1">driftsmargin<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-5-1" role="tooltip"><strong>driftsmargin</strong> Hvor stor en del af omsætningen der er tilbage som overskud fra selve driften. 83,3 billioner won ud af 104,6 billioner i omsætning giver cirka 80 %, hvilket er usædvanligt højt for en fabriksvirksomhed.</span></span> på cirka 80 %, mod 11,4 billioner året før. I år vil selskabet give omkring 100 billioner won, cirka 75 mia. dollar, tilbage til aktionærerne: mindst 30 billioner i udbytte og mindst 60 billioner i <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-5-2" aria-describedby="term-5-2">aktietilbagekøb<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-5-2" role="tooltip"><strong>aktietilbagekøb</strong> Når et selskab køber sine egne aktier og annullerer dem, så hver tilbageværende aktie ejer en større del af firmaet. SK Hynix vil bruge mindst 60 billioner won på det i år.</span></span>. Aktien steg op mod 8 % i løbet af dagen. SK Hynix forventer mangel på hukommelse helt frem til 2030, et tegn på at AI-opbygningen ikke bremser, og det er værd at følge for dine ARK-investeringer i AI og tech.</p></div>
+<p class="src">Kilde: SK hynix · <a href="https://news.skhynix.com/en/q3-2026-business-results/" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxOcy1XMnJsZEJsNUwxOVB1LWhGV2dXellEM1dVVmYxc0ZKYk9oMEs2WEJGcmZsLWFiUUQxREdWOFFvUXYwV2VUWHF6M2NBbURtWVJqWHd2clVISmdKVGEzQzdJRngwcUFPYUlBZFJndG5WRTBUcENrUG9Hci1NMGxpSFV5X3hRWXdmZ05ISkpwZUpaRmdTemFrYXk5Qk1BbWN2dEZXY05hTS1lWHc2QTQtZ1NB?oc=5" rel="noopener">Reuters: 75 mia. dollar til aktionærerne</a></li></ul>
+</article>
+<article id="6"><div class="kick"><span class="num">6</span><span class="tag t-ai">AI &amp; tech</span></div><h2>Anthropic: Claude har designet 35.000 antistoffer på en måned og skrevet myndighedspapirer på fire timer</h2><p class="sum">Anthropic har arbejdet med seks biotekfirmaer og opkøbt en enmands-virksomhed inden for muskelsvind.</p>
+<div class="body"><p>I et nyt opslag viser Anthropic tidlige resultater fra samarbejder med BigHat, Bristol Myers Squibb, Divergence, Enveda, Generate og The Column Group. Hos Divergence genererede Claude cirka 35.000 <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-6-1" aria-describedby="term-6-1">antistofdesign<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-6-1" role="tooltip"><strong>antistofdesign</strong> Forslag til proteiner, der kan binde sig til et bestemt molekyle i kroppen, som udgangspunkt for et lægemiddel. Claude lavede cirka 35.000 på en måned, som derefter skal sorteres og testes i laboratoriet.</span></span> på en måned, og hos Generate blev en CAR-T-komponent 70 % kortere med omkring ti gange flere receptorer. Hos Enveda fangede Claude alle 11 fejl, mennesker havde fundet, plus 7 mere, og gennemgangstiden faldt med 89 %. Et myndighedsdokument tog fire timer i stedet for tre måneder i hånden. Anthropic har også købt Mithril Medicine, en enmands-virksomhed inden for muskelsvind, med mål om forsøg på mennesker tidligst sidst i 2028. Det meste er stadig <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-6-2" aria-describedby="term-6-2">prækliniske<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-6-2" role="tooltip"><strong>prækliniske</strong> Forskning, der foregår i laboratoriet eller på dyr, før et lægemiddel testes på mennesker. De fleste af Claudes resultater er på det stadie, og Mithrils første forsøg på mennesker er tidligst sidst i 2028.</span></span> resultater, men det viser, hvor meget én person med AI kan nå.</p></div>
+<p class="src">Kilde: Anthropic · <a href="https://www.anthropic.com/research/early-progress-drug-development" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="7"><div class="kick"><span class="num">7</span><span class="tag t-sund">Sundhed</span></div><h2>Første forsøg på mennesker med cellulær foryngelse: ingen alvorlige bivirkninger, og to ud af tre så bedre</h2><p class="sum">Life Biosciences har givet ER-100, en behandling der »nulstiller« gamle celler, til tre patienter med grøn stær.</p>
+<div class="body"><p>ER-100 bygger på delvis <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-7-1" aria-describedby="term-7-1">epigenetisk omprogrammering<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-7-1" role="tooltip"><strong>epigenetisk omprogrammering</strong> En metode, hvor man ikke ændrer selve DNA&#x27;et, men de kemiske markører, der styrer, hvilke gener der er tændt. Med de tre OSK-gener forsøger Life Biosciences at få celler i øjet til at fungere, som da de var yngre.</span></span>: tre gener (OSK: OCT4, SOX2 og KLF4) føres ind i øjet med en indsprøjtning og slås til med antibiotikummet doxycyclin, for at få cellerne til at opføre sig yngre. De tre deltagere med grøn stær tålte behandlingen godt frem til dag 56, uden alvorlige bivirkninger, og det anbefales at gå videre med en højere dosis. Hos to af de tre blev mindst 28 % af målepunkterne i synsfeltet mere end 4 <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-7-2" aria-describedby="term-7-2">dB<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-7-2" role="tooltip"><strong>dB</strong> Decibel: her et mål for, hvor svagt et lys man kan se i et givent punkt af synsfeltet. Mere end 4 dB bedre i mindst 28 % af punkterne betyder, at to patienter kunne se svagere lys i en stor del af synsfeltet end før.</span></span> bedre. Det er meget tidlige, åbne data uden kontrolgruppe, men det er første gang, at idéen om at spole celler tilbage er testet i mennesker, og det er et af de mest omtalte spor inden for længere levetid.</p></div>
+<p class="src">Kilde: Lifespan.io · <a href="https://lifespan.io/life-biosciences-announces-first-in-human-phase-1-trial-data/" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="8"><div class="kick"><span class="num">8</span><span class="tag t-verden">Verden</span></div><h2>Finland og Norge ringede direkte til Putin for at presse på for fred</h2><p class="sum">Opkaldet på 90 minutter er sjælden direkte kontakt mellem europæiske ledere og Kreml, forud for nye fredsforhandlinger i Abu Dhabi.</p>
+<div class="body"><p>Finlands præsident Alexander Stubb og Norges statsminister Jonas Gahr Støre talte tirsdag med Putin i 90 minutter. Opkaldet var koordineret med Ukraine og USA og fulgte et møde i Oslo med Zelenskyj og USA&#x27;s udsending Steve Witkoff, og de understregede, at de ikke talte på vegne af Europa. Putin gentog sit krav om at fjerne krigens »grundlæggende årsager«, og at Ruslands interesser skal tilgodeses »fuldt og uden betingelser«. Kreml nævnte samtidig en midlertidig våbenhvile omkring Kherson for at muliggøre en humanitær operation. Forhandlinger mellem USA, Ukraine og Rusland er planlagt i Abu Dhabi i begyndelsen eller midten af november. Det er et brud med Europas linje om at holde afstand til Kreml, tæt på Danmark.</p></div>
+<p class="src">Kilde: BBC · <a href="https://www.bbc.com/news/articles/c6vgj813mlelo" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="9"><div class="kick"><span class="num">9</span><span class="tag t-inv">Investering</span></div><h2>Cathie Wood sælger AI-chips og køber flytaxaer</h2><p class="sum">ARK solgte for cirka 49 mio. dollar AMD og TSMC på to dage og købte Archer, Joby og forsvarsaktier.</p>
+<div class="body"><p>Mandag og tirsdag solgte ARK aktier i AMD for cirka 29,4 mio. dollar og i TSMC for 19,9 mio. dollar gennem fondene ARKQ og ARKX. Samtidig købte de 1,32 mio. aktier i flytaxa-firmaet Joby for cirka 6,4 mio. dollar og Archer Aviation for omkring 7 mio. dollar over de to dage, plus Kratos, AeroVironment og Kodiak AI. Det er et velkendt ARK-mønster: tage gevinst på det, der er steget meget, og købe mere af det, de tror på langsigtet. Handlerne er i ARK&#x27;s amerikanske ETF&#x27;er, ikke dine <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-9-1" aria-describedby="term-9-1">UCITS-fonde<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-9-1" role="tooltip"><strong>UCITS-fonde</strong> EU-regulerede fonde, som europæiske investorer kan købe. ARK&#x27;s UCITS-udgaver har deres egne beholdninger, så de følger ikke nødvendigvis de amerikanske ETF&#x27;ers handler en til en.</span></span>, men de viser, hvilken retning Cathie Wood tænker.</p></div>
+<p class="src">Kilde: Benzinga · <a href="https://www.benzinga.com/etfs/broad-u-s-equity-etfs/26/10/62642733/cathie-wood-extends-archer-joby-buying-spree-ark-sells-more-amd-taiwan-semiconductor-shares" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="10"><div class="kick"><span class="num">10</span><span class="tag t-ai">AI &amp; tech</span><span class="unc">Ubekræftet</span></div><h2>OpenAI vil købe Googles AI-chips og gøre sig mindre afhængig af Nvidia</h2><p class="sum">Ifølge The Information vil OpenAI købe Googles <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-10-1" aria-describedby="term-10-1">TPU&#x27;er<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-10-1" role="tooltip"><strong>TPU&#x27;er</strong> Tensor Processing Units: Googles egne chips, der er specialbygget til AI-beregninger, som alternativ til Nvidias grafikchips (GPU&#x27;er). Ifølge rapporten vil OpenAI nu købe dem.</span></span> for at få mere regnekraft.</p>
+<div class="body"><p>The Information skriver, at OpenAI, der hidtil især har bygget på Nvidias GPU&#x27;er, planlægger at købe Googles egne AI-chips, TPU&#x27;erne. Hverken mængde eller pris er offentliggjort, og ingen af selskaberne har bekræftet det. OpenAI udvikler samtidig sin egen chip, »Jalapeno«, sammen med Broadcom. Det vil være en sejr for Google at sælge hardware til sin største AI-konkurrent, og et tegn på, at kampen om regnekraft er så hård, at alle leverandører er i spil.</p></div>
+<p class="src">Kilde: Reuters · <a href="https://news.google.com/rss/articles/CBMinwFBVV95cUxPNElvX2Y3Ym5FZFdxRGVFMHpwNTRIc3lQUXRzNFNST0xVY2FjR2xoMmFCaDNMWFhtQnZuSXlSSF9zamY1aUY1a2JIX3hBWUFhQ19hb2w4a0JIQmtKRmJoNjRadWJnWmprNE50V2ZQSFRQWTI5aUhXRzkwMlhRNktVOWJwbjJnUk9EVVpiVEo1UjhwMWpvek9EYWpFNkRMTzA?oc=5" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="11"><div class="kick"><span class="num">11</span><span class="tag t-ai">AI &amp; tech</span></div><h2>Ny MacBook Pro med M6: 25 % hurtigere AI og op til 24 timers batteri</h2><p class="sum">Apples nye 14-tommer kan forudbestilles fra i dag og er bygget til at køre sprogmodeller lokalt.</p>
+<div class="body"><p>M6-chippen har 12 CPU-kerner og 12 GPU-kerner. Apple lover op til 30 % hurtigere grafik, 25 % hurtigere AI-arbejde og op til 1,3 gange hurtigere <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-11-1" aria-describedby="term-11-1">kompilering<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-11-1" role="tooltip"><strong>kompilering</strong> Når kildekode oversættes til et program, computeren kan køre. Apple siger, at M6 kompilerer projekter i Xcode op til 1,3 gange hurtigere end M5, så du venter mindre mellem ændring og test.</span></span> i Xcode end med M5. Den har 16 GB hukommelse som standard og kan fås med op til 32 GB, op til 24 timers batteri og Wi-Fi 7. Den kommer med macOS 27 og den nye AI-udgave af Siri. Den kan forudbestilles fra i dag, 28. oktober, med levering fra 6. november; den danske pris har vi ikke set endnu. Det er relevant, hvis din Mac er ved at være gammel, og du vil køre lokale modeller ved siden af Claude Code.</p></div>
+<p class="src">Kilde: Apple Newsroom · <a href="https://www.apple.com/in/newsroom/2026/10/apple-introduces-the-new-14-inch-macbook-pro-with-m6/" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="12"><div class="kick"><span class="num">12</span><span class="tag t-kode">AI-kodning</span></div><h2>Cursor lader dig tegne direkte på din app for at instruere agenten</h2><p class="sum">Den nye »Annotate«-funktion i Cursors designtilstand gør det muligt at give visuelle instrukser i stedet for at beskrive alt i tekst.</p>
+<div class="body"><p>Cursor har lanceret Annotate i sin designtilstand. Du kan redigere elementer, tegne direkte på siden og gennemgå designet i forskellige skærmstørrelser, så agenten får et <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-12-1" aria-describedby="term-12-1">visuelt prompt<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-12-1" role="tooltip"><strong>visuelt prompt</strong> En instruktion til en AI givet med billeder, tegninger eller markeringer i stedet for kun tekst. I Cursor betyder det, at du kan tegne på din side, og agenten bruger tegningen som opgave.</span></span> i stedet for en lang tekstbeskrivelse. Samtidig er Codex 0.165.0 udkommet med Vertex AI som udbyder og understøttelse af GPT-6.1 Terra, og Claude Code fik endnu en opdatering (v2.1.312). For udviklere, der selv står for frontenden, kan det spare mange runder med »flyt knappen lidt til venstre«.</p></div>
+<p class="src">Kilde: @cursor_ai på X · <a href="https://x.com/cursor_ai/status/2115159585548021814" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://github.com/openai/codex/releases/tag/rust-v0.165.0" rel="noopener">Codex 0.165.0 release notes</a></li></ul>
+</article>
+<article id="13"><div class="kick"><span class="num">13</span><span class="tag t-dk">Danmark</span></div><h2>Venstre smider Preben Bang Henriksen ud efter krisen om gødskningsloven</h2><p class="sum">Han ville ikke love altid at stemme med flertallet i gruppen og fortsætter som <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-13-1" aria-describedby="term-13-1">løsgænger<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-13-1" role="tooltip"><strong>løsgænger</strong> Et folketingsmedlem, der ikke tilhører noget parti, men beholder sin plads. Preben Bang Henriksen beholder sit mandat og stemmer nu kun efter egen overbevisning.</span></span>.</p>
+<div class="body"><p>Preben Bang Henriksen, der har siddet 15 år i Folketinget, er smidt ud af Venstre, fordi han nægtede at love at stemme med flertallet i folketingsgruppen. Det skete efter, at han stemte imod gødskningsloven. Han fortsætter som løsgænger. Søren Gade forlod Folketinget i sidste uge, mens Matthiesen, Juel-Jensen og Heitmann har lovet at følge linjen. Samme dag gik SF&#x27;s minister Signe Munk af på grund af stresssygemelding, og Karina Lorentzen Dehnhardt blev ny by-, land- og transportminister. Krisen svækker Venstre og Troels Lund Poulsens greb om partiet.</p></div>
+<p class="src">Kilde: DR · <a href="https://www.dr.dk/nyheder/politik/troels-lund-preben-bang-ville-ikke-vaere-loyal-over-flertallet" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="14"><div class="kick"><span class="num">14</span><span class="tag t-samf">Samfund</span></div><h2>Musks AI-genererede »Odyssey« slagtes af anmelderne</h2><p class="sum">Musk syntes, Nolans film var »for woke«, så han lavede sin egen med Grok Imagine. The Telegraph gav nul stjerner.</p>
+<div class="body"><p>Første afsnit på syv minutter af Elon Musks AI-serie om Odysseen er udkommet på X. Den er lavet med xAI&#x27;s videoværktøj Grok Imagine sammen med Wonder Studios og instruktøren Dev Walker, som svar på Christopher Nolans »The Odyssey«, som Musk kaldte »for woke«. The Telegraph gav nul ud af fem stjerner, og The Guardian gav én stjerne og skrev, at ingen mener, at AI har kunstnerisk værdi, kun økonomisk. Det er et pejlemærke for, hvor langt AI-video er fra at kunne bære en fortælling, og hvordan publikum reagerer, når AI skal erstatte kunstnere.</p></div>
+<p class="src">Kilde: DR · <a href="https://www.dr.dk/nyheder/kultur/elon-musks-nye-ai-version-af-odyssey-slagtes-af-anmeldere" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="15"><div class="kick"><span class="num">15</span><span class="tag t-godt">Spændende</span></div><h2>Rubin-teleskopet har fundet en mulig ny dværgplanet ude bag Pluto</h2><p class="sum">2026 ED138 kan være op til 1.500 km i diameter og en af de største genstande, der nogensinde er fundet i det område.</p>
+<figure class="fig"><img src="../img/2026-10-28/16-ed138.jpg" alt="Den bane, Rubin-observatoriet har fulgt 2026 ED138 i, med markeringer" loading="lazy" decoding="async" width="640" height="360"><figcaption>Billede: Rubin Observatory/NOIRLab</figcaption></figure>
+<div class="body"><p>Vera C. Rubin-observatoriet i Chile har fundet sin første <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-15-1" aria-describedby="term-15-1">dværgplanetkandidat<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-15-1" role="tooltip"><strong>dværgplanetkandidat</strong> En genstand, der ser ud til at være stor nok til at være en dværgplanet, altså rund af egen tyngdekraft, men hvis størrelse endnu ikke er målt præcist. ED138 anslås til 600–1.500 km, og først en præcis måling kan afgøre det.</span></span>. Den ligger cirka 46 gange så langt fra Solen som Jorden, mens Pluto i gennemsnit ligger 40 gange så langt væk. Den anslås at være 600–1.500 km i diameter, hvilket gør den til en af de største kandidater bag Neptun. Den blev overset i årevis, fordi den ligger foran Mælkevejens tætte stjernefelt. Astronomen Matthew Holman fandt den i 30 observationer over 20 nætter fra marts til juli, og ældre billeder viser den helt tilbage til 2016. Bliver den bekræftet, kommer den på listen sammen med Pluto, Ceres, Eris, Haumea og Makemake.</p></div>
+<p class="src">Kilde: Rubin Observatory · <a href="https://rubinobservatory.org/news/rubin-first-dwarf-planet-candidate" rel="noopener">Læs mere →</a></p>
+</article>
+<section class="nyt" id="nyt"><h2>Nyt til dig</h2><ul>
+<li><a href="https://www.platformer.news/" rel="noopener">Platformer (Casey Newton)</a> – Skarp, daglig dækning af Meta, YouTube, TikTok og X: platformenes regler og betalinger til skabere.</li>
+<li><a href="https://www.ben-evans.com/" rel="noopener">Benedict Evans</a> – Ugentligt nyhedsbrev, der sætter AI- og tech-nyhederne i økonomisk perspektiv, uden hype.</li>
+<li><a href="https://erictopol.substack.com/" rel="noopener">Eric Topol: Ground Truths</a> – En af de mest respekterede læger på nettet gennemgår ny forskning i sundhed, aldring og AI i medicin, nøgternt og med kilder.</li>
+</ul></section>
+</main></div>
+<footer><div class="ed-no">Udgave nr. 2</div><a href="../index.html">Seneste udgave</a> · <a href="../arkiv/index.html">Arkiv</a> · Nyheder for Kasper</footer>
+</div><script>(function(){var d=document.querySelector('nav.toc details');if(!d)return;var mq=matchMedia('(min-width:1000px)');
+function fit(){d.open=mq.matches?true:d.dataset.u==='1';}d.querySelector('summary').addEventListener('click',function(){d.dataset.u=d.open?'0':'1';});
+fit();mq.addEventListener&&mq.addEventListener('change',fit);
+var links={};d.querySelectorAll('a[href^="#"]').forEach(function(a){links[decodeURIComponent(a.getAttribute('href').slice(1))]=a;});
+var cur;function on(id){if(cur)cur.classList.remove('on');cur=links[id];if(cur){cur.classList.add('on');if(mq.matches&&cur.scrollIntoView){var r=cur.getBoundingClientRect(),p=d.parentNode.getBoundingClientRect();if(r.top<p.top||r.bottom>p.bottom)cur.scrollIntoView({block:'nearest'});}}}
+if(!('IntersectionObserver' in window))return;var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)on(e.target.id);});},{rootMargin:'-20% 0px -70% 0px'});
+Object.keys(links).forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el);});})();</script><script>(function(){var m=document.querySelector('main[data-date]');if(!m)return;
+var D=m.dataset.date,LATEST=m.dataset.latest==='1',K='nyheder-read-'+D,arts=[].slice.call(document.querySelectorAll('main article[id]')),N=arts.length;
+var ls=null;try{ls=window.localStorage;ls.getItem(K);}catch(_){ls=null;}
+var read={};try{(JSON.parse((ls&&ls.getItem(K))||'[]')||[]).forEach(function(i){read[i]=1;});}catch(_){}
+function save(){if(!ls)return;try{ls.setItem(K,JSON.stringify(Object.keys(read).map(Number).sort(function(a,b){return a-b;})));
+ var ks=[];for(var i=0;i<ls.length;i++){var k=ls.key(i);if(k&&k.indexOf('nyheder-read-')===0)ks.push(k);}ks.sort();while(ks.length>30)ls.removeItem(ks.shift());}catch(_){}}
+var toc={};document.querySelectorAll('nav.toc a[href^="#"]').forEach(function(a){toc[a.getAttribute('href').slice(1)]=a;});
+function paint(i){var a=toc[i];if(a){a.classList.add('read');var n=a.querySelector('.n');if(n)n.setAttribute('aria-label',i+', læst');}}
+function mark(i){i=String(i);if(read[i]||!document.getElementById(i))return;read[i]=1;save();paint(i);}
+Object.keys(read).forEach(function(i){paint(i);});
+Object.keys(toc).forEach(function(i){if(/^\d+$/.test(i))toc[i].addEventListener('click',function(){mark(i);});});
+/* Read = ~60 % of the story (or of the screen, for stories taller than it) visible for 3 s while the page is visible. */
+if('IntersectionObserver' in window){var tm={};
+ var th=[];for(var t=0;t<=20;t++)th.push(t/20);
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){var id=e.target.id;if(read[id])return;
+  var need=0.6*Math.min(e.boundingClientRect.height,(e.rootBounds&&e.rootBounds.height)||innerHeight);
+  var ok=e.isIntersecting&&e.intersectionRect.height>=need;
+  if(ok&&!tm[id])tm[id]=setTimeout(function(){tm[id]=0;if(document.visibilityState!=='hidden')mark(id);else io.unobserve(e.target),io.observe(e.target);},3000);
+  else if(!ok&&tm[id]){clearTimeout(tm[id]);tm[id]=0;}});},{threshold:th});
+ arts.forEach(function(a){if(!read[a.id])io.observe(a);});
+ document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden'){Object.keys(tm).forEach(function(id){if(tm[id]){clearTimeout(tm[id]);tm[id]=0;}});}
+  else{arts.forEach(function(a){if(!read[a.id]){io.unobserve(a);io.observe(a);}});}});}
+if(location.hash){var h=location.hash;addEventListener('load',function(){var el=document.getElementById(decodeURIComponent(h.slice(1)));if(el&&location.hash===h)setTimeout(function(){el.scrollIntoView();},60);});}
+})();</script><script>(function(){var ts=document.querySelectorAll('.term');if(!ts.length)return;
+function place(t){var p=t.querySelector('.term-pop');t.classList.remove('up');p.style.left='0px';p.style.display='block';
+var vw=document.documentElement.clientWidth,r=p.getBoundingClientRect(),dx=0;if(r.right>vw-12)dx=vw-12-r.right;if(r.left+dx<12)dx=12-r.left;
+p.style.left=dx+'px';var b=p.getBoundingClientRect();if(b.bottom>innerHeight-8&&t.getBoundingClientRect().top>b.height+24)t.classList.add('up');p.style.display='';}
+function close(x){ts.forEach(function(t){if(t!==x&&t.classList.contains('open')){t.classList.remove('open');t.querySelector('.term-btn').setAttribute('aria-expanded','false');}});}
+ts.forEach(function(t){var b=t.querySelector('.term-btn');t.addEventListener('mouseenter',function(){place(t);});b.addEventListener('focus',function(){place(t);});
+b.addEventListener('click',function(ev){ev.stopPropagation();var o=!t.classList.contains('open');close(t);if(o)place(t);t.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');});
+t.querySelector('.term-pop').addEventListener('click',function(ev){ev.stopPropagation();});});
+document.addEventListener('click',function(){close(null);});
+document.addEventListener('keydown',function(ev){if(ev.key==='Escape'){var a=document.activeElement;close(null);if(a&&a.classList.contains('term-btn'))a.blur();}});
+addEventListener('resize',function(){document.querySelectorAll('.term.open').forEach(place);});})();</script><script>(function(){var B='../';
+try{if('clearAppBadge' in navigator)Promise.resolve(navigator.clearAppBadge()).catch(function(){});}catch(_){}
+if(!('serviceWorker' in navigator))return;
+navigator.serviceWorker.register(B+'sw.js').then(function(r){
+ if(!r||!r.pushManager||!r.pushManager.getSubscription)return;
+ return r.pushManager.getSubscription().then(function(s){if(s)return s.unsubscribe();});}).catch(function(){});
+})();</script></body></html>
