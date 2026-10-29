@@ -67,6 +67,34 @@ figure.fig figcaption{font-size:.76rem;line-height:1.45;color:var(--muted);margi
 .video.short{aspect-ratio:9/16;max-width:340px;margin-left:auto;margin-right:auto}
 .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .xembed{margin:4px 0 20px;display:flex;justify-content:center}
+.car{position:relative;margin:4px 0 20px}
+.car-track{position:relative;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+  overscroll-behavior-x:contain;scrollbar-width:none;border-radius:8px;outline:none}
+.car-track::-webkit-scrollbar{display:none}
+.car-track:focus-visible{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--link)}
+.car-slide{flex:0 0 100%;min-width:0;margin:0;scroll-snap-align:start;scroll-snap-stop:always}
+.car-frame{position:relative;width:100%;aspect-ratio:16/9;background:var(--hl);border-radius:8px;overflow:hidden}
+.car-frame.v{background:#000}
+.car-frame img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain}
+.car-frame iframe,.car-frame video{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000}
+.car-frame.x{overflow-y:auto;-webkit-overflow-scrolling:touch;background:var(--hl)}
+.car-frame.x>*{margin:0 auto!important}.car-frame.x .twitter-tweet{max-width:100%}
+.vcap{font-size:.76rem;line-height:1.45;color:var(--muted);margin:-12px 0 20px}
+.car-slide figcaption{font-size:.76rem;line-height:1.45;color:var(--muted);margin-top:7px}
+.car-nav{position:absolute;left:0;right:0;top:0;aspect-ratio:16/9;pointer-events:none}
+.car-btn{position:absolute;top:50%;transform:translateY(-50%);pointer-events:auto;display:flex;align-items:center;justify-content:center;
+  width:40px;height:40px;padding:0;border:1px solid var(--rule);border-radius:50%;background:var(--card);color:var(--fg);cursor:pointer;
+  font:inherit;font-size:1.2rem;line-height:1;box-shadow:0 2px 10px rgba(0,0,0,.18);opacity:.92;transition:opacity .15s}
+.car-btn:hover{opacity:1}.car-btn:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+.car-btn[disabled]{opacity:0;pointer-events:none}
+.car-prev{left:10px}.car-next{right:10px}
+.car-bar{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:8px;font-size:.72rem;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums}
+.car-dots{display:flex;gap:2px}
+.car-dot{width:22px;height:22px;padding:7px;border:0;margin:0;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.car-dot::before{content:"";display:block;width:8px;height:8px;border-radius:50%;background:var(--rule)}
+.car-dot[aria-current="true"]::before{background:var(--accent)}
+.car-dot:focus-visible{outline:2px solid var(--link);outline-offset:-2px;border-radius:50%}
+@media (hover:none) and (pointer:coarse){.car-btn{display:none}}
 .nyt{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:16px 20px;margin:10px 0 28px;scroll-margin-top:16px}
 .nyt ul{margin:0;padding-left:1.1em}.nyt li{margin:8px 0}.nyt a{font-weight:600}
 .radar{margin:10px 0 28px;scroll-margin-top:16px}
@@ -139,7 +167,7 @@ setInterval(function(){if(document.visibilityState==='visible')upd();},60000);
 <li class="sec"><a href="#nyt"><span class="n">+</span><span><span class="h">Nyt til dig</span></span></a></li>
 </ol></details></nav><main data-date="2026-10-29" data-total="14" data-latest="1">
 <article id="1"><div class="kick"><span class="num">1</span><span class="tag t-verden">Verden</span></div><h2>Togulykke i Spanien: Mindst 68 dræbt, da højhastighedstog kørte ind i holdende tog</h2><p class="sum">Det er Spaniens værste togulykke i 13 år og landets anden store togulykke i år.</p>
-<figure class="fig"><img src="../img/2026-10-29/spanien-tog.jpg" alt="Billede fra ulykkesstedet i Toledo-provinsen" loading="lazy" decoding="async" width="1200" height="675"><figcaption>Billede: BBC</figcaption></figure>
+<section class="car" aria-roledescription="karrusel" aria-label="Billeder og video: Togulykke i Spanien: Mindst 68 dræbt, da højhastighedstog kørte ind i holdende tog"><div class="car-track" id="car-1" tabindex="0" aria-label="Brug piletasterne for at bladre"><figure class="car-slide" role="group" aria-roledescription="dias" aria-label="1 af 5"><div class="car-frame v"><iframe class="yt" src="https://www.youtube-nocookie.com/embed/5uiDXmhObGg?enablejsapi=1&amp;playsinline=1&amp;rel=0" title="RTVE: Mindst 68 døde efter sammenstødet ved Urda (på spansk)" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption>RTVE: Mindst 68 døde efter sammenstødet ved Urda (på spansk) · Video: RTVE Noticias</figcaption></figure><figure class="car-slide" role="group" aria-roledescription="dias" aria-label="2 af 5"><div class="car-frame"><img src="../img/2026-10-29/spanien-tog.jpg" alt="Redningsfolk ved de afsporede vogne, der er rullet ned ad en skrænt ved Urda i Toledo-provinsen" loading="lazy" decoding="async" width="1200" height="675"></div><figcaption>Flere vogne blev slynget ned ad skrænten ved sporet · Billede: EPA via BBC</figcaption></figure><figure class="car-slide" role="group" aria-roledescription="dias" aria-label="3 af 5"><div class="car-frame"><img src="../img/2026-10-29/spanien-tog-skinne.jpg" alt="Et langt stykke skinne stikker op gennem taget på en af togvognene" loading="lazy" decoding="async" width="999" height="561"></div><figcaption>Et stykke skinne blev boret gennem en af vognene · Billede: EPA/Shutterstock via BBC</figcaption></figure><figure class="car-slide" role="group" aria-roledescription="dias" aria-label="4 af 5"><div class="car-frame"><img src="../img/2026-10-29/spanien-tog-luft.jpg" alt="Luftfoto af sporet, hvor de to højhastighedstog stødte sammen, med vragdele spredt i olivenlunden" loading="lazy" decoding="async" width="1200" height="679"></div><figcaption>Luftfoto af ulykkesstedet og redningsindsatsen · Billede: EPA via BBC</figcaption></figure><figure class="car-slide" role="group" aria-roledescription="dias" aria-label="5 af 5"><div class="car-frame"><img src="../img/2026-10-29/spanien-tog-grafik.jpg" alt="Annoteret luftfoto, der viser Iryo-toget og Renfe AVE-toget på sporet efter sammenstødet" loading="lazy" decoding="async" width="1200" height="728"></div><figcaption>Sådan lå Iryo-toget og Renfe-toget efter sammenstødet · Billede: BBC (billeder: EPA, Guardia Civil)</figcaption></figure></div><div class="car-nav"><button type="button" class="car-btn car-prev" aria-label="Forrige" aria-controls="car-1" disabled><span aria-hidden="true">‹</span></button><button type="button" class="car-btn car-next" aria-label="Næste" aria-controls="car-1"><span aria-hidden="true">›</span></button></div><div class="car-bar"><div class="car-dots"><button type="button" class="car-dot" aria-label="Vis 1 af 5" aria-controls="car-1" aria-current="true"></button><button type="button" class="car-dot" aria-label="Vis 2 af 5" aria-controls="car-1" aria-current="false"></button><button type="button" class="car-dot" aria-label="Vis 3 af 5" aria-controls="car-1" aria-current="false"></button><button type="button" class="car-dot" aria-label="Vis 4 af 5" aria-controls="car-1" aria-current="false"></button><button type="button" class="car-dot" aria-label="Vis 5 af 5" aria-controls="car-1" aria-current="false"></button></div><span class="car-count" aria-live="polite">1/5</span></div></section>
 <div class="body"><p>Et Renfe-tog på vej fra Madrid til Sevilla med 397 passagerer kørte onsdag lidt efter klokken 9 bagind i et tog fra selskabet Iryo med 147 passagerer, der holdt stille på sporet. Ulykken skete omkring 140 km syd for Madrid, mellem Mora og Orgaz i Toledo-provinsen. Snesevis er såret.</p><p>Ifølge transportminister Óscar Puente holdt Iryo-toget stille på grund af en computerfejl. Det døgnbemandede kontrolcenter i Madrid traf så en »uforklarlig« beslutning om at lade togene køre igen uden hastighedsbegrænsning. Ministeren kalder det en computerfejl efterfulgt af en menneskelig fejl.</p><p>En af vognene brød i brand, og en skinne blev boret gennem en anden vogn.</p></div>
 <p class="src">Kilde: BBC · <a href="https://www.bbc.co.uk/news/articles/c6p3g84kjqjlo" rel="noopener">Læs mere →</a></p>
 <ul class="extra"><li><a href="https://www.theguardian.com/world/live/2026/oct/28/spain-train-crash-toledo-europe-latest-news-updates" rel="noopener">Guardian: Liveblog fra ulykken</a></li><li><a href="https://www.theguardian.com/world/2026/oct/28/it-all-happened-in-a-split-second-survivors-recount-details-of-spains-second-deadly-train-crash-in-10-months" rel="noopener">Guardian: Overlevende fortæller</a></li></ul>
@@ -183,6 +211,7 @@ setInterval(function(){if(document.visibilityState==='visible')upd();},60000);
 <p class="src">Kilde: STAT · <a href="https://www.statnews.com/2026/10/28/retatrutide-vs-ozempic-lilly-diabetes-study/" rel="noopener">Læs mere →</a></p>
 </article>
 <article id="10"><div class="kick"><span class="num">10</span><span class="tag t-ai">AI &amp; tech</span></div><h2>Apple lancerer sin første MacBook Pro med touchskærm – fuldt udstyret koster den 14.549 dollar</h2><p class="sum">Den nye <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-10-1" aria-describedby="term-10-1">OLED<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-10-1" role="tooltip"><strong>OLED</strong> En skærmtype, hvor hver pixel lyser selv, så sort er helt sort og kontrasten meget høj.</span></span>-skærm bryder med Steve Jobs&#x27; gamle nej til touch på Mac.</p>
+<section class="car" aria-roledescription="karrusel" aria-label="Billeder og video: Apple lancerer sin første MacBook Pro med touchskærm – fuldt udstyret koster den 14.549 dollar"><div class="car-track" id="car-10" tabindex="0" aria-label="Brug piletasterne for at bladre"><figure class="car-slide" role="group" aria-roledescription="dias" aria-label="1 af 2"><div class="car-frame v"><iframe class="yt" src="https://www.youtube-nocookie.com/embed/9_MG1tR5esk?enablejsapi=1&amp;playsinline=1&amp;rel=0" title="CNBC prøver den nye MacBook Pro med touchskærm (på engelsk)" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><figcaption>CNBC prøver den nye MacBook Pro med touchskærm (på engelsk) · Video: CNBC Television</figcaption></figure><figure class="car-slide" role="group" aria-roledescription="dias" aria-label="2 af 2"><div class="car-frame"><img src="../img/2026-10-29/macbook-pro-touch.jpg" alt="Den nye MacBook Pro med PROLED XDR-skærm set forfra" loading="lazy" decoding="async" width="1200" height="800"></div><figcaption>Billede: Apple via TechCrunch</figcaption></figure></div><div class="car-nav"><button type="button" class="car-btn car-prev" aria-label="Forrige" aria-controls="car-10" disabled><span aria-hidden="true">‹</span></button><button type="button" class="car-btn car-next" aria-label="Næste" aria-controls="car-10"><span aria-hidden="true">›</span></button></div><div class="car-bar"><div class="car-dots"><button type="button" class="car-dot" aria-label="Vis 1 af 2" aria-controls="car-10" aria-current="true"></button><button type="button" class="car-dot" aria-label="Vis 2 af 2" aria-controls="car-10" aria-current="false"></button></div><span class="car-count" aria-live="polite">1/2</span></div></section>
 <div class="body"><p>Den nye MacBook Pro har en PROLED XDR-skærm på 14 eller 16 tommer med op til 2.000 nits lysstyrke og M5 Pro- eller M5 Max-chip med op til 128 GB hukommelse og 16 TB lager. Notchen er skiftet ud med en udskæring i stil med iPhonens Dynamic Island, og den vejer 1,38 kg (14 tommer) eller 1,82 kg (16 tommer).</p><p>Prisen starter ved 2.899 dollar for 14 tommer og 3.399 dollar for 16 tommer, og fuldt udstyret koster den 14.549 dollar ifølge The Verge. Den kan forudbestilles fra 30. oktober og kommer i butikkerne 6. november. Det er en af de første store lanceringer under den nye topchef John Ternus, og Steve Jobs kaldte engang touchskærme på Mac »ergonomisk forfærdelige«.</p></div>
 <p class="src">Kilde: TechCrunch · <a href="https://techcrunch.com/2026/10/28/apple-launches-its-new-touchscreen-macbook-pro/" rel="noopener">Læs mere →</a></p>
 <ul class="extra"><li><a href="https://www.theverge.com/tech/1021308/apple-touchscreen-macbook-pro-proled-xdr-fully-specced" rel="noopener">The Verge: 14.549 dollar fuldt udstyret</a></li><li><a href="https://arstechnica.com/apple/2026/10/apple-announces-touchscreen-macbook-pro-with-oled-display/" rel="noopener">Ars Technica: Første indtryk</a></li></ul>
@@ -252,7 +281,34 @@ b.addEventListener('click',function(ev){ev.stopPropagation();var o=!t.classList.
 t.querySelector('.term-pop').addEventListener('click',function(ev){ev.stopPropagation();});});
 document.addEventListener('click',function(){close(null);});
 document.addEventListener('keydown',function(ev){if(ev.key==='Escape'){var a=document.activeElement;close(null);if(a&&a.classList.contains('term-btn'))a.blur();}});
-addEventListener('resize',function(){document.querySelectorAll('.term.open').forEach(place);});})();</script><script>(function(){var B='../';
+addEventListener('resize',function(){document.querySelectorAll('.term.open').forEach(place);});})();</script><script>(function(){var cs=document.querySelectorAll('.car');if(!cs.length)return;
+var RM=matchMedia('(prefers-reduced-motion: reduce)');
+function load(sl){if(!sl||sl.dataset.ld)return;sl.dataset.ld='1';sl.querySelectorAll('[data-src]').forEach(function(m){m.setAttribute('src',m.getAttribute('data-src'));m.removeAttribute('data-src');});
+ sl.querySelectorAll('img[loading="lazy"]').forEach(function(i){i.loading='eager';});}
+function pause(sl){if(!sl)return;
+ sl.querySelectorAll('iframe.yt').forEach(function(f){try{f.contentWindow.postMessage(JSON.stringify({event:'command',func:'pauseVideo',args:[]}),'*');}catch(_){}});
+ sl.querySelectorAll('video').forEach(function(v){try{v.pause();}catch(_){}});
+ sl.querySelectorAll('.car-frame.x[data-x]').forEach(function(f){if(f.querySelector('iframe')){f.innerHTML=f.getAttribute('data-x');if(window.twttr&&twttr.widgets)twttr.widgets.load(f);}});}
+cs.forEach(function(c){var t=c.querySelector('.car-track'),ss=[].slice.call(t.querySelectorAll('.car-slide')),n=ss.length,cur=-1,raf=0;
+ var cnt=c.querySelector('.car-count'),ds=[].slice.call(c.querySelectorAll('.car-dot')),pv=c.querySelector('.car-prev'),nx=c.querySelector('.car-next');
+ function set(i){i=Math.max(0,Math.min(n-1,i));if(i===cur)return;if(cur>=0)pause(ss[cur]);cur=i;load(ss[i]);load(ss[i+1]);
+  if(cnt)cnt.textContent=(i+1)+'/'+n;ds.forEach(function(d,k){d.setAttribute('aria-current',k===i?'true':'false');});
+  if(pv)pv.disabled=i===0;if(nx)nx.disabled=i===n-1;
+  ss.forEach(function(s,k){var off=k!==i;s.setAttribute('aria-hidden',off?'true':'false');if('inert' in s)s.inert=off;});}
+ function go(i){i=Math.max(0,Math.min(n-1,i));load(ss[i]);t.scrollTo({left:ss[i].offsetLeft,behavior:RM.matches?'auto':'smooth'});set(i);}
+ t.addEventListener('scroll',function(){if(raf)return;raf=requestAnimationFrame(function(){raf=0;set(Math.round(t.scrollLeft/(t.clientWidth||1)));});},{passive:true});
+ if(pv)pv.addEventListener('click',function(){go(cur-1);});if(nx)nx.addEventListener('click',function(){go(cur+1);});
+ ds.forEach(function(d,k){d.addEventListener('click',function(){go(k);});});
+ c.addEventListener('keydown',function(ev){if(ev.altKey||ev.ctrlKey||ev.metaKey)return;
+  if(ev.key==='ArrowLeft'){ev.preventDefault();go(cur-1);}else if(ev.key==='ArrowRight'){ev.preventDefault();go(cur+1);}
+  else if(ev.key==='Home'&&ev.target===t){ev.preventDefault();go(0);}else if(ev.key==='End'&&ev.target===t){ev.preventDefault();go(n-1);}});
+ addEventListener('resize',function(){if(cur>=0)t.scrollLeft=ss[cur].offsetLeft;});
+ set(0);
+ if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){load(ss[1]);io.disconnect();}},{rootMargin:'300px 0px'});io.observe(c);}
+ else load(ss[1]);
+});
+document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden')cs.forEach(function(c){c.querySelectorAll('.car-slide').forEach(pause);});});
+})();</script><script>(function(){var B='../';
 try{if('clearAppBadge' in navigator)Promise.resolve(navigator.clearAppBadge()).catch(function(){});}catch(_){}
 if(!('serviceWorker' in navigator))return;
 navigator.serviceWorker.register(B+'sw.js').then(function(r){
