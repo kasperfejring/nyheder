@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="da"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111213" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Nyheder">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="../icons/favicon-64.png">
+<title>Nyheder · torsdag 29. oktober 2026</title>
+<link rel="preload" href="../fonts/InterVariable.latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url("../fonts/InterVariable.latin.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-style:italic;font-weight:100 900;font-display:swap;src:url("../fonts/InterVariable-Italic.latin.woff2") format("woff2")}
+:root{--bg:#fbfaf7;--fg:#151515;--fg2:#2b2a27;--muted:#5b5850;--rule:#e2ddd2;--accent:#b8431a;--card:#fff;--link:#174f9c;--hl:#f3efe6}
+@media (prefers-color-scheme:dark){:root{--bg:#111213;--fg:#eeece7;--fg2:#d9d6cf;--muted:#a7a39a;--rule:#2e2d2a;--accent:#f59a62;--card:#1a1b1c;--link:#93bdf2;--hl:#1d1e20}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-padding-top:16px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size:18px;line-height:1.65;font-optical-sizing:auto;font-feature-settings:"cv11","ss01";-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px 64px}
+a{color:var(--link)}
+header.mast{text-align:center;border-bottom:1px solid var(--fg);padding:34px 0 16px;margin-bottom:22px}
+.mast h1{font-size:clamp(2.5rem,9vw,4.4rem);line-height:1;margin:0;letter-spacing:-.04em;font-weight:800}
+.mast h1 a{color:inherit;text-decoration:none}
+.mast .greet{font-size:.95rem;font-weight:500;line-height:1.3;letter-spacing:-.005em;color:var(--muted);margin:0 0 10px}
+.mast .greet[hidden]{display:none}
+.mast .meta{font-size:.74rem;font-weight:600;line-height:1.4;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-top:12px}
+.intro{font-size:1.06em;color:var(--fg2);margin:0 0 22px;line-height:1.6}
+.layout{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"intro" "toc" "main"}
+.layout>.intro{grid-area:intro}.layout>nav.toc{grid-area:toc}.layout>main{grid-area:main;min-width:0}
+nav.toc{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:4px 0;margin-bottom:28px;font-size:.9rem;line-height:1.4}
+nav.toc summary{cursor:pointer;list-style:none;padding:10px 0;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--accent)}
+nav.toc summary::-webkit-details-marker{display:none}
+nav.toc summary::after{content:" ▾";color:var(--muted)}nav.toc details[open] summary::after{content:" ▴"}
+nav.toc summary .cnt{color:var(--muted);font-weight:600;letter-spacing:.08em}
+nav.toc ol{list-style:none;margin:0 0 10px;padding:0}
+nav.toc li{margin:0}
+nav.toc a{display:flex;gap:10px;color:var(--fg);text-decoration:none;padding:7px 10px 7px 0;border-left:2px solid transparent}
+nav.toc a:hover .h{text-decoration:underline}
+nav.toc .n{flex:0 0 1.7em;text-align:right;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+nav.toc .t{display:block;font-size:.78em;color:var(--muted);margin-top:2px}
+nav.toc li.sec a .n{color:var(--accent)}
+nav.toc a.on{border-left-color:var(--accent);background:var(--hl)}nav.toc a.on .n,nav.toc a.on .h{color:var(--accent)}
+nav.toc a.read .n{color:var(--muted);opacity:.5;font-weight:500}nav.toc a.read:not(.on) .h{color:var(--muted)}
+h2.sect,.nyt h2,.radar>h2{font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;margin:6px 0 12px;color:var(--accent)}
+article{border-bottom:1px solid var(--rule);padding:4px 0 30px;margin-bottom:28px;scroll-margin-top:16px}
+.kick{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:.7rem;font-weight:700;line-height:1.5;text-transform:uppercase;letter-spacing:.1em}
+.num{background:var(--fg);color:var(--bg);border-radius:4px;padding:1px 7px;font-variant-numeric:tabular-nums}
+.tag{border:1px solid currentColor;border-radius:4px;padding:0 6px}
+.t-ai{color:#2563a8}.t-kode{color:#0b7480}.t-inv{color:#25784a}.t-sund{color:#9a6510}.t-ivk{color:#8e2a8e}.t-tank{color:#52529a}.t-egne{color:#a84b14}.t-verden{color:#4a5568}.t-frem{color:#6440b8}.t-crea{color:#b4185a}.t-samf{color:#7c6232}.t-dk{color:#b42828}.t-godt{color:#1f8a5b}
+@media (prefers-color-scheme:dark){.t-ai{color:#82b6f2}.t-kode{color:#62d2da}.t-inv{color:#72d19a}.t-sund{color:#f0c264}.t-ivk{color:#e391e3}.t-tank{color:#adadf2}.t-egne{color:#f2a676}.t-verden{color:#bac4d2}.t-frem{color:#bba2f6}.t-crea{color:#f594b6}.t-samf{color:#dcc390}.t-dk{color:#f28a8a}.t-godt{color:#7fe0b0}}
+.unc{background:#9a6510;color:#fff;border-radius:4px;padding:1px 6px}
+article h2{font-size:clamp(1.5rem,5.2vw,2.15rem);line-height:1.18;letter-spacing:-.022em;font-weight:750;margin:12px 0 10px;text-wrap:balance}
+.sum{font-size:1.1em;line-height:1.5;font-weight:500;color:var(--fg2);margin:0 0 16px}
+.body p{margin:0 0 1em}.body p:last-child{margin-bottom:14px}
+figure.fig{margin:4px 0 20px}
+figure.fig img{display:block;width:100%;height:auto;border-radius:8px;background:var(--hl)}
+figure.fig figcaption{font-size:.76rem;line-height:1.45;color:var(--muted);margin-top:7px}
+.src{font-size:.85rem;color:var(--muted)}
+.src a{font-weight:600}
+.extra{font-size:.85rem;margin:8px 0 0;padding-left:1.1em;color:var(--muted)}
+.video{position:relative;width:100%;aspect-ratio:16/9;margin:4px 0 20px;background:#000;border-radius:8px;overflow:hidden}
+.video.short{aspect-ratio:9/16;max-width:340px;margin-left:auto;margin-right:auto}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.xembed{margin:4px 0 20px;display:flex;justify-content:center}
+.nyt{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:16px 20px;margin:10px 0 28px;scroll-margin-top:16px}
+.nyt ul{margin:0;padding-left:1.1em}.nyt li{margin:8px 0}.nyt a{font-weight:600}
+.radar{margin:10px 0 28px;scroll-margin-top:16px}
+.radar>p.lede{font-size:.88rem;color:var(--muted);margin:0 0 12px}
+.rcard{background:var(--card);border:1px solid var(--rule);border-left:4px solid #8e2a8e;border-radius:10px;padding:14px 20px;margin:0 0 16px;scroll-margin-top:16px}
+@media (prefers-color-scheme:dark){.rcard{border-left-color:#e391e3}}
+.rcard h3{font-size:clamp(1.25rem,4vw,1.55rem);line-height:1.2;letter-spacing:-.018em;margin:8px 0 8px}
+.rcard h3 a{color:inherit;text-decoration:none}.rcard h3 a:hover{text-decoration:underline}
+.rcard dl{margin:0 0 8px}
+.rcard dt{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:12px}
+.rcard dd{margin:2px 0 0}
+.term{position:relative;display:inline}
+.term-btn{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;cursor:help;text-align:inherit;
+  text-decoration:underline dotted;text-decoration-color:var(--muted);text-decoration-thickness:1.5px;text-underline-offset:.22em;-webkit-tap-highlight-color:transparent}
+.term-btn:hover,.term.open .term-btn{text-decoration-color:var(--accent)}
+.term-btn:focus-visible{outline:2px solid var(--link);outline-offset:2px;border-radius:3px}
+.term .ti{display:none;align-items:center;justify-content:center;width:1.05em;height:1.05em;margin-left:.18em;vertical-align:.12em;
+  border:1.2px solid currentColor;border-radius:50%;font-size:.62em;font-weight:700;font-style:normal;line-height:1;color:var(--muted)}
+.term-btn:hover .ti,.term.open .ti{color:var(--accent)}
+.term-pop{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 10px);width:min(23rem,calc(100vw - 24px));
+  background:var(--card);color:var(--fg);border:1px solid var(--rule);border-radius:10px;padding:12px 14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.14),0 2px 6px rgba(0,0,0,.08);font-size:.8em;font-weight:400;line-height:1.55;text-align:left;white-space:normal;letter-spacing:0}
+.term-pop::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+.term.up .term-pop{top:auto;bottom:calc(100% + 10px)}.term.up .term-pop::before{top:auto;bottom:-12px}
+.term-pop strong{display:block;font-weight:700;margin-bottom:3px;color:var(--accent)}
+.term.open .term-pop,.term-btn:focus-visible+.term-pop{display:block}
+@media (hover:hover) and (pointer:fine){.term:hover .term-pop{display:block}}
+@media (prefers-color-scheme:dark){.term-pop{box-shadow:0 10px 30px rgba(0,0,0,.55);border-color:#3a3936}}
+.wrap{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right));padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+header.mast{padding-top:calc(34px + env(safe-area-inset-top))}
+footer{font-size:.8rem;color:var(--muted);text-align:center;padding-top:12px}
+footer .ed-no{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+ul.arkiv{list-style:none;padding:0}ul.arkiv li{border-bottom:1px solid var(--rule);padding:12px 0}
+ul.arkiv a{color:var(--fg);font-weight:700;text-decoration:none}ul.arkiv span{display:block;color:var(--muted);font-size:.92rem}
+@media (min-width:1000px){
+  body{font-size:20px}
+  .wrap{max-width:1260px;padding-left:max(40px,env(safe-area-inset-left));padding-right:max(40px,env(safe-area-inset-right));padding-bottom:calc(80px + env(safe-area-inset-bottom))}
+  .layout{grid-template-columns:290px minmax(0,70ch);grid-template-areas:"toc intro" "toc main";column-gap:64px;justify-content:center}
+  nav.toc{position:sticky;top:20px;align-self:start;max-height:calc(100vh - 40px);overflow:auto;border:0;margin:0;padding:0 4px 0 0;font-size:.78rem}
+  nav.toc summary{pointer-events:none;padding:4px 0 10px}nav.toc summary::after{content:none}
+  nav.toc a{padding:7px 10px 7px 6px}
+  .intro{margin-top:4px}
+}
+</style></head>
+<body><div class="wrap"><header class="mast"><p class="greet" id="greet" data-name="Kasper" aria-live="off" hidden></p><script>(function(){var g=document.getElementById('greet');if(!g)return;var N=g.getAttribute('data-name');
+function upd(){var h=new Date().getHours();
+ var t=h>=5&&h<10?'Godmorgen':h>=10&&h<12?'God formiddag':h>=12&&h<18?'God eftermiddag':'God aften';
+ t=N?t+', '+N:t;if(g.textContent!==t)g.textContent=t;g.hidden=false;}
+upd();addEventListener('pageshow',upd);addEventListener('focus',upd);
+document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')upd();});
+setInterval(function(){if(document.visibilityState==='visible')upd();},60000);
+})();</script><h1><a href="../index.html">Nyheder</a></h1><div class="meta">torsdag 29. oktober 2026</div></header>
+<div class="layout">
+<p class="intro">Dagens store historie er togulykken i Spanien, hvor mindst 68 mennesker døde. Derudover faldt Alphabet 10 % på AI-regningen, Anthropics prospekt viser, hvem der bestemmer, Google har en ny topmodel, du ikke kan bruge endnu, og Genmab fik sit største kurshop i 15 år. Sidst: hvordan edderkopper laver tråd, der er stærkere end stål.</p>
+<nav class="toc" aria-label="Indhold"><details open><summary>Indhold <span class="cnt">· 14 historier</span></summary><ol>
+<li><a href="#1"><span class="n">1</span><span><span class="h">Togulykke i Spanien: Mindst 68 dræbt, da højhastighedstog kørte ind i holdende tog</span><span class="t">Verden</span></span></a></li>
+<li><a href="#2"><span class="n">2</span><span><span class="h">Alphabet styrtdykker 10 % på AI-regningen – Microsoft stiger på Azure</span><span class="t">Investering</span></span></a></li>
+<li><a href="#3"><span class="n">3</span><span><span class="h">Anthropics børsprospekt: Syv grundlæggere får 50,1 % af stemmerne, og risikoafsnittet fylder 93 sider</span><span class="t">Investering</span></span></a></li>
+<li><a href="#4"><span class="n">4</span><span><span class="h">Google viser Gemini 4 Carbon – topper benchmarks, men du kan ikke bruge den endnu</span><span class="t">AI &amp; tech</span></span></a></li>
+<li><a href="#5"><span class="n">5</span><span><span class="h">Flávio Bolsonaro flygter til Miami og kalder sig Brasiliens »sande præsident«</span><span class="t">Verden</span></span></a></li>
+<li><a href="#6"><span class="n">6</span><span><span class="h">Genmab stiger over 20 % – største kurshop i 15 år efter tredje stærke kræftforsøg på en måned</span><span class="t">Investering</span></span></a></li>
+<li><a href="#7"><span class="n">7</span><span><span class="h">Ebola-udbruddet runder 10.000 tilfælde – Afrikas smitteeksperter advarer om Covid-lignende spredning</span><span class="t">Verden</span></span></a></li>
+<li><a href="#8"><span class="n">8</span><span><span class="h">GitHub Universe: Copilot Fusion vælger selv modellen og kommer tæt på Claude Code til halv pris</span><span class="t">AI-kodning</span></span></a></li>
+<li><a href="#9"><span class="n">9</span><span><span class="h">Lillys »triple-G«-middel slog Ozempic i direkte sammenligning</span><span class="t">Sundhed</span></span></a></li>
+<li><a href="#10"><span class="n">10</span><span><span class="h">Apple lancerer sin første MacBook Pro med touchskærm – fuldt udstyret koster den 14.549 dollar</span><span class="t">AI &amp; tech</span></span></a></li>
+<li><a href="#11"><span class="n">11</span><span><span class="h">Delaware vil lade AI-agenter drive hele virksomheder uden et menneske ved roret</span><span class="t">Fremtid</span></span></a></li>
+<li><a href="#12"><span class="n">12</span><span><span class="h">Instagram vil ikke betale for lange videoer – YouTube sænker udbetalingsgrænsen til 20 dollar</span><span class="t">Creatorøkonomi</span></span></a></li>
+<li><a href="#13"><span class="n">13</span><span><span class="h">Create Music Group køber minoritetsandel i DistroKid</span><span class="t">Musik</span></span></a></li>
+<li><a href="#14"><span class="n">14</span><span><span class="h">Forskere har fundet ud af, hvordan edderkopper laver tråd, der er stærkere end stål</span><span class="t">Spændende</span></span></a></li>
+<li class="sec"><a href="#nyt"><span class="n">+</span><span><span class="h">Nyt til dig</span></span></a></li>
+</ol></details></nav><main data-date="2026-10-29" data-total="14" data-latest="1">
+<article id="1"><div class="kick"><span class="num">1</span><span class="tag t-verden">Verden</span></div><h2>Togulykke i Spanien: Mindst 68 dræbt, da højhastighedstog kørte ind i holdende tog</h2><p class="sum">Det er Spaniens værste togulykke i 13 år og landets anden store togulykke i år.</p>
+<figure class="fig"><img src="../img/2026-10-29/spanien-tog.jpg" alt="Billede fra ulykkesstedet i Toledo-provinsen" loading="lazy" decoding="async" width="1200" height="675"><figcaption>Billede: BBC</figcaption></figure>
+<div class="body"><p>Et Renfe-tog på vej fra Madrid til Sevilla med 397 passagerer kørte onsdag lidt efter klokken 9 bagind i et tog fra selskabet Iryo med 147 passagerer, der holdt stille på sporet. Ulykken skete omkring 140 km syd for Madrid, mellem Mora og Orgaz i Toledo-provinsen. Snesevis er såret.</p><p>Ifølge transportminister Óscar Puente holdt Iryo-toget stille på grund af en computerfejl. Det døgnbemandede kontrolcenter i Madrid traf så en »uforklarlig« beslutning om at lade togene køre igen uden hastighedsbegrænsning. Ministeren kalder det en computerfejl efterfulgt af en menneskelig fejl.</p><p>En af vognene brød i brand, og en skinne blev boret gennem en anden vogn.</p></div>
+<p class="src">Kilde: BBC · <a href="https://www.bbc.co.uk/news/articles/c6p3g84kjqjlo" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.theguardian.com/world/live/2026/oct/28/spain-train-crash-toledo-europe-latest-news-updates" rel="noopener">Guardian: Liveblog fra ulykken</a></li><li><a href="https://www.theguardian.com/world/2026/oct/28/it-all-happened-in-a-split-second-survivors-recount-details-of-spains-second-deadly-train-crash-in-10-months" rel="noopener">Guardian: Overlevende fortæller</a></li></ul>
+</article>
+<article id="2"><div class="kick"><span class="num">2</span><span class="tag t-inv">Investering</span></div><h2>Alphabet styrtdykker 10 % på AI-regningen – Microsoft stiger på Azure</h2><p class="sum">Google-moderen missede både omsætning og overskud for første gang i næsten fire år, mens Microsoft slog forventningerne.</p>
+<div class="body"><p>Alphabet havde en omsætning på 127,6 mia. dollar mod ventet 128,2 mia., og nettoresultatet faldt til 26,2 mia. dollar fra 35 mia. et år før. Den <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-2-1" aria-describedby="term-2-1">frie pengestrøm<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-2-1" role="tooltip"><strong>frie pengestrøm</strong> De penge, der er tilbage, når driften er betalt og investeringerne trukket fra. Alphabet brugte 9,07 mia. dollar mere, end forretningen tjente ind i kvartalet.</span></span> var minus 9,07 mia. dollar, langt værre end de ventede minus 2,7 mia.. Kvartalets <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-2-2" aria-describedby="term-2-2">capex<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-2-2" role="tooltip"><strong>capex</strong> Investeringer i fysiske ting som datacentre og chips. Alphabets var 51,4 mia. dollar i ét kvartal.</span></span> var 51,4 mia. dollar, og finansdirektør Anat Ashkenazi venter en »markant stigning« i 2027, hvor CNBC skriver, at investeringerne kan passere 300 mia. dollar. Den langfristede gæld er steget til 125,1 mia. dollar fra 21,6 mia., og ejerandelene i SpaceX og Anthropic gav et tab på 8,66 mia. dollar efter en gevinst på 99 mia. i andet kvartal.</p><p>YouTube var et lyspunkt med 11,2 mia. dollar i annonceindtægter (+9 %) og 150 mio. Premium- og Music-abonnenter.</p><p>Microsoft steg derimod 4 % efter lukketid: omsætningen voksede 19 %, Azure voksede 48 % og er nu selskabets største forretning. Selskabet bogførte 10 mia. dollar i omsætning fra aftalerne med OpenAI i kvartalet.</p></div>
+<p class="src">Kilde: CNBC · <a href="https://www.cnbc.com/2026/10/28/alphabet-googl-earnings-q3-2026.html" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.cnbc.com/2026/10/28/microsoft-msft-q1-earnings-report-2027.html" rel="noopener">CNBC: Microsofts regnskab</a></li><li><a href="https://techcrunch.com/2026/10/28/microsoft-recorded-10-billion-in-revenue-from-openai/" rel="noopener">TechCrunch: 10 mia. dollar fra OpenAI</a></li><li><a href="https://www.ft.com/content/eb386156-5bf9-4edd-80f2-803fdee1e33d" rel="noopener">FT: Google indrømmer, at AI-tilstand skader søgning</a></li></ul>
+</article>
+<article id="3"><div class="kick"><span class="num">3</span><span class="tag t-inv">Investering</span></div><h2>Anthropics børsprospekt: Syv grundlæggere får 50,1 % af stemmerne, og risikoafsnittet fylder 93 sider</h2><p class="sum">Prospektet advarer om AI, der kan afpresse, blive bevidst eller true menneskeheden, og om fem kunder, der står for knap en fjerdedel af omsætningen.</p>
+<div class="body"><p>Anthropic sigter efter en værdiansættelse på 1.500 mia. dollar eller mere. Ifølge <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-3-1" aria-describedby="term-3-1">S-1<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-3-1" role="tooltip"><strong>S-1</strong> Det prospekt, et selskab skal indlevere til det amerikanske finanstilsyn SEC før en børsnotering. Her står regnskaber, ejerstruktur og risici.</span></span>-dokumentet får de syv medstiftere tilsammen en særlig Class F-aktie med 50,1 % af stemmerne, og selskabet er et <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-3-2" aria-describedby="term-3-2">public benefit corporation<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-3-2" role="tooltip"><strong>public benefit corporation</strong> En amerikansk selskabsform, hvor bestyrelsen skal afveje overskud mod et erklæret samfundsformål, her at udvikle AI »til gavn for menneskeheden på lang sigt«.</span></span>, der skal afveje aktionærernes interesser mod sin mission. Omkring 847 mio. aktier, cirka 5 %, ligger i en fond for samfundsnytte. Delaware-juristen Lawrence Hamermesh kommenterer strukturen over for CNBC med et kort »held og lykke«.</p><p>Risikoafsnittet fylder 93 sider og over 70.000 ord. Det nævner bl.a. eksistentiel risiko, at AI kan blive bevidst, og adfærd, der ligner afpresning. Mere jordnært står de fem største kunder for næsten en fjerdedel af omsætningen, cloududbyderne er både leverandører og konkurrenter, og Anthropic har forpligtet sig til 125 mia. dollar i datacentre.</p><p>ARK Invest kalder på X Anthropics seneste år for »de mest bemærkelsesværdige 12 måneder af forretningsmæssige resultater nogensinde« på de amerikanske markeder.</p></div>
+<p class="src">Kilde: CNBC · <a href="https://www.cnbc.com/2026/10/28/anthropic-pbc-what-its-structure-means-for-investors-.html" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://arstechnica.com/ai/2026/10/anthropic-ipo-warns-its-ai-could-blackmail-people-become-sentient-end-humanity/" rel="noopener">Ars Technica: Syv mareridt fra risikoafsnittet</a></li><li><a href="https://www.ft.com/content/24a35e41-2641-4cec-97f5-a974412f9952" rel="noopener">FT: Grundlæggerne strammer grebet</a></li><li><a href="https://x.com/ARKInvest/status/2115424844498227428" rel="noopener">ARK Invest på X</a></li></ul>
+</article>
+<article id="4"><div class="kick"><span class="num">4</span><span class="tag t-ai">AI &amp; tech</span></div><h2>Google viser Gemini 4 Carbon – topper benchmarks, men du kan ikke bruge den endnu</h2><p class="sum">Kun to uger efter Gemini 4 Argon kommer en model, der især er stærk til at finde og rette sikkerhedshuller.</p>
+<div class="body"><p>Gemini 4 Carbon ligger øverst på Artificial Analysis Intelligence Index foran Claude Opus 5.5 og GPT-6 Astra. Google kalder den et »markant spring« i at finde sårbarheder, og ifølge Google skriver den dobbelt så ofte kode uden sårbarheder som Argon. Chrome-holdet siger, at dens patches er ti gange bedre. På WebDev Arena steg den 89 point og ligger nummer fire.</p><p>I Grey Swan-testen lod Carbon sig ikke narre af et eneste forsøg på <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-4-1" aria-describedby="term-4-1">prompt injection<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-4-1" role="tooltip"><strong>prompt injection</strong> Et angreb, hvor skjulte instruktioner i fx en hjemmeside eller e-mail får en AI til at gøre noget, brugeren ikke bad om. Carbon lod sig ikke narre i et eneste af testens forsøg.</span></span> (0 % mod Argons 0,7 %, Opus 5.5&#x27;s 1 % og GPT-6 Astras 8,5 %). Modellen er ikke frigivet endnu. Den gennemgår den amerikanske regerings frivillige testordning og rulles ud via cyberforsvarsprogrammet Fairwinds. Introprisen i API&#x27;et bliver 2 dollar pr. million input-tokens og 10 dollar pr. million output-tokens, og den fordobles senere.</p></div>
+<p class="src">Kilde: Ars Technica · <a href="https://arstechnica.com/ai/2026/10/google-announces-gemini-4-carbon-its-latest-frontier-ai-model-that-you-cant-use/" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.theverge.com/tech/1021339/google-gemini-4-carbon-cybersecurity-frontier" rel="noopener">The Verge: Gemini 4 Carbon</a></li></ul>
+</article>
+<article id="5"><div class="kick"><span class="num">5</span><span class="tag t-verden">Verden</span></div><h2>Flávio Bolsonaro flygter til Miami og kalder sig Brasiliens »sande præsident«</h2><p class="sum">Den tabende højrefløjskandidat krydsede grænsen til Argentina og fløj via Ecuador, mens hans eget parti har anerkendt Lulas sejr.</p>
+<div class="body"><p>Flávio Bolsonaro tabte søndagens valg til Lula. Bagefter krydsede han over land til Argentina og fløj derfra i et Gulfstream-privatfly via Guayaquil i Ecuador til Miami-Opa Locka.</p><p>I et brev kaldte han sig uden beviser »den sande præsident«. Han slettede det og kalder sig nu »Brasiliens leder«, selv om hans eget parti har anerkendt valgresultatet. Han har ifølge medierne fået humanitære visa, og Trump siger: »Vi gav ham adgang … jeg vil ikke blande mig.«</p><p>Bolsonaro er under efterforskning, bl.a. i en hvidvasksag om omkring 905 mio. dollar via spilleselskaber. Lula kalder flugten »skammelig«.</p></div>
+<p class="src">Kilde: The Guardian · <a href="https://www.theguardian.com/world/2026/oct/28/flavio-bolsonaro-miami-us-fleeing-brazilian-election-defeat" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.dr.dk/nyheder/udland/flavio-bolsonaros-flugt-til-usa-kunne-vaere-plottet-i-en-spionroman" rel="noopener">DR: Flugten kunne være plottet i en spionroman</a></li></ul>
+</article>
+<article id="6"><div class="kick"><span class="num">6</span><span class="tag t-inv">Investering</span></div><h2>Genmab stiger over 20 % – største kurshop i 15 år efter tredje stærke kræftforsøg på en måned</h2><p class="sum">Kræftmidlet petosemtamab halverede risikoen for død i et <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-6-1" aria-describedby="term-6-1">fase 3<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-6-1" role="tooltip"><strong>fase 3</strong> Den sidste og største type forsøg før et lægemiddel kan godkendes, hvor det testes mod standardbehandlingen på mange patienter.</span></span>-forsøg mod hoved- og halskræft.</p>
+<div class="body"><p>Genmab-aktien steg onsdag over 20 % til rekordniveau, efter at selskabet viste positive fase 3-data for petosemtamab som førstevalg mod hoved- og halskræft. Ifølge Barron&#x27;s og Fierce Biotech halverede kombinationen med det <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-6-2" aria-describedby="term-6-2">bispecifikke<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-6-2" role="tooltip"><strong>bispecifikke</strong> Et antistof, der kan binde sig til to forskellige mål på én gang, fx to receptorer på kræftcellen.</span></span> antistof risikoen for død.</p><p>Midlet kom med i købet af Merus til omkring 8 mia. dollar, og det er tredje gang på en måned, Genmab præsenterer gode data. Aktien er steget knap 100 % på få måneder, og løftet smittede af på C25-indekset, der steg 2,80 %.</p></div>
+<p class="src">Kilde: Børsen · <a href="https://borsen.dk/nyheder/virksomheder/genmab-scorer-hattrick-aktiekursen-stiger-over-20-pct" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://borsen.dk/nyheder/marketreports/genmab-i-storste-kurshop-i-15-ar-her-er-aktierne-i-fokus" rel="noopener">Børsen: Største kurshop i 15 år</a></li><li><a href="https://politiken.dk/danmark/oekonomi/virksomheder/art11039742/Danske-Genmabs-aktie-brager-i-vejret-efter-nye-fors%C3%B8g-med-kr%C3%A6ftmiddel" rel="noopener">Politiken: Genmabs aktie brager i vejret</a></li></ul>
+</article>
+<article id="7"><div class="kick"><span class="num">7</span><span class="tag t-verden">Verden</span></div><h2>Ebola-udbruddet runder 10.000 tilfælde – Afrikas smitteeksperter advarer om Covid-lignende spredning</h2><p class="sum">Knap 5.000 er døde, og tilfælde er nu set i flere lande.</p>
+<div class="body"><p>Ebolaudbruddet har passeret 10.000 tilfælde og næsten 5.000 dødsfald. Ifølge ABC og NPR er der nu tilfælde i bl.a. Kenya, Congo, Nigeria, Uganda og Frankrig.</p><p>Jean Kaseya, generaldirektør for Africa CDC, siger til Guardian, at udbruddet kan nå Storbritannien og andre lande. Han sammenligner det med Covid og opfordrer til, at der kommer flere penge til at bekæmpe det.</p></div>
+<p class="src">Kilde: The Guardian · <a href="https://www.theguardian.com/global-development/2026/oct/28/africa-ebola-outbreak-could-reach-uk-says-top-health-official" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="8"><div class="kick"><span class="num">8</span><span class="tag t-kode">AI-kodning</span></div><h2>GitHub Universe: Copilot Fusion vælger selv modellen og kommer tæt på Claude Code til halv pris</h2><p class="sum">GitHub gør også Agentic Workflows klar til alle, og OpenAI giver Pro- og Business-kunder op til 500 dollar om måneden i API-kredit.</p>
+<div class="body"><p>Copilot Fusion er nu klar til alle. I stedet for at vælge en model selv lader man Copilot <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-8-1" aria-describedby="term-8-1">route og orkestrere<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-8-1" role="tooltip"><strong>route og orkestrere</strong> At et system selv sender hver del af en opgave til den model, der passer bedst og er billigst, og samler svarene, i stedet for at én model gør det hele.</span></span> modellerne til hver opgave. I Artificial Analysis&#x27; Coding Agent Index scorede Copilot Fusion Max 60, to point fra Claude Code med Opus 5.5 Max, til cirka halv pris pr. opgave, med halvt så mange tokens og omkring 40 % kortere tid. Fusion kan nu også vælge mellem lokale modeller på din egen maskine og modeller i skyen, som et eksperiment.</p><p>GitHub Agentic Workflows er også klar til alle. Det er et open source-projekt, der lader agenter klare opgaver som at sortere issues, analysere fejlede <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-8-2" aria-describedby="term-8-2">CI<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-8-2" role="tooltip"><strong>CI</strong> Continuous integration: automatiske test, der kører, hver gang der skubbes ny kode op.</span></span>-kørsler og opdatere dokumentation. GitHubs årlige Octoverse-rapport viser rekordmange commits og pushes, drevet af udviklere, der bygger med agenter.</p><p>Samtidig skriver OpenAI på X, at berettigede ChatGPT Pro- og Business-abonnenter kan hente op til 500 dollar om måneden i API-kredit.</p></div>
+<p class="src">Kilde: GitHub · <a href="https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available" rel="noopener">GitHub: Agentic Workflows</a></li><li><a href="https://github.blog/news-insights/octoverse/octoverse-commits-pushes-reach-new-highs-in-2026-as-developers-build-with-agents/" rel="noopener">GitHub: Octoverse 2026</a></li><li><a href="https://x.com/OpenAIDevs/status/2115583698074755078" rel="noopener">OpenAI Devs på X: API-kredit</a></li></ul>
+</article>
+<article id="9"><div class="kick"><span class="num">9</span><span class="tag t-sund">Sundhed</span></div><h2>Lillys »triple-G«-middel slog Ozempic i direkte sammenligning</h2><p class="sum">Retatrutid sænkede blodsukkeret mere og gav et vægttab på 20,9 % hos personer med type 2-diabetes.</p>
+<div class="body"><p>I et stort diabetesforsøg gav Eli Lillys retatrutid et fald i langtidsblodsukkeret <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-9-1" aria-describedby="term-9-1">A1c<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-9-1" role="tooltip"><strong>A1c</strong> Et mål for det gennemsnitlige blodsukker over de seneste 2–3 måneder. Et fald på 2,2 procentpoint er stort.</span></span> på 2,2 procentpoint efter 80 uger, mod 1,8 procentpoint med Novo Nordisks Ozempic. Deltagerne på den højeste dosis tabte 20,9 % af deres vægt.</p><p>Retatrutid rammer tre hormonreceptorer i stedet for én eller to, deraf kælenavnet »triple-G«. Det er første gang, midlet er sammenlignet direkte med Ozempic, og resultatet øger presset på Novo i kampen om diabetes- og fedmemarkedet.</p></div>
+<p class="src">Kilde: STAT · <a href="https://www.statnews.com/2026/10/28/retatrutide-vs-ozempic-lilly-diabetes-study/" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="10"><div class="kick"><span class="num">10</span><span class="tag t-ai">AI &amp; tech</span></div><h2>Apple lancerer sin første MacBook Pro med touchskærm – fuldt udstyret koster den 14.549 dollar</h2><p class="sum">Den nye <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-10-1" aria-describedby="term-10-1">OLED<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-10-1" role="tooltip"><strong>OLED</strong> En skærmtype, hvor hver pixel lyser selv, så sort er helt sort og kontrasten meget høj.</span></span>-skærm bryder med Steve Jobs&#x27; gamle nej til touch på Mac.</p>
+<div class="body"><p>Den nye MacBook Pro har en PROLED XDR-skærm på 14 eller 16 tommer med op til 2.000 nits lysstyrke og M5 Pro- eller M5 Max-chip med op til 128 GB hukommelse og 16 TB lager. Notchen er skiftet ud med en udskæring i stil med iPhonens Dynamic Island, og den vejer 1,38 kg (14 tommer) eller 1,82 kg (16 tommer).</p><p>Prisen starter ved 2.899 dollar for 14 tommer og 3.399 dollar for 16 tommer, og fuldt udstyret koster den 14.549 dollar ifølge The Verge. Den kan forudbestilles fra 30. oktober og kommer i butikkerne 6. november. Det er en af de første store lanceringer under den nye topchef John Ternus, og Steve Jobs kaldte engang touchskærme på Mac »ergonomisk forfærdelige«.</p></div>
+<p class="src">Kilde: TechCrunch · <a href="https://techcrunch.com/2026/10/28/apple-launches-its-new-touchscreen-macbook-pro/" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.theverge.com/tech/1021308/apple-touchscreen-macbook-pro-proled-xdr-fully-specced" rel="noopener">The Verge: 14.549 dollar fuldt udstyret</a></li><li><a href="https://arstechnica.com/apple/2026/10/apple-announces-touchscreen-macbook-pro-with-oled-display/" rel="noopener">Ars Technica: Første indtryk</a></li></ul>
+</article>
+<article id="11"><div class="kick"><span class="num">11</span><span class="tag t-frem">Fremtid</span></div><h2>Delaware vil lade AI-agenter drive hele virksomheder uden et menneske ved roret</h2><p class="sum">Et lovforslag om »AI-selskaber« skal testes i en 30-måneders <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-11-1" aria-describedby="term-11-1">forsøgsordning<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-11-1" role="tooltip"><strong>forsøgsordning</strong> En »regulatorisk sandkasse«: en tidsbegrænset ordning, hvor nye forretningsformer får lov at køre under tilsyn, så lovgiverne kan se, hvordan det går, før der laves en endelig lov. Her 30 måneder.</span></span>, men en republikansk kongresleder vil undersøge det.</p>
+<div class="body"><p>Ifølge planen kan et »Artificial Intelligence Company« drives af en AI-agent og arbejde i enhver branche undtagen bankvirksomhed. Det medlem, der finansierer selskabet, hæfter ikke for, hvad det gør, medmindre der er tale om svindel.</p><p>Ordningen skal starte som en forsøgsordning på 30 måneder, udviklet i samarbejde med firmaet Norm Ai, og lovforslaget ventes fremsat næste år. Kongresmedlem James Comer har allerede indledt en undersøgelse. Det har stor betydning, fordi omkring to tredjedele af Fortune 500-selskaberne er registreret i Delaware.</p></div>
+<p class="src">Kilde: Ars Technica · <a href="https://arstechnica.com/tech-policy/2026/10/no-human-at-the-helm-delaware-plan-would-let-ai-agents-run-entire-businesses/" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="12"><div class="kick"><span class="num">12</span><span class="tag t-crea">Creatorøkonomi</span></div><h2>Instagram vil ikke betale for lange videoer – YouTube sænker udbetalingsgrænsen til 20 dollar</h2><p class="sum">Adam Mosseri siger, at Instagram taber penge på at betale creators direkte, mens YouTube tester mindre udbetalinger.</p>
+<div class="body"><p>Instagrams nye format Features tillader videoer på op til 90 minutter, men der er ingen annonceindtægt til creators, og mange er sure. Adam Mosseri siger, at for- og midtrulsreklamer ville være »problematiske«, og at det nuværende præstationsbaserede betalingsprogram koster Meta mere, end det giver. »Creators producerer ikke meget mere, når vi betaler,« siger han.</p><p>YouTube tester samtidig at sænke grænsen for udbetaling fra 100 til 20 dollar for creators i USA, Indien og Indonesien. YouTubes annonceindtægter var 11,2 mia. dollar i kvartalet (+9 %).</p></div>
+<p class="src">Kilde: The Verge · <a href="https://www.theverge.com/tech/1020806/instagram-long-form-video-creator-monetization" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.tubefilter.com/2026/10/28/youtube-partner-program-lower-payout-threshold-test/" rel="noopener">Tubefilter: YouTube tester 20 dollar-grænse</a></li></ul>
+</article>
+<article id="13"><div class="kick"><span class="num">13</span><span class="tag t-egne">Musik</span></div><h2>Create Music Group køber minoritetsandel i DistroKid</h2><p class="sum">Det indie-fokuserede musikselskab investerede sideløbende med kapitalfonden CVC&#x27;s køb af en majoritetsandel.</p>
+<div class="body"><p>Create Music Group, der er bakket op af Flexpoint Ford og Ares, har købt en minoritetsandel i distributionstjenesten DistroKid, bekræfter topchef Jonathan Strauss over for Music Business Worldwide. Investeringen blev lavet tidligere i år, samtidig med at CVC Capital Partners købte en majoritetsandel, en handel der blev afsluttet i tredje kvartal. Insight Partners beholder en betydelig minoritetsandel.</p><p>I januar blev der ifølge MBW talt om en pris på omkring 2 mia. dollar for DistroKid. Create har også købt bl.a. !K7, Monstercat, Cr2 og deadmau5&#x27; katalog og blev i marts værdisat til 2,2 mia. dollar.</p></div>
+<p class="src">Kilde: Music Business Worldwide · <a href="https://www.musicbusinessworldwide.com/create-music-group-now-owns-a-minority-stake-in-distrokid/" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.billboard.com/pro/suno-vs-universal-sony-music-ai-lawsuit-companies-subpoenas/" rel="noopener">Billboard: Hvem kæmper mod stævninger i Suno-sagen</a></li></ul>
+</article>
+<article id="14"><div class="kick"><span class="num">14</span><span class="tag t-godt">Spændende</span></div><h2>Forskere har fundet ud af, hvordan edderkopper laver tråd, der er stærkere end stål</h2><p class="sum">Ved at »malke« sorte enker for silke har forskere set, hvordan en proteinsuppe bliver til naturens sejeste materiale.</p>
+<figure class="fig"><img src="../img/2026-10-29/edderkop.jpg" alt="En hjulspinder bygger sit spind" loading="lazy" decoding="async" width="1200" height="630"><figcaption>Billede: Konrad Wothe/NaturePL/Science Source via Quanta Magazine</figcaption></figure>
+<div class="body"><p>Edderkoppesilke er sejere end Kevlar og stærkere end stål, men ingen har kunnet kopiere den. Inde i edderkoppen er silken en flydende blanding af proteiner, vand og salt, kaldet »silke-dope«. Gregory Hollands hold på San Diego State University »silkede« sorte enker og brugte NMR-scanning og AlphaFold til at følge, hvad der sker.</p><p>De så, at fosfat får to aminosyrer, arginin og tyrosin, til at fungere som »molekylære klistermærker«, så proteinerne samler sig i <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-14-1" aria-describedby="term-14-1">kondensater<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-14-1" role="tooltip"><strong>kondensater</strong> Gel-agtige dråber, hvor molekyler samles tæt uden at låse sig fast. Her er de mellemstationen mellem flydende silke og fast tråd.</span></span>, før de bliver til fast tråd.</p><p>Til en silkeskjorte ville man skulle bruge omkring en million edderkopper, og fordi de spiser hinanden, skal hver have sin egen beholder. Hvis man kan efterligne opskriften, kan det give materialer til sikkerhedsseler, hjelme og stilladser til hjerneceller.</p></div>
+<p class="src">Kilde: Quanta Magazine · <a href="https://www.quantamagazine.org/how-spiders-spin-silk-dope-into-natures-toughest-material-20261028/" rel="noopener">Læs mere →</a></p>
+</article>
+<section class="nyt" id="nyt"><h2>Nyt til dig</h2><ul>
+<li><a href="https://www.quantamagazine.org" rel="noopener">Quanta Magazine</a> – Grundige, letlæste artikler om matematik, fysik, biologi og datalogi uden hype.</li>
+<li><a href="https://restofworld.org" rel="noopener">Rest of World</a> – Teknologi og AI set fra resten af verden, uden for Silicon Valley.</li>
+<li><a href="https://www.semafor.com/vertical/tech" rel="noopener">Semafor Technology</a> – Korte nyhedsbreve, der skiller fakta fra analyse, med gode kilder i AI-branchen.</li>
+</ul></section>
+</main></div>
+<footer><div class="ed-no">Udgave nr. 3</div><a href="../index.html">Seneste udgave</a> · <a href="../arkiv/index.html">Arkiv</a> · Nyheder for Kasper</footer>
+</div><script>(function(){var d=document.querySelector('nav.toc details');if(!d)return;var mq=matchMedia('(min-width:1000px)');
+function fit(){d.open=mq.matches?true:d.dataset.u==='1';}d.querySelector('summary').addEventListener('click',function(){d.dataset.u=d.open?'0':'1';});
+fit();mq.addEventListener&&mq.addEventListener('change',fit);
+var links={};d.querySelectorAll('a[href^="#"]').forEach(function(a){links[decodeURIComponent(a.getAttribute('href').slice(1))]=a;});
+var cur;function on(id){if(cur)cur.classList.remove('on');cur=links[id];if(cur){cur.classList.add('on');if(mq.matches&&cur.scrollIntoView){var r=cur.getBoundingClientRect(),p=d.parentNode.getBoundingClientRect();if(r.top<p.top||r.bottom>p.bottom)cur.scrollIntoView({block:'nearest'});}}}
+if(!('IntersectionObserver' in window))return;var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)on(e.target.id);});},{rootMargin:'-20% 0px -70% 0px'});
+Object.keys(links).forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el);});})();</script><script>(function(){var m=document.querySelector('main[data-date]');if(!m)return;
+var D=m.dataset.date,LATEST=m.dataset.latest==='1',K='nyheder-read-'+D,arts=[].slice.call(document.querySelectorAll('main article[id]')),N=arts.length;
+var ls=null;try{ls=window.localStorage;ls.getItem(K);}catch(_){ls=null;}
+var read={};try{(JSON.parse((ls&&ls.getItem(K))||'[]')||[]).forEach(function(i){read[i]=1;});}catch(_){}
+function save(){if(!ls)return;try{ls.setItem(K,JSON.stringify(Object.keys(read).map(Number).sort(function(a,b){return a-b;})));
+ var ks=[];for(var i=0;i<ls.length;i++){var k=ls.key(i);if(k&&k.indexOf('nyheder-read-')===0)ks.push(k);}ks.sort();while(ks.length>30)ls.removeItem(ks.shift());}catch(_){}}
+var toc={};document.querySelectorAll('nav.toc a[href^="#"]').forEach(function(a){toc[a.getAttribute('href').slice(1)]=a;});
+function paint(i){var a=toc[i];if(a){a.classList.add('read');var n=a.querySelector('.n');if(n)n.setAttribute('aria-label',i+', læst');}}
+function mark(i){i=String(i);if(read[i]||!document.getElementById(i))return;read[i]=1;save();paint(i);}
+Object.keys(read).forEach(function(i){paint(i);});
+Object.keys(toc).forEach(function(i){if(/^\d+$/.test(i))toc[i].addEventListener('click',function(){mark(i);});});
+/* Read = ~60 % of the story (or of the screen, for stories taller than it) visible for 3 s while the page is visible. */
+if('IntersectionObserver' in window){var tm={};
+ var th=[];for(var t=0;t<=20;t++)th.push(t/20);
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){var id=e.target.id;if(read[id])return;
+  var need=0.6*Math.min(e.boundingClientRect.height,(e.rootBounds&&e.rootBounds.height)||innerHeight);
+  var ok=e.isIntersecting&&e.intersectionRect.height>=need;
+  if(ok&&!tm[id])tm[id]=setTimeout(function(){tm[id]=0;if(document.visibilityState!=='hidden')mark(id);else io.unobserve(e.target),io.observe(e.target);},3000);
+  else if(!ok&&tm[id]){clearTimeout(tm[id]);tm[id]=0;}});},{threshold:th});
+ arts.forEach(function(a){if(!read[a.id])io.observe(a);});
+ document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden'){Object.keys(tm).forEach(function(id){if(tm[id]){clearTimeout(tm[id]);tm[id]=0;}});}
+  else{arts.forEach(function(a){if(!read[a.id]){io.unobserve(a);io.observe(a);}});}});}
+if(location.hash){var h=location.hash;addEventListener('load',function(){var el=document.getElementById(decodeURIComponent(h.slice(1)));if(el&&location.hash===h)setTimeout(function(){el.scrollIntoView();},60);});}
+})();</script><script>(function(){var ts=document.querySelectorAll('.term');if(!ts.length)return;
+function place(t){var p=t.querySelector('.term-pop');t.classList.remove('up');p.style.left='0px';p.style.display='block';
+var vw=document.documentElement.clientWidth,r=p.getBoundingClientRect(),dx=0;if(r.right>vw-12)dx=vw-12-r.right;if(r.left+dx<12)dx=12-r.left;
+p.style.left=dx+'px';var b=p.getBoundingClientRect();if(b.bottom>innerHeight-8&&t.getBoundingClientRect().top>b.height+24)t.classList.add('up');p.style.display='';}
+function close(x){ts.forEach(function(t){if(t!==x&&t.classList.contains('open')){t.classList.remove('open');t.querySelector('.term-btn').setAttribute('aria-expanded','false');}});}
+ts.forEach(function(t){var b=t.querySelector('.term-btn');t.addEventListener('mouseenter',function(){place(t);});b.addEventListener('focus',function(){place(t);});
+b.addEventListener('click',function(ev){ev.stopPropagation();var o=!t.classList.contains('open');close(t);if(o)place(t);t.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');});
+t.querySelector('.term-pop').addEventListener('click',function(ev){ev.stopPropagation();});});
+document.addEventListener('click',function(){close(null);});
+document.addEventListener('keydown',function(ev){if(ev.key==='Escape'){var a=document.activeElement;close(null);if(a&&a.classList.contains('term-btn'))a.blur();}});
+addEventListener('resize',function(){document.querySelectorAll('.term.open').forEach(place);});})();</script><script>(function(){var B='../';
+try{if('clearAppBadge' in navigator)Promise.resolve(navigator.clearAppBadge()).catch(function(){});}catch(_){}
+if(!('serviceWorker' in navigator))return;
+navigator.serviceWorker.register(B+'sw.js').then(function(r){
+ if(!r||!r.pushManager||!r.pushManager.getSubscription)return;
+ return r.pushManager.getSubscription().then(function(s){if(s)return s.unsubscribe();});}).catch(function(){});
+})();</script></body></html>
