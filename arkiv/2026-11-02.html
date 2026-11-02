@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="da"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111213" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Nyheder">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="../icons/favicon-64.png">
+<title>Nyheder · mandag 2. november 2026</title>
+<link rel="preload" href="../fonts/InterVariable.latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url("../fonts/InterVariable.latin.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-style:italic;font-weight:100 900;font-display:swap;src:url("../fonts/InterVariable-Italic.latin.woff2") format("woff2")}
+:root{--bg:#fbfaf7;--fg:#151515;--fg2:#2b2a27;--muted:#5b5850;--rule:#e2ddd2;--accent:#b8431a;--card:#fff;--link:#174f9c;--hl:#f3efe6}
+@media (prefers-color-scheme:dark){:root{--bg:#111213;--fg:#eeece7;--fg2:#d9d6cf;--muted:#a7a39a;--rule:#2e2d2a;--accent:#f59a62;--card:#1a1b1c;--link:#93bdf2;--hl:#1d1e20}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-padding-top:16px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size:18px;line-height:1.65;font-optical-sizing:auto;font-feature-settings:"cv11","ss01";-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px 64px}
+a{color:var(--link)}
+header.mast{text-align:center;border-bottom:1px solid var(--fg);padding:34px 0 16px;margin-bottom:22px}
+.mast h1{font-size:clamp(2.5rem,9vw,4.4rem);line-height:1;margin:0;letter-spacing:-.04em;font-weight:800}
+.mast h1 a{color:inherit;text-decoration:none}
+.mast .greet{font-size:.95rem;font-weight:500;line-height:1.3;letter-spacing:-.005em;color:var(--muted);margin:0 0 10px}
+.mast .greet[hidden]{display:none}
+.mast .meta{font-size:.74rem;font-weight:600;line-height:1.4;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-top:12px}
+.intro{font-size:1.06em;color:var(--fg2);margin:0 0 22px;line-height:1.6}
+.layout{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"intro" "toc" "main"}
+.layout>.intro{grid-area:intro}.layout>nav.toc{grid-area:toc}.layout>main{grid-area:main;min-width:0}
+nav.toc{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:4px 0;margin-bottom:28px;font-size:.9rem;line-height:1.4}
+nav.toc summary{cursor:pointer;list-style:none;padding:10px 0;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--accent)}
+nav.toc summary::-webkit-details-marker{display:none}
+nav.toc summary::after{content:" ▾";color:var(--muted)}nav.toc details[open] summary::after{content:" ▴"}
+nav.toc summary .cnt{color:var(--muted);font-weight:600;letter-spacing:.08em}
+nav.toc ol{list-style:none;margin:0 0 10px;padding:0}
+nav.toc li{margin:0}
+nav.toc a{display:flex;gap:10px;color:var(--fg);text-decoration:none;padding:7px 10px 7px 0;border-left:2px solid transparent}
+nav.toc a:hover .h{text-decoration:underline}
+nav.toc .n{flex:0 0 1.7em;text-align:right;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+nav.toc .t{display:block;font-size:.78em;color:var(--muted);margin-top:2px}
+nav.toc li.sec a .n{color:var(--accent)}
+nav.toc a.on{border-left-color:var(--accent);background:var(--hl)}nav.toc a.on .n,nav.toc a.on .h{color:var(--accent)}
+nav.toc a.read .n{color:var(--muted);opacity:.5;font-weight:500}nav.toc a.read:not(.on) .h{color:var(--muted)}
+h2.sect,.nyt h2,.radar>h2{font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;margin:6px 0 12px;color:var(--accent)}
+article{border-bottom:1px solid var(--rule);padding:4px 0 30px;margin-bottom:28px;scroll-margin-top:16px}
+.kick{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:.7rem;font-weight:700;line-height:1.5;text-transform:uppercase;letter-spacing:.1em}
+.num{background:var(--fg);color:var(--bg);border-radius:4px;padding:1px 7px;font-variant-numeric:tabular-nums}
+.tag{border:1px solid currentColor;border-radius:4px;padding:0 6px}
+.t-ai{color:#2563a8}.t-kode{color:#0b7480}.t-inv{color:#25784a}.t-sund{color:#9a6510}.t-ivk{color:#8e2a8e}.t-tank{color:#52529a}.t-egne{color:#a84b14}.t-verden{color:#4a5568}.t-frem{color:#6440b8}.t-crea{color:#b4185a}.t-samf{color:#7c6232}.t-dk{color:#b42828}.t-godt{color:#1f8a5b}
+@media (prefers-color-scheme:dark){.t-ai{color:#82b6f2}.t-kode{color:#62d2da}.t-inv{color:#72d19a}.t-sund{color:#f0c264}.t-ivk{color:#e391e3}.t-tank{color:#adadf2}.t-egne{color:#f2a676}.t-verden{color:#bac4d2}.t-frem{color:#bba2f6}.t-crea{color:#f594b6}.t-samf{color:#dcc390}.t-dk{color:#f28a8a}.t-godt{color:#7fe0b0}}
+.unc{background:#9a6510;color:#fff;border-radius:4px;padding:1px 6px}
+article h2{font-size:clamp(1.5rem,5.2vw,2.15rem);line-height:1.18;letter-spacing:-.022em;font-weight:750;margin:12px 0 10px;text-wrap:balance}
+.sum{font-size:1.1em;line-height:1.5;font-weight:500;color:var(--fg2);margin:0 0 16px}
+.body p{margin:0 0 1em}.body p:last-child{margin-bottom:14px}
+figure.fig{margin:4px 0 20px}
+figure.fig img{display:block;width:100%;height:auto;border-radius:8px;background:var(--hl)}
+figure.fig figcaption{font-size:.76rem;line-height:1.45;color:var(--muted);margin-top:7px}
+.src{font-size:.85rem;color:var(--muted)}
+.src a{font-weight:600}
+.extra{font-size:.85rem;margin:8px 0 0;padding-left:1.1em;color:var(--muted)}
+.video{position:relative;width:100%;aspect-ratio:16/9;margin:4px 0 20px;background:#000;border-radius:8px;overflow:hidden}
+.video.short{aspect-ratio:9/16;max-width:340px;margin-left:auto;margin-right:auto}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.xembed{margin:4px 0 20px;display:flex;justify-content:center}
+.car{position:relative;margin:4px 0 20px}
+.car-track{position:relative;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+  overscroll-behavior-x:contain;scrollbar-width:none;border-radius:8px;outline:none}
+.car-track::-webkit-scrollbar{display:none}
+.car-track:focus-visible{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--link)}
+.car-slide{flex:0 0 100%;min-width:0;margin:0;scroll-snap-align:start;scroll-snap-stop:always}
+.car-frame{position:relative;width:100%;aspect-ratio:16/9;background:var(--hl);border-radius:8px;overflow:hidden}
+.car-frame.v{background:#000}
+.car-frame img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain}
+.car-frame iframe,.car-frame video{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000}
+.car-frame.x{overflow-y:auto;-webkit-overflow-scrolling:touch;background:var(--hl)}
+.car-frame.x>*{margin:0 auto!important}.car-frame.x .twitter-tweet{max-width:100%}
+.vcap{font-size:.76rem;line-height:1.45;color:var(--muted);margin:-12px 0 20px}
+.car-slide figcaption{font-size:.76rem;line-height:1.45;color:var(--muted);margin-top:7px}
+.car-nav{position:absolute;left:0;right:0;top:0;aspect-ratio:16/9;pointer-events:none}
+.car-btn{position:absolute;top:50%;transform:translateY(-50%);pointer-events:auto;display:flex;align-items:center;justify-content:center;
+  width:40px;height:40px;padding:0;border:1px solid var(--rule);border-radius:50%;background:var(--card);color:var(--fg);cursor:pointer;
+  font:inherit;font-size:1.2rem;line-height:1;box-shadow:0 2px 10px rgba(0,0,0,.18);opacity:.92;transition:opacity .15s}
+.car-btn:hover{opacity:1}.car-btn:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+.car-btn[disabled]{opacity:0;pointer-events:none}
+.car-prev{left:10px}.car-next{right:10px}
+.car-bar{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:8px;font-size:.72rem;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums}
+.car-dots{display:flex;gap:2px}
+.car-dot{width:22px;height:22px;padding:7px;border:0;margin:0;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.car-dot::before{content:"";display:block;width:8px;height:8px;border-radius:50%;background:var(--rule)}
+.car-dot[aria-current="true"]::before{background:var(--accent)}
+.car-dot:focus-visible{outline:2px solid var(--link);outline-offset:-2px;border-radius:50%}
+@media (hover:none) and (pointer:coarse){.car-btn{display:none}}
+.nyt{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:16px 20px;margin:10px 0 28px;scroll-margin-top:16px}
+.nyt ul{margin:0;padding-left:1.1em}.nyt li{margin:8px 0}.nyt a{font-weight:600}
+.radar{margin:10px 0 28px;scroll-margin-top:16px}
+.radar>p.lede{font-size:.88rem;color:var(--muted);margin:0 0 12px}
+.rcard{background:var(--card);border:1px solid var(--rule);border-left:4px solid #8e2a8e;border-radius:10px;padding:14px 20px;margin:0 0 16px;scroll-margin-top:16px}
+@media (prefers-color-scheme:dark){.rcard{border-left-color:#e391e3}}
+.rcard h3{font-size:clamp(1.25rem,4vw,1.55rem);line-height:1.2;letter-spacing:-.018em;margin:8px 0 8px}
+.rcard h3 a{color:inherit;text-decoration:none}.rcard h3 a:hover{text-decoration:underline}
+.rcard dl{margin:0 0 8px}
+.rcard dt{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:12px}
+.rcard dd{margin:2px 0 0}
+.term{position:relative;display:inline}
+.term-btn{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;cursor:help;text-align:inherit;
+  text-decoration:underline dotted;text-decoration-color:var(--muted);text-decoration-thickness:1.5px;text-underline-offset:.22em;-webkit-tap-highlight-color:transparent}
+.term-btn:hover,.term.open .term-btn{text-decoration-color:var(--accent)}
+.term-btn:focus-visible{outline:2px solid var(--link);outline-offset:2px;border-radius:3px}
+.term .ti{display:none;align-items:center;justify-content:center;width:1.05em;height:1.05em;margin-left:.18em;vertical-align:.12em;
+  border:1.2px solid currentColor;border-radius:50%;font-size:.62em;font-weight:700;font-style:normal;line-height:1;color:var(--muted)}
+.term-btn:hover .ti,.term.open .ti{color:var(--accent)}
+.term-pop{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 10px);width:min(23rem,calc(100vw - 24px));
+  background:var(--card);color:var(--fg);border:1px solid var(--rule);border-radius:10px;padding:12px 14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.14),0 2px 6px rgba(0,0,0,.08);font-size:.8em;font-weight:400;line-height:1.55;text-align:left;white-space:normal;letter-spacing:0}
+.term-pop::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+.term.up .term-pop{top:auto;bottom:calc(100% + 10px)}.term.up .term-pop::before{top:auto;bottom:-12px}
+.term-pop strong{display:block;font-weight:700;margin-bottom:3px;color:var(--accent)}
+.term.open .term-pop,.term-btn:focus-visible+.term-pop{display:block}
+@media (hover:hover) and (pointer:fine){.term:hover .term-pop{display:block}}
+@media (prefers-color-scheme:dark){.term-pop{box-shadow:0 10px 30px rgba(0,0,0,.55);border-color:#3a3936}}
+.wrap{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right));padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+header.mast{padding-top:calc(34px + env(safe-area-inset-top))}
+footer{font-size:.8rem;color:var(--muted);text-align:center;padding-top:12px}
+footer .ed-no{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+ul.arkiv{list-style:none;padding:0}ul.arkiv li{border-bottom:1px solid var(--rule);padding:12px 0}
+ul.arkiv a{color:var(--fg);font-weight:700;text-decoration:none}ul.arkiv span{display:block;color:var(--muted);font-size:.92rem}
+@media (min-width:1000px){
+  body{font-size:20px}
+  .wrap{max-width:1260px;padding-left:max(40px,env(safe-area-inset-left));padding-right:max(40px,env(safe-area-inset-right));padding-bottom:calc(80px + env(safe-area-inset-bottom))}
+  .layout{grid-template-columns:290px minmax(0,70ch);grid-template-areas:"toc intro" "toc main";column-gap:64px;justify-content:center}
+  nav.toc{position:sticky;top:20px;align-self:start;max-height:calc(100vh - 40px);overflow:auto;border:0;margin:0;padding:0 4px 0 0;font-size:.78rem}
+  nav.toc summary{pointer-events:none;padding:4px 0 10px}nav.toc summary::after{content:none}
+  nav.toc a{padding:7px 10px 7px 6px}
+  .intro{margin-top:4px}
+}
+</style></head>
+<body><div class="wrap"><header class="mast"><p class="greet" id="greet" data-name="Kasper" aria-live="off" hidden></p><script>(function(){var g=document.getElementById('greet');if(!g)return;var N=g.getAttribute('data-name');
+function upd(){var h=new Date().getHours();
+ var t=h>=5&&h<10?'Godmorgen':h>=10&&h<12?'God formiddag':h>=12&&h<18?'God eftermiddag':'God aften';
+ t=N?t+', '+N:t;if(g.textContent!==t)g.textContent=t;g.hidden=false;}
+upd();addEventListener('pageshow',upd);addEventListener('focus',upd);
+document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')upd();});
+setInterval(function(){if(document.visibilityState==='visible')upd();},60000);
+})();</script><h1><a href="../index.html">Nyheder</a></h1><div class="meta">mandag 2. november 2026</div></header>
+<div class="layout">
+<p class="intro">USA går til valg i morgen, og i Michigan har en demokrat lige stillet sig bag republikanernes kandidat. AI-aktierne har tabt 5.000 mia. dollar på en måned, OpenAI lægger ChatGPT og Codex i samme forbrugspulje, og Pieter Levels har fået Claude Code til at klippe hans vlog. Og så er fire frivillige kommet hjem fra et år på »Mars«.</p>
+<nav class="toc" aria-label="Indhold"><details open><summary>Indhold <span class="cnt">· 12 historier</span></summary><ol>
+<li><a href="#1"><span class="n">1</span><span><span class="h">Demokrat støtter republikaner i Michigan to dage før midtvejsvalget</span><span class="t">Verden</span></span></a></li>
+<li><a href="#2"><span class="n">2</span><span><span class="h">Golfstaterne »forbereder sig på det værste« i forhandlingerne om Hormuzstrædet</span><span class="t">Verden</span></span></a></li>
+<li><a href="#3"><span class="n">3</span><span><span class="h">AI-aktier har tabt 5.000 mia. dollar siden 6. oktober, og i aften kommer Apple</span><span class="t">Investering</span></span></a></li>
+<li><a href="#4"><span class="n">4</span><span><span class="h">OpenAI lægger ChatGPT og Codex i samme forbrugspulje fra december</span><span class="t">AI-kodning</span></span></a></li>
+<li><a href="#5"><span class="n">5</span><span><span class="h">Pieter Levels fik Claude Code til at klippe hele sin vlog</span><span class="t">AI-kodning</span></span></a></li>
+<li><a href="#6"><span class="n">6</span><span><span class="h">DeepSeek udfordrer Claude Code med en agent, der selv holder øje med teamets chat</span><span class="t">AI-kodning</span></span></a></li>
+<li><a href="#7"><span class="n">7</span><span><span class="h">Martin Thorborg og kulturminister Zenia Stampe i åben strid over AI-skrevet selvbiografi</span><span class="t">Danmark</span></span></a></li>
+<li><a href="#8"><span class="n">8</span><span><span class="h">Ny lov i Californien: Børn af familievloggere kan kræve alle videoer af sig selv fjernet</span><span class="t">Creatorøkonomi</span></span></a></li>
+<li><a href="#9"><span class="n">9</span><span><span class="h">Hackere overtog Ukraines luftalarm-app og sendte falske atom- og strålingsvarsler</span><span class="t">Verden</span></span></a></li>
+<li><a href="#10"><span class="n">10</span><span><span class="h">Ni dræbt, da forretningsfly styrtede ned på vej i Florida</span><span class="t">Verden</span></span></a></li>
+<li><a href="#11"><span class="n">11</span><span><span class="h">Kimi Antonelli er den yngste Formel 1-verdensmester nogensinde</span><span class="t">Vildt</span></span></a></li>
+<li><a href="#12"><span class="n">12</span><span><span class="h">Fire frivillige er »hjemme fra Mars« efter 378 dage i et 3D-printet hus</span><span class="t">Spændende</span></span></a></li>
+<li class="sec"><a href="#nyt"><span class="n">+</span><span><span class="h">Nyt til dig</span></span></a></li>
+</ol></details></nav><main data-date="2026-11-02" data-total="12" data-latest="1">
+<article id="1"><div class="kick"><span class="num">1</span><span class="tag t-verden">Verden</span></div><h2>Demokrat støtter republikaner i Michigan to dage før midtvejsvalget</h2><p class="sum">Kongreskvinden Haley Stevens, der tabte demokraternes primærvalg, bakker nu op om republikaneren Mike Rogers i et af de tætteste senatsløb.</p>
+<div class="body"><p>Stevens dukkede søndag op til en gudstjeneste sammen med Rogers og sagde i en video på X, at hun »ikke hører hjemme« i Abdul El-Sayeds kampagne. Stevens havde bedt El-Sayed tage afstand fra en valgreklame fra en ekstern gruppe, der koblede USA&#x27;s støtte til Israel med høje priser. Flere af hendes medarbejdere sagde ifølge BBC op med det samme, og Chuck Schumer kaldte det »et foragteligt forræderi«. Trump roste hende til et vælgermøde i Iowa.</p><p>Midtvejsvalget er i morgen, tirsdag. Demokraterne skal vinde fire senatspladser netto for at tage magten i Senatet. Taber de Michigan, som de har nu, skal de vinde fem. Stolen har ikke været republikansk siden 1994.</p></div>
+<p class="src">Kilde: BBC · <a href="https://www.bbc.co.uk/news/articles/c95ynzv88n68o" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="2"><div class="kick"><span class="num">2</span><span class="tag t-verden">Verden</span></div><h2>Golfstaterne »forbereder sig på det værste« i forhandlingerne om Hormuzstrædet</h2><p class="sum">Indirekte forhandlinger mellem USA og Iran i Doha gik søndag ind på tredje dag, mens strædet stadig er lukket i krigens niende måned.</p>
+<div class="body"><p>Qatar forsøger at få frigivet over 6 mia. dollar i iranske midler, hvilket kan føre til, at Iran genåbner Hormuzstrædet og genoptager atomforhandlingerne. Iran har ifølge The Guardian sagt ja til at korte tidsplanen for sanktionslempelse og genåbning ned fra syv til to dage. Fredag blev et qatarsk LNG-tankskib på vej til Pakistan ramt af uidentificerede missiler nær strædet, selvom skibet havde fået direkte tilladelse til at sejle.</p><p>Udenrigsminister Abbas Araghchi siger, at Iran er klar til »både forsvar og diplomati«, og at han håber, USA vælger diplomatiet. Trump siger, at der stadig er et eller to mål tilbage. Råolien (WTI) lukkede fredag over 104 dollar per tønde, det højeste siden midten af september.</p></div>
+<p class="src">Kilde: The Guardian · <a href="https://www.theguardian.com/world/2026/nov/01/negotiators-braced-for-worst-over-us-iran-talks-to-reopen-strait-of-hormuz" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="3"><div class="kick"><span class="num">3</span><span class="tag t-inv">Investering</span></div><h2>AI-aktier har tabt 5.000 mia. dollar siden 6. oktober, og i aften kommer Apple</h2><p class="sum">Udsalget var brutalt, men smalt: De største AI- og chipaktier faldt, mens 625 andre store amerikanske aktier steg 1.300 mia. dollar tilsammen.</p>
+<div class="body"><p>Nasdaq faldt omkring 5 % i oktober, den værste måned siden foråret 2025, mens Dow Jones steg 1,7 %. I sidste uge faldt S&amp;P 500 0,6 %, men 9 af de 11 sektorer steg mindst 1 %. Det er aldrig sket i en negativ uge siden mindst 1999, ifølge Yahoo Finance. Alphabet havde sin værste dag nogensinde, Intel faldt næsten 29 % fredag.</p><p>Natten til mandag steg S&amp;P 500-<span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-3-1" aria-describedby="term-3-1">futures<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-3-1" role="tooltip"><strong>futures</strong> Kontrakter, der handles døgnet rundt og viser, hvor markedet forventes at åbne. At S&amp;P 500-futures steg 0,4 % i nat betyder, at investorerne venter en stigning, når børsen åbner.</span></span> 0,4 % og Nasdaq-futures 0,8 %. Apple kommer med regnskab efter lukketid i aften. Selskabet er igen verdens mest værdifulde med 5.030 mia. dollar, foran Nvidia, og er den eneste af de syv store tech-aktier, der klarer sig bedre end S&amp;P 500 i år, med 27 % mod 11 %. Ugen byder også på Palantir i aften, midtvejsvalget tirsdag og jobtal fredag. I Tokyo faldt hukommelsesproducenten Kioxia op til 15 % mandag på et forsigtigt udsyn.</p></div>
+<p class="src">Kilde: Yahoo Finance · <a href="https://finance.yahoo.com/markets/article/stock-futures-jump-ahead-of-a-monster-week-after-a-5-trillion-ai-wipeout-020630085.html" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.bloomberg.com/news/articles/2026-11-02/kioxia-shares-tumble-after-outlook-suggests-demand-leveling-off" rel="noopener">Bloomberg: Kioxia styrtdykker</a></li></ul>
+</article>
+<article id="4"><div class="kick"><span class="num">4</span><span class="tag t-kode">AI-kodning</span></div><h2>OpenAI lægger ChatGPT og Codex i samme forbrugspulje fra december</h2><p class="sum">Plus-, Pro- og Business-abonnenter får én fælles kvote, målt i <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-4-1" aria-describedby="term-4-1">tokens<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-4-1" role="tooltip"><strong>tokens</strong> Små tekststykker, som en AI-model læser og skriver, typisk dele af ord. Fra december tæller både chat og Codex-opgaver i tokens fra samme pulje.</span></span>, på tværs af chat og kodeagenten Codex.</p>
+<div class="body"><p>Ifølge OpenAIs hjælpeside afhænger forbruget af modellen og opgaven: Avancerede modeller og komplekse opgaver bruger mere af kvoten, mens almindelig Instant-chat ikke tæller med.</p><p>OpenAI skriver, at de fleste brugere ikke skal vente på nulstilling oftere end i dag. Den samlede rest og tidspunktet for nulstilling bliver vist under Settings, Usage. Løber man tør, kan man vente, opgradere eller købe credits. På Hacker News fik nyheden over 200 point, og mange udviklere frygter, at tunge Codex-sessioner nu æder af den kvote, de bruger til almindelig chat.</p></div>
+<p class="src">Kilde: OpenAI Help Center · <a href="https://help.openai.com/en/articles/20001625-understanding-chatgpt-and-codex-usage-limits" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://news.ycombinator.com/item?id=50320588" rel="noopener">Hacker News: Debatten om de fælles grænser</a></li></ul>
+</article>
+<article id="5"><div class="kick"><span class="num">5</span><span class="tag t-kode">AI-kodning</span></div><h2>Pieter Levels fik Claude Code til at klippe hele sin vlog</h2><p class="sum">Indie-iværksætteren lagde 58 minutters klip i en mappe og bad Claude Code med Opus 5.5 om at lave en 10-minutters vlog.</p>
+<div class="body"><p>Levels kopierede klippene fra sit DJI-kamera over i en mappe, åbnede Claude Code og bad det redigere dem. Det transskriberede alt, han sagde, lokalt med mlx-whisper og skar 14 klip ned til omkring 10 minutter. Han skriver, at han kun lavede få rettelser selv. Opslaget er bogmærket næsten 1.800 gange på X.</p><p>Samme dag lagde han vloggen »What&#x27;s left to do when AI can build everything?« ud, hvor han spørger, hvad der er tilbage at lave for mennesker, når AI kan bygge alt. Han skriver selv, at han er blevet inspireret til at vlogge af blandt andre Peter Santenello og Theo.</p></div>
+<div class="video"><iframe class="yt" src="https://www.youtube-nocookie.com/embed/B6FxojoTHCc?enablejsapi=1&amp;playsinline=1&amp;rel=0" title="Pieter Levels&#x27; vlog fra 1. november (engelsk)" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><p class="vcap">Pieter Levels&#x27; vlog fra 1. november (engelsk) · Video: @levelsio</p>
+<p class="src">Kilde: @levelsio på X · <a href="https://x.com/levelsio/status/2116959423117857026" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://levels.io/whats-left-when-ai-builds-everything" rel="noopener">levels.io: What&#x27;s left to do when AI can build everything?</a></li></ul>
+</article>
+<article id="6"><div class="kick"><span class="num">6</span><span class="tag t-kode">AI-kodning</span></div><h2>DeepSeek udfordrer Claude Code med en agent, der selv holder øje med teamets chat</h2><p class="sum">Den kinesiske AI-virksomhed har lagt prototypen »Super-agent« ud som open source på GitHub.</p>
+<div class="body"><p>Agenten lytter på et GitHub-repo og eventuelt på chatten Feishu. Når en godkendt person beder om noget, opretter den en sag, arbejder i sin egen session og svarer i samme tråd, fx med en pull request. Ifølge Straits Times kan den også selv holde øje med udviklernes gruppechats og opfange feedback på kodeproblemer.</p><p>DeepSeeks princip er at »tage så lidt menneskelig opmærksomhed som muligt og give så meget værdi som muligt«. Agenten handler kun, når nogen beder om det, eller når en regel tillader det. DeepSeek kalder selv koden forskningskode, der ikke er klar til produktion. Holdet bag, <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-6-1" aria-describedby="term-6-1">Harness<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-6-1" role="tooltip"><strong>Harness</strong> Softwaren, der pakker en sprogmodel ind, så den kan løse længere opgaver: værktøjer, filer og regler. DeepSeeks Harness-team bygger netop det lag, som Claude Code er kendt for.</span></span>-teamet, blev oprettet i år for at bygge AI-kodeagenter.</p></div>
+<p class="src">Kilde: The Straits Times/Bloomberg · <a href="https://www.straitstimes.com/asia/east-asia/deepseek-drops-enhanced-coding-agent-with-aim-to-rival-anthropic" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://github.com/deepseek-ai/dsh-superagent-prototype/" rel="noopener">GitHub: dsh-superagent-prototype</a></li></ul>
+</article>
+<article id="7"><div class="kick"><span class="num">7</span><span class="tag t-dk">Danmark</span></div><h2>Martin Thorborg og kulturminister Zenia Stampe i åben strid over AI-skrevet selvbiografi</h2><p class="sum">Et klip fra DR&#x27;s Debatten, hvor ministeren kalder iværksætteren »ikke så klog«, har sat gang i en heftig debat.</p>
+<div class="body"><p>Striden handler om, at Thorborg har brugt kunstig intelligens til at skrive sin nye selvbiografi. Zenia Stampe mente, at kun »en tyvendedel« er skrevet af ham selv. »Den er trænet på mit fucking materiale«, svarede han. Iværksætteren Jesper Buch og badmintonspilleren Viktor Axelsen har kritiseret ministerens tone.</p><p>På LinkedIn skrev Stampe bagefter, at hun ville gentage alt, hvad hun sagde. Det kalder Thorborg over for DR »årets vildeste udtalelse«. Begge fortryder dog, at de lod sig provokere, og ministeren håber, at debatten kan ende med at handle om AI i stedet for om tonen.</p></div>
+<p class="src">Kilde: DR · <a href="https://www.dr.dk/nyheder/indland/aarets-vildeste-udtalelse-siger-ivaerksaetter-efter-kulturministers-linkedin-opslag" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.dr.dk/nyheder/politik/reels/kulturminister-og-ivaerksaetter-i-live-skaenderi" rel="noopener">DR: Se klippet fra live-skænderiet</a></li></ul>
+</article>
+<article id="8"><div class="kick"><span class="num">8</span><span class="tag t-crea">Creatorøkonomi</span></div><h2>Ny lov i Californien: Børn af familievloggere kan kræve alle videoer af sig selv fjernet</h2><p class="sum">Fra januar 2027 kan voksne, der som børn tjente penge til deres forældres kanaler, kræve optagelserne slettet.</p>
+<div class="body"><p>Senate Bill 1247 gælder kun, når familien har tjent penge på indholdet, fx via annoncer, sponsorater, Super Chat eller merchandise, og barnet var med i mindst 30 % af det. Efter en anmodning har vloggeren 10 dage til at fjerne eller klippe barnet ud. Ellers venter bøder på 3.000 dollar om dagen plus erstatning og sagsomkostninger.</p><p>Platforme som YouTube, TikTok og Instagram skal have en tydelig knap til anmodningerne eller selv sende dem videre inden for tre dage. Loven gælder også bagudrettet. Tubefilter peger på, at tusindvis af børn fra YouTubes første generation af familiekanaler nu fylder 18.</p></div>
+<p class="src">Kilde: Tubefilter · <a href="https://www.tubefilter.com/2026/11/01/california-senate-bill-1247-children-family-vlogger-protection/" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="9"><div class="kick"><span class="num">9</span><span class="tag t-verden">Verden</span></div><h2>Hackere overtog Ukraines luftalarm-app og sendte falske atom- og strålingsvarsler</h2><p class="sum">Søndag aften fik ukrainere besked om stråling, kemisk angreb og gadekampe i Kyiv, blandt andet på russisk.</p>
+<div class="body"><p>Kl. 22.47 lokal tid sendte den officielle app Air Alert røde alarmer ud over hele landet. Et minut senere kom en besked på russisk: »Hej! Der kommer atomalarm over hele Ukraine. Bare rolig, det er Oreshnik, der flyver«. Varslerne fik også højttalere i Lviv-regionen til at spille strålingssignalet. Flyvevåbnet afviste hurtigt, at der var nogen trussel.</p><p>Appen blev lukket ned og er gradvist ved at komme tilbage, og udviklerne siger, at den ikke gemmer persondata. Få timer senere meldte Rusland, at landets egen nødapp også var hacket, og en ukrainsk gruppe påstod at have sendt falske atomvarsler ud til russerne.</p></div>
+<p class="src">Kilde: BBC · <a href="https://www.bbc.com/news/articles/c51kdy1ew7zvo" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="10"><div class="kick"><span class="num">10</span><span class="tag t-verden">Verden</span></div><h2>Ni dræbt, da forretningsfly styrtede ned på vej i Florida</h2><p class="sum">Et Learjet 60 på vej fra Texas til Bahamas dykkede lodret ned ved en befærdet vej i Palm Beach County og eksploderede i en ildkugle.</p>
+<figure class="fig"><img src="../img/2026-11-02/florida-crash.jpg" alt="Politi og brandfolk på vejen ved nedslagsstedet i Palm Beach County om aftenen" loading="lazy" decoding="async" width="1200" height="630"><figcaption>Billede: NBC News</figcaption></figure>
+<div class="body"><p>Ulykken skete søndag kl. 12.50 lokal tid ved Military Trail nær Greenacres. Minutter før havde piloten meldt let is på flyet og moderat turbulens og bedt om at stige. Derefter råbte hun mayday og meldte, at flyet faldt 20.000 fod i minuttet.</p><p>Alle ni om bord omkom. Guvernør Ron DeSantis sagde, at det »lignede et missil«, der gik ned og efterlod et stort krater i vejen, men at ingen på jorden ifølge de første meldinger kom til skade. Havarikommissionen NTSB leder efterforskningen og holder pressemøde i dag.</p></div>
+<p class="src">Kilde: NBC News · <a href="https://www.nbcnews.com/news/us-news/jet-crashes-florida-nine-people-board-rcna606874" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="11"><div class="kick"><span class="num">11</span><span class="tag t-godt">Vildt</span></div><h2>Kimi Antonelli er den yngste Formel 1-verdensmester nogensinde</h2><p class="sum">Den 20-årige Mercedes-kører sikrede titlen med en tredjeplads i Mexico City, og der er stadig fire løb tilbage.</p>
+<div class="body"><p>Antonelli var 20 år og 68 dage, da han søndag blev verdensmester, og han slår dermed Sebastian Vettels rekord som den yngste mester. Max Verstappen vandt løbet foran Lewis Hamilton. Han skulle kun slutte som nummer ni for at sikre sig titlen, som er hans første.</p></div>
+<p class="src">Kilde: Formula 1 · <a href="https://www.formula1.com/en/latest/article/antonelli-crowned-youngest-ever-f1-champion-as-verstappen-wins-eventful-mexico-city-grand-prix.xpMMeef0KmRURs9IDs3LH" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="12"><div class="kick"><span class="num">12</span><span class="tag t-godt">Spændende</span></div><h2>Fire frivillige er »hjemme fra Mars« efter 378 dage i et 3D-printet hus</h2><p class="sum">NASA&#x27;s anden CHAPEA-besætning forlod lørdag deres simulerede Mars-base, som de gik ind i 19. oktober 2025.</p>
+<figure class="fig"><img src="../img/2026-11-02/mars-crew.jpg" alt="De fire frivillige fra NASA&#x27;s CHAPEA-mission efter 378 dage i det 3D-printede habitat" loading="lazy" decoding="async" width="1200" height="800"><figcaption>Billede: Reuters/The Independent</figcaption></figure>
+<div class="body"><p>Ross Elder, Ellen Ellis, Matthew Montgomery og James Spicer har boet i et 158 m² stort 3D-printet habitat inde i en hangar ved Johnson Space Center i Houston. De dyrkede afgrøder i kunstig Mars-jord og gik på simulerede rumvandringer. Beskeder hjem var forsinket op til 44 minutter, og i to uger var de helt afskåret.</p><p>»Det har været et helvedes år, analog-astronauter i fangenskab af egen fri vilje«, sagde Ellen Ellis. Nu venter to ugers udspørgen hos NASA&#x27;s forskere. Fremtidige CHAPEA-missioner skal også forberede ture til Månen.</p></div>
+<p class="src">Kilde: Reuters via The Independent · <a href="https://www.independent.co.uk/space/nasa-chapea-crew-isolation-mars-b3077196.html" rel="noopener">Læs mere →</a></p>
+</article>
+<section class="nyt" id="nyt"><h2>Nyt til dig</h2><ul>
+<li><a href="https://kyivindependent.com" rel="noopener">The Kyiv Independent</a> – Engelsksproget ukrainsk avis med journalister på stedet, som var hurtigst med detaljerne om hackerangrebet på luftalarm-appen.</li>
+<li><a href="https://www.theinformation.com" rel="noopener">The Information</a> – Tech-medie med mange scoops om AI-laboratoriernes økonomi, kapitalrunder og produktplaner.</li>
+</ul></section>
+</main></div>
+<footer><div class="ed-no">Udgave nr. 7</div><a href="../index.html">Seneste udgave</a> · <a href="../arkiv/index.html">Arkiv</a> · Nyheder for Kasper</footer>
+</div><script>(function(){var d=document.querySelector('nav.toc details');if(!d)return;var mq=matchMedia('(min-width:1000px)');
+function fit(){d.open=mq.matches?true:d.dataset.u==='1';}d.querySelector('summary').addEventListener('click',function(){d.dataset.u=d.open?'0':'1';});
+fit();mq.addEventListener&&mq.addEventListener('change',fit);
+var links={};d.querySelectorAll('a[href^="#"]').forEach(function(a){links[decodeURIComponent(a.getAttribute('href').slice(1))]=a;});
+var cur;function on(id){if(cur)cur.classList.remove('on');cur=links[id];if(cur){cur.classList.add('on');if(mq.matches&&cur.scrollIntoView){var r=cur.getBoundingClientRect(),p=d.parentNode.getBoundingClientRect();if(r.top<p.top||r.bottom>p.bottom)cur.scrollIntoView({block:'nearest'});}}}
+if(!('IntersectionObserver' in window))return;var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)on(e.target.id);});},{rootMargin:'-20% 0px -70% 0px'});
+Object.keys(links).forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el);});})();</script><script>(function(){var m=document.querySelector('main[data-date]');if(!m)return;
+var D=m.dataset.date,LATEST=m.dataset.latest==='1',K='nyheder-read-'+D,arts=[].slice.call(document.querySelectorAll('main article[id]')),N=arts.length;
+var ls=null;try{ls=window.localStorage;ls.getItem(K);}catch(_){ls=null;}
+var read={};try{(JSON.parse((ls&&ls.getItem(K))||'[]')||[]).forEach(function(i){read[i]=1;});}catch(_){}
+function save(){if(!ls)return;try{ls.setItem(K,JSON.stringify(Object.keys(read).map(Number).sort(function(a,b){return a-b;})));
+ var ks=[];for(var i=0;i<ls.length;i++){var k=ls.key(i);if(k&&k.indexOf('nyheder-read-')===0)ks.push(k);}ks.sort();while(ks.length>30)ls.removeItem(ks.shift());}catch(_){}}
+var toc={};document.querySelectorAll('nav.toc a[href^="#"]').forEach(function(a){toc[a.getAttribute('href').slice(1)]=a;});
+function paint(i){var a=toc[i];if(a){a.classList.add('read');var n=a.querySelector('.n');if(n)n.setAttribute('aria-label',i+', læst');}}
+function mark(i){i=String(i);if(read[i]||!document.getElementById(i))return;read[i]=1;save();paint(i);}
+Object.keys(read).forEach(function(i){paint(i);});
+Object.keys(toc).forEach(function(i){if(/^\d+$/.test(i))toc[i].addEventListener('click',function(){mark(i);});});
+/* Read = ~60 % of the story (or of the screen, for stories taller than it) visible for 3 s while the page is visible. */
+if('IntersectionObserver' in window){var tm={};
+ var th=[];for(var t=0;t<=20;t++)th.push(t/20);
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){var id=e.target.id;if(read[id])return;
+  var need=0.6*Math.min(e.boundingClientRect.height,(e.rootBounds&&e.rootBounds.height)||innerHeight);
+  var ok=e.isIntersecting&&e.intersectionRect.height>=need;
+  if(ok&&!tm[id])tm[id]=setTimeout(function(){tm[id]=0;if(document.visibilityState!=='hidden')mark(id);else io.unobserve(e.target),io.observe(e.target);},3000);
+  else if(!ok&&tm[id]){clearTimeout(tm[id]);tm[id]=0;}});},{threshold:th});
+ arts.forEach(function(a){if(!read[a.id])io.observe(a);});
+ document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden'){Object.keys(tm).forEach(function(id){if(tm[id]){clearTimeout(tm[id]);tm[id]=0;}});}
+  else{arts.forEach(function(a){if(!read[a.id]){io.unobserve(a);io.observe(a);}});}});}
+if(location.hash){var h=location.hash;addEventListener('load',function(){var el=document.getElementById(decodeURIComponent(h.slice(1)));if(el&&location.hash===h)setTimeout(function(){el.scrollIntoView();},60);});}
+})();</script><script>(function(){var ts=document.querySelectorAll('.term');if(!ts.length)return;
+function place(t){var p=t.querySelector('.term-pop');t.classList.remove('up');p.style.left='0px';p.style.display='block';
+var vw=document.documentElement.clientWidth,r=p.getBoundingClientRect(),dx=0;if(r.right>vw-12)dx=vw-12-r.right;if(r.left+dx<12)dx=12-r.left;
+p.style.left=dx+'px';var b=p.getBoundingClientRect();if(b.bottom>innerHeight-8&&t.getBoundingClientRect().top>b.height+24)t.classList.add('up');p.style.display='';}
+function close(x){ts.forEach(function(t){if(t!==x&&t.classList.contains('open')){t.classList.remove('open');t.querySelector('.term-btn').setAttribute('aria-expanded','false');}});}
+ts.forEach(function(t){var b=t.querySelector('.term-btn');t.addEventListener('mouseenter',function(){place(t);});b.addEventListener('focus',function(){place(t);});
+b.addEventListener('click',function(ev){ev.stopPropagation();var o=!t.classList.contains('open');close(t);if(o)place(t);t.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');});
+t.querySelector('.term-pop').addEventListener('click',function(ev){ev.stopPropagation();});});
+document.addEventListener('click',function(){close(null);});
+document.addEventListener('keydown',function(ev){if(ev.key==='Escape'){var a=document.activeElement;close(null);if(a&&a.classList.contains('term-btn'))a.blur();}});
+addEventListener('resize',function(){document.querySelectorAll('.term.open').forEach(place);});})();</script><script>(function(){var B='../';
+try{if('clearAppBadge' in navigator)Promise.resolve(navigator.clearAppBadge()).catch(function(){});}catch(_){}
+if(!('serviceWorker' in navigator))return;
+navigator.serviceWorker.register(B+'sw.js').then(function(r){
+ if(!r||!r.pushManager||!r.pushManager.getSubscription)return;
+ return r.pushManager.getSubscription().then(function(s){if(s)return s.unsubscribe();});}).catch(function(){});
+})();</script></body></html>
