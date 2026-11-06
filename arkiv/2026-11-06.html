@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="da"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111213" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Nyheder">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="../icons/favicon-64.png">
+<title>Nyheder · fredag 6. november 2026</title>
+<link rel="preload" href="../fonts/InterVariable.latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url("../fonts/InterVariable.latin.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-style:italic;font-weight:100 900;font-display:swap;src:url("../fonts/InterVariable-Italic.latin.woff2") format("woff2")}
+:root{--bg:#fbfaf7;--fg:#151515;--fg2:#2b2a27;--muted:#5b5850;--rule:#e2ddd2;--accent:#b8431a;--card:#fff;--link:#174f9c;--hl:#f3efe6}
+@media (prefers-color-scheme:dark){:root{--bg:#111213;--fg:#eeece7;--fg2:#d9d6cf;--muted:#a7a39a;--rule:#2e2d2a;--accent:#f59a62;--card:#1a1b1c;--link:#93bdf2;--hl:#1d1e20}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-padding-top:16px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size:18px;line-height:1.65;font-optical-sizing:auto;font-feature-settings:"cv11","ss01";-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px 64px}
+a{color:var(--link)}
+header.mast{text-align:center;border-bottom:1px solid var(--fg);padding:34px 0 16px;margin-bottom:22px}
+.mast h1{font-size:clamp(2.5rem,9vw,4.4rem);line-height:1;margin:0;letter-spacing:-.04em;font-weight:800}
+.mast h1 a{color:inherit;text-decoration:none}
+.mast .greet{font-size:.95rem;font-weight:500;line-height:1.3;letter-spacing:-.005em;color:var(--muted);margin:0 0 10px}
+.mast .greet[hidden]{display:none}
+.mast .meta{font-size:.74rem;font-weight:600;line-height:1.4;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-top:12px}
+.intro{font-size:1.06em;color:var(--fg2);margin:0 0 22px;line-height:1.6}
+.layout{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"intro" "toc" "main"}
+.layout>.intro{grid-area:intro}.layout>nav.toc{grid-area:toc}.layout>main{grid-area:main;min-width:0}
+nav.toc{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:4px 0;margin-bottom:28px;font-size:.9rem;line-height:1.4}
+nav.toc summary{cursor:pointer;list-style:none;padding:10px 0;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--accent)}
+nav.toc summary::-webkit-details-marker{display:none}
+nav.toc summary::after{content:" ▾";color:var(--muted)}nav.toc details[open] summary::after{content:" ▴"}
+nav.toc summary .cnt{color:var(--muted);font-weight:600;letter-spacing:.08em}
+nav.toc ol{list-style:none;margin:0 0 10px;padding:0}
+nav.toc li{margin:0}
+nav.toc a{display:flex;gap:10px;color:var(--fg);text-decoration:none;padding:7px 10px 7px 0;border-left:2px solid transparent}
+nav.toc a:hover .h{text-decoration:underline}
+nav.toc .n{flex:0 0 1.7em;text-align:right;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+nav.toc .t{display:block;font-size:.78em;color:var(--muted);margin-top:2px}
+nav.toc li.sec a .n{color:var(--accent)}
+nav.toc a.on{border-left-color:var(--accent);background:var(--hl)}nav.toc a.on .n,nav.toc a.on .h{color:var(--accent)}
+nav.toc a.read .n{color:var(--muted);opacity:.5;font-weight:500}nav.toc a.read:not(.on) .h{color:var(--muted)}
+h2.sect,.nyt h2,.radar>h2{font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;margin:6px 0 12px;color:var(--accent)}
+article{border-bottom:1px solid var(--rule);padding:4px 0 30px;margin-bottom:28px;scroll-margin-top:16px}
+.kick{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:.7rem;font-weight:700;line-height:1.5;text-transform:uppercase;letter-spacing:.1em}
+.num{background:var(--fg);color:var(--bg);border-radius:4px;padding:1px 7px;font-variant-numeric:tabular-nums}
+.tag{border:1px solid currentColor;border-radius:4px;padding:0 6px}
+.t-ai{color:#2563a8}.t-kode{color:#0b7480}.t-inv{color:#25784a}.t-sund{color:#9a6510}.t-ivk{color:#8e2a8e}.t-tank{color:#52529a}.t-egne{color:#a84b14}.t-verden{color:#4a5568}.t-frem{color:#6440b8}.t-crea{color:#b4185a}.t-samf{color:#7c6232}.t-dk{color:#b42828}.t-godt{color:#1f8a5b}
+@media (prefers-color-scheme:dark){.t-ai{color:#82b6f2}.t-kode{color:#62d2da}.t-inv{color:#72d19a}.t-sund{color:#f0c264}.t-ivk{color:#e391e3}.t-tank{color:#adadf2}.t-egne{color:#f2a676}.t-verden{color:#bac4d2}.t-frem{color:#bba2f6}.t-crea{color:#f594b6}.t-samf{color:#dcc390}.t-dk{color:#f28a8a}.t-godt{color:#7fe0b0}}
+.unc{background:#9a6510;color:#fff;border-radius:4px;padding:1px 6px}
+article h2{font-size:clamp(1.5rem,5.2vw,2.15rem);line-height:1.18;letter-spacing:-.022em;font-weight:750;margin:12px 0 10px;text-wrap:balance}
+.sum{font-size:1.1em;line-height:1.5;font-weight:500;color:var(--fg2);margin:0 0 16px}
+.body p{margin:0 0 1em}.body p:last-child{margin-bottom:14px}
+figure.fig{margin:4px 0 20px}
+figure.fig img{display:block;width:100%;height:auto;border-radius:8px;background:var(--hl)}
+figure.fig figcaption{font-size:.76rem;line-height:1.45;color:var(--muted);margin-top:7px}
+.src{font-size:.85rem;color:var(--muted)}
+.src a{font-weight:600}
+.extra{font-size:.85rem;margin:8px 0 0;padding-left:1.1em;color:var(--muted)}
+.video{position:relative;width:100%;aspect-ratio:16/9;margin:4px 0 20px;background:#000;border-radius:8px;overflow:hidden}
+.video.short{aspect-ratio:9/16;max-width:340px;margin-left:auto;margin-right:auto}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.xembed{margin:4px 0 20px;display:flex;justify-content:center}
+.car{position:relative;margin:4px 0 20px}
+.car-track{position:relative;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+  overscroll-behavior-x:contain;scrollbar-width:none;border-radius:8px;outline:none}
+.car-track::-webkit-scrollbar{display:none}
+.car-track:focus-visible{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--link)}
+.car-slide{flex:0 0 100%;min-width:0;margin:0;scroll-snap-align:start;scroll-snap-stop:always}
+.car-frame{position:relative;width:100%;aspect-ratio:16/9;background:var(--hl);border-radius:8px;overflow:hidden}
+.car-frame.v{background:#000}
+.car-frame img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain}
+.car-frame iframe,.car-frame video{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000}
+.car-frame.x{overflow-y:auto;-webkit-overflow-scrolling:touch;background:var(--hl)}
+.car-frame.x>*{margin:0 auto!important}.car-frame.x .twitter-tweet{max-width:100%}
+.vcap{font-size:.76rem;line-height:1.45;color:var(--muted);margin:-12px 0 20px}
+.car-slide figcaption{font-size:.76rem;line-height:1.45;color:var(--muted);margin-top:7px}
+.car-nav{position:absolute;left:0;right:0;top:0;aspect-ratio:16/9;pointer-events:none}
+.car-btn{position:absolute;top:50%;transform:translateY(-50%);pointer-events:auto;display:flex;align-items:center;justify-content:center;
+  width:40px;height:40px;padding:0;border:1px solid var(--rule);border-radius:50%;background:var(--card);color:var(--fg);cursor:pointer;
+  font:inherit;font-size:1.2rem;line-height:1;box-shadow:0 2px 10px rgba(0,0,0,.18);opacity:.92;transition:opacity .15s}
+.car-btn:hover{opacity:1}.car-btn:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+.car-btn[disabled]{opacity:0;pointer-events:none}
+.car-prev{left:10px}.car-next{right:10px}
+.car-bar{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:8px;font-size:.72rem;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums}
+.car-dots{display:flex;gap:2px}
+.car-dot{width:22px;height:22px;padding:7px;border:0;margin:0;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.car-dot::before{content:"";display:block;width:8px;height:8px;border-radius:50%;background:var(--rule)}
+.car-dot[aria-current="true"]::before{background:var(--accent)}
+.car-dot:focus-visible{outline:2px solid var(--link);outline-offset:-2px;border-radius:50%}
+@media (hover:none) and (pointer:coarse){.car-btn{display:none}}
+.nyt{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:16px 20px;margin:10px 0 28px;scroll-margin-top:16px}
+.nyt ul{margin:0;padding-left:1.1em}.nyt li{margin:8px 0}.nyt a{font-weight:600}
+.radar{margin:10px 0 28px;scroll-margin-top:16px}
+.radar>p.lede{font-size:.88rem;color:var(--muted);margin:0 0 12px}
+.rcard{background:var(--card);border:1px solid var(--rule);border-left:4px solid #8e2a8e;border-radius:10px;padding:14px 20px;margin:0 0 16px;scroll-margin-top:16px}
+@media (prefers-color-scheme:dark){.rcard{border-left-color:#e391e3}}
+.rcard h3{font-size:clamp(1.25rem,4vw,1.55rem);line-height:1.2;letter-spacing:-.018em;margin:8px 0 8px}
+.rcard h3 a{color:inherit;text-decoration:none}.rcard h3 a:hover{text-decoration:underline}
+.rcard dl{margin:0 0 8px}
+.rcard dt{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:12px}
+.rcard dd{margin:2px 0 0}
+.term{position:relative;display:inline}
+.term-btn{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;cursor:help;text-align:inherit;
+  text-decoration:underline dotted;text-decoration-color:var(--muted);text-decoration-thickness:1.5px;text-underline-offset:.22em;-webkit-tap-highlight-color:transparent}
+.term-btn:hover,.term.open .term-btn{text-decoration-color:var(--accent)}
+.term-btn:focus-visible{outline:2px solid var(--link);outline-offset:2px;border-radius:3px}
+.term .ti{display:none;align-items:center;justify-content:center;width:1.05em;height:1.05em;margin-left:.18em;vertical-align:.12em;
+  border:1.2px solid currentColor;border-radius:50%;font-size:.62em;font-weight:700;font-style:normal;line-height:1;color:var(--muted)}
+.term-btn:hover .ti,.term.open .ti{color:var(--accent)}
+.term-pop{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 10px);width:min(23rem,calc(100vw - 24px));
+  background:var(--card);color:var(--fg);border:1px solid var(--rule);border-radius:10px;padding:12px 14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.14),0 2px 6px rgba(0,0,0,.08);font-size:.8em;font-weight:400;line-height:1.55;text-align:left;white-space:normal;letter-spacing:0}
+.term-pop::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+.term.up .term-pop{top:auto;bottom:calc(100% + 10px)}.term.up .term-pop::before{top:auto;bottom:-12px}
+.term-pop strong{display:block;font-weight:700;margin-bottom:3px;color:var(--accent)}
+.term.open .term-pop,.term-btn:focus-visible+.term-pop{display:block}
+@media (hover:hover) and (pointer:fine){.term:hover .term-pop{display:block}}
+@media (prefers-color-scheme:dark){.term-pop{box-shadow:0 10px 30px rgba(0,0,0,.55);border-color:#3a3936}}
+.wrap{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right));padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+header.mast{padding-top:calc(34px + env(safe-area-inset-top))}
+footer{font-size:.8rem;color:var(--muted);text-align:center;padding-top:12px}
+footer .ed-no{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+ul.arkiv{list-style:none;padding:0}ul.arkiv li{border-bottom:1px solid var(--rule);padding:12px 0}
+ul.arkiv a{color:var(--fg);font-weight:700;text-decoration:none}ul.arkiv span{display:block;color:var(--muted);font-size:.92rem}
+@media (min-width:1000px){
+  body{font-size:20px}
+  .wrap{max-width:1260px;padding-left:max(40px,env(safe-area-inset-left));padding-right:max(40px,env(safe-area-inset-right));padding-bottom:calc(80px + env(safe-area-inset-bottom))}
+  .layout{grid-template-columns:290px minmax(0,70ch);grid-template-areas:"toc intro" "toc main";column-gap:64px;justify-content:center}
+  nav.toc{position:sticky;top:20px;align-self:start;max-height:calc(100vh - 40px);overflow:auto;border:0;margin:0;padding:0 4px 0 0;font-size:.78rem}
+  nav.toc summary{pointer-events:none;padding:4px 0 10px}nav.toc summary::after{content:none}
+  nav.toc a{padding:7px 10px 7px 6px}
+  .intro{margin-top:4px}
+}
+</style></head>
+<body><div class="wrap"><header class="mast"><p class="greet" id="greet" data-name="Kasper" aria-live="off" hidden></p><script>(function(){var g=document.getElementById('greet');if(!g)return;var N=g.getAttribute('data-name');
+function upd(){var h=new Date().getHours();
+ var t=h>=5&&h<10?'Godmorgen':h>=10&&h<12?'God formiddag':h>=12&&h<18?'God eftermiddag':'God aften';
+ t=N?t+', '+N:t;if(g.textContent!==t)g.textContent=t;g.hidden=false;}
+upd();addEventListener('pageshow',upd);addEventListener('focus',upd);
+document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')upd();});
+setInterval(function(){if(document.visibilityState==='visible')upd();},60000);
+})();</script><h1><a href="../index.html">Nyheder</a></h1><div class="meta">fredag 6. november 2026</div></header>
+<div class="layout">
+<p class="intro">Efter midtvejsvalget i USA styrtede AI-aktierne, mens falske bombetrusler ramte flere end 30 fly i Europa. Derudover: Claude får bankkontoadgang, Cursor lader dig publicere apps med ét link, og 3.000 taranteller i beskidte sokker.</p>
+<nav class="toc" aria-label="Indhold"><details open><summary>Indhold <span class="cnt">· 12 historier</span></summary><ol>
+<li><a href="#1"><span class="n">1</span><span><span class="h">Falske bombetrusler ramte mindst 34 fly i Europa – også en Ryanair-maskine fra København</span><span class="t">Verden</span></span></a></li>
+<li><a href="#2"><span class="n">2</span><span><span class="h">Nasdaq faldt 5,5 % – værste dag i 19 måneder – da AI-aktierne kollapsede</span><span class="t">Investering</span></span></a></li>
+<li><a href="#3"><span class="n">3</span><span><span class="h">Tesla og SpaceX mistede over 420 milliarder dollar på to dage</span><span class="t">Investering</span></span></a></li>
+<li><a href="#4"><span class="n">4</span><span><span class="h">Claude får Personal Finance: forbind banken via Plaid – kun læseadgang</span><span class="t">AI &amp; tech</span></span></a></li>
+<li><a href="#5"><span class="n">5</span><span><span class="h">Cursor: byg live-apps og del dem med et link</span><span class="t">AI-kodning</span></span></a></li>
+<li><a href="#6"><span class="n">6</span><span><span class="h">OpenAI-præsident: Vi kan være klar til børsnotering i 2027</span><span class="t">Investering</span></span></a></li>
+<li><a href="#7"><span class="n">7</span><span><span class="h">OpenSSH-hul på Alpine: for langt password kan give login på »låste« konti</span><span class="t">AI &amp; tech</span></span></a></li>
+<li><a href="#8"><span class="n">8</span><span><span class="h">Syed Balkhi køber Drip: e-mail- og SMS-platformen bliver del af Awesome Motive</span><span class="t">Iværksætteri</span></span></a></li>
+<li><a href="#9"><span class="n">9</span><span><span class="h">Meta, Google og TikTok sagsøger Californien over lov mod »vanedannende« teen-feeds</span><span class="t">Creatorøkonomi</span></span></a></li>
+<li><a href="#10"><span class="n">10</span><span><span class="h">ElevenLabs bliver første AI-selskab i musikstandard-organisationen DDEX</span><span class="t">Musik</span></span></a></li>
+<li><a href="#11"><span class="n">11</span><span><span class="h">Naval: Fremskridt kommer fra teknologi, der er svær at bygge</span><span class="t">Tænkning</span></span></a></li>
+<li><a href="#12"><span class="n">12</span><span><span class="h">3.000 taranteller smuglet i beskidte sokker – på vej til Tyskland for 1,5 mio. euro</span><span class="t">Sjovt</span></span></a></li>
+<li class="sec"><a href="#nyt"><span class="n">+</span><span><span class="h">Nyt til dig</span></span></a></li>
+</ol></details></nav><main data-date="2026-11-06" data-total="12" data-latest="1">
+<article id="1"><div class="kick"><span class="num">1</span><span class="tag t-verden">Verden</span></div><h2>Falske bombetrusler ramte mindst 34 fly i Europa – også en Ryanair-maskine fra København</h2><p class="sum">Torsdagens bølge af truende e-mails og opkald tvang nødlandinger og omdirigeringer i mindst 16 lande; alle fly landede sikkert, og der blev ikke fundet sprængstof.</p>
+<figure class="fig"><img src="../img/2026-11-06/bombetrusler2.jpg" alt="Passagerfly på landingsbane med redningskøretøjer" loading="lazy" decoding="async" width="1200" height="675"><figcaption>Billede: RTÉ</figcaption></figure>
+<div class="body"><p>Ifølge The Guardian blev mindst 34 fly ramt torsdag – blandt andet Ryanair, Aer Lingus, Wizz Air, Finnair, easyJet og LOT. To Ryanair-fly fra København og Madrid nødlandede i Sofia. Truslerne ramte også Heathrow, Birmingham og Cork.</p><p>Det er anden bølge på få dage: tirsdag blev syv fly undersøgt eller omdirigeret, og i alt er mindst 33–34 fly ramt denne uge. E-mails til lufthavnene i Rom og Sofia var ifølge AFP underskrevet »fighters of the Male State«, en russisk yderligtgående bevægelse; grundlæggeren har ikke taget ansvar, og efterforskerne siger, der stadig ikke er bevis for en statsaktør.</p><p>EU’s transportkommissær kaldte trusler mod civile uacceptable. Iata opfordrede myndighederne til at finde afsenderne. Eurocontrol noterer, at de berørte fly er en brøkdel af de omkring 27.400 flyvninger i Europa torsdag.</p></div>
+<p class="src">Kilde: The Guardian · <a href="https://www.theguardian.com/world/2026/nov/05/bomb-threats-disrupt-flights-across-europe-and-renew-hybrid-warfare-fears" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.rte.ie/news/europe/2026/1105/1598073-europe-flight-threats/" rel="noopener">RTÉ: Aer Lingus blandt 27 fly ramt af bombetrusler</a></li><li><a href="https://borsen.dk/nyheder/samfund/europaeiske-fly-ramt-af-en-byge-af-trusler" rel="noopener">Børsen: Europæiske fly ramt af en byge af trusler</a></li></ul>
+</article>
+<article id="2"><div class="kick"><span class="num">2</span><span class="tag t-inv">Investering</span></div><h2>Nasdaq faldt 5,5 % – værste dag i 19 måneder – da AI-aktierne kollapsede</h2><p class="sum">Nvidia og Qualcomm tabte over 9 %, mens chipproducenter og datacenteraktier blev ramt af frygt for strammere AI-regulering efter Demokraternes midtvejssejr.</p>
+<figure class="fig"><img src="../img/2026-11-06/nasdaq.jpg" alt="Nvidia-stand på teknologimesse" loading="lazy" decoding="async" width="1200" height="675"><figcaption>Billede: CNBC</figcaption></figure>
+<div class="body"><p>Nasdaq Composite faldt 5,5 % torsdag, det stejleste fald siden april 2025, skriver CNBC. Nvidia mistede næsten 450 milliarder dollar i markedsværdi på én dag; AMD, Micron og Applied Materials faldt alle tocifret i procent.</p><p>Investorerne reagerede på, at Demokraterne vandt Kongressen, og at 40 ud af 41 lokale afstemninger om datacentre gik imod nybyggeri. Meta-præsident Dina Powell McCormick sagde på en Wall Street Journal-konference, at det bliver »sværere« at bygge datacentre efter valget.</p><p>Qualcomm trak også ned med en skuffende prognose, selvom datacenteromsætningen voksede. <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-2-1" aria-describedby="term-2-1">Hyperscalerne<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-2-1" role="tooltip"><strong>Hyperscalerne</strong> De største cloud- og tech-giganter, der bygger enorme datacentre – her Alphabet, Amazon, Meta og Microsoft. Deres aktier faldt 2–4 %, mens rene chipaktier faldt langt mere.</span></span> Alphabet, Amazon, Meta og Microsoft faldt 2–4 %. Børsen citerer investorer for, at »AI-boomet har lidt et knæk«.</p></div>
+<p class="src">Kilde: CNBC · <a href="https://www.cnbc.com/2026/11/05/qualcomm-earnings-chip-stocks-election.html" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://borsen.dk/nyheder/investor/investorer-reagerer-pa-massive-kursfald-ai-boomet-har-lidt-et-knaek" rel="noopener">Børsen: Investorer reagerer på massive kursfald</a></li></ul>
+</article>
+<article id="3"><div class="kick"><span class="num">3</span><span class="tag t-inv">Investering</span></div><h2>Tesla og SpaceX mistede over 420 milliarder dollar på to dage</h2><p class="sum">Efter Demokraternes sejre i Texas og Kongressen faldt Tesla omkring 11 % og SpaceX omkring 9 % torsdag – investorer forventer undersøgelser og strammere datacenter-regler.</p>
+<figure class="fig"><img src="../img/2026-11-06/musk-stocks.jpg" alt="Elon Musk i jakkesæt" loading="lazy" decoding="async" width="1200" height="675"><figcaption>Billede: Kent Nishimura/AFP via CNBC</figcaption></figure>
+<div class="body"><p>Ifølge CNBC mistede Tesla og SpaceX tilsammen over 420 milliarder dollar i markedsværdi fra tirsdagens lukning til torsdag – omkring 456 milliarder ved børslukning. Musk var den største republikanske donor med over 470 millioner dollar; de fleste kandidater, han støttede, tabte.</p><p>I Texas, hvor begge selskaber har hovedkvarter, vandt demokraterne senats- og guvernørposten. Den kommende guvernør Gina Hinojosa har lovet pause i nye datacenter-godkendelser, indtil der er strengere regler for vand, strøm og lokal kontrol. Deutsche Bank advarer om forsinkelser for SpaceX’ Texas-compute og Terafab-planen i Grimes County.</p><p>Demokratiske senatorer har ifølge CNN bedt SpaceX bevare dokumenter om begrænsninger af Starlink i Ukraine. En fusion mellem SpaceX og Tesla ser også mere usikker ud under demokratisk kongreskontrol.</p></div>
+<p class="src">Kilde: CNBC · <a href="https://www.cnbc.com/2026/11/05/tesla-spacex-stocks-fall-after-2026-midterms.html" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://borsen.dk/nyheder/udland/musk-taber-220-mia-kr-efter-valget" rel="noopener">Børsen: Musk taber 220 mia. kr. efter valget</a></li></ul>
+</article>
+<article id="4"><div class="kick"><span class="num">4</span><span class="tag t-ai">AI &amp; tech</span></div><h2>Claude får Personal Finance: forbind banken via Plaid – kun læseadgang</h2><p class="sum">Anthropic ruller en amerikansk beta ud på Pro-, Max- og Ultra-abonnementerne, hvor Claude kan svare på penge-spørgsmål ud fra dine egne konti.</p>
+<div class="body"><p>Med Personal Finance kan man forbinde bank-, kort-, lån- og investeringskonti gennem <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-4-1" aria-describedby="term-4-1">Plaid<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-4-1" role="tooltip"><strong>Plaid</strong> En tjeneste, der forbinder apps sikkert til banker. Du logger ind hos banken via Plaid, så Claude ikke ser din adgangskode – kun de data, du godkender.</span></span> og spørge på almindeligt sprog – for eksempel »Hvor blev pengene af i denne måned?«. Claude summerer forbrug på tværs af konti, finder abonnementer, flagger dobbeltopkrævninger og forklarer begreber som <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-4-2" aria-describedby="term-4-2">APR<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-4-2" role="tooltip"><strong>APR</strong> Årlige omkostninger i procent på et lån eller kreditkort (Annual Percentage Rate). Claude kan forklare begrebet og lægge den rente sammen, du har betalt i perioden.</span></span>.</p><p>Adgangen er kun læseadgang: Claude kan ikke flytte, styre eller investere penge, ser ikke bankadgangskoden og får ifølge Anthropic banknavn, kontotype, de sidste fire cifre, saldi og op til to års transaktioner. Samtaler i Personal Finance-hubben bruges ikke til modeltræning.</p><p>Funktionen rulles gradvist ud i USA på Pro, Max og Ultra – ikke på Free, Team eller Enterprise. OpenAI lancerede en lignende ChatGPT-funktion i maj.</p></div>
+<p class="src">Kilde: Anthropic · <a href="https://claude.com/resources/articles/introducing-personal-finance-in-claude" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://techcrunch.com/2026/11/05/claude-can-now-analyze-your-spending-with-its-new-personal-finance-tool/" rel="noopener">TechCrunch: Claude kan analysere dit forbrug</a></li><li><a href="https://www.theverge.com/ai-artificial-intelligence/1027652/anthropic-claude-plaid-personal-finance" rel="noopener">The Verge: Claude kobles direkte på bankkontoen</a></li></ul>
+</article>
+<article id="5"><div class="kick"><span class="num">5</span><span class="tag t-kode">AI-kodning</span></div><h2>Cursor: byg live-apps og del dem med et link</h2><p class="sum">En cloud-agent kan nu sætte webapp, database, login og hosting op – og publicerer først, når sikkerhedstjek er bestået.</p>
+<div class="body"><p>Cursor skriver i sit changelog 5. november, at de fleste apps aldrig kommer væk fra localhost. Med Build Live Apps beskriver man værktøjet, og agenten bygger webappen, opretter om nødvendigt en Postgres-database, sætter autentificering bag Cursor-login og deployer hosting.</p><p>Ved publicering vælger man et domæne. Cursor kører både faste og agentbaserede sikkerhedstjek for blandt andet hemmeligheder i filer; intet går live, før tjekkene består, og man aktivt publicerer. Team-admins kan se alle apps og hemmeligheder, tilføje egne regler og afpublicere.</p><p>Man kan dele med udvalgte personer, hele teamet eller – på individuelle planer – offentligt. Funktionen kræver betalt plan med cloud-agenter og virker fra nye eller eksisterende repos på Cursor Origin og GitHub.</p></div>
+<p class="src">Kilde: Cursor · <a href="https://cursor.com/changelog/build-live-apps" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://cursor.com/docs/cloud-agent/apps" rel="noopener">Cursor-dokumentation: Apps</a></li></ul>
+</article>
+<article id="6"><div class="kick"><span class="num">6</span><span class="tag t-inv">Investering</span></div><h2>OpenAI-præsident: Vi kan være klar til børsnotering i 2027</h2><p class="sum">Greg Brockman siger på en Wall Street Journal-konference, at enterprise-omsætningen nu er hovedparten, efter 70 % kvartalsvækst i <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-6-1" aria-describedby="term-6-1">annualiseret omsætning<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-6-1" role="tooltip"><strong>annualiseret omsætning</strong> Omsætning omregnet til årsrate ud fra den aktuelle periode. En vækst på 70 % kvartal-over-kvartal i den annualiserede omsætning betyder, at tempoet i indtjeningen er steget kraftigt på tre måneder.</span></span> i tredje kvartal.</p>
+<figure class="fig"><img src="../img/2026-11-06/brockman.jpg" alt="Greg Brockman taler på TechCrunch-scene" loading="lazy" decoding="async" width="1200" height="800"><figcaption>Billede: TechCrunch</figcaption></figure>
+<div class="body"><p>»I think so. Yes,« svarede Brockman, da han blev spurgt, om OpenAI er <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-6-2" aria-describedby="term-6-2">IPO<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-6-2" role="tooltip"><strong>IPO</strong> Børsnotering (Initial Public Offering), hvor et privat selskab sælger aktier til offentligheden. Brockman mener, OpenAI kan være klar i 2027.</span></span>-klar næste år, skriver TechCrunch. Han siger, at første og andet kvartal var »pretty rough«, og at OpenAI »ikke engang var i samtalen« om agentisk kodning, mens Claude Code vandt terræn.</p><p>I tredje kvartal voksede den annualiserede omsætning 70 % kvartal-over-kvartal, drevet af at enterprise-siden fordobledes. Enterprise står nu for størstedelen af omsætningen – tidligere omkring 30 %. Forbrugeromsætningen vokser stadig, men enterprise er steget hurtigere.</p><p>Brockman fremhæver blandt andet et partnerskab med JPMorgan Chase og siger, at OpenAI for et år siden blev opfattet som et forbrugerselskab, mens kunder nu spørger mindre til, om selskabet er committed til enterprise.</p></div>
+<p class="src">Kilde: TechCrunch · <a href="https://techcrunch.com/2026/11/05/openai-president-greg-brockman-says-company-could-be-ipo-ready-in-2027/" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="7"><div class="kick"><span class="num">7</span><span class="tag t-ai">AI &amp; tech</span></div><h2>OpenSSH-hul på Alpine: for langt password kan give login på »låste« konti</h2><p class="sum">Sårbarheden »sshhole« findes siden 2016 på musl-baserede systemer; forskeren fandt den med AI-agenter, der kørte omkring 17.600 login-tests.</p>
+<div class="body"><p>Hvis OpenSSH kører på Alpine Linux (eller andre musl-systemer) uden PAM, password-login er slået til, og en konto har * i stedet for hash i /etc/shadow, kan en angriber logge ind ved at sende et password på 257–1024 bytes, skriver BleepingComputer.</p><p>Fejlen skyldes, at både den »låste« konto og musl’s crypt() returnerer *, når hashing fejler – så OpenSSH tror, passwordet matcher. Konti med rigtige hashes er ikke ramt. Alpine’s cloud-images har en »alpine«-bruger med passwordløs doas, som kan give root.</p><p>Rettes i OpenSSH 10.6p2; midlertidig mitigerering er PasswordAuthentication no. Debian, Ubuntu og Fedora (glibc/PAM) er ikke sårbare. Opdagelsen kom fra AI-drevne tests af forskellige konfigurationer.</p></div>
+<p class="src">Kilde: BleepingComputer · <a href="https://www.bleepingcomputer.com/news/security/openssh-flaw-lets-attackers-log-into-password-disabled-linux-accounts/" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.alpinelinux.org/posts/2026-11-05-openssh-password-authentication-bypass/" rel="noopener">Alpine Linux security advisory</a></li><li><a href="https://www.theregister.com/security/2026/11/05/get-root-on-a-musl-linux-system-by-slamming-it-with-an-overly-long-password/5307910" rel="noopener">The Register: Get root med for langt password</a></li></ul>
+</article>
+<article id="8"><div class="kick"><span class="num">8</span><span class="tag t-ivk">Iværksætteri</span></div><h2>Syed Balkhi køber Drip: e-mail- og SMS-platformen bliver del af Awesome Motive</h2><p class="sum">WPBeginner Growth Fund overtager Drip og Sleeknote; over 6.000 brands bruger Drip, og kunderne har tilskrevet platformen over 1,5 milliarder dollar i omsætning.</p>
+<div class="body"><p>Awesome Motive-stifter Syed Balkhi meddelte 5. november, at fonden har købt Drip – e-mail- og SMS-automation til små virksomheder – samt konverteringsværktøjet Sleeknote. Drip blev lanceret i 2012 af Rob Walling og har blandt andet Shopify-, WooCommerce- og Stripe-integrationer plus en <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-8-1" aria-describedby="term-8-1">MCP<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-8-1" role="tooltip"><strong>MCP</strong> Model Context Protocol – en standard, der lader AI-assistenter som Claude og ChatGPT hente data og værktøjer fra en tjeneste. Her kan Drip-kunder lade AI’en læse resultater og hjælpe med kampagner.</span></span>, så Claude og ChatGPT kan analysere resultater og skrive kampagner.</p><p>Drip og Sleeknote fortsætter som selvstændige brands under CEO Mogens Møller, med uændret service for kunderne. Awesome Motives egne e-mail-teams skal arbejde tættere på AI-funktioner og integrationer til WPForms og MemberPress.</p><p>Over 30 millioner websites bruger allerede WPBeginner-familiens værktøjer. Rob Walling skrev på X, at han er glad for, at cirklen sluttes: Balkhi var tidlig Drip-kunde og affiliate.</p></div>
+<p class="src">Kilde: Awesome Motive · <a href="https://www.prnewswire.com/news-releases/awesome-motive-backed-wpbeginner-growth-fund-acquires-drip--sleeknote-an-email-sms-and-onsite-marketing-platform-for-small-businesses-302930844.html" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.drip.com/blog/drip-joins-awesome-motive" rel="noopener">Drip: Vi bliver en del af Awesome Motive</a></li><li><a href="https://x.com/robwalling/status/2118423046486671513" rel="noopener">Rob Walling på X om opkøbet</a></li></ul>
+</article>
+<article id="9"><div class="kick"><span class="num">9</span><span class="tag t-crea">Creatorøkonomi</span></div><h2>Meta, Google og TikTok sagsøger Californien over lov mod »vanedannende« teen-feeds</h2><p class="sum">AB 1709 forbyder autoplay og personlige feeds for under 16-årige fra nytår – med bøder på op til 50.000 dollar pr. berørt bruger, hvis platformene ikke retter ind.</p>
+<figure class="fig"><img src="../img/2026-11-06/teen-law.jpg" alt="Smartphone med mappe af sociale medie-apps" loading="lazy" decoding="async" width="1200" height="800"><figcaption>Billede: Anna Barclay/Getty via TechCrunch</figcaption></figure>
+<div class="body"><p>Loven, underskrevet af guvernør Gavin Newsom i september, kræver også, at platformene sletter konti for under 16-årige, der ikke slår funktionerne fra. Meta, Google og TikTok har hver især sagsøgt attorney general Rob Bonta og hævder, at loven krænker ytringsfriheden og brydes af <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-9-1" aria-describedby="term-9-1">Section 230<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-9-1" role="tooltip"><strong>Section 230</strong> En amerikansk lovparagraf, der som udgangspunkt beskytter platforme mod ansvar for brugernes indhold. Selskaberne mener, at Californiens lov forsøger at omgå den beskyttelse.</span></span>.</p><p>TikTok kalder det en »blatantly unconstitutional« indskrænkning af indholdskuration, som også boghandlere og streaming bruger. EFF advarer om, at loven tvinger platformene til at indsamle mere alderdata fra alle brugere.</p><p>Google siger, at autoplay allerede er slået fra for mindreårige på YouTube som standard. Australien forbød sociale medier for under 16 i december 2025; en lignende fransk lov blev underkendt. Bontas kontor siger, at de vil forsvare »commonsense laws to protect kids online«.</p></div>
+<p class="src">Kilde: TechCrunch · <a href="https://techcrunch.com/2026/11/05/meta-google-and-tiktok-sue-california-ag-over-teen-social-media-law/" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.tubefilter.com/2026/11/05/google-meta-tiktok-california-lawsuit-ab-1709/" rel="noopener">Tubefilter: Google, Meta og TikTok sagsøger Californien</a></li></ul>
+</article>
+<article id="10"><div class="kick"><span class="num">10</span><span class="tag t-egne">Musik</span></div><h2>ElevenLabs bliver første AI-selskab i musikstandard-organisationen DDEX</h2><p class="sum">Stemme- og audiovirksomheden får fuldt medlemskab blandt over 150 pladeselskaber, <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-10-1" aria-describedby="term-10-1">DSP<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-10-1" role="tooltip"><strong>DSP</strong> Digital Service Provider – streamingtjenester og andre digitale musikplatforme som Spotify og Apple Music, der udveksler metadata og rettighedsoplysninger via DDEX-standarder.</span></span>’er og rettighedsorganisationer – og skal hjælpe med AI-datastandarder.</p>
+<div class="body"><p>DDEX, der standardiserer dataudveksling i musikindustrien, meddelte 5. november, at ElevenLabs er fuldt medlem. Sekretariatets Mark Isherwood siger, at ElevenLabs’ indsigt i AI-musikmarkedet skal bruges, mens ElevenLabs får indblik i hele værdikædens krav.</p><p>DDEX’ AI Working Group holdt sit første fysiske møde i Nashville i september. Et udkast til Generative AI Declaration Standard (GAI-D) er netop færdig med medlemskommentarer og skal peer-reviewes med henblik på offentliggørelse i starten af 2027.</p><p>Blandt DDEX-medlemmerne er Amazon, Apple, Spotify, Universal, Sony, Warner, Meta, Google, ASCAP, BMI og GEMA. Medlemskab er ikke nødvendigt for at bruge standarderne, men giver stemme i udviklingen.</p></div>
+<p class="src">Kilde: DDEX · <a href="https://ddex.net/ddex-announces-elevenlabs-as-first-ai-company-to-join-membership/" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="11"><div class="kick"><span class="num">11</span><span class="tag t-tank">Tænkning</span></div><h2>Naval: Fremskridt kommer fra teknologi, der er svær at bygge</h2><p class="sum">Investoren skrev, at reel fremgang stammer fra konkurrencepræget, kreativ kapitalisme i et lille, sårbart område – og at den ideelle passive portefølje er mange asymmetriske langsigtede væddemål.</p>
+<div class="body"><p>»Actual progress comes from hard-to-build technology. Which comes from competitive, creative, free-market capitalism. Which comes from one small, precarious area and then diffuses to the rest of the world. Snuff that out, and it’s global stagnation for an extremely long time,« skrev Naval Ravikant på X 5. november.</p><p>Samme aften fulgte han op: »The ideal passive portfolio is a broad collection of highly asymmetric long-term bets.« Opslaget om fremskridt fik omkring 5.000 likes; portefølje-opslaget omkring 4.000.</p><p>Budskabet lander midt i en uge, hvor AI-aktierne er faldet kraftigt, og politikere taler om at bremse AI-udbygningen.</p></div>
+<p class="src">Kilde: Naval Ravikant / X · <a href="https://x.com/naval/status/2118479933530063135" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://x.com/naval/status/2118496171773886827" rel="noopener">Naval: Idealet for en passiv portefølje</a></li></ul>
+</article>
+<article id="12"><div class="kick"><span class="num">12</span><span class="tag t-godt">Sjovt</span></div><h2>3.000 taranteller smuglet i beskidte sokker – på vej til Tyskland for 1,5 mio. euro</h2><p class="sum">Toldere i Lima opdagede, at noget bevægede sig i tre kufferter båret af to tyskere og en polak; edderkopperne kunne sælges for omkring 500 euro stykket i Europa.</p>
+<figure class="fig"><img src="../img/2026-11-06/tarantulas.jpg" alt="Tarantel i plastbeholder efter beslaglæggelse i Lima" loading="lazy" decoding="async" width="1200" height="630"><figcaption>Billede: SERFOR/AFP via The Guardian</figcaption></figure>
+<div class="body"><p>Perus skov- og vildtmyndighed Serfor fortalte AFP, at agenternes opmærksomhed blev fanget under et rutinetjek i Jorge Chávez-lufthavnen, fordi noget »vrimlede« i bagagen. »Vi så, at nogle af dem bevægede sig. Der var både små og store,« siger tekniker Cora Suarez.</p><p>Tarantellerne – fra æg og unger til voksne – stammede fra flere regioner i Peru og var gemt i beskidte sokker. De tre europæere er anholdt af miljøkriminalitetsenheden.</p><p>Ulovlig handel med vilde dyr indbringer ifølge Interpol omkring 20 milliarder dollar om året globalt og er en af hovedårsagerne til tab af biodiversitet.</p></div>
+<p class="src">Kilde: The Guardian / AFP · <a href="https://www.theguardian.com/world/2026/nov/06/3000-tarantulas-smuggled-inside-dirty-socks-peru" rel="noopener">Læs mere →</a></p>
+</article>
+<section class="nyt" id="nyt"><h2>Nyt til dig</h2><ul>
+<li><a href="https://sifted.eu" rel="noopener">Sifted</a> – Det førende europæiske mediehuset for startup- og venturestof – dækker founders, funding og exits uden for Silicon Valley.</li>
+<li><a href="https://www.latent.space" rel="noopener">Latent Space</a> – Et af de mest læste AI-engineering-nyhedsbreve/podcasts, med dybe interviews om modeller, infra og AI-kodningsværktøjer.</li>
+<li><a href="https://www.theregister.com" rel="noopener">The Register</a> – Britisk tech-medie med stærk, ofte knivskarp dækning af sikkerhed, open source og infrastruktur – fx OpenSSH-sårbarheder.</li>
+<li><a href="https://review.firstround.com" rel="noopener">First Round Review</a> – Langformede, praktiske essays fra erfarne founders og investorer om at bygge og skalere startups.</li>
+</ul></section>
+</main></div>
+<footer><div class="ed-no">Udgave nr. 10</div><a href="../index.html">Seneste udgave</a> · <a href="../arkiv/index.html">Arkiv</a> · Nyheder for Kasper</footer>
+</div><script>(function(){var d=document.querySelector('nav.toc details');if(!d)return;var mq=matchMedia('(min-width:1000px)');
+function fit(){d.open=mq.matches?true:d.dataset.u==='1';}d.querySelector('summary').addEventListener('click',function(){d.dataset.u=d.open?'0':'1';});
+fit();mq.addEventListener&&mq.addEventListener('change',fit);
+var links={};d.querySelectorAll('a[href^="#"]').forEach(function(a){links[decodeURIComponent(a.getAttribute('href').slice(1))]=a;});
+var cur;function on(id){if(cur)cur.classList.remove('on');cur=links[id];if(cur){cur.classList.add('on');if(mq.matches&&cur.scrollIntoView){var r=cur.getBoundingClientRect(),p=d.parentNode.getBoundingClientRect();if(r.top<p.top||r.bottom>p.bottom)cur.scrollIntoView({block:'nearest'});}}}
+if(!('IntersectionObserver' in window))return;var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)on(e.target.id);});},{rootMargin:'-20% 0px -70% 0px'});
+Object.keys(links).forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el);});})();</script><script>(function(){var m=document.querySelector('main[data-date]');if(!m)return;
+var D=m.dataset.date,LATEST=m.dataset.latest==='1',K='nyheder-read-'+D,arts=[].slice.call(document.querySelectorAll('main article[id]')),N=arts.length;
+var ls=null;try{ls=window.localStorage;ls.getItem(K);}catch(_){ls=null;}
+var read={};try{(JSON.parse((ls&&ls.getItem(K))||'[]')||[]).forEach(function(i){read[i]=1;});}catch(_){}
+function save(){if(!ls)return;try{ls.setItem(K,JSON.stringify(Object.keys(read).map(Number).sort(function(a,b){return a-b;})));
+ var ks=[];for(var i=0;i<ls.length;i++){var k=ls.key(i);if(k&&k.indexOf('nyheder-read-')===0)ks.push(k);}ks.sort();while(ks.length>30)ls.removeItem(ks.shift());}catch(_){}}
+var toc={};document.querySelectorAll('nav.toc a[href^="#"]').forEach(function(a){toc[a.getAttribute('href').slice(1)]=a;});
+function paint(i){var a=toc[i];if(a){a.classList.add('read');var n=a.querySelector('.n');if(n)n.setAttribute('aria-label',i+', læst');}}
+function mark(i){i=String(i);if(read[i]||!document.getElementById(i))return;read[i]=1;save();paint(i);}
+Object.keys(read).forEach(function(i){paint(i);});
+Object.keys(toc).forEach(function(i){if(/^\d+$/.test(i))toc[i].addEventListener('click',function(){mark(i);});});
+/* Read = ~60 % of the story (or of the screen, for stories taller than it) visible for 3 s while the page is visible. */
+if('IntersectionObserver' in window){var tm={};
+ var th=[];for(var t=0;t<=20;t++)th.push(t/20);
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){var id=e.target.id;if(read[id])return;
+  var need=0.6*Math.min(e.boundingClientRect.height,(e.rootBounds&&e.rootBounds.height)||innerHeight);
+  var ok=e.isIntersecting&&e.intersectionRect.height>=need;
+  if(ok&&!tm[id])tm[id]=setTimeout(function(){tm[id]=0;if(document.visibilityState!=='hidden')mark(id);else io.unobserve(e.target),io.observe(e.target);},3000);
+  else if(!ok&&tm[id]){clearTimeout(tm[id]);tm[id]=0;}});},{threshold:th});
+ arts.forEach(function(a){if(!read[a.id])io.observe(a);});
+ document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden'){Object.keys(tm).forEach(function(id){if(tm[id]){clearTimeout(tm[id]);tm[id]=0;}});}
+  else{arts.forEach(function(a){if(!read[a.id]){io.unobserve(a);io.observe(a);}});}});}
+if(location.hash){var h=location.hash;addEventListener('load',function(){var el=document.getElementById(decodeURIComponent(h.slice(1)));if(el&&location.hash===h)setTimeout(function(){el.scrollIntoView();},60);});}
+})();</script><script>(function(){var ts=document.querySelectorAll('.term');if(!ts.length)return;
+function place(t){var p=t.querySelector('.term-pop');t.classList.remove('up');p.style.left='0px';p.style.display='block';
+var vw=document.documentElement.clientWidth,r=p.getBoundingClientRect(),dx=0;if(r.right>vw-12)dx=vw-12-r.right;if(r.left+dx<12)dx=12-r.left;
+p.style.left=dx+'px';var b=p.getBoundingClientRect();if(b.bottom>innerHeight-8&&t.getBoundingClientRect().top>b.height+24)t.classList.add('up');p.style.display='';}
+function close(x){ts.forEach(function(t){if(t!==x&&t.classList.contains('open')){t.classList.remove('open');t.querySelector('.term-btn').setAttribute('aria-expanded','false');}});}
+ts.forEach(function(t){var b=t.querySelector('.term-btn');t.addEventListener('mouseenter',function(){place(t);});b.addEventListener('focus',function(){place(t);});
+b.addEventListener('click',function(ev){ev.stopPropagation();var o=!t.classList.contains('open');close(t);if(o)place(t);t.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');});
+t.querySelector('.term-pop').addEventListener('click',function(ev){ev.stopPropagation();});});
+document.addEventListener('click',function(){close(null);});
+document.addEventListener('keydown',function(ev){if(ev.key==='Escape'){var a=document.activeElement;close(null);if(a&&a.classList.contains('term-btn'))a.blur();}});
+addEventListener('resize',function(){document.querySelectorAll('.term.open').forEach(place);});})();</script><script>(function(){var B='../';
+try{if('clearAppBadge' in navigator)Promise.resolve(navigator.clearAppBadge()).catch(function(){});}catch(_){}
+if(!('serviceWorker' in navigator))return;
+navigator.serviceWorker.register(B+'sw.js').then(function(r){
+ if(!r||!r.pushManager||!r.pushManager.getSubscription)return;
+ return r.pushManager.getSubscription().then(function(s){if(s)return s.unsubscribe();});}).catch(function(){});
+})();</script></body></html>
