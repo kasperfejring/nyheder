@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="da"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111213" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Nyheder">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="../icons/favicon-64.png">
+<title>Nyheder · lørdag 7. november 2026</title>
+<link rel="preload" href="../fonts/InterVariable.latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url("../fonts/InterVariable.latin.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-style:italic;font-weight:100 900;font-display:swap;src:url("../fonts/InterVariable-Italic.latin.woff2") format("woff2")}
+:root{--bg:#fbfaf7;--fg:#151515;--fg2:#2b2a27;--muted:#5b5850;--rule:#e2ddd2;--accent:#b8431a;--card:#fff;--link:#174f9c;--hl:#f3efe6}
+@media (prefers-color-scheme:dark){:root{--bg:#111213;--fg:#eeece7;--fg2:#d9d6cf;--muted:#a7a39a;--rule:#2e2d2a;--accent:#f59a62;--card:#1a1b1c;--link:#93bdf2;--hl:#1d1e20}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-padding-top:16px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size:18px;line-height:1.65;font-optical-sizing:auto;font-feature-settings:"cv11","ss01";-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px 64px}
+a{color:var(--link)}
+header.mast{text-align:center;border-bottom:1px solid var(--fg);padding:34px 0 16px;margin-bottom:22px}
+.mast h1{font-size:clamp(2.5rem,9vw,4.4rem);line-height:1;margin:0;letter-spacing:-.04em;font-weight:800}
+.mast h1 a{color:inherit;text-decoration:none}
+.mast .greet{font-size:.95rem;font-weight:500;line-height:1.3;letter-spacing:-.005em;color:var(--muted);margin:0 0 10px}
+.mast .greet[hidden]{display:none}
+.mast .meta{font-size:.74rem;font-weight:600;line-height:1.4;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-top:12px}
+.intro{font-size:1.06em;color:var(--fg2);margin:0 0 22px;line-height:1.6}
+.layout{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"intro" "toc" "main"}
+.layout>.intro{grid-area:intro}.layout>nav.toc{grid-area:toc}.layout>main{grid-area:main;min-width:0}
+nav.toc{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:4px 0;margin-bottom:28px;font-size:.9rem;line-height:1.4}
+nav.toc summary{cursor:pointer;list-style:none;padding:10px 0;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--accent)}
+nav.toc summary::-webkit-details-marker{display:none}
+nav.toc summary::after{content:" ▾";color:var(--muted)}nav.toc details[open] summary::after{content:" ▴"}
+nav.toc summary .cnt{color:var(--muted);font-weight:600;letter-spacing:.08em}
+nav.toc ol{list-style:none;margin:0 0 10px;padding:0}
+nav.toc li{margin:0}
+nav.toc a{display:flex;gap:10px;color:var(--fg);text-decoration:none;padding:7px 10px 7px 0;border-left:2px solid transparent}
+nav.toc a:hover .h{text-decoration:underline}
+nav.toc .n{flex:0 0 1.7em;text-align:right;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+nav.toc .t{display:block;font-size:.78em;color:var(--muted);margin-top:2px}
+nav.toc li.sec a .n{color:var(--accent)}
+nav.toc a.on{border-left-color:var(--accent);background:var(--hl)}nav.toc a.on .n,nav.toc a.on .h{color:var(--accent)}
+nav.toc a.read .n{color:var(--muted);opacity:.5;font-weight:500}nav.toc a.read:not(.on) .h{color:var(--muted)}
+h2.sect,.nyt h2,.radar>h2{font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;margin:6px 0 12px;color:var(--accent)}
+article{border-bottom:1px solid var(--rule);padding:4px 0 30px;margin-bottom:28px;scroll-margin-top:16px}
+.kick{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:.7rem;font-weight:700;line-height:1.5;text-transform:uppercase;letter-spacing:.1em}
+.num{background:var(--fg);color:var(--bg);border-radius:4px;padding:1px 7px;font-variant-numeric:tabular-nums}
+.tag{border:1px solid currentColor;border-radius:4px;padding:0 6px}
+.t-ai{color:#2563a8}.t-kode{color:#0b7480}.t-inv{color:#25784a}.t-sund{color:#9a6510}.t-ivk{color:#8e2a8e}.t-tank{color:#52529a}.t-egne{color:#a84b14}.t-verden{color:#4a5568}.t-frem{color:#6440b8}.t-crea{color:#b4185a}.t-samf{color:#7c6232}.t-dk{color:#b42828}.t-godt{color:#1f8a5b}
+@media (prefers-color-scheme:dark){.t-ai{color:#82b6f2}.t-kode{color:#62d2da}.t-inv{color:#72d19a}.t-sund{color:#f0c264}.t-ivk{color:#e391e3}.t-tank{color:#adadf2}.t-egne{color:#f2a676}.t-verden{color:#bac4d2}.t-frem{color:#bba2f6}.t-crea{color:#f594b6}.t-samf{color:#dcc390}.t-dk{color:#f28a8a}.t-godt{color:#7fe0b0}}
+.unc{background:#9a6510;color:#fff;border-radius:4px;padding:1px 6px}
+article h2{font-size:clamp(1.5rem,5.2vw,2.15rem);line-height:1.18;letter-spacing:-.022em;font-weight:750;margin:12px 0 10px;text-wrap:balance}
+.sum{font-size:1.1em;line-height:1.5;font-weight:500;color:var(--fg2);margin:0 0 16px}
+.body p{margin:0 0 1em}.body p:last-child{margin-bottom:14px}
+figure.fig{margin:4px 0 20px}
+figure.fig img{display:block;width:100%;height:auto;border-radius:8px;background:var(--hl)}
+figure.fig figcaption{font-size:.76rem;line-height:1.45;color:var(--muted);margin-top:7px}
+.src{font-size:.85rem;color:var(--muted)}
+.src a{font-weight:600}
+.extra{font-size:.85rem;margin:8px 0 0;padding-left:1.1em;color:var(--muted)}
+.video{position:relative;width:100%;aspect-ratio:16/9;margin:4px 0 20px;background:#000;border-radius:8px;overflow:hidden}
+.video.short{aspect-ratio:9/16;max-width:340px;margin-left:auto;margin-right:auto}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.xembed{margin:4px 0 20px;display:flex;justify-content:center}
+.car{position:relative;margin:4px 0 20px}
+.car-track{position:relative;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+  overscroll-behavior-x:contain;scrollbar-width:none;border-radius:8px;outline:none}
+.car-track::-webkit-scrollbar{display:none}
+.car-track:focus-visible{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--link)}
+.car-slide{flex:0 0 100%;min-width:0;margin:0;scroll-snap-align:start;scroll-snap-stop:always}
+.car-frame{position:relative;width:100%;aspect-ratio:16/9;background:var(--hl);border-radius:8px;overflow:hidden}
+.car-frame.v{background:#000}
+.car-frame img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain}
+.car-frame iframe,.car-frame video{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000}
+.car-frame.x{overflow-y:auto;-webkit-overflow-scrolling:touch;background:var(--hl)}
+.car-frame.x>*{margin:0 auto!important}.car-frame.x .twitter-tweet{max-width:100%}
+.vcap{font-size:.76rem;line-height:1.45;color:var(--muted);margin:-12px 0 20px}
+.car-slide figcaption{font-size:.76rem;line-height:1.45;color:var(--muted);margin-top:7px}
+.car-nav{position:absolute;left:0;right:0;top:0;aspect-ratio:16/9;pointer-events:none}
+.car-btn{position:absolute;top:50%;transform:translateY(-50%);pointer-events:auto;display:flex;align-items:center;justify-content:center;
+  width:40px;height:40px;padding:0;border:1px solid var(--rule);border-radius:50%;background:var(--card);color:var(--fg);cursor:pointer;
+  font:inherit;font-size:1.2rem;line-height:1;box-shadow:0 2px 10px rgba(0,0,0,.18);opacity:.92;transition:opacity .15s}
+.car-btn:hover{opacity:1}.car-btn:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+.car-btn[disabled]{opacity:0;pointer-events:none}
+.car-prev{left:10px}.car-next{right:10px}
+.car-bar{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:8px;font-size:.72rem;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums}
+.car-dots{display:flex;gap:2px}
+.car-dot{width:22px;height:22px;padding:7px;border:0;margin:0;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.car-dot::before{content:"";display:block;width:8px;height:8px;border-radius:50%;background:var(--rule)}
+.car-dot[aria-current="true"]::before{background:var(--accent)}
+.car-dot:focus-visible{outline:2px solid var(--link);outline-offset:-2px;border-radius:50%}
+@media (hover:none) and (pointer:coarse){.car-btn{display:none}}
+.nyt{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:16px 20px;margin:10px 0 28px;scroll-margin-top:16px}
+.nyt ul{margin:0;padding-left:1.1em}.nyt li{margin:8px 0}.nyt a{font-weight:600}
+.radar{margin:10px 0 28px;scroll-margin-top:16px}
+.radar>p.lede{font-size:.88rem;color:var(--muted);margin:0 0 12px}
+.rcard{background:var(--card);border:1px solid var(--rule);border-left:4px solid #8e2a8e;border-radius:10px;padding:14px 20px;margin:0 0 16px;scroll-margin-top:16px}
+@media (prefers-color-scheme:dark){.rcard{border-left-color:#e391e3}}
+.rcard h3{font-size:clamp(1.25rem,4vw,1.55rem);line-height:1.2;letter-spacing:-.018em;margin:8px 0 8px}
+.rcard h3 a{color:inherit;text-decoration:none}.rcard h3 a:hover{text-decoration:underline}
+.rcard dl{margin:0 0 8px}
+.rcard dt{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:12px}
+.rcard dd{margin:2px 0 0}
+.term{position:relative;display:inline}
+.term-btn{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;cursor:help;text-align:inherit;
+  text-decoration:underline dotted;text-decoration-color:var(--muted);text-decoration-thickness:1.5px;text-underline-offset:.22em;-webkit-tap-highlight-color:transparent}
+.term-btn:hover,.term.open .term-btn{text-decoration-color:var(--accent)}
+.term-btn:focus-visible{outline:2px solid var(--link);outline-offset:2px;border-radius:3px}
+.term .ti{display:none;align-items:center;justify-content:center;width:1.05em;height:1.05em;margin-left:.18em;vertical-align:.12em;
+  border:1.2px solid currentColor;border-radius:50%;font-size:.62em;font-weight:700;font-style:normal;line-height:1;color:var(--muted)}
+.term-btn:hover .ti,.term.open .ti{color:var(--accent)}
+.term-pop{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 10px);width:min(23rem,calc(100vw - 24px));
+  background:var(--card);color:var(--fg);border:1px solid var(--rule);border-radius:10px;padding:12px 14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.14),0 2px 6px rgba(0,0,0,.08);font-size:.8em;font-weight:400;line-height:1.55;text-align:left;white-space:normal;letter-spacing:0}
+.term-pop::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+.term.up .term-pop{top:auto;bottom:calc(100% + 10px)}.term.up .term-pop::before{top:auto;bottom:-12px}
+.term-pop strong{display:block;font-weight:700;margin-bottom:3px;color:var(--accent)}
+.term.open .term-pop,.term-btn:focus-visible+.term-pop{display:block}
+@media (hover:hover) and (pointer:fine){.term:hover .term-pop{display:block}}
+@media (prefers-color-scheme:dark){.term-pop{box-shadow:0 10px 30px rgba(0,0,0,.55);border-color:#3a3936}}
+.wrap{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right));padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+header.mast{padding-top:calc(34px + env(safe-area-inset-top))}
+footer{font-size:.8rem;color:var(--muted);text-align:center;padding-top:12px}
+footer .ed-no{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+ul.arkiv{list-style:none;padding:0}ul.arkiv li{border-bottom:1px solid var(--rule);padding:12px 0}
+ul.arkiv a{color:var(--fg);font-weight:700;text-decoration:none}ul.arkiv span{display:block;color:var(--muted);font-size:.92rem}
+@media (min-width:1000px){
+  body{font-size:20px}
+  .wrap{max-width:1260px;padding-left:max(40px,env(safe-area-inset-left));padding-right:max(40px,env(safe-area-inset-right));padding-bottom:calc(80px + env(safe-area-inset-bottom))}
+  .layout{grid-template-columns:290px minmax(0,70ch);grid-template-areas:"toc intro" "toc main";column-gap:64px;justify-content:center}
+  nav.toc{position:sticky;top:20px;align-self:start;max-height:calc(100vh - 40px);overflow:auto;border:0;margin:0;padding:0 4px 0 0;font-size:.78rem}
+  nav.toc summary{pointer-events:none;padding:4px 0 10px}nav.toc summary::after{content:none}
+  nav.toc a{padding:7px 10px 7px 6px}
+  .intro{margin-top:4px}
+}
+</style></head>
+<body><div class="wrap"><header class="mast"><p class="greet" id="greet" data-name="Kasper" aria-live="off" hidden></p><script>(function(){var g=document.getElementById('greet');if(!g)return;var N=g.getAttribute('data-name');
+function upd(){var h=new Date().getHours();
+ var t=h>=5&&h<10?'Godmorgen':h>=10&&h<12?'God formiddag':h>=12&&h<18?'God eftermiddag':'God aften';
+ t=N?t+', '+N:t;if(g.textContent!==t)g.textContent=t;g.hidden=false;}
+upd();addEventListener('pageshow',upd);addEventListener('focus',upd);
+document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')upd();});
+setInterval(function(){if(document.visibilityState==='visible')upd();},60000);
+})();</script><h1><a href="../index.html">Nyheder</a></h1><div class="meta">lørdag 7. november 2026</div></header>
+<div class="layout">
+<p class="intro">Efter midtvejsnederlaget udnævner Trump Stephen Miller til stabschef, mens falske bombetrusler nu også rammer europæiske medier. Derudover: OpenAI til 1,25 billioner dollar, Anthropic udvikler AI dobbelt så hurtigt ifølge METR, Claude »drømmer« om natten – og bævere er tilbage ved Loch Ness.</p>
+<nav class="toc" aria-label="Indhold"><details open><summary>Indhold <span class="cnt">· 9 historier</span></summary><ol>
+<li><a href="#1"><span class="n">1</span><span><span class="h">Trump udnævner Stephen Miller til stabschef efter midtvejsnederlaget</span><span class="t">Verden</span></span></a></li>
+<li><a href="#2"><span class="n">2</span><span><span class="h">Falske bombetrusler rammer nu også europæiske mediehuse</span><span class="t">Verden</span></span></a></li>
+<li><a href="#3"><span class="n">3</span><span><span class="h">OpenAI henter 11 milliarder dollar ved en værdi på 1,25 billioner</span><span class="t">Investering</span></span></a></li>
+<li><a href="#4"><span class="n">4</span><span><span class="h">METR: Anthropic udvikler AI-evner cirka dobbelt så hurtigt som før</span><span class="t">Fremtid</span></span></a></li>
+<li><a href="#5"><span class="n">5</span><span><span class="h">Claude »drømmer« mellem sessioner for at rydde op i sin hukommelse</span><span class="t">AI-kodning</span></span></a></li>
+<li><a href="#6"><span class="n">6</span><span><span class="h">Musk: Tesla skruer ned for Cybertruck i Texas midt i 2027</span><span class="t">Investering</span></span></a></li>
+<li><a href="#7"><span class="n">7</span><span><span class="h">ING vil sælge datacenterlån for omkring 500 millioner dollar</span><span class="t">Investering</span></span></a></li>
+<li><a href="#8"><span class="n">8</span><span><span class="h">OpenAI Images 2.6: GIF’er og dobbelt så hurtig billedgenerering</span><span class="t">AI &amp; tech</span></span></a></li>
+<li><a href="#9"><span class="n">9</span><span><span class="h">Bævere er tilbage ved Loch Ness – første gang i 500 år</span><span class="t">Godt nyt</span></span></a></li>
+<li class="sec"><a href="#nyt"><span class="n">+</span><span><span class="h">Nyt til dig</span></span></a></li>
+</ol></details></nav><main data-date="2026-11-07" data-total="9" data-latest="1">
+<article id="1"><div class="kick"><span class="num">1</span><span class="tag t-verden">Verden</span></div><h2>Trump udnævner Stephen Miller til stabschef efter midtvejsnederlaget</h2><p class="sum">Den hårdtslående rådgiver bag immigrationspolitikken afløser Susie Wiles mandag – Demokraterne kalder det en krigserklæring efter valgnederlaget.</p>
+<figure class="fig"><img src="../img/2026-11-07/miller.jpg" alt="Portræt af Stephen Miller" loading="lazy" decoding="async" width="1200" height="630"><figcaption>Billede: Alex Wong/Getty via The Guardian</figcaption></figure>
+<div class="body"><p>Fredag meddelte præsident Donald Trump, at Stephen Miller (41) bliver Det Hvide Hus’ 33. <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-1-1" aria-describedby="term-1-1">stabschef<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-1-1" role="tooltip"><strong>Stabschef</strong> White House Chief of Staff – præsidentens nærmeste organisatoriske topchef, der styrer stab, kalender og adgang til præsidenten. Miller overtager rollen 9. november efter Susie Wiles.</span></span> og afløser Susie Wiles fra mandag 9. november. Miller har været vice-stabschef og homeland security-rådgiver og er arkitekten bag administrationens hårdeste immigrationslinje.</p><p>Udnævnelsen kommer få dage efter, at Republikanerne mistede flertallet i både Repræsentanternes Hus og Senatet. Trump sagde, at Miller »har været med mig fra starten« og »forstår det«. Wiles – den første kvindelige stabschef – skrev, at hun fortsætter med politisk arbejde for Trump.</p><p>Demokratiske ledere fordømte valget. Hakeem Jeffries kaldte Miller ekstrem, og Chuck Schumer sagde, at Trump ikke har lært af valgnederlaget. Chris Whipple, forfatter til The Gatekeepers, kaldte det »næsten en krigserklæring«.</p></div>
+<p class="src">Kilde: The Guardian · <a href="https://www.theguardian.com/us-news/2026/nov/06/stephen-miller-chief-of-staff-trump" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.npr.org/2026/11/06/nx-s1-6032795/stephen-miller-replace-susie-wiles-trumps-chief-of-staff" rel="noopener">NPR: Miller afløser Wiles</a></li><li><a href="https://www.whitehouse.gov/releases/2026/11/president-trump-names-stephen-miller-as-33rd-white-house-chief-of-staff/" rel="noopener">Det Hvide Hus: officiel meddelelse</a></li></ul>
+</article>
+<article id="2"><div class="kick"><span class="num">2</span><span class="tag t-verden">Verden</span></div><h2>Falske bombetrusler rammer nu også europæiske mediehuse</h2><p class="sum">RTÉ, Sky, Nova TV og flere irske redaktioner fik e-mails med 45-minutters-advarsler fredag – dagen efter, at mindst 34 fly blev ramt af samme type hoax.</p>
+<figure class="fig"><img src="../img/2026-11-07/rte-evacuate.jpg" alt="Garda-bil ved RTÉs hovedkvarter i Dublin efter bombetrussel" loading="lazy" decoding="async" width="1024" height="576"><figcaption>Billede: Cate McCurry/PA via BBC</figcaption></figure>
+<div class="body"><p>Ifølge BBC blev Irlands public service-station RTÉ evakueret fredag morgen, efter at nyhedsredaktionen kl. 08:33 fik en e-mail med emnet »Message to the West« og trussel om bombe inden for 45 minutter. Irish Independent, Newstalk og Virgin Media fik lignende mails; Sky i Storbritannien og Bulgariens Nova TV ligeledes. Ingen sprængstof blev fundet.</p><p>Ifølge Reuters lød teksten blandt andet: »It will detonate in 45 minutes. The clock is ticking.« Mails til RTÉ og Nova var underskrevet »Mikhail Andropov« og hævdede at komme fra gruppen bag ugens flytrusler. Taoiseach Micheál Martin kaldte det bekymrende og sagde, at myndighederne endnu ikke ved, om det er enkeltpersoner eller et koordineret angreb.</p><p>Truslerne kommer oven på torsdagens bølge, hvor mindst 34 fly i Europa blev nødlandet eller omdirigeret. Eurocontrol følger stadig situationen.</p></div>
+<p class="src">Kilde: BBC · <a href="https://www.bbc.com/news/articles/cme8rr30n55ko" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.aljazeera.com/news/2026/11/6/new-bomb-threats-target-european-broadcasters-air-traffic" rel="noopener">Al Jazeera/AFP: Trusler udvidet til nyhedsredaktioner</a></li><li><a href="https://www.rte.ie/news/ireland/2026/1106/1598266-rte-threat-politics/" rel="noopener">RTÉ: Martin vil »gå efter« bagmændene</a></li></ul>
+</article>
+<article id="3"><div class="kick"><span class="num">3</span><span class="tag t-inv">Investering</span></div><h2>OpenAI henter 11 milliarder dollar ved en værdi på 1,25 billioner</h2><p class="sum">Ifølge Bloomberg er den første del af en større runde lukket – selskabet havde håbet på op til 30 milliarder ved 1,4 billioner før AI-aktierne styrtede.</p>
+<figure class="fig"><img src="../img/2026-11-07/openai-valuation.jpg" alt="OpenAI-illustration" loading="lazy" decoding="async" width="1200" height="624"><figcaption>Billede: The Verge</figcaption></figure>
+<div class="body"><p>OpenAI er nu værdisat til 1,25 billioner dollar efter at have hentet yderligere 11 milliarder dollar, skriver The Verge med henvisning til Bloomberg. Det gør selskabet til et af verdens mest værdifulde private virksomheder – kort efter en runde på 122 milliarder dollar i marts ved 852 milliarder.</p><p>Bloomberg skriver, at OpenAI stadig jagter flere investeringer, der kan bringe runden op mod 20 milliarder, og at man oprindeligt sigtede efter op til 30 milliarder ved 1,4 billioner. Det var før tech-aktierne faldt, og midtvejsvalget viste stærk lokal modstand mod datacentre.</p><p>Rivalen Anthropic har indleveret <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-3-1" aria-describedby="term-3-1">S-1<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-3-1" role="tooltip"><strong>S-1</strong> Det registreringsdokument, et selskab indleverer til den amerikanske børstilsynsmyndighed SEC før en børsnotering. Anthropic har indleveret sit S-1; OpenAI har endnu ikke.</span></span> til børsnotering. OpenAI-chef Sam Altman har sagt, at selskabet venter med egen <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-3-2" aria-describedby="term-3-2">IPO<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-3-2" role="tooltip"><strong>IPO</strong> Initial Public Offering – første børsnotering af aktier. OpenAI udskyder sin egen, mens Anthropic forbereder sin under ticker-planen ANT.</span></span>, indtil man er mere sikker på modelsikkerhed – men også at det er »skidt for verden«, hvis OpenAI venter for længe.</p></div>
+<p class="src">Kilde: The Verge · <a href="https://www.theverge.com/ai-artificial-intelligence/1029380/openai-1-25-trillion-investment-valuation" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.cnbc.com/2026/11/06/investors-brace-for-anthropic-valuation-1point5-trillion-a-stretch.html" rel="noopener">CNBC: Investorer presser Anthropic-værdi under 1,5 billioner</a></li></ul>
+</article>
+<article id="4"><div class="kick"><span class="num">4</span><span class="tag t-frem">Fremtid</span></div><h2>METR: Anthropic udvikler AI-evner cirka dobbelt så hurtigt som før</h2><p class="sum">Uafhængig vurdering med intern adgang finder 1,9× acceleration siden oktober 2025 – primært fordi AI selv hjælper med forskningen, og uden klare flaskehalse de næste 12 måneder.</p>
+<figure class="fig"><img src="../img/2026-11-07/metr.jpg" alt="METR-rapport om AI R&amp;D-acceleration hos Anthropic" loading="lazy" decoding="async" width="1200" height="675"><figcaption>Billede: METR</figcaption></figure>
+<div class="body"><p>Sikkerhedsorganisationen METR offentliggjorde 5. november en vurdering baseret på elleve ugers adgang til Anthropics interne data (12. august–29. oktober). Konklusionen: Anthropic forbedrer sandsynligvis model-evner på veldefinerede opgaver omkring dobbelt så hurtigt som mellem marts 2024 og oktober 2025.</p><p>Benchmark-scorer (<span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-4-1" aria-describedby="term-4-1">AECI<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-4-1" role="tooltip"><strong>AECI</strong> Anthropic’s version af Epoch Capabilities Index – et samlet mål for modelstyrke på tværs af benchmarks. METR bruger AECI-væksten til at estimere, at Anthropic har lavet ca. to års historisk fremskridt på ét år.</span></span>) er steget med estimeret 1,9× den tidligere rate (95 % konfidensinterval 1,5–2,8×) siden oktober 2025. METR er sikker på, at accelerationen ikke skyldes hurtigere vækst i <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-4-2" aria-describedby="term-4-2">træningscompute<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-4-2" role="tooltip"><strong>Træningscompute</strong> Den mængde computerkraft, der bruges til at træne en model. METR er sikker på, at den observerede acceleration ikke skyldes, at Anthropic skruer hurtigere op for træningscompute.</span></span>. Medarbejderinterviews peger typisk på omkring 2× fra AI-brug; Slack-afstemninger om individuel speedup nåede omkring 12× i oktober 2026.</p><p>Anthropic har redigeret størstedelen af den mest informative evidens i den offentlige rapport. METR advarer om betydelig risiko for, at yderligere fremskridt kan accelerere endnu mere – og om, at offentligheden må stole mere på METRs vurdering, end der er ideelt.</p></div>
+<p class="src">Kilde: METR · <a href="https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://apnews.com/article/anthropic-metr-ai-claude-acceleration-9cf8c590ffc1abdb489179bdccc69c23" rel="noopener">AP: Anthropic accelererer midt i opfordringer til opbremsning</a></li></ul>
+</article>
+<article id="5"><div class="kick"><span class="num">5</span><span class="tag t-kode">AI-kodning</span></div><h2>Claude »drømmer« mellem sessioner for at rydde op i sin hukommelse</h2><p class="sum">Anthropic forklarer 6. november, hvordan offline »<span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-5-1" aria-describedby="term-5-1">dreaming<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-5-1" role="tooltip"><strong>Dreaming</strong> Offline beregning mellem sessioner, hvor Claude genlæser logs, retter hukommelsesnoter og bygger strukturer som wikier. I Anthropics test steg scoren på et dokumentkorpus fra 13 % til 48 % efter 128 dreaming-runder.</span></span>« retter forkerte noter, bygger wikier og løfter vigtige erindringer ind i næste session – testet blandt andet i Pokémon.</p>
+<figure class="fig"><img src="../img/2026-11-07/dreaming.jpg" alt="Illustration af Claudes dreaming-hukommelse" loading="lazy" decoding="async" width="1200" height="630"><figcaption>Billede: Anthropic</figcaption></figure>
+<div class="body"><p>I et engineering-indlæg beskriver Anthropic agent-hukommelse som noget, Claude skriver undervejs – og derefter organiserer, når den er »offline«. Processen kaldes dreaming: Claude genlæser transcripts, retter fejl, merger noter og bygger repræsentationer som linkede wikier.</p><p>I en Pokémon-test skrev Claude fejlagtigt, at PokéCenter lå øst for Mt. Moon, gik i en loop og nåede aldrig næste by. Efter dreaming rettede Claude noten mod transcriptet og nåede Cerulean City. På et korpus på ca. 350.000 interne dokumenter (ca. 420 mio. <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-5-2" aria-describedby="term-5-2">tokens<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-5-2" role="tooltip"><strong>Tokens</strong> De små tekststykker, en sprogmodel arbejder med. Korpuset i dreaming-testen fyldte omkring 420 millioner tokens – for meget til at ligge i én kontekst, derfor hukommelse uden for vinduet.</span></span>) steg scoren på 25 spørgsmål fra 13 % til 48 % efter 128 dreaming-runder.</p><p>Dreaming kan også flytte noter op i en lille »injiceret« top af hukommelsen, der indlæses i starten af hver session. Anthropic advarer om, at forkerte noter ellers kan følge med hver gang – så toppen skal holdes lille.</p></div>
+<p class="src">Kilde: Anthropic · <a href="https://www.anthropic.com/research/components-of-agent-memory" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="6"><div class="kick"><span class="num">6</span><span class="tag t-inv">Investering</span></div><h2>Musk: Tesla skruer ned for Cybertruck i Texas midt i 2027</h2><p class="sum">Produktionen på Gigafactory Texas fases ud for at give plads til <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-6-1" aria-describedby="term-6-1">Cybercab<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-6-1" role="tooltip"><strong>Cybercab</strong> Teslas planlagte to-sædede robotaxi uden rat. Musk siger, at Cybertruck-linjen i Texas skal vige for at øge Cybercab-produktionen fra midten af 2027.</span></span>-robotaxien – salget er faldet skarpt, og bilen har haft talrige <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-6-2" aria-describedby="term-6-2">recalls<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-6-2" role="tooltip"><strong>recalls</strong> Tilbagekaldelser, hvor producenten retter en sikkerhedsfejl. 2024-Cybertruck har ifølge NHTSA haft 11 frivillige recalls.</span></span>.</p>
+<figure class="fig"><img src="../img/2026-11-07/cybertruck.jpg" alt="Tesla Cybertruck ved butik" loading="lazy" decoding="async" width="1200" height="675"><figcaption>Billede: David Paul Morris/Bloomberg via CNBC</figcaption></figure>
+<div class="body"><p>Tesla-chef Elon Musk skrev fredag på X, at selskabet »will be winding down« Cybertruck-produktionen på fabrikken i Texas omkring midten af 2027. Pladsen skal bruges til at øge produktionen af Cybercab, Teslas to-sædede robotaxi.</p><p>Cybertruck leveres kun fra Texas (sammen med Model Y og Cybercab). Cox Automotive anslår amerikansk Cybertruck-salg til 20.237 i 2025 – et fald på 48 % fra 38.965 i 2024. Musk havde før lanceringen talt om op til 250.000 om året. SpaceX købte ifølge et regnskab Cybertrucks for 131 millioner dollar til listepris i 2025.</p><p>Bilen har været genstand for 11 frivillige recalls ifølge NHTSA, blandt andet utilsigtet acceleration og pludseligt tab af trækkraft. Musk kaldte senere Cybertruck for Teslas bedste bil nogensinde – og tilføjede, at flåden »vil være her længe«.</p></div>
+<p class="src">Kilde: CNBC · <a href="https://www.cnbc.com/2026/11/06/tesla-cybertruck-texas-musk.html" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="7"><div class="kick"><span class="num">7</span><span class="tag t-inv">Investering</span></div><h2>ING vil sælge datacenterlån for omkring 500 millioner dollar</h2><p class="sum">Den hollandske bank auktionerer 12 lån – herunder en portion knyttet til OpenAI/SoftBank/Oracle-projektet <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-7-1" aria-describedby="term-7-1">Stargate<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-7-1" role="tooltip"><strong>Stargate</strong> Det store AI-datacenterprojekt i New Mexico med OpenAI, SoftBank og Oracle. Et af ING-lånene på 25 millioner dollar er knyttet til projektet.</span></span> – midt i frygt for datacenter-pause efter midtvejsvalget.</p>
+<figure class="fig"><img src="../img/2026-11-07/ing-datacenter.jpg" alt="Datacenter set fra luften" loading="lazy" decoding="async" width="1200" height="675"><figcaption>Billede: CNBC</figcaption></figure>
+<div class="body"><p>ING søger ifølge CNBC (via Bloomberg) købere til en portefølje på 12 datacenterlån til en værdi af omkring 500 millioner dollar. Auktionen er en <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-7-2" aria-describedby="term-7-2">BWIC<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-7-2" role="tooltip"><strong>BWIC</strong> Bids Wanted In Competition – en auktionsform, hvor investorer byder på stykker af en låneportefølje. Her skal bud være mindst 10 millioner dollar og være inde senest 19. november.</span></span> (bids wanted in competition) med bud på mindst 10 millioner dollar senest 19. november. En ING-talsperson afviste at kommentere.</p><p>Porteføljen skal blandt andet indeholde et lån på 25 millioner dollar knyttet til Stargate-projektet i New Mexico (OpenAI, SoftBank og Oracle) samt lån med Vantage Data Centers og CyrusOne. Salget kommer, mens banker i stigende grad forsøger at flytte AI-infrastrukturrisiko til private kreditfonde, asset managers og forsikringsselskaber.</p><p>Det sker oven på torsdagens AI-aktiekrak, hvor Nasdaq faldt 5,5 %, efter at lokale afstemninger og Demokraternes midtvejssejre øgede frygten for forsinkelser i amerikanske datacentre.</p></div>
+<p class="src">Kilde: CNBC · <a href="https://www.cnbc.com/2026/11/06/ing-ai-data-center-loans-debt.html" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="8"><div class="kick"><span class="num">8</span><span class="tag t-ai">AI &amp; tech</span></div><h2>OpenAI Images 2.6: GIF’er og dobbelt så hurtig billedgenerering</h2><p class="sum">ChatGPT, Codex og API’en kan nu lave animerede GIF’er; Flare kan levere et lavkvalitetsbillede på seks sekunder, og der skabes omkring 4 milliarder billeder om ugen.</p>
+<figure class="fig"><img src="../img/2026-11-07/images26.jpg" alt="OpenAI Images 2.6 – GIF-generering" loading="lazy" decoding="async" width="1200" height="675"><figcaption>Billede: OpenAI</figcaption></figure>
+<div class="body"><p>OpenAI lancerede Images 2.6 (annonceret 4. november, udrullet i dagene efter) i ChatGPT, Codex og API’en. Nyheden er animerede GIF’er – til maskotter, reaktioner og storyboards – plus cirka 50 % hurtigere generering end før.</p><p>I API’en kommer GPT-Image-2.6 Flare og Sunburst. Med quality sat til low kan Flare generere billeder på ned til seks sekunder; Sunburst sigter efter højere detalje og konsistens ved medium/high. Markup-redigering kommer til API’en, og SVG-eksport gør designs klar til web og print.</p><p>OpenAI oplyser, at folk nu skaber omkring 4 milliarder billeder om ugen på tværs af ChatGPT, Codex og API’en – over en halv milliard om dagen i gennemsnit. Images 2.6 er tilgængelig globalt på alle ChatGPT/Codex-abonnementer.</p></div>
+<p class="src">Kilde: OpenAI · <a href="https://openai.com/index/introducing-images-2-6/" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.theverge.com/ai-artificial-intelligence/1026474/openai-chatgpt-animated-gifs-images-2-6" rel="noopener">The Verge: ChatGPT kan lave animerede GIF’er</a></li></ul>
+</article>
+<article id="9"><div class="kick"><span class="num">9</span><span class="tag t-godt">Godt nyt</span></div><h2>Bævere er tilbage ved Loch Ness – første gang i 500 år</h2><p class="sum">En familie på seks er sat ud på Dundreggan-rewilding-ejendommen; Ness Beaver Project vil genudsætte mindst 15 familier over tre år.</p>
+<figure class="fig"><img src="../img/2026-11-07/beavers.jpg" alt="Bæverfamilie sat ud ved Loch Ness" loading="lazy" decoding="async" width="1023" height="576"><figcaption>Billede: Trees for Life via BBC</figcaption></figure>
+<div class="body"><p>BBC fortæller, at en bæverfamilie – en mor, to unge på omkring to år og tre unger fra i år – er genudsat i Loch Ness-oplandet ved Dundreggan i Glenmoriston. Det er omkring 500 år siden arten sidst er dokumenteret dér (sidste ofte citerede historiske fund er fra 1526–27).</p><p>Ness Beaver Project, drevet af Trees for Life og Beaver Trust med licens fra NatureScot, vil genudsætte mindst 15 familier i søer og floder omkring Loch Ness over tre år. Dyrene kommer fra områder, hvor de skadede landbrug, og hvor afværge ikke virkede.</p><p>Bævere graver kanaler, beskærer træer og bygger dæmninger, der skaber vådområder til frøer, guldsmede, fugle og flagermus. Over 73 % af høringssvarene var positive. Laksefiskere følger med for at sikre fri passage i mindre bække.</p></div>
+<p class="src">Kilde: BBC · <a href="https://www.bbc.com/news/articles/ckjwe5xw0jy3o" rel="noopener">Læs mere →</a></p>
+</article>
+<section class="nyt" id="nyt"><h2>Nyt til dig</h2><ul>
+<li><a href="https://stratechery.com" rel="noopener">Stratechery</a> – Ben Thompsons analysebrev om tech-strategi, platforme og forretningsmodeller – ofte den skarpeste læsning, når Big Tech rykker.</li>
+<li><a href="https://www.interconnects.ai" rel="noopener">Interconnects (Nathan Lambert)</a> – Dybt, teknisk AI-nyhedsbrev om post-training, evals og open-weight-modeller fra en forsker tæt på frontier-labbene.</li>
+<li><a href="https://www.exponentialview.co" rel="noopener">Exponential View (Azeem Azhar)</a> – Ugentligt overblik over eksponentiel teknologi, energi og samfundseffekter – godt til at sætte AI- og infrastruktur-nyheder i større perspektiv.</li>
+<li><a href="https://www.lennysnewsletter.com" rel="noopener">Lenny&#x27;s Newsletter</a> – Et af de mest læste produkt- og growth-nyhedsbreve for founders og PMs, med interviews og playbooks fra folk, der har skaleret produkter.</li>
+</ul></section>
+</main></div>
+<footer><div class="ed-no">Udgave nr. 11</div><a href="../index.html">Seneste udgave</a> · <a href="../arkiv/index.html">Arkiv</a> · Nyheder for Kasper</footer>
+</div><script>(function(){var d=document.querySelector('nav.toc details');if(!d)return;var mq=matchMedia('(min-width:1000px)');
+function fit(){d.open=mq.matches?true:d.dataset.u==='1';}d.querySelector('summary').addEventListener('click',function(){d.dataset.u=d.open?'0':'1';});
+fit();mq.addEventListener&&mq.addEventListener('change',fit);
+var links={};d.querySelectorAll('a[href^="#"]').forEach(function(a){links[decodeURIComponent(a.getAttribute('href').slice(1))]=a;});
+var cur;function on(id){if(cur)cur.classList.remove('on');cur=links[id];if(cur){cur.classList.add('on');if(mq.matches&&cur.scrollIntoView){var r=cur.getBoundingClientRect(),p=d.parentNode.getBoundingClientRect();if(r.top<p.top||r.bottom>p.bottom)cur.scrollIntoView({block:'nearest'});}}}
+if(!('IntersectionObserver' in window))return;var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)on(e.target.id);});},{rootMargin:'-20% 0px -70% 0px'});
+Object.keys(links).forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el);});})();</script><script>(function(){var m=document.querySelector('main[data-date]');if(!m)return;
+var D=m.dataset.date,LATEST=m.dataset.latest==='1',K='nyheder-read-'+D,arts=[].slice.call(document.querySelectorAll('main article[id]')),N=arts.length;
+var ls=null;try{ls=window.localStorage;ls.getItem(K);}catch(_){ls=null;}
+var read={};try{(JSON.parse((ls&&ls.getItem(K))||'[]')||[]).forEach(function(i){read[i]=1;});}catch(_){}
+function save(){if(!ls)return;try{ls.setItem(K,JSON.stringify(Object.keys(read).map(Number).sort(function(a,b){return a-b;})));
+ var ks=[];for(var i=0;i<ls.length;i++){var k=ls.key(i);if(k&&k.indexOf('nyheder-read-')===0)ks.push(k);}ks.sort();while(ks.length>30)ls.removeItem(ks.shift());}catch(_){}}
+var toc={};document.querySelectorAll('nav.toc a[href^="#"]').forEach(function(a){toc[a.getAttribute('href').slice(1)]=a;});
+function paint(i){var a=toc[i];if(a){a.classList.add('read');var n=a.querySelector('.n');if(n)n.setAttribute('aria-label',i+', læst');}}
+function mark(i){i=String(i);if(read[i]||!document.getElementById(i))return;read[i]=1;save();paint(i);}
+Object.keys(read).forEach(function(i){paint(i);});
+Object.keys(toc).forEach(function(i){if(/^\d+$/.test(i))toc[i].addEventListener('click',function(){mark(i);});});
+/* Read = ~60 % of the story (or of the screen, for stories taller than it) visible for 3 s while the page is visible. */
+if('IntersectionObserver' in window){var tm={};
+ var th=[];for(var t=0;t<=20;t++)th.push(t/20);
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){var id=e.target.id;if(read[id])return;
+  var need=0.6*Math.min(e.boundingClientRect.height,(e.rootBounds&&e.rootBounds.height)||innerHeight);
+  var ok=e.isIntersecting&&e.intersectionRect.height>=need;
+  if(ok&&!tm[id])tm[id]=setTimeout(function(){tm[id]=0;if(document.visibilityState!=='hidden')mark(id);else io.unobserve(e.target),io.observe(e.target);},3000);
+  else if(!ok&&tm[id]){clearTimeout(tm[id]);tm[id]=0;}});},{threshold:th});
+ arts.forEach(function(a){if(!read[a.id])io.observe(a);});
+ document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden'){Object.keys(tm).forEach(function(id){if(tm[id]){clearTimeout(tm[id]);tm[id]=0;}});}
+  else{arts.forEach(function(a){if(!read[a.id]){io.unobserve(a);io.observe(a);}});}});}
+if(location.hash){var h=location.hash;addEventListener('load',function(){var el=document.getElementById(decodeURIComponent(h.slice(1)));if(el&&location.hash===h)setTimeout(function(){el.scrollIntoView();},60);});}
+})();</script><script>(function(){var ts=document.querySelectorAll('.term');if(!ts.length)return;
+function place(t){var p=t.querySelector('.term-pop');t.classList.remove('up');p.style.left='0px';p.style.display='block';
+var vw=document.documentElement.clientWidth,r=p.getBoundingClientRect(),dx=0;if(r.right>vw-12)dx=vw-12-r.right;if(r.left+dx<12)dx=12-r.left;
+p.style.left=dx+'px';var b=p.getBoundingClientRect();if(b.bottom>innerHeight-8&&t.getBoundingClientRect().top>b.height+24)t.classList.add('up');p.style.display='';}
+function close(x){ts.forEach(function(t){if(t!==x&&t.classList.contains('open')){t.classList.remove('open');t.querySelector('.term-btn').setAttribute('aria-expanded','false');}});}
+ts.forEach(function(t){var b=t.querySelector('.term-btn');t.addEventListener('mouseenter',function(){place(t);});b.addEventListener('focus',function(){place(t);});
+b.addEventListener('click',function(ev){ev.stopPropagation();var o=!t.classList.contains('open');close(t);if(o)place(t);t.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');});
+t.querySelector('.term-pop').addEventListener('click',function(ev){ev.stopPropagation();});});
+document.addEventListener('click',function(){close(null);});
+document.addEventListener('keydown',function(ev){if(ev.key==='Escape'){var a=document.activeElement;close(null);if(a&&a.classList.contains('term-btn'))a.blur();}});
+addEventListener('resize',function(){document.querySelectorAll('.term.open').forEach(place);});})();</script><script>(function(){var B='../';
+try{if('clearAppBadge' in navigator)Promise.resolve(navigator.clearAppBadge()).catch(function(){});}catch(_){}
+if(!('serviceWorker' in navigator))return;
+navigator.serviceWorker.register(B+'sw.js').then(function(r){
+ if(!r||!r.pushManager||!r.pushManager.getSubscription)return;
+ return r.pushManager.getSubscription().then(function(s){if(s)return s.unsubscribe();});}).catch(function(){});
+})();</script></body></html>
