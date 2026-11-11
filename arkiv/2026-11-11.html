@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="da"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111213" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Nyheder">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="../icons/favicon-64.png">
+<title>Nyheder · onsdag 11. november 2026</title>
+<link rel="preload" href="../fonts/InterVariable.latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url("../fonts/InterVariable.latin.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-style:italic;font-weight:100 900;font-display:swap;src:url("../fonts/InterVariable-Italic.latin.woff2") format("woff2")}
+:root{--bg:#fbfaf7;--fg:#151515;--fg2:#2b2a27;--muted:#5b5850;--rule:#e2ddd2;--accent:#b8431a;--card:#fff;--link:#174f9c;--hl:#f3efe6}
+@media (prefers-color-scheme:dark){:root{--bg:#111213;--fg:#eeece7;--fg2:#d9d6cf;--muted:#a7a39a;--rule:#2e2d2a;--accent:#f59a62;--card:#1a1b1c;--link:#93bdf2;--hl:#1d1e20}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-padding-top:16px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size:18px;line-height:1.65;font-optical-sizing:auto;font-feature-settings:"cv11","ss01";-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px 64px}
+a{color:var(--link)}
+header.mast{text-align:center;border-bottom:1px solid var(--fg);padding:34px 0 16px;margin-bottom:22px}
+.mast h1{font-size:clamp(2.5rem,9vw,4.4rem);line-height:1;margin:0;letter-spacing:-.04em;font-weight:800}
+.mast h1 a{color:inherit;text-decoration:none}
+.mast .greet{font-size:.95rem;font-weight:500;line-height:1.3;letter-spacing:-.005em;color:var(--muted);margin:0 0 10px}
+.mast .greet[hidden]{display:none}
+.mast .meta{font-size:.74rem;font-weight:600;line-height:1.4;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-top:12px}
+.intro{font-size:1.06em;color:var(--fg2);margin:0 0 22px;line-height:1.6}
+.layout{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"intro" "toc" "main"}
+.layout>.intro{grid-area:intro}.layout>nav.toc{grid-area:toc}.layout>main{grid-area:main;min-width:0}
+nav.toc{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:4px 0;margin-bottom:28px;font-size:.9rem;line-height:1.4}
+nav.toc summary{cursor:pointer;list-style:none;padding:10px 0;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--accent)}
+nav.toc summary::-webkit-details-marker{display:none}
+nav.toc summary::after{content:" ▾";color:var(--muted)}nav.toc details[open] summary::after{content:" ▴"}
+nav.toc summary .cnt{color:var(--muted);font-weight:600;letter-spacing:.08em}
+nav.toc ol{list-style:none;margin:0 0 10px;padding:0}
+nav.toc li{margin:0}
+nav.toc a{display:flex;gap:10px;color:var(--fg);text-decoration:none;padding:7px 10px 7px 0;border-left:2px solid transparent}
+nav.toc a:hover .h{text-decoration:underline}
+nav.toc .n{flex:0 0 1.7em;text-align:right;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+nav.toc .t{display:block;font-size:.78em;color:var(--muted);margin-top:2px}
+nav.toc li.sec a .n{color:var(--accent)}
+nav.toc a.on{border-left-color:var(--accent);background:var(--hl)}nav.toc a.on .n,nav.toc a.on .h{color:var(--accent)}
+nav.toc a.read .n{color:var(--muted);opacity:.5;font-weight:500}nav.toc a.read:not(.on) .h{color:var(--muted)}
+h2.sect,.nyt h2,.radar>h2{font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;margin:6px 0 12px;color:var(--accent)}
+article{border-bottom:1px solid var(--rule);padding:4px 0 30px;margin-bottom:28px;scroll-margin-top:16px}
+.kick{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:.7rem;font-weight:700;line-height:1.5;text-transform:uppercase;letter-spacing:.1em}
+.num{background:var(--fg);color:var(--bg);border-radius:4px;padding:1px 7px;font-variant-numeric:tabular-nums}
+.tag{border:1px solid currentColor;border-radius:4px;padding:0 6px}
+.t-ai{color:#2563a8}.t-kode{color:#0b7480}.t-inv{color:#25784a}.t-sund{color:#9a6510}.t-ivk{color:#8e2a8e}.t-tank{color:#52529a}.t-egne{color:#a84b14}.t-verden{color:#4a5568}.t-frem{color:#6440b8}.t-crea{color:#b4185a}.t-samf{color:#7c6232}.t-dk{color:#b42828}.t-godt{color:#1f8a5b}
+@media (prefers-color-scheme:dark){.t-ai{color:#82b6f2}.t-kode{color:#62d2da}.t-inv{color:#72d19a}.t-sund{color:#f0c264}.t-ivk{color:#e391e3}.t-tank{color:#adadf2}.t-egne{color:#f2a676}.t-verden{color:#bac4d2}.t-frem{color:#bba2f6}.t-crea{color:#f594b6}.t-samf{color:#dcc390}.t-dk{color:#f28a8a}.t-godt{color:#7fe0b0}}
+.unc{background:#9a6510;color:#fff;border-radius:4px;padding:1px 6px}
+article h2{font-size:clamp(1.5rem,5.2vw,2.15rem);line-height:1.18;letter-spacing:-.022em;font-weight:750;margin:12px 0 10px;text-wrap:balance}
+.sum{font-size:1.1em;line-height:1.5;font-weight:500;color:var(--fg2);margin:0 0 16px}
+.body p{margin:0 0 1em}.body p:last-child{margin-bottom:14px}
+figure.fig{margin:4px 0 20px}
+figure.fig img{display:block;width:100%;height:auto;border-radius:8px;background:var(--hl)}
+figure.fig figcaption{font-size:.76rem;line-height:1.45;color:var(--muted);margin-top:7px}
+.src{font-size:.85rem;color:var(--muted)}
+.src a{font-weight:600}
+.extra{font-size:.85rem;margin:8px 0 0;padding-left:1.1em;color:var(--muted)}
+.video{position:relative;width:100%;aspect-ratio:16/9;margin:4px 0 20px;background:#000;border-radius:8px;overflow:hidden}
+.video.short{aspect-ratio:9/16;max-width:340px;margin-left:auto;margin-right:auto}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.xembed{margin:4px 0 20px;display:flex;justify-content:center}
+.car{position:relative;margin:4px 0 20px}
+.car-track{position:relative;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+  overscroll-behavior-x:contain;scrollbar-width:none;border-radius:8px;outline:none}
+.car-track::-webkit-scrollbar{display:none}
+.car-track:focus-visible{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--link)}
+.car-slide{flex:0 0 100%;min-width:0;margin:0;scroll-snap-align:start;scroll-snap-stop:always}
+.car-frame{position:relative;width:100%;aspect-ratio:16/9;background:var(--hl);border-radius:8px;overflow:hidden}
+.car-frame.v{background:#000}
+.car-frame img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain}
+.car-frame iframe,.car-frame video{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000}
+.car-frame.x{overflow-y:auto;-webkit-overflow-scrolling:touch;background:var(--hl)}
+.car-frame.x>*{margin:0 auto!important}.car-frame.x .twitter-tweet{max-width:100%}
+.vcap{font-size:.76rem;line-height:1.45;color:var(--muted);margin:-12px 0 20px}
+.car-slide figcaption{font-size:.76rem;line-height:1.45;color:var(--muted);margin-top:7px}
+.car-nav{position:absolute;left:0;right:0;top:0;aspect-ratio:16/9;pointer-events:none}
+.car-btn{position:absolute;top:50%;transform:translateY(-50%);pointer-events:auto;display:flex;align-items:center;justify-content:center;
+  width:40px;height:40px;padding:0;border:1px solid var(--rule);border-radius:50%;background:var(--card);color:var(--fg);cursor:pointer;
+  font:inherit;font-size:1.2rem;line-height:1;box-shadow:0 2px 10px rgba(0,0,0,.18);opacity:.92;transition:opacity .15s}
+.car-btn:hover{opacity:1}.car-btn:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+.car-btn[disabled]{opacity:0;pointer-events:none}
+.car-prev{left:10px}.car-next{right:10px}
+.car-bar{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:8px;font-size:.72rem;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums}
+.car-dots{display:flex;gap:2px}
+.car-dot{width:22px;height:22px;padding:7px;border:0;margin:0;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.car-dot::before{content:"";display:block;width:8px;height:8px;border-radius:50%;background:var(--rule)}
+.car-dot[aria-current="true"]::before{background:var(--accent)}
+.car-dot:focus-visible{outline:2px solid var(--link);outline-offset:-2px;border-radius:50%}
+@media (hover:none) and (pointer:coarse){.car-btn{display:none}}
+.nyt{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:16px 20px;margin:10px 0 28px;scroll-margin-top:16px}
+.nyt ul{margin:0;padding-left:1.1em}.nyt li{margin:8px 0}.nyt a{font-weight:600}
+.radar{margin:10px 0 28px;scroll-margin-top:16px}
+.radar>p.lede{font-size:.88rem;color:var(--muted);margin:0 0 12px}
+.rcard{background:var(--card);border:1px solid var(--rule);border-left:4px solid #8e2a8e;border-radius:10px;padding:14px 20px;margin:0 0 16px;scroll-margin-top:16px}
+@media (prefers-color-scheme:dark){.rcard{border-left-color:#e391e3}}
+.rcard h3{font-size:clamp(1.25rem,4vw,1.55rem);line-height:1.2;letter-spacing:-.018em;margin:8px 0 8px}
+.rcard h3 a{color:inherit;text-decoration:none}.rcard h3 a:hover{text-decoration:underline}
+.rcard dl{margin:0 0 8px}
+.rcard dt{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:12px}
+.rcard dd{margin:2px 0 0}
+.term{position:relative;display:inline}
+.term-btn{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;cursor:help;text-align:inherit;
+  text-decoration:underline dotted;text-decoration-color:var(--muted);text-decoration-thickness:1.5px;text-underline-offset:.22em;-webkit-tap-highlight-color:transparent}
+.term-btn:hover,.term.open .term-btn{text-decoration-color:var(--accent)}
+.term-btn:focus-visible{outline:2px solid var(--link);outline-offset:2px;border-radius:3px}
+.term .ti{display:none;align-items:center;justify-content:center;width:1.05em;height:1.05em;margin-left:.18em;vertical-align:.12em;
+  border:1.2px solid currentColor;border-radius:50%;font-size:.62em;font-weight:700;font-style:normal;line-height:1;color:var(--muted)}
+.term-btn:hover .ti,.term.open .ti{color:var(--accent)}
+.term-pop{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 10px);width:min(23rem,calc(100vw - 24px));
+  background:var(--card);color:var(--fg);border:1px solid var(--rule);border-radius:10px;padding:12px 14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.14),0 2px 6px rgba(0,0,0,.08);font-size:.8em;font-weight:400;line-height:1.55;text-align:left;white-space:normal;letter-spacing:0}
+.term-pop::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+.term.up .term-pop{top:auto;bottom:calc(100% + 10px)}.term.up .term-pop::before{top:auto;bottom:-12px}
+.term-pop strong{display:block;font-weight:700;margin-bottom:3px;color:var(--accent)}
+.term.open .term-pop,.term-btn:focus-visible+.term-pop{display:block}
+@media (hover:hover) and (pointer:fine){.term:hover .term-pop{display:block}}
+@media (prefers-color-scheme:dark){.term-pop{box-shadow:0 10px 30px rgba(0,0,0,.55);border-color:#3a3936}}
+.wrap{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right));padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+header.mast{padding-top:calc(34px + env(safe-area-inset-top))}
+footer{font-size:.8rem;color:var(--muted);text-align:center;padding-top:12px}
+footer .ed-no{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+ul.arkiv{list-style:none;padding:0}ul.arkiv li{border-bottom:1px solid var(--rule);padding:12px 0}
+ul.arkiv a{color:var(--fg);font-weight:700;text-decoration:none}ul.arkiv span{display:block;color:var(--muted);font-size:.92rem}
+@media (min-width:1000px){
+  body{font-size:20px}
+  .wrap{max-width:1260px;padding-left:max(40px,env(safe-area-inset-left));padding-right:max(40px,env(safe-area-inset-right));padding-bottom:calc(80px + env(safe-area-inset-bottom))}
+  .layout{grid-template-columns:290px minmax(0,70ch);grid-template-areas:"toc intro" "toc main";column-gap:64px;justify-content:center}
+  nav.toc{position:sticky;top:20px;align-self:start;max-height:calc(100vh - 40px);overflow:auto;border:0;margin:0;padding:0 4px 0 0;font-size:.78rem}
+  nav.toc summary{pointer-events:none;padding:4px 0 10px}nav.toc summary::after{content:none}
+  nav.toc a{padding:7px 10px 7px 6px}
+  .intro{margin-top:4px}
+}
+</style></head>
+<body><div class="wrap"><header class="mast"><p class="greet" id="greet" data-name="Kasper" aria-live="off" hidden></p><script>(function(){var g=document.getElementById('greet');if(!g)return;var N=g.getAttribute('data-name');
+function upd(){var h=new Date().getHours();
+ var t=h>=5&&h<10?'Godmorgen':h>=10&&h<12?'God formiddag':h>=12&&h<18?'God eftermiddag':'God aften';
+ t=N?t+', '+N:t;if(g.textContent!==t)g.textContent=t;g.hidden=false;}
+upd();addEventListener('pageshow',upd);addEventListener('focus',upd);
+document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')upd();});
+setInterval(function(){if(document.visibilityState==='visible')upd();},60000);
+})();</script><h1><a href="../index.html">Nyheder</a></h1><div class="meta">onsdag 11. november 2026</div></header>
+<div class="layout">
+<p class="intro">Anthropic har sat prisen på sin børsnotering – 70–78 dollar pr. aktie med handel fra 19. november – mens varm amerikansk inflation og Huang-skandalen sendte Nvidia ned igen. Google lancerer Gemini 4 Carbon, Claude får whiteboards og regneark, og Grok Build lækkede data fra tusindvis af apps. Derudover fredsforhandlinger i Abu Dhabi, Zelenskyj i København og en dansk rekord-seedrunde. Til sidst en robot, der bygger i rummet, og en for tidlig elefantunge.</p>
+<nav class="toc" aria-label="Indhold"><details open><summary>Indhold <span class="cnt">· 17 historier</span></summary><ol>
+<li><a href="#1"><span class="n">1</span><span><span class="h">Anthropic sætter prisen: 70–78 dollar pr. aktie og handel fra 19. november</span><span class="t">Investering</span></span></a></li>
+<li><a href="#2"><span class="n">2</span><span><span class="h">Varm inflation og Huang-skandale: Nvidia faldt igen næsten 6 %</span><span class="t">Investering</span></span></a></li>
+<li><a href="#3"><span class="n">3</span><span><span class="h">Google lancerer Gemini 4 Carbon – nr. 1 på CursorBench</span><span class="t">AI-kodning</span></span></a></li>
+<li><a href="#4"><span class="n">4</span><span><span class="h">Claude får whiteboards, regneark og datahistorier</span><span class="t">AI &amp; tech</span></span></a></li>
+<li><a href="#5"><span class="n">5</span><span><span class="h">Grok Build lækkede data fra 35.000 apps – også SpaceXSI&#x27;s egne</span><span class="t">AI-kodning</span></span></a></li>
+<li><a href="#6"><span class="n">6</span><span><span class="h">Cursor Projects bliver multiplayer – agenter kan koordinere på tværs af kolleger</span><span class="t">AI-kodning</span></span></a></li>
+<li><a href="#7"><span class="n">7</span><span><span class="h">OpenAI rundede 10 milliarder dollar i kvartalsomsætning – men tabet voksede</span><span class="t">Investering</span></span></a></li>
+<li><a href="#8"><span class="n">8</span><span><span class="h">Første fredsforhandlinger siden februar: Rusland og Ukraine mødtes i Abu Dhabi</span><span class="t">Verden</span></span></a></li>
+<li><a href="#9"><span class="n">9</span><span><span class="h">Zelenskyj i København: Danmark giver 4,8 milliarder i ny militærpakke</span><span class="t">Danmark</span></span></a></li>
+<li><a href="#10"><span class="n">10</span><span><span class="h">Tesla solgte kun 8.817 biler i Kina i oktober – laveste siden 2022</span><span class="t">Investering</span></span></a></li>
+<li><a href="#11"><span class="n">11</span><span><span class="h">Mærsk-aktien faldt 3 %: Barclays siger sælg – og hackere hævder datatyveri</span><span class="t">Investering</span></span></a></li>
+<li><a href="#12"><span class="n">12</span><span><span class="h">X lancerer eget klippeværktøj – både klipper og original-creator kan tjene penge</span><span class="t">Creatorøkonomi</span></span></a></li>
+<li><a href="#13"><span class="n">13</span><span><span class="h">Sideprojektet Typefully blev købt af Stan efter næsten 10.000 betalende kunder</span><span class="t">Iværksætteri</span></span></a></li>
+<li><a href="#14"><span class="n">14</span><span><span class="h">Danske Sumary henter 25 millioner dollar – Europas største seedrunde i regnskabssoftware</span><span class="t">Iværksætteri</span></span></a></li>
+<li><a href="#15"><span class="n">15</span><span><span class="h">Gennemgang af 350 studier: Mindre protein kan bremse aldring – men ikke for alle</span><span class="t">Sundhed</span></span></a></li>
+<li><a href="#16"><span class="n">16</span><span><span class="h">For første gang har en robot bygget en konstruktion i rummet helt på egen hånd</span><span class="t">Spændende</span></span></a></li>
+<li><a href="#17"><span class="n">17</span><span><span class="h">Overraskelse i Zoo: Elefantunge født en måned før tid</span><span class="t">Godt nyt</span></span></a></li>
+<li class="sec"><a href="#nyt"><span class="n">+</span><span><span class="h">Nyt til dig</span></span></a></li>
+</ol></details></nav><main data-date="2026-11-11" data-total="17" data-latest="1">
+<article id="1"><div class="kick"><span class="num">1</span><span class="tag t-inv">Investering</span></div><h2>Anthropic sætter prisen: 70–78 dollar pr. aktie og handel fra 19. november</h2><p class="sum">Børsnoteringen kan rejse op til 64,35 mia. dollar og værdisætte Anthropic til op til 1.405 milliarder dollar.</p>
+<div class="body"><p>Anthropic udbyder 825 millioner aktier til 70–78 dollar stykket ifølge et opdateret prospekt tirsdag. Prisen ventes fastsat 18. november, og aktien skal handles på Nasdaq under symbolet »ANT« dagen efter. Omkring 20 % af aktierne er tiltænkt private investorer – langt over de normale 5–10 %.</p><p>I toppen af intervallet bliver Anthropic værd op til 1.405 milliarder dollar <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-1-1" aria-describedby="term-1-1">fuldt udvandet<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-1-1" role="tooltip"><strong>fuldt udvandet</strong> Værdien regnet med alle aktier, der kan komme til at eksistere – også optioner og konvertible lån. Her giver det op til 1.405 mia. dollar ved 78 dollar pr. aktie.</span></span>, op fra 965 milliarder i maj. Tidligere sigtede selskabet efter 2.000 milliarder. Ifølge CNBC&#x27;s kilder er ordrebogen allerede fuldtegnet i intervallet. AMD, Broadcom, Google, Micron, Microsoft, Nvidia og TSMC køber desuden aktier for 26 mia. dollar til IPO-prisen.</p><p>Anthropic omsatte for 33,24 mia. dollar i årets første ni måneder, og <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-1-2" aria-describedby="term-1-2">run-rate-omsætningen<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-1-2" role="tooltip"><strong>run-rate-omsætningen</strong> Den seneste måneds omsætning ganget op til et helt år. Cirka 81 mia. dollar betyder, at oktober alene gav omkring 6,75 mia. dollar.</span></span> var cirka 81 mia. dollar ved udgangen af oktober. De syv medstiftere sælger hver 3.378.378 aktier – knap 250 millioner dollar hver ved midten af intervallet – og beholder tilsammen 51,1 % af stemmerne.</p></div>
+<p class="src">Kilde: CNBC · <a href="https://www.cnbc.com/2026/11/10/anthropic-sets-price-range-of-70-to-78-in-upcoming-ipo.html" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://techcrunch.com/2026/11/10/all-7-anthropic-founders-will-each-cash-out-about-250m-in-ipo/" rel="noopener">TechCrunch: Hver medstifter sælger for ca. 250 mio. dollar</a></li></ul>
+</article>
+<article id="2"><div class="kick"><span class="num">2</span><span class="tag t-inv">Investering</span></div><h2>Varm inflation og Huang-skandale: Nvidia faldt igen næsten 6 %</h2><p class="sum">Forbrugerpriserne steg 0,4 % i oktober, og markedet regner nu fuldt med en renteforhøjelse fra Fed i december.</p>
+<div class="body"><p>De amerikanske forbrugerpriser steg 0,4 % i oktober mod ventet 0,3 %, og <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-2-1" aria-describedby="term-2-1">kerneinflationen<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-2-1" role="tooltip"><strong>kerneinflationen</strong> Prisudviklingen uden de svingende fødevare- og energipriser. Den viser det underliggende prispres – her 0,3 % på en måned mod ventet 0,2 %.</span></span> steg 0,3 % mod ventet 0,2 %. Fed-guvernør Christopher Waller havde samme morgen sagt, at en halvt procentpoint stor forhøjelse bør overvejes, hvis kernetallet lå omkring 0,3.</p><p>Nu prisfastsætter markedet fuldt en forhøjelse på mindst 25 <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-2-2" aria-describedby="term-2-2">basispoint<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-2-2" role="tooltip"><strong>basispoint</strong> En hundrededel procentpoint. 25 basispoint er altså en renteforhøjelse på 0,25 procentpoint.</span></span> ved Fed-mødet 8.–9. december, og 2-årsrenten steg med det største dagsudsving siden april 2025. S&amp;P 500 faldt 0,38 % og Nasdaq 0,74 %.</p><p>Nvidia faldt knap 6 % og er nede omkring 10 % på to dage. Bestyrelsen har hyret advokatfirmaet Wachtell Lipton og den tidligere chefanklager Joon H. Kim til at undersøge, om firmahemmeligheder eller national sikkerhed blev kompromitteret ved Jensen Huangs affære med Alice Huang. Microsoft er igen mere værd end Nvidia for første gang siden juni 2025, og Cathie Wood købte over 90.000 Nvidia-aktier under faldet.</p></div>
+<p class="src">Kilde: Reuters via Moneycontrol · <a href="https://www.moneycontrol.com/news/business/markets/us-stocks-falla-as-hotter-inflation-fuels-fed-rate-hike-fears-nvidia-slides-nearly-6-14076505.html" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.cnbc.com/2026/11/10/nvidia-wachtell-lipton-huang-affair.html" rel="noopener">CNBC: Nvidia hyrer Wachtell Lipton</a></li><li><a href="https://www.cnbc.com/2026/11/10/cpi-inflation-report-october-2026.html" rel="noopener">CNBC: Inflationstallene for oktober</a></li></ul>
+</article>
+<article id="3"><div class="kick"><span class="num">3</span><span class="tag t-kode">AI-kodning</span></div><h2>Google lancerer Gemini 4 Carbon – nr. 1 på CursorBench</h2><p class="sum">Googles stærkeste model er bygget til lange kodeopgaver og forskning og fås nu i API&#x27;et, Gemini-appen, Cursor og Copilot.</p>
+<div class="body"><p>Google DeepMind har gjort Gemini 4 Carbon tilgængelig for udviklere, virksomheder og Google AI Ultra-abonnenter. Modellen bruger flere <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-3-1" aria-describedby="term-3-1">tokens<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-3-1" role="tooltip"><strong>tokens</strong> De små tekststykker, en AI-model læser og skriver i, og som der betales efter. Carbon koster 2 dollar pr. million tokens ind og 10 dollar pr. million ud indtil 30. november.</span></span> end søstermodellen Argon på at ræsonnere og verificere sit arbejde og er tiltænkt kompleks kodning, fejlfinding og videnskabelig analyse.</p><p>Ifølge Google ligger Carbon nr. 1 på CursorBench 4.0, Perplexitys WANDR og Zapiers AutomationBench – til mindre end det halve i pris pr. opgave af den næstbedste eksterne model. Cursor oplyser 60,4 % på CursorBench ved høj indsats, og modellen er også kommet i GitHub Copilot.</p><p>Introduktionsprisen er 2 dollar pr. million input-tokens og 10 dollar pr. million output-tokens frem til 30. november, derefter 4 og 20 dollar. Samtidig viser Google »/swarm« i Antigravity, hvor én prompt sætter et helt hold af agenter i gang.</p></div>
+<p class="src">Kilde: Google DeepMind · <a href="https://deepmind.google/blog/gemini-4-carbon-is-now-available/" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://x.com/cursor_ai/status/2120193584670580857" rel="noopener">Cursor på X: 60,4 % på CursorBench</a></li></ul>
+</article>
+<article id="4"><div class="kick"><span class="num">4</span><span class="tag t-ai">AI &amp; tech</span></div><h2>Claude får whiteboards, regneark og datahistorier</h2><p class="sum">Claude Whiteboards og Claude Sheets er i beta, og Claude Dashboards er nu Claude Data – på alle betalte abonnementer.</p>
+<div class="body"><p>Anthropic lancerer Claude Whiteboards, en fælles tavle hvor et team brainstormer med Claude, som kan gøre en rodet plan til en tidslinje med ansvarlige og datoer. Claude Sheets laver regneark med faner, formler, formatering og dropdowns ud fra en prompt og markerer hver ændring.</p><p>Claude Dashboards, der kom i beta i oktober, hedder nu Claude Data og har fået certificerede forespørgsler, live-deling, versionshistorik og caching. Samtidig kan forbundne apps som Adobe, Atlassian, Box og Notion åbnes som fulde apps ved siden af samtalen.</p><p>Funktionerne virker på web, desktop og mobil. Samme dag lancerede Anthropic også Claude Meetings, hvor Claude deltager i møder og skriver planer og opgaver undervejs.</p></div>
+<p class="src">Kilde: Claude (Anthropic) · <a href="https://claude.com/resources/articles/sheets-whiteboards-data" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://techcrunch.com/2026/11/10/anthropic-launches-claude-meetings-to-turn-workplace-discussions-into-plans-and-tasks/" rel="noopener">TechCrunch: Claude Meetings</a></li></ul>
+</article>
+<article id="5"><div class="kick"><span class="num">5</span><span class="tag t-kode">AI-kodning</span></div><h2>Grok Build lækkede data fra 35.000 apps – også SpaceXSI&#x27;s egne</h2><p class="sum">Delingslinks til apps bygget med kodeagenten kunne findes via offentlige DNS-opslag og åbnes af alle.</p>
+<div class="body"><p>Sikkerhedsfirmaet Claroc fandt 43.601 links, der ender på grok.me, via <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-5-1" aria-describedby="term-5-1">passive DNS<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-5-1" role="tooltip"><strong>passive DNS</strong> Databaser, der registrerer, når nye domænenavne slås op på internettet. Her betød det, at hver ny grok.me-adresse blev synlig for alle, der søgte.</span></span>-tjenester. Over 35.000 af dem var offentlige, så alle kunne åbne appen og dens data. Fejlen er, at det tilfældige ord i linket står foran domænet, hvor DNS kan se det, frem for i stien som hos Google Docs.</p><p>Blandt de eksponerede data var 3.784 lægeundersøgelser af bygningsarbejdere, en Tesla-scorecard med 22 teknikere og 24 apps fra SpaceXSI selv med bl.a. et fortroligt onboardingdokument og et salgskort over 594 kunder. SpaceXSI fjernede sine egne links, efter Ars Technica spurgte ind.</p><p>Cursor, som SpaceXSI har købt, siger at apps er private som standard. Claroc fandt det modsatte: delingen stod som standard på »Anyone with the link«. Lovable, Bolt og Replit bruger samme adresseprincip.</p></div>
+<p class="src">Kilde: Ars Technica · <a href="https://arstechnica.com/security/2026/11/grok-build-coding-agent-leaks-oodles-of-confidential-info-some-belonging-to-spacexsi/" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="6"><div class="kick"><span class="num">6</span><span class="tag t-kode">AI-kodning</span></div><h2>Cursor Projects bliver multiplayer – agenter kan koordinere på tværs af kolleger</h2><p class="sum">Hele teams kan nu arbejde i samme Project med fælles kontekst, opgavetavle og agenter, der taler sammen.</p>
+<div class="body"><p>Cursor introducerede Projects i september som en måde at styre en flåde af agenter gennem én koordinator. Nu kan man invitere kolleger ind, så teamet planlægger, bygger og shipper sammen med alle sine agenter.</p><p>En fælles opgavetavle viser, hvem der laver hvad, hvad hver agent arbejder på, og hvilken PR der hører til. Et delt kontekstlag rummer kravdokumenter, diagrammer og mockups, så en beslutning i én chat er kendt af alle agenter.</p><p>Agenterne kan også tale direkte sammen: Ændrer en kollega databaseskemaet, mens du bygger en funktion, aftaler jeres agenter rækkefølgen på forhånd. Funktionen rulles ud i beta til alle brugere fra i dag.</p></div>
+<p class="src">Kilde: Cursor · <a href="https://cursor.com/blog/projects-multiplayer" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://x.com/cursor_ai/status/2120295553309565139" rel="noopener">Cursor på X</a></li></ul>
+</article>
+<article id="7"><div class="kick"><span class="num">7</span><span class="tag t-inv">Investering</span></div><h2>OpenAI rundede 10 milliarder dollar i kvartalsomsætning – men tabet voksede</h2><p class="sum">Omsætningen steg cirka 50 % i tredje kvartal, mens driftstabet blev 10,9 mia. dollar.</p>
+<div class="body"><p>OpenAI omsatte for omkring 10 milliarder dollar i tredje kvartal – første gang over den grænse – drevet af efterspørgsel på de nyeste modeller, skriver Wall Street Journal og Bloomberg.</p><p>Driftstabet voksede samtidig fra 10,1 til 10,9 milliarder dollar. OpenAI har fortalt investorer, at den justerede <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-7-1" aria-describedby="term-7-1">driftsmargin<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-7-1" role="tooltip"><strong>driftsmargin</strong> Driftsresultatet som andel af omsætningen. -109 % betyder, at OpenAI har brugt omkring 2,09 dollar for hver dollar, det har tjent i justerede tal.</span></span> forbedredes fra -150 % til -109 %.</p><p>Tallene kommer, mens investorer gransker AI-selskabernes økonomi forud for Anthropics børsnotering. Til sammenligning har Anthropic oplyst 33,24 mia. dollar i omsætning for årets første ni måneder.</p></div>
+<p class="src">Kilde: Reuters via Investing.com · <a href="https://www.investing.com/news/stock-market-news/openai-posts-steep-losses-even-as-quarterly-revenue-rises-to-10-billion-wsj-reports-5017353" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="8"><div class="kick"><span class="num">8</span><span class="tag t-verden">Verden</span></div><h2>Første fredsforhandlinger siden februar: Rusland og Ukraine mødtes i Abu Dhabi</h2><p class="sum">USA vil have en ny sikkerhedsarkitektur for hele Europa, og Europa skal med ved bordet på sigt.</p>
+<div class="body"><p>Russiske og ukrainske forhandlere mødtes tirsdag i næsten fire timer i Abu Dhabi med Jared Kushner og Steve Witkoff for bordenden. Det er de første direkte forhandlinger siden februar, og de fortsætter onsdag.</p><p>Kushner sagde, at USA vil skabe »en ny ramme« for sikkerheden mellem Ukraine, Rusland og Europa. Udenrigsminister Marco Rubio kaldte møderne »meget produktive« og sagde, at europæerne på sigt bør sidde med ved bordet.</p><p>Før mødet aftalte USA, Ukraine, EU, Storbritannien, Tyskland, Frankrig, Italien og NATO at se på Europas sikkerhedsordning efter krigen, med NATO som centralt. Rusland bombede samtidig det ukrainske elnet i otte regioner.</p></div>
+<p class="src">Kilde: AFP · <a href="https://www.afp.com/en/us-calls-new-europe-security-framework-russia-ukraine-talks-open" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.consilium.europa.eu/en/press/press-releases/2026/11/10/statement-on-today-s-meeting-in-abu-dhabi-between-the-eu-france-germany-italy-united-kingdom-ukraine-united-states-and-nato/" rel="noopener">EU-Rådet: Fælles erklæring fra Abu Dhabi</a></li><li><a href="https://www.rferl.org/a/russia-ukraine-abu-dhabi-war-peace-talks/33894644.html" rel="noopener">RFE/RL: Første forhandlingsdag</a></li></ul>
+</article>
+<article id="9"><div class="kick"><span class="num">9</span><span class="tag t-dk">Danmark</span></div><h2>Zelenskyj i København: Danmark giver 4,8 milliarder i ny militærpakke</h2><p class="sum">Den 32. donationspakke kommer oven i 150 mio. kr. til Ukraines energisektor, og Ukraine vil åbne et forsvarskontor i Danmark.</p>
+<div class="body"><p>Udenrigsminister Lars Løkke Rasmussen meddelte efter et møde i Det Udenrigspolitiske Nævn den 32. donationspakke til Ukraine på 4,8 milliarder kroner i militærstøtte. Danmark giver desuden 150 millioner kroner ekstra til den ukrainske energisektor.</p><p>»Folk fryser allerede i Ukraine. Der er strømafbrydelser på et niveau, vi ikke har set siden krigen startede,« sagde Løkke.</p><p>Pengene blev præsenteret under Volodymyr Zelenskyjs besøg i Danmark, hvor han bl.a. skal tale med statsministeren om at åbne et kontor for forsvarsprojektet Freyja i Danmark. Over for DR afviste han at afgive Donbas.</p></div>
+<p class="src">Kilde: DR · <a href="https://www.dr.dk/nyheder/seneste/danmark-i-ny-milliarddonation-til-ukraine" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.dr.dk/nyheder/indland/reels/zelenskyj-vil-aabne-forsvarskontor-i-danmark" rel="noopener">DR: Zelenskyj vil åbne forsvarskontor i Danmark</a></li></ul>
+</article>
+<article id="10"><div class="kick"><span class="num">10</span><span class="tag t-inv">Investering</span></div><h2>Tesla solgte kun 8.817 biler i Kina i oktober – laveste siden 2022</h2><p class="sum">Salget faldt 66 % på et år, mens 87 % af Shanghai-fabrikkens biler blev eksporteret.</p>
+<div class="body"><p>Ifølge den kinesiske bilbrancheforening CPCA solgte Tesla China 67.829 biler engros i oktober, men 59.012 af dem blev eksporteret. Kun 8.817 gik til kinesiske købere – 66 % færre end sidste år og 86 % færre end i september.</p><p>Det er første gang under 10.000 siden juli 2022. Teslas andel af det kinesiske marked for el- og plugin-biler faldt til 0,8 % fra 2,03 % et år tidligere, mens det samlede marked for den slags biler faldt cirka 10–14 %.</p><p>Tesla sender typisk eksport først i kvartalet og leverer i Kina sidst, men oktober var under det halve af årets hidtil laveste kvartalsstart. Fra januar til oktober er salget i Kina faldet 15 % til 389.905 biler.</p></div>
+<p class="src">Kilde: Electrek · <a href="https://electrek.co/2026/11/10/tesla-china-sales-crash-october-2026-lowest-four-years/" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://cnevpost.com/2026/11/09/tesla-retail-sales-china-oct-2026/" rel="noopener">CnEVPost: Tallene måned for måned</a></li></ul>
+</article>
+<article id="11"><div class="kick"><span class="num">11</span><span class="tag t-inv">Investering</span></div><h2>Mærsk-aktien faldt 3 %: Barclays siger sælg – og hackere hævder datatyveri</h2><p class="sum">Barclays barberede <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-11-1" aria-describedby="term-11-1">kursmålet<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-11-1" role="tooltip"><strong>kursmålet</strong> Analytikerens bud på, hvad aktien bør koste om typisk 12 måneder. Barclays sænkede sit bud med 30 %.</span></span> med 30 %, og en hackergruppe kræver 5 mio. dollar i bitcoin for ikke at lække data.</p>
+<div class="body"><p>Barclays nedjusterede tirsdag Mærsk til »sælg« og skar kursmålet med 30 %, og aktien faldt omkring 3 % ifølge Børsen.</p><p>Samtidig hævder den relativt ukendte hackergruppe WhiteArmor at have stjålet op mod 100 gigabyte data fra Mærsks logistikplatform, angiveligt den tidligere LF Logistics. Gruppen kræver 5 millioner i bitcoin og har sat en deadline 7. december.</p><p>En ekspert kalder opslaget troværdigt over for Ingeniøren, mens Mærsk undersøger »potentielle brud på sikkerheden«. Tyveriet er ikke bekræftet af Mærsk.</p></div>
+<p class="src">Kilde: Børsen · <a href="https://borsen.dk/nyheder/investor/dagens-analytikernyt-barclays-siger-saelg-til-maersk-og-barberer-kursmalet-30-pct" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://ing.dk/artikel/maersk-ramt-af-datalaek-hackere-haevder-have-adgang-til-kundedata" rel="noopener">Ingeniøren: Hackere hævder adgang til kundedata</a></li></ul>
+</article>
+<article id="12"><div class="kick"><span class="num">12</span><span class="tag t-crea">Creatorøkonomi</span></div><h2>X lancerer eget klippeværktøj – både klipper og original-creator kan tjene penge</h2><p class="sum">Klip fra andres videoer får et »Clip from«-mærke med link tilbage til originalen.</p>
+<div class="body"><p>X har lanceret en indbygget funktion, hvor man kan klippe sit yndlingsøjeblik ud af en video, tilføje sin egen vinkel og poste det uden at forlade X. Hvert klip får et »Clip from«-mærke, der linker til den oprindelige video og creator.</p><p>Både den, der klipper, og den oprindelige creator kan tjene på visningerne gennem X&#x27;s Original Content Rewards, som kun gælder kvalificerede creators og betaler efter engagement.</p><p>Klipning er blevet en stor branche, hvor creators og virksomheder betaler firmaer for at skære lange videoer op til korte, virale klip. I år har X også lanceret betalingsmur på dele af tråde og et livestreaming-studie med 1 million dollar til creators.</p></div>
+<p class="src">Kilde: TechCrunch · <a href="https://techcrunch.com/2026/11/10/x-launches-its-own-clipping-feature-to-spur-influencer-engagement/" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="13"><div class="kick"><span class="num">13</span><span class="tag t-ivk">Iværksætteri</span></div><h2>Sideprojektet Typefully blev købt af Stan efter næsten 10.000 betalende kunder</h2><p class="sum">Skriveværktøjet til X og LinkedIn voksede stort set uden investorer, og brugerne planlægger 350.000 opslag om måneden.</p>
+<div class="body"><p>Fabrizio Rinaldi startede Typefully som et personligt sideprojekt, og Francesco Di Lorenzo kom med for at bygge editoren. Produktet blev offentligt lanceret i december 2020. Det er nu købt af Stan, firmaet bag creator-butikken Stan Store og AI-agenten Stanley.</p><p>Ifølge Stan var Typefully »largely <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-13-1" aria-describedby="term-13-1">bootstrapped<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-13-1" role="tooltip"><strong>bootstrapped</strong> Bygget for egne penge og kundernes betalinger frem for venturekapital. Typefully nåede næsten 10.000 betalende kunder stort set på den måde.</span></span>« og voksede via mund-til-mund til næsten 10.000 betalende kunder. Prisen er ikke oplyst. Duoen solgte tidligere nyhedsbrevsaggregatoren Mailbrew.</p><p>Stan har over 90.000 brugere, og creators har tjent over 750 millioner dollar gennem platformen. Stifterne skriver til brugerne, at intet ændrer sig: samme app, plan og pris.</p></div>
+<p class="src">Kilde: Net Influencer · <a href="https://www.netinfluencer.com/stan-acquires-typefully/" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="14"><div class="kick"><span class="num">14</span><span class="tag t-ivk">Iværksætteri</span></div><h2>Danske Sumary henter 25 millioner dollar – Europas største seedrunde i regnskabssoftware</h2><p class="sum">Startuppen bag en AI-platform til bogholderier flytter sin kommercielle base til London.</p>
+<div class="body"><p>Sumary, stiftet af de tidligere McKinsey-konsulenter Pascar Sivam og Bastian Schneider sammen med Lucas Rantzau, Frederik Hvilshøj og Frederik Skov Wacher, har rejst 25 millioner dollar. Runden er anført af Singular med byFounders, Partech og Tenity samt bl.a. Synthesias Steffen Tjerrild som engle.</p><p>Sumary kalder det Europas største <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-14-1" aria-describedby="term-14-1">seedrunde<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-14-1" role="tooltip"><strong>seedrunde</strong> En af de første store investeringsrunder i en ung virksomhed. Her 25 mio. dollar, som Sumary kalder Europas største seedrunde inden for regnskabssoftware.</span></span> inden for regnskabssoftware, og den kommer under et år efter en pre-seed på 27 millioner kroner. Platformen klarer regnskabsfirmaernes faste arbejde fra månedsafslutning til momsindberetning, så revisoren kun skal gennemgå og godkende.</p><p>Sumary arbejder med de fleste af Nordens 20 største regnskabsfirmaer. Sivam og Wacher flytter til London, mens udvikling og AI-forskning bliver i Danmark.</p></div>
+<p class="src">Kilde: TechSavvy · <a href="https://techsavvy.media/fintech-startup-rejser-25-millioner-dollar-i-europaeisk-rekordrunde-for-regnskabssoftware/" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="15"><div class="kick"><span class="num">15</span><span class="tag t-sund">Sundhed</span></div><h2>Gennemgang af 350 studier: Mindre protein kan bremse aldring – men ikke for alle</h2><p class="sum">Forskerne mener, at mange stillesiddende voksne spiser mere protein, end de har brug for.</p>
+<div class="body"><p>En stor gennemgang af over 350 studier, udgivet i Cell Press Blue, peger på, at et lavere proteinindtag kan forbedre stofskiftet, bremse biologisk aldring og under visse forhold forlænge livet. Det stærkeste bevis kommer fra dyr: mus, rotter, fluer og fisk på proteinfattig kost levede længere.</p><p>I små, korte forsøg med mennesker tabte deltagerne vægt og fedt og fik bedre <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-15-1" aria-describedby="term-15-1">fasteblodsukker<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-15-1" role="tooltip"><strong>fasteblodsukker</strong> Mængden af sukker i blodet efter en periode uden mad – et vigtigt mål for stofskiftets sundhed. Det blev bedre i de små forsøg med mindre protein.</span></span> – selv når de spiste flere kalorier. Tre aminosyrer skiller sig ud: methionin, isoleucin og valin. Hormonet FGF21 stiger, når protein begrænses.</p><p>Gennemgangen beviser ikke længere liv hos mennesker. Forskerne understreger, at gravide, ældre og folk der træner regelmæssigt har brug for mere protein, og vil have råd tilpasset alder og aktivitet. De nye amerikanske kostråd anbefaler 1,2–1,6 g protein pr. kg kropsvægt.</p></div>
+<p class="src">Kilde: ScienceDaily (Cell Press) · <a href="https://www.sciencedaily.com/releases/2026/11/261108203714.htm" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://sciencemediacentre.es/en/reducing-protein-intake-could-promote-healthier-ageing-most-people-according-review-studies" rel="noopener">Science Media Centre Spain: Uafhængig vurdering</a></li></ul>
+</article>
+<article id="16"><div class="kick"><span class="num">16</span><span class="tag t-godt">Spændende</span></div><h2>For første gang har en robot bygget en konstruktion i rummet helt på egen hånd</h2><p class="sum">Caltechs ASTRA samlede en gitterstruktur i kredsløb – som en slags rum-K&#x27;Nex.</p>
+<figure class="fig"><img src="../img/2026-11-11/astra.jpg" alt="Caltechs ASTRA-robot i kredsløb med Jorden i baggrunden" loading="lazy" decoding="async" width="600" height="557"><figcaption>Billede: Caltech</figcaption></figure>
+<div class="body"><p>En robot fra Caltech, finansieret af DARPA, har som den første bygget en konstruktion i rummet uden astronauter. ASTRA tog stivere af kulfiber og aluminiumsled fra små dispensere og samlede sektioner af et gitter, mens den spændte et tyndt reflekterende net ud – første skridt mod en antenne på 1,4 meter.</p><p>Robotten blev sendt op med SpaceX&#x27; Transporter-16 i marts og har arbejdet i et halvt år. Holdet kunne kun sende kommandoer i vinduer på samlet 15 minutter om dagen og nåede kun den første del af antennen.</p><p>Idéen er, at fremtidens kæmpe antenner og strukturer kan sendes op som en kasse byggeklodser og samles dér, hvor de skal bruges. Fra idé til opsendelse tog det 15 måneder.</p></div>
+<p class="src">Kilde: Space.com · <a href="https://www.space.com/technology/a-robot-just-built-a-structure-autonomously-in-space-for-the-1st-time-ever" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.caltech.edu/about/news/caltech-robotic-space-demo-successfully-builds-in-space" rel="noopener">Caltech: Pressemeddelelse</a></li><li><a href="https://www.darpa.mil/news/2026/nom4d-program-demonstrates-automated-in-space-assembly" rel="noopener">DARPA: NOM4D</a></li></ul>
+</article>
+<article id="17"><div class="kick"><span class="num">17</span><span class="tag t-godt">Godt nyt</span></div><h2>Overraskelse i Zoo: Elefantunge født en måned før tid</h2><p class="sum">Dyrepasserne mødte ind til en nyfødt hanelefant på knap 100 kilo.</p>
+<figure class="fig"><img src="../img/2026-11-11/elefantunge.jpg" alt="Den nyfødte elefantkalv står mellem de voksne elefanter i Zoologisk Have" loading="lazy" decoding="async" width="960" height="540"><figcaption>Billede: Zoologisk Have København via DR</figcaption></figure>
+<div class="body"><p>Da dyrepasserne i Zoologisk Have i København mødte ind tirsdag morgen, ventede en overraskelse: Hunelefanten Surin havde sent mandag aften født en kalv – en måned før tid.</p><p>Kalven er en han og vejede knap 100 kilo. »Heldigvis ser kalven ud til at have det godt, og det er fantastisk at opleve, hvordan hele elefantflokken samles om den nyfødte,« siger zoologisk direktør Mads Bertelsen.</p><p>Dyrepasserne gennemgår nu videoovervågningen for at se, hvordan fødslen forløb.</p></div>
+<p class="src">Kilde: DR · <a href="https://www.dr.dk/nyheder/seneste/elefantunge-foedt-i-zoologisk-have-en-maaned-foer-tid" rel="noopener">Læs mere →</a></p>
+</article>
+<section class="nyt" id="nyt"><h2>Nyt til dig</h2><ul>
+<li><a href="https://cnevpost.com" rel="noopener">CnEVPost</a> – Engelsksproget nyhedssite med detaljerede salgstal og analyser fra det kinesiske elbilmarked.</li>
+<li><a href="https://techsavvy.media" rel="noopener">TechSavvy</a> – Dansk medie om startups, investeringer og tech i Norden.</li>
+<li><a href="https://www.startupsfortherestofus.com" rel="noopener">Startups for the Rest of Us</a> – Rob Wallings ugentlige podcast om bootstrappede SaaS-virksomheder.</li>
+</ul></section>
+</main></div>
+<footer><div class="ed-no">Udgave nr. 15</div><a href="../index.html">Seneste udgave</a> · <a href="../arkiv/index.html">Arkiv</a> · Nyheder for Kasper</footer>
+</div><script>(function(){var d=document.querySelector('nav.toc details');if(!d)return;var mq=matchMedia('(min-width:1000px)');
+function fit(){d.open=mq.matches?true:d.dataset.u==='1';}d.querySelector('summary').addEventListener('click',function(){d.dataset.u=d.open?'0':'1';});
+fit();mq.addEventListener&&mq.addEventListener('change',fit);
+var links={};d.querySelectorAll('a[href^="#"]').forEach(function(a){links[decodeURIComponent(a.getAttribute('href').slice(1))]=a;});
+var cur;function on(id){if(cur)cur.classList.remove('on');cur=links[id];if(cur){cur.classList.add('on');if(mq.matches&&cur.scrollIntoView){var r=cur.getBoundingClientRect(),p=d.parentNode.getBoundingClientRect();if(r.top<p.top||r.bottom>p.bottom)cur.scrollIntoView({block:'nearest'});}}}
+if(!('IntersectionObserver' in window))return;var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)on(e.target.id);});},{rootMargin:'-20% 0px -70% 0px'});
+Object.keys(links).forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el);});})();</script><script>(function(){var m=document.querySelector('main[data-date]');if(!m)return;
+var D=m.dataset.date,LATEST=m.dataset.latest==='1',K='nyheder-read-'+D,arts=[].slice.call(document.querySelectorAll('main article[id]')),N=arts.length;
+var ls=null;try{ls=window.localStorage;ls.getItem(K);}catch(_){ls=null;}
+var read={};try{(JSON.parse((ls&&ls.getItem(K))||'[]')||[]).forEach(function(i){read[i]=1;});}catch(_){}
+function save(){if(!ls)return;try{ls.setItem(K,JSON.stringify(Object.keys(read).map(Number).sort(function(a,b){return a-b;})));
+ var ks=[];for(var i=0;i<ls.length;i++){var k=ls.key(i);if(k&&k.indexOf('nyheder-read-')===0)ks.push(k);}ks.sort();while(ks.length>30)ls.removeItem(ks.shift());}catch(_){}}
+var toc={};document.querySelectorAll('nav.toc a[href^="#"]').forEach(function(a){toc[a.getAttribute('href').slice(1)]=a;});
+function paint(i){var a=toc[i];if(a){a.classList.add('read');var n=a.querySelector('.n');if(n)n.setAttribute('aria-label',i+', læst');}}
+function mark(i){i=String(i);if(read[i]||!document.getElementById(i))return;read[i]=1;save();paint(i);}
+Object.keys(read).forEach(function(i){paint(i);});
+Object.keys(toc).forEach(function(i){if(/^\d+$/.test(i))toc[i].addEventListener('click',function(){mark(i);});});
+/* Read = ~60 % of the story (or of the screen, for stories taller than it) visible for 3 s while the page is visible. */
+if('IntersectionObserver' in window){var tm={};
+ var th=[];for(var t=0;t<=20;t++)th.push(t/20);
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){var id=e.target.id;if(read[id])return;
+  var need=0.6*Math.min(e.boundingClientRect.height,(e.rootBounds&&e.rootBounds.height)||innerHeight);
+  var ok=e.isIntersecting&&e.intersectionRect.height>=need;
+  if(ok&&!tm[id])tm[id]=setTimeout(function(){tm[id]=0;if(document.visibilityState!=='hidden')mark(id);else io.unobserve(e.target),io.observe(e.target);},3000);
+  else if(!ok&&tm[id]){clearTimeout(tm[id]);tm[id]=0;}});},{threshold:th});
+ arts.forEach(function(a){if(!read[a.id])io.observe(a);});
+ document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden'){Object.keys(tm).forEach(function(id){if(tm[id]){clearTimeout(tm[id]);tm[id]=0;}});}
+  else{arts.forEach(function(a){if(!read[a.id]){io.unobserve(a);io.observe(a);}});}});}
+if(location.hash){var h=location.hash;addEventListener('load',function(){var el=document.getElementById(decodeURIComponent(h.slice(1)));if(el&&location.hash===h)setTimeout(function(){el.scrollIntoView();},60);});}
+})();</script><script>(function(){var ts=document.querySelectorAll('.term');if(!ts.length)return;
+function place(t){var p=t.querySelector('.term-pop');t.classList.remove('up');p.style.left='0px';p.style.display='block';
+var vw=document.documentElement.clientWidth,r=p.getBoundingClientRect(),dx=0;if(r.right>vw-12)dx=vw-12-r.right;if(r.left+dx<12)dx=12-r.left;
+p.style.left=dx+'px';var b=p.getBoundingClientRect();if(b.bottom>innerHeight-8&&t.getBoundingClientRect().top>b.height+24)t.classList.add('up');p.style.display='';}
+function close(x){ts.forEach(function(t){if(t!==x&&t.classList.contains('open')){t.classList.remove('open');t.querySelector('.term-btn').setAttribute('aria-expanded','false');}});}
+ts.forEach(function(t){var b=t.querySelector('.term-btn');t.addEventListener('mouseenter',function(){place(t);});b.addEventListener('focus',function(){place(t);});
+b.addEventListener('click',function(ev){ev.stopPropagation();var o=!t.classList.contains('open');close(t);if(o)place(t);t.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');});
+t.querySelector('.term-pop').addEventListener('click',function(ev){ev.stopPropagation();});});
+document.addEventListener('click',function(){close(null);});
+document.addEventListener('keydown',function(ev){if(ev.key==='Escape'){var a=document.activeElement;close(null);if(a&&a.classList.contains('term-btn'))a.blur();}});
+addEventListener('resize',function(){document.querySelectorAll('.term.open').forEach(place);});})();</script><script>(function(){var B='../';
+try{if('clearAppBadge' in navigator)Promise.resolve(navigator.clearAppBadge()).catch(function(){});}catch(_){}
+if(!('serviceWorker' in navigator))return;
+navigator.serviceWorker.register(B+'sw.js').then(function(r){
+ if(!r||!r.pushManager||!r.pushManager.getSubscription)return;
+ return r.pushManager.getSubscription().then(function(s){if(s)return s.unsubscribe();});}).catch(function(){});
+})();</script></body></html>
