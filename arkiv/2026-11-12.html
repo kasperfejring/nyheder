@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="da"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111213" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Nyheder">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="../icons/favicon-64.png">
+<title>Nyheder · torsdag 12. november 2026</title>
+<link rel="preload" href="../fonts/InterVariable.latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url("../fonts/InterVariable.latin.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-style:italic;font-weight:100 900;font-display:swap;src:url("../fonts/InterVariable-Italic.latin.woff2") format("woff2")}
+:root{--bg:#fbfaf7;--fg:#151515;--fg2:#2b2a27;--muted:#5b5850;--rule:#e2ddd2;--accent:#b8431a;--card:#fff;--link:#174f9c;--hl:#f3efe6}
+@media (prefers-color-scheme:dark){:root{--bg:#111213;--fg:#eeece7;--fg2:#d9d6cf;--muted:#a7a39a;--rule:#2e2d2a;--accent:#f59a62;--card:#1a1b1c;--link:#93bdf2;--hl:#1d1e20}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-padding-top:16px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size:18px;line-height:1.65;font-optical-sizing:auto;font-feature-settings:"cv11","ss01";-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px 64px}
+a{color:var(--link)}
+header.mast{text-align:center;border-bottom:1px solid var(--fg);padding:34px 0 16px;margin-bottom:22px}
+.mast h1{font-size:clamp(2.5rem,9vw,4.4rem);line-height:1;margin:0;letter-spacing:-.04em;font-weight:800}
+.mast h1 a{color:inherit;text-decoration:none}
+.mast .greet{font-size:.95rem;font-weight:500;line-height:1.3;letter-spacing:-.005em;color:var(--muted);margin:0 0 10px}
+.mast .greet[hidden]{display:none}
+.mast .meta{font-size:.74rem;font-weight:600;line-height:1.4;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-top:12px}
+.intro{font-size:1.06em;color:var(--fg2);margin:0 0 22px;line-height:1.6}
+.layout{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"intro" "toc" "main"}
+.layout>.intro{grid-area:intro}.layout>nav.toc{grid-area:toc}.layout>main{grid-area:main;min-width:0}
+nav.toc{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:4px 0;margin-bottom:28px;font-size:.9rem;line-height:1.4}
+nav.toc summary{cursor:pointer;list-style:none;padding:10px 0;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--accent)}
+nav.toc summary::-webkit-details-marker{display:none}
+nav.toc summary::after{content:" ▾";color:var(--muted)}nav.toc details[open] summary::after{content:" ▴"}
+nav.toc summary .cnt{color:var(--muted);font-weight:600;letter-spacing:.08em}
+nav.toc ol{list-style:none;margin:0 0 10px;padding:0}
+nav.toc li{margin:0}
+nav.toc a{display:flex;gap:10px;color:var(--fg);text-decoration:none;padding:7px 10px 7px 0;border-left:2px solid transparent}
+nav.toc a:hover .h{text-decoration:underline}
+nav.toc .n{flex:0 0 1.7em;text-align:right;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+nav.toc .t{display:block;font-size:.78em;color:var(--muted);margin-top:2px}
+nav.toc li.sec a .n{color:var(--accent)}
+nav.toc a.on{border-left-color:var(--accent);background:var(--hl)}nav.toc a.on .n,nav.toc a.on .h{color:var(--accent)}
+nav.toc a.read .n{color:var(--muted);opacity:.5;font-weight:500}nav.toc a.read:not(.on) .h{color:var(--muted)}
+h2.sect,.nyt h2,.radar>h2{font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;margin:6px 0 12px;color:var(--accent)}
+article{border-bottom:1px solid var(--rule);padding:4px 0 30px;margin-bottom:28px;scroll-margin-top:16px}
+.kick{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:.7rem;font-weight:700;line-height:1.5;text-transform:uppercase;letter-spacing:.1em}
+.num{background:var(--fg);color:var(--bg);border-radius:4px;padding:1px 7px;font-variant-numeric:tabular-nums}
+.tag{border:1px solid currentColor;border-radius:4px;padding:0 6px}
+.t-ai{color:#2563a8}.t-kode{color:#0b7480}.t-inv{color:#25784a}.t-sund{color:#9a6510}.t-ivk{color:#8e2a8e}.t-tank{color:#52529a}.t-egne{color:#a84b14}.t-verden{color:#4a5568}.t-frem{color:#6440b8}.t-crea{color:#b4185a}.t-samf{color:#7c6232}.t-dk{color:#b42828}.t-godt{color:#1f8a5b}
+@media (prefers-color-scheme:dark){.t-ai{color:#82b6f2}.t-kode{color:#62d2da}.t-inv{color:#72d19a}.t-sund{color:#f0c264}.t-ivk{color:#e391e3}.t-tank{color:#adadf2}.t-egne{color:#f2a676}.t-verden{color:#bac4d2}.t-frem{color:#bba2f6}.t-crea{color:#f594b6}.t-samf{color:#dcc390}.t-dk{color:#f28a8a}.t-godt{color:#7fe0b0}}
+.unc{background:#9a6510;color:#fff;border-radius:4px;padding:1px 6px}
+article h2{font-size:clamp(1.5rem,5.2vw,2.15rem);line-height:1.18;letter-spacing:-.022em;font-weight:750;margin:12px 0 10px;text-wrap:balance}
+.sum{font-size:1.1em;line-height:1.5;font-weight:500;color:var(--fg2);margin:0 0 16px}
+.body p{margin:0 0 1em}.body p:last-child{margin-bottom:14px}
+figure.fig{margin:4px 0 20px}
+figure.fig img{display:block;width:100%;height:auto;border-radius:8px;background:var(--hl)}
+figure.fig figcaption{font-size:.76rem;line-height:1.45;color:var(--muted);margin-top:7px}
+.src{font-size:.85rem;color:var(--muted)}
+.src a{font-weight:600}
+.extra{font-size:.85rem;margin:8px 0 0;padding-left:1.1em;color:var(--muted)}
+.video{position:relative;width:100%;aspect-ratio:16/9;margin:4px 0 20px;background:#000;border-radius:8px;overflow:hidden}
+.video.short{aspect-ratio:9/16;max-width:340px;margin-left:auto;margin-right:auto}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.xembed{margin:4px 0 20px;display:flex;justify-content:center}
+.car{position:relative;margin:4px 0 20px}
+.car-track{position:relative;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+  overscroll-behavior-x:contain;scrollbar-width:none;border-radius:8px;outline:none}
+.car-track::-webkit-scrollbar{display:none}
+.car-track:focus-visible{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--link)}
+.car-slide{flex:0 0 100%;min-width:0;margin:0;scroll-snap-align:start;scroll-snap-stop:always}
+.car-frame{position:relative;width:100%;aspect-ratio:16/9;background:var(--hl);border-radius:8px;overflow:hidden}
+.car-frame.v{background:#000}
+.car-frame img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain}
+.car-frame iframe,.car-frame video{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000}
+.car-frame.x{overflow-y:auto;-webkit-overflow-scrolling:touch;background:var(--hl)}
+.car-frame.x>*{margin:0 auto!important}.car-frame.x .twitter-tweet{max-width:100%}
+.vcap{font-size:.76rem;line-height:1.45;color:var(--muted);margin:-12px 0 20px}
+.car-slide figcaption{font-size:.76rem;line-height:1.45;color:var(--muted);margin-top:7px}
+.car-nav{position:absolute;left:0;right:0;top:0;aspect-ratio:16/9;pointer-events:none}
+.car-btn{position:absolute;top:50%;transform:translateY(-50%);pointer-events:auto;display:flex;align-items:center;justify-content:center;
+  width:40px;height:40px;padding:0;border:1px solid var(--rule);border-radius:50%;background:var(--card);color:var(--fg);cursor:pointer;
+  font:inherit;font-size:1.2rem;line-height:1;box-shadow:0 2px 10px rgba(0,0,0,.18);opacity:.92;transition:opacity .15s}
+.car-btn:hover{opacity:1}.car-btn:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+.car-btn[disabled]{opacity:0;pointer-events:none}
+.car-prev{left:10px}.car-next{right:10px}
+.car-bar{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:8px;font-size:.72rem;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums}
+.car-dots{display:flex;gap:2px}
+.car-dot{width:22px;height:22px;padding:7px;border:0;margin:0;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.car-dot::before{content:"";display:block;width:8px;height:8px;border-radius:50%;background:var(--rule)}
+.car-dot[aria-current="true"]::before{background:var(--accent)}
+.car-dot:focus-visible{outline:2px solid var(--link);outline-offset:-2px;border-radius:50%}
+@media (hover:none) and (pointer:coarse){.car-btn{display:none}}
+.nyt{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:16px 20px;margin:10px 0 28px;scroll-margin-top:16px}
+.nyt ul{margin:0;padding-left:1.1em}.nyt li{margin:8px 0}.nyt a{font-weight:600}
+.radar{margin:10px 0 28px;scroll-margin-top:16px}
+.radar>p.lede{font-size:.88rem;color:var(--muted);margin:0 0 12px}
+.rcard{background:var(--card);border:1px solid var(--rule);border-left:4px solid #8e2a8e;border-radius:10px;padding:14px 20px;margin:0 0 16px;scroll-margin-top:16px}
+@media (prefers-color-scheme:dark){.rcard{border-left-color:#e391e3}}
+.rcard h3{font-size:clamp(1.25rem,4vw,1.55rem);line-height:1.2;letter-spacing:-.018em;margin:8px 0 8px}
+.rcard h3 a{color:inherit;text-decoration:none}.rcard h3 a:hover{text-decoration:underline}
+.rcard dl{margin:0 0 8px}
+.rcard dt{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:12px}
+.rcard dd{margin:2px 0 0}
+.term{position:relative;display:inline}
+.term-btn{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;cursor:help;text-align:inherit;
+  text-decoration:underline dotted;text-decoration-color:var(--muted);text-decoration-thickness:1.5px;text-underline-offset:.22em;-webkit-tap-highlight-color:transparent}
+.term-btn:hover,.term.open .term-btn{text-decoration-color:var(--accent)}
+.term-btn:focus-visible{outline:2px solid var(--link);outline-offset:2px;border-radius:3px}
+.term .ti{display:none;align-items:center;justify-content:center;width:1.05em;height:1.05em;margin-left:.18em;vertical-align:.12em;
+  border:1.2px solid currentColor;border-radius:50%;font-size:.62em;font-weight:700;font-style:normal;line-height:1;color:var(--muted)}
+.term-btn:hover .ti,.term.open .ti{color:var(--accent)}
+.term-pop{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 10px);width:min(23rem,calc(100vw - 24px));
+  background:var(--card);color:var(--fg);border:1px solid var(--rule);border-radius:10px;padding:12px 14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.14),0 2px 6px rgba(0,0,0,.08);font-size:.8em;font-weight:400;line-height:1.55;text-align:left;white-space:normal;letter-spacing:0}
+.term-pop::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+.term.up .term-pop{top:auto;bottom:calc(100% + 10px)}.term.up .term-pop::before{top:auto;bottom:-12px}
+.term-pop strong{display:block;font-weight:700;margin-bottom:3px;color:var(--accent)}
+.term.open .term-pop,.term-btn:focus-visible+.term-pop{display:block}
+@media (hover:hover) and (pointer:fine){.term:hover .term-pop{display:block}}
+@media (prefers-color-scheme:dark){.term-pop{box-shadow:0 10px 30px rgba(0,0,0,.55);border-color:#3a3936}}
+.wrap{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right));padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+header.mast{padding-top:calc(34px + env(safe-area-inset-top))}
+footer{font-size:.8rem;color:var(--muted);text-align:center;padding-top:12px}
+footer .ed-no{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+ul.arkiv{list-style:none;padding:0}ul.arkiv li{border-bottom:1px solid var(--rule);padding:12px 0}
+ul.arkiv a{color:var(--fg);font-weight:700;text-decoration:none}ul.arkiv span{display:block;color:var(--muted);font-size:.92rem}
+@media (min-width:1000px){
+  body{font-size:20px}
+  .wrap{max-width:1260px;padding-left:max(40px,env(safe-area-inset-left));padding-right:max(40px,env(safe-area-inset-right));padding-bottom:calc(80px + env(safe-area-inset-bottom))}
+  .layout{grid-template-columns:290px minmax(0,70ch);grid-template-areas:"toc intro" "toc main";column-gap:64px;justify-content:center}
+  nav.toc{position:sticky;top:20px;align-self:start;max-height:calc(100vh - 40px);overflow:auto;border:0;margin:0;padding:0 4px 0 0;font-size:.78rem}
+  nav.toc summary{pointer-events:none;padding:4px 0 10px}nav.toc summary::after{content:none}
+  nav.toc a{padding:7px 10px 7px 6px}
+  .intro{margin-top:4px}
+}
+</style></head>
+<body><div class="wrap"><header class="mast"><p class="greet" id="greet" data-name="Kasper" aria-live="off" hidden></p><script>(function(){var g=document.getElementById('greet');if(!g)return;var N=g.getAttribute('data-name');
+function upd(){var h=new Date().getHours();
+ var t=h>=5&&h<10?'Godmorgen':h>=10&&h<12?'God formiddag':h>=12&&h<18?'God eftermiddag':'God aften';
+ t=N?t+', '+N:t;if(g.textContent!==t)g.textContent=t;g.hidden=false;}
+upd();addEventListener('pageshow',upd);addEventListener('focus',upd);
+document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')upd();});
+setInterval(function(){if(document.visibilityState==='visible')upd();},60000);
+})();</script><h1><a href="../index.html">Nyheder</a></h1><div class="meta">torsdag 12. november 2026</div></header>
+<div class="layout">
+<p class="intro">Nvidias bestyrelse har holdt krisemøde om at fyre Jensen Huang efter endnu en afsløret affære, mens CoreWeave fik AI-aktierne til at rejse sig. TSMC køber sig ind i Anthropic og OpenAI, United Airlines lukker AI-agenter ude, og EU vil til livs uendelig scroll og skjult influencer-reklame. Derudover fangeudveksling efter Abu Dhabi-forhandlingerne, en historisk senatsejr i Mississippi og billigere benzin på vej i Danmark. Til sidst et legendarisk oceanskib, der blev til verdens største kunstige rev, og en 17-årig, der overlevede seks døgn alene i den australske bush.</p>
+<nav class="toc" aria-label="Indhold"><details open><summary>Indhold <span class="cnt">· 13 historier</span></summary><ol>
+<li><a href="#1"><span class="n">1</span><span><span class="h">Nvidias bestyrelse har holdt krisemøde om at fyre Jensen Huang</span><span class="t">Investering</span></span></a></li>
+<li><a href="#2"><span class="n">2</span><span><span class="h">Rusland og Ukraine aftaler stor fangeudveksling – men intet gennembrud</span><span class="t">Verden</span></span></a></li>
+<li><a href="#3"><span class="n">3</span><span><span class="h">CoreWeave steg 24,7 % og trak AI-aktierne op igen</span><span class="t">Investering</span></span></a></li>
+<li><a href="#4"><span class="n">4</span><span><span class="h">TSMC køber sig ind i Anthropic og OpenAI for 1 milliard dollar</span><span class="t">Investering</span></span></a></li>
+<li><a href="#5"><span class="n">5</span><span><span class="h">United Airlines forbyder AI-agenter at booke fly for rejsende</span><span class="t">AI &amp; tech</span></span></a></li>
+<li><a href="#6"><span class="n">6</span><span><span class="h">EU vil give brugere ret til at slå uendelig scroll og autoplay fra</span><span class="t">Creatorøkonomi</span></span></a></li>
+<li><a href="#7"><span class="n">7</span><span><span class="h">Pieter Levels gør en video af din stue til et 3D-rum, du kan gå rundt i</span><span class="t">Iværksætteri</span></span></a></li>
+<li><a href="#8"><span class="n">8</span><span><span class="h">Britiske Fractile henter 720 millioner dollar til hurtigere AI-chips</span><span class="t">Iværksætteri</span></span></a></li>
+<li><a href="#9"><span class="n">9</span><span><span class="h">Musk vender igen: Cybertruck bygges alligevel til slutningen af sommeren 2027</span><span class="t">Investering</span></span></a></li>
+<li><a href="#10"><span class="n">10</span><span><span class="h">Mississippi vælger sin første sorte senator siden 1800-tallet</span><span class="t">Verden</span></span></a></li>
+<li><a href="#11"><span class="n">11</span><span><span class="h">Benzin og diesel bliver 2 kroner billigere pr. liter næste år</span><span class="t">Danmark</span></span></a></li>
+<li><a href="#12"><span class="n">12</span><span><span class="h">Verdens hurtigste oceanskib er sænket – nu bliver det verdens største kunstige rev</span><span class="t">Vildt</span></span></a></li>
+<li><a href="#13"><span class="n">13</span><span><span class="h">17-årig fundet i live efter seks døgn alene i den australske bush – kun i shorts og arbejdsstøvler</span><span class="t">Godt nyt</span></span></a></li>
+<li class="sec"><a href="#nyt"><span class="n">+</span><span><span class="h">Nyt til dig</span></span></a></li>
+</ol></details></nav><main data-date="2026-11-12" data-total="13" data-latest="1">
+<article id="1"><div class="kick"><span class="num">1</span><span class="tag t-inv">Investering</span></div><h2>Nvidias bestyrelse har holdt krisemøde om at fyre Jensen Huang</h2><p class="sum">Efter en ny afsløring om en affære med en direktør i selskabet faldt aktien over 9 % efter lukketid.</p>
+<figure class="fig"><img src="../img/2026-11-12/huang.jpg" alt="Nvidias topchef Jensen Huang på scenen i sort læderjakke" loading="lazy" decoding="async" width="1200" height="675"><figcaption>Billede: Reuters via CNBC</figcaption></figure>
+<div class="body"><p>Nvidias bestyrelse mødtes onsdag aften for at afgøre, om topchef og medstifter Jensen Huang skal afsættes, bekræfter CNBC. Wall Street Journal skrev først, at bestyrelsen forbereder at tvinge ham ud, og Bloomberg skriver, at den arbejder med et eksternt firma om mulige afløsere og overvejer en midlertidig topchef. Ved redaktionens slutning var der ingen afgørelse.</p><p>Udløseren var New York Times&#x27; afsløring af, at Huang har haft et forhold til Kimberly Powell, Nvidias vicedirektør for sundhed, som refererede til ham. Det kom få dage efter, at han indrømmede en affære med en kvinde, som amerikansk efterretningstjeneste mener er kinesisk spion.</p><p>Aktien faldt over 9 % efter lukketid og var i forvejen på vej mod sjette uge i træk med fald. Ifølge Reuters kan Nvidia have tabt omkring 600 milliarder dollar i markedsværdi siden skandalen begyndte. Bestyrelsen kan afsætte Huang med simpelt flertal, og regnskabet for kvartalet kommer 17. november.</p></div>
+<p class="src">Kilde: CNBC · <a href="https://www.cnbc.com/2026/11/11/nvidia-jensen-huang-affair-employee.html" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.channelnewsasia.com/world/nvidia-ceo-jensen-huang-oust-board-affair-6544031" rel="noopener">CNA/Reuters: Ingen oplagt efterfølger</a></li><li><a href="https://techcrunch.com/2026/11/11/who-could-replace-jensen-huang-a-highly-unscientific-list-of-possible-successors/" rel="noopener">TechCrunch: Hvem kan afløse Huang?</a></li></ul>
+</article>
+<article id="2"><div class="kick"><span class="num">2</span><span class="tag t-verden">Verden</span></div><h2>Rusland og Ukraine aftaler stor fangeudveksling – men intet gennembrud</h2><p class="sum">De første direkte forhandlinger siden februar sluttede i Abu Dhabi uden fremskridt om våbenhvile eller territorium.</p>
+<div class="body"><p>To dages amerikansk-mæglede forhandlinger i Abu Dhabi endte onsdag med en principaftale om en af de største udvekslinger af krigsfanger hidtil. Ifølge den russiske delegation kan den ske inden for to til tre uger; det endelige antal skal på plads.</p><p>På de store spørgsmål ligger parterne stadig langt fra hinanden. Rusland kræver hele Donetsk, mens Kyiv vil fastfryse frontlinjen. Ukraines chefforhandler kaldte runden »en af de hårdeste«, men talte om »godt momentum«.</p><p>USA&#x27;s udsendinge Steve Witkoff og Jared Kushner rejser torsdag til Moskva for at møde Putin og derefter til Dublin for at mødes med Zelenskyj.</p></div>
+<p class="src">Kilde: BBC · <a href="https://www.bbc.com/news/articles/ck792we7zrz4o" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://apnews.com/article/russia-ukraine-war-talks-kushner-witkoff-7c8d1024302e0c6ad8be064eec852a64" rel="noopener">AP: Fangeudveksling uden gennembrud</a></li></ul>
+</article>
+<article id="3"><div class="kick"><span class="num">3</span><span class="tag t-inv">Investering</span></div><h2>CoreWeave steg 24,7 % og trak AI-aktierne op igen</h2><p class="sum">Et stærkt kvartal gav cloudselskabet den bedste dag siden april 2025 – Nasdaq 100 steg omkring 3 %.</p>
+<div class="body"><p>CoreWeave, der udlejer Nvidia-chips til AI-selskaber, øgede omsætningen med 168 % til 3,7 milliarder dollar i tredje kvartal og hævede forventningen til 13–13,3 milliarder dollar for hele året. Aktien steg 24,71 % onsdag.</p><p>Topchef Michael Intrator siger, at efterspørgslen er »overvældende«, og at kapaciteten for 2027 er ti gange overtegnet. Selskabet har bl.a. finansieret sig med cirka 9 milliarder dollar i forudbetalinger fra kunder, efter at frygten for dets gæld havde sendt prisen på <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-3-1" aria-describedby="term-3-1">CDS<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-3-1" role="tooltip"><strong>CDS</strong> Credit default swap: en slags forsikring mod, at et selskab ikke kan betale sin gæld. Når prisen på CoreWeaves CDS kom over 11 %, betragtes det normalt som et tegn på, at markedet frygtede betalingsproblemer.</span></span>-forsikring over 11 %.</p><p>Nebius steg 15,4 %, og ifølge Bloomberg steg Nasdaq 100 omkring 3 %, før Nvidia-nyheden om aftenen igen trak futures ned.</p></div>
+<p class="src">Kilde: CNBC · <a href="https://www.cnbc.com/2026/11/11/coreweave-crwv-outlook-earnings-ai.html" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="4"><div class="kick"><span class="num">4</span><span class="tag t-inv">Investering</span></div><h2>TSMC køber sig ind i Anthropic og OpenAI for 1 milliard dollar</h2><p class="sum">Verdens største chipproducent investerer 500 millioner dollar i hvert af de to AI-selskaber.</p>
+<div class="body"><p>TSMC&#x27;s bestyrelse har godkendt at investere op til 500 millioner dollar i <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-4-1" aria-describedby="term-4-1">præferenceaktier<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-4-1" role="tooltip"><strong>Præferenceaktier</strong> Aktier med særlige rettigheder, typisk fortrinsret til udbytte eller penge ved et salg, men ofte uden stemmeret. Her køber TSMC for op til 500 millioner dollar af en klasse, OpenAI reserverer til store investorer.</span></span> i OpenAI og 500 millioner dollar i Anthropic-aktier til den forventede pris ved børsnoteringen, skriver Reuters ifølge Ars Technica.</p><p>TSMC producerer langt de fleste af Nvidias AI-chips og har haft seks kvartaler i træk med rekordoverskud, senest over 23 milliarder dollar i juli–september. Anthropic og OpenAI køber selv enorme mængder hardware lavet af TSMC.</p><p>Analytikere advarer om, at den slags <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-4-2" aria-describedby="term-4-2">cirkulær finansiering<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-4-2" role="tooltip"><strong>cirkulær finansiering</strong> Når en leverandør investerer i sine egne kunder, som så bruger pengene på leverandørens produkter. TSMC putter 1 milliard dollar i to selskaber, der selv køber store mængder TSMC-producerede chips.</span></span> mellem leverandører og kunder gør det svært at vurdere den reelle efterspørgsel. Nvidia har til sammenligning investeret 30 milliarder dollar i OpenAI og 10 milliarder i Anthropic.</p></div>
+<p class="src">Kilde: Ars Technica · <a href="https://arstechnica.com/ai/2026/11/taiwans-chipmaking-giant-tsmc-to-invest-1b-in-anthropic-openai/" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="5"><div class="kick"><span class="num">5</span><span class="tag t-ai">AI &amp; tech</span></div><h2>United Airlines forbyder AI-agenter at booke fly for rejsende</h2><p class="sum">Flyselskabet blokerer personlige AI-assistenter med henvisning til sikkerhed og føderale regler.</p>
+<div class="body"><p>United Airlines vil blokere uautoriserede personlige AI-agenter – både direkte på egne platforme og via rejsebureauer og prissammenligningssider – og opdaterer sine booking- og billetregler.</p><p>Selskabet siger, at det kan afsløre følsomme oplysninger at dele login med AI-assistenter, og at agenterne kan lave utilsigtede køb, ændre konti eller bruge MileagePlus-point. At lade en agent tjekke ind kan desuden bryde regler om, at rejsende selv skal bekræfte, at bagagen ikke indeholder forbudte ting.</p><p>Analytiker Henry Harteveldt mener, at United vil undgå endnu en mellemmand og udgifterne til en bølge af bot-søgninger. Southwest har valgt den modsatte vej og gjort sine afgange tilgængelige i ChatGPT. Nyheden fik over 440 point på Hacker News.</p></div>
+<p class="src">Kilde: CBS News · <a href="https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.theverge.com/ai-artificial-intelligence/1031623/united-unauthorized-ai-agents" rel="noopener">The Verge: United won&#x27;t let your AI agent book your flight</a></li></ul>
+</article>
+<article id="6"><div class="kick"><span class="num">6</span><span class="tag t-crea">Creatorøkonomi</span></div><h2>EU vil give brugere ret til at slå uendelig scroll og autoplay fra</h2><p class="sum">Det nye forslag til Digital Fairness Act rammer også loot boxes, skjult influencer-reklame og AI-chatbots.</p>
+<div class="body"><p>EU-Kommissionen fremlagde onsdag forslaget til Digital Fairness Act. Platforme skal give brugerne mulighed for at slå vanedannende funktioner som uendelig scroll, autoplay og vedvarende påmindelser fra – også i AI-companions og chatbots.</p><p>Forslaget forbyder manipulerende <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-6-1" aria-describedby="term-6-1">dark patterns<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-6-1" role="tooltip"><strong>dark patterns</strong> Design, der snyder brugeren til valg, de ellers ikke ville træffe, fx falsk knaphed eller skjulte opsigelsesknapper. Forslaget vil forbyde dem på tværs af EU.</span></span> som falske »næsten udsolgt«-beskeder, begrænser pay-to-win og loot boxes for mindreårige og kræver, at influencers tydeligt markerer reklame og ikke udnytter børns tillid. Abonnementer skal være lettere at opsige, og forbrugere får ret til at tale med et menneske i kundeservice.</p><p>Bøder kan nå 6 % af den globale omsætning. Det er et udkast, som skal gennem Europa-Parlamentet og Rådet, og spilbranchen kalder reglerne »uigennemførlige«.</p></div>
+<p class="src">Kilde: The Verge · <a href="https://www.theverge.com/policy/1031575/digital-fairness-act-eu-dfa-consumer-protection" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="7"><div class="kick"><span class="num">7</span><span class="tag t-ivk">Iværksætteri</span></div><h2>Pieter Levels gør en video af din stue til et 3D-rum, du kan gå rundt i</h2><p class="sum">Interior AI kan nu tømme rummet, flytte møbler og male vægge i en gangbar 3D-model.</p>
+<div class="body"><p>Indie-hackeren Pieter Levels har på få timer bygget en ny funktion til sin fire år gamle app Interior AI. Brugeren uploader en video, billeder eller en plantegning af et rum, og appen laver et 3D-rum, man kan bevæge sig rundt i.</p><p>I 3D-modellen kan man tømme rummet, flytte eller fjerne møbler og male vægge, gulv, loft og genstande i alle farver. Ifølge Levels kører det på hans egen hovedløse Blender-installation på en <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-7-1" aria-describedby="term-7-1">VPS<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-7-1" role="tooltip"><strong>VPS</strong> Virtual private server: en lejet virtuel server i et datacenter. Levels kører 3D-programmet Blender på sin egen VPS uden skærm i stedet for at bruge en færdig cloudtjeneste.</span></span>. Næste skridt er en plantegning set ovenfra.</p><p>Levels skriver, at appen i fire år byggede på simple billedmodeller (foto ind, nyt design ud), og at de nye 3D-modeller åbner en helt ny dimension.</p></div>
+<div class="xembed"><blockquote class="twitter-tweet" data-media-max-width="560" data-dnt="true"><a href="https://x.com/levelsio/status/2120691736657735765">Video på X</a></blockquote></div><p class="vcap">Video: @levelsio på X</p>
+<p class="src">Kilde: X / @levelsio · <a href="https://x.com/levelsio/status/2120691736657735765" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://x.com/levelsio/status/2120648647150874762" rel="noopener">@levelsio: Den første version</a></li></ul>
+</article>
+<article id="8"><div class="kick"><span class="num">8</span><span class="tag t-ivk">Iværksætteri</span></div><h2>Britiske Fractile henter 720 millioner dollar til hurtigere AI-chips</h2><p class="sum">Startuppen er nu vurderet til over 5 milliarder pund og vil sende sine første chips på gaden næste år.</p>
+<div class="body"><p>Londonbaserede Fractile har rejst en <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-8-1" aria-describedby="term-8-1">Series C<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-8-1" role="tooltip"><strong>Series C</strong> En sen investeringsrunde, typisk når produktet skal skaleres. Fractiles Series C er på 720 millioner dollar.</span></span> på 720 millioner dollar ledet af Thrive Capital, Founders Fund, Lightspeed og Redpoint, med deltagelse af Storbritanniens Sovereign AI Fund. Ifølge den britiske regering er værdien »over 5 milliarder pund« – FT og Reuters skriver omkring 7 milliarder dollar.</p><p>Fractile udvikler chips til <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-8-2" aria-describedby="term-8-2">inferens<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-8-2" role="tooltip"><strong>inferens</strong> Når en færdigtrænet AI-model bruges til at svare på forespørgsler – modsat træning. Fractiles chips er bygget til netop at køre modellerne hurtigt og billigt.</span></span> og stabler almindelig DRAM-hukommelse direkte oven på chippen for at undgå den normale afvejning mellem hukommelse og hastighed. Firmaet laver også sin egen compiler, så sprogmodeller kører hurtigst muligt på hardwaren.</p><p>Topchef Walter Goodwin siger, at pengene skal bruges til at levere de første chips og systemer i 2027. Fractile er dermed blandt de bedst finansierede AI-chip-startups sammen med Etched og Axelera.</p></div>
+<p class="src">Kilde: TechCrunch · <a href="https://techcrunch.com/2026/11/11/with-720m-round-britains-fractile-gets-a-leg-up-in-the-race-for-ai-chips/" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="9"><div class="kick"><span class="num">9</span><span class="tag t-inv">Investering</span></div><h2>Musk vender igen: Cybertruck bygges alligevel til slutningen af sommeren 2027</h2><p class="sum">Tredje slutdato på fem dage – samtidig steg priserne med op til 10 %.</p>
+<div class="body"><p>Elon Musk skrev onsdag, at Tesla forlænger Cybertruck-produktionen »til slutningen af sommeren 2027« for at nå flere af ordrerne i køen. 6. november var meldingen »midten af næste år«, og 9. november »om cirka 8 måneder«.</p><p>Samme dag hævede Tesla priserne med op til 10 % og stoppede ordrer på den billigste Dual Motor-version; den billigste Cybertruck koster nu 92.490 dollar mod 69.990 i august. Ifølge Electrek solgte bilen i et tempo på cirka 30.000 om året mod de planlagte 250.000.</p><p>Flere kendte Tesla-fans har kritiseret beslutningen. Når Cybertruck stopper, er Model 3 og Model Y de eneste forbrugerbiler tilbage, efter at Model S og X blev stoppet i foråret.</p></div>
+<p class="src">Kilde: Electrek · <a href="https://electrek.co/2026/11/11/tesla-extends-cybertruck-production-summer-2027-fan-backlash/" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="10"><div class="kick"><span class="num">10</span><span class="tag t-verden">Verden</span></div><h2>Mississippi vælger sin første sorte senator siden 1800-tallet</h2><p class="sum">Demokraten Scott Colom slog den siddende republikaner Cindy Hyde-Smith med en knivspids.</p>
+<div class="body"><p>Otte dage efter midtvejsvalget er Scott Colom erklæret vinder i Mississippi. Han bliver den første sorte senator valgt i delstaten siden Rekonstruktionstiden efter borgerkrigen, og Mississippi har ikke valgt en demokrat til Senatet siden 1982.</p><p>Sejren blev vundet med en meget lille margin i en dybt republikansk delstat og udbygger Demokraternes nye flertal i Senatet. Ifølge The Guardian vandt Colom med begrænset hjælp fra sit eget parti.</p></div>
+<p class="src">Kilde: The Guardian · <a href="https://www.theguardian.com/us-news/2026/nov/11/scott-colom-mississippi-senate-race" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="11"><div class="kick"><span class="num">11</span><span class="tag t-dk">Danmark</span></div><h2>Benzin og diesel bliver 2 kroner billigere pr. liter næste år</h2><p class="sum">Regeringen og Dansk Folkeparti ventes i dag at fremlægge en skatteaftale – også med fortsat lav afgift på elbiler.</p>
+<div class="body"><p>Ifølge DR Nyheder sætter skatteaftalen mellem regeringen og DF afgiften på benzin og diesel ned med 2 kroner pr. liter i 2027. Til gengæld stemmer DF for regeringens skattelettelser: afskaffelse af mellemskatten og toptopskatten og en lavere selskabsskat fra 22 til 19 %.</p><p>Pengene findes ved at indfase mellemskatten og selskabsskatten over nogle år, mens toptopskatten forsvinder på én gang. Som kompensation for klimahensyn forlænges de lave afgifter på elbiler, så de dyreste elbiler ikke bliver dyrere fra nytår. DF får desuden en pulje på 300 millioner kroner til varigt lavere afgifter.</p></div>
+<p class="src">Kilde: DR · <a href="https://www.dr.dk/nyheder/politik/skatteaftale-paa-vej-billigere-benzin-og-diesel-til-naeste-aar" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="12"><div class="kick"><span class="num">12</span><span class="tag t-godt">Vildt</span></div><h2>Verdens hurtigste oceanskib er sænket – nu bliver det verdens største kunstige rev</h2><p class="sum">Det 300 meter lange SS United States gik langsomt til bunds ud for Florida onsdag aften.</p>
+<figure class="fig"><img src="../img/2026-11-12/ss-united-states.jpg" alt="Både samles omkring oceanskibet SS United States, før det sænkes ud for Destin i Florida" loading="lazy" decoding="async" width="1200" height="960"><figcaption>Billede: Tony Giberson/Reuters via The Guardian</figcaption></figure>
+<div class="body"><p>SS United States satte transatlantisk fartrekord på sin jomfrurejse i 1952 og sejlede passagerer over Atlanten i 17 år. Onsdag blev det næsten 1.000 fod lange skib sænket cirka 35 km ud for Destin i Florida, hvor det skal være verdens største kunstige rev.</p><p>Skibet var tømt, og der var skåret huller i skroget, så det kunne synke oprejst. Det gik til bunds omkring klokken 22 lokal tid og ligger på cirka 55 meters dybde, med de øverste dæk kun 17 meter under overfladen – perfekt til dykkere. Okaloosa County købte skibet for 1 million dollar i 2024.</p><p>Designeren William Francis Gibbs var så besat af skibet, at han ifølge sit barnebarn jokede med, at han elskede det tusind gange mere end sin kone.</p></div>
+<p class="src">Kilde: The Guardian · <a href="https://www.theguardian.com/us-news/2026/nov/11/ss-united-states-sinks-florida-reef" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="13"><div class="kick"><span class="num">13</span><span class="tag t-godt">Godt nyt</span></div><h2>17-årig fundet i live efter seks døgn alene i den australske bush – kun i shorts og arbejdsstøvler</h2><p class="sum">Politiets helikopter fandt William torsdag morgen efter en stor eftersøgning i Victoria.</p>
+<div class="body"><p>William forsvandt fredag fra en campingtur nær Walhalla, 185 km øst for Melbourne, da han gik et kort stykke tilbage efter mere udstyr. Hans telefon, mad og vand lå tilbage i lejren.</p><p>Redningshold med hunde ledte i den tætte bush i næsten en uge, og politiet havde netop bedt jægere og campister om hjælp, efter at et vildtkamera var fundet i området. Torsdag morgen fandt politiets helikopterenhed ham i live.</p></div>
+<p class="src">Kilde: The Guardian · <a href="https://www.theguardian.com/australia-news/2026/nov/12/missing-teenager-walhalla-found-alive-australian-bush" rel="noopener">Læs mere →</a></p>
+</article>
+<section class="nyt" id="nyt"><h2>Nyt til dig</h2><ul>
+<li><a href="https://www.digitimes.com" rel="noopener">DIGITIMES Asia</a> – Taiwansk fagmedie om chip- og hardwareindustrien med tæt dækning af TSMC, Nvidia og forsyningskæden.</li>
+<li><a href="https://www.bigtechnology.com" rel="noopener">Big Technology (Alex Kantrowitz)</a> – Nyhedsbrev og podcast med interviews og analyser af de store techselskaber og AI-kapløbet.</li>
+<li><a href="https://www.generalist.com" rel="noopener">The Generalist</a> – Lange, grundige profiler af tech-selskaber, investorer og founders.</li>
+</ul></section>
+</main></div>
+<footer><div class="ed-no">Udgave nr. 16</div><a href="../index.html">Seneste udgave</a> · <a href="../arkiv/index.html">Arkiv</a> · Nyheder for Kasper</footer>
+</div><script>(function(){var d=document.querySelector('nav.toc details');if(!d)return;var mq=matchMedia('(min-width:1000px)');
+function fit(){d.open=mq.matches?true:d.dataset.u==='1';}d.querySelector('summary').addEventListener('click',function(){d.dataset.u=d.open?'0':'1';});
+fit();mq.addEventListener&&mq.addEventListener('change',fit);
+var links={};d.querySelectorAll('a[href^="#"]').forEach(function(a){links[decodeURIComponent(a.getAttribute('href').slice(1))]=a;});
+var cur;function on(id){if(cur)cur.classList.remove('on');cur=links[id];if(cur){cur.classList.add('on');if(mq.matches&&cur.scrollIntoView){var r=cur.getBoundingClientRect(),p=d.parentNode.getBoundingClientRect();if(r.top<p.top||r.bottom>p.bottom)cur.scrollIntoView({block:'nearest'});}}}
+if(!('IntersectionObserver' in window))return;var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)on(e.target.id);});},{rootMargin:'-20% 0px -70% 0px'});
+Object.keys(links).forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el);});})();</script><script>(function(){var m=document.querySelector('main[data-date]');if(!m)return;
+var D=m.dataset.date,LATEST=m.dataset.latest==='1',K='nyheder-read-'+D,arts=[].slice.call(document.querySelectorAll('main article[id]')),N=arts.length;
+var ls=null;try{ls=window.localStorage;ls.getItem(K);}catch(_){ls=null;}
+var read={};try{(JSON.parse((ls&&ls.getItem(K))||'[]')||[]).forEach(function(i){read[i]=1;});}catch(_){}
+function save(){if(!ls)return;try{ls.setItem(K,JSON.stringify(Object.keys(read).map(Number).sort(function(a,b){return a-b;})));
+ var ks=[];for(var i=0;i<ls.length;i++){var k=ls.key(i);if(k&&k.indexOf('nyheder-read-')===0)ks.push(k);}ks.sort();while(ks.length>30)ls.removeItem(ks.shift());}catch(_){}}
+var toc={};document.querySelectorAll('nav.toc a[href^="#"]').forEach(function(a){toc[a.getAttribute('href').slice(1)]=a;});
+function paint(i){var a=toc[i];if(a){a.classList.add('read');var n=a.querySelector('.n');if(n)n.setAttribute('aria-label',i+', læst');}}
+function mark(i){i=String(i);if(read[i]||!document.getElementById(i))return;read[i]=1;save();paint(i);}
+Object.keys(read).forEach(function(i){paint(i);});
+Object.keys(toc).forEach(function(i){if(/^\d+$/.test(i))toc[i].addEventListener('click',function(){mark(i);});});
+/* Read = ~60 % of the story (or of the screen, for stories taller than it) visible for 3 s while the page is visible. */
+if('IntersectionObserver' in window){var tm={};
+ var th=[];for(var t=0;t<=20;t++)th.push(t/20);
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){var id=e.target.id;if(read[id])return;
+  var need=0.6*Math.min(e.boundingClientRect.height,(e.rootBounds&&e.rootBounds.height)||innerHeight);
+  var ok=e.isIntersecting&&e.intersectionRect.height>=need;
+  if(ok&&!tm[id])tm[id]=setTimeout(function(){tm[id]=0;if(document.visibilityState!=='hidden')mark(id);else io.unobserve(e.target),io.observe(e.target);},3000);
+  else if(!ok&&tm[id]){clearTimeout(tm[id]);tm[id]=0;}});},{threshold:th});
+ arts.forEach(function(a){if(!read[a.id])io.observe(a);});
+ document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden'){Object.keys(tm).forEach(function(id){if(tm[id]){clearTimeout(tm[id]);tm[id]=0;}});}
+  else{arts.forEach(function(a){if(!read[a.id]){io.unobserve(a);io.observe(a);}});}});}
+if(location.hash){var h=location.hash;addEventListener('load',function(){var el=document.getElementById(decodeURIComponent(h.slice(1)));if(el&&location.hash===h)setTimeout(function(){el.scrollIntoView();},60);});}
+})();</script><script>(function(){var ts=document.querySelectorAll('.term');if(!ts.length)return;
+function place(t){var p=t.querySelector('.term-pop');t.classList.remove('up');p.style.left='0px';p.style.display='block';
+var vw=document.documentElement.clientWidth,r=p.getBoundingClientRect(),dx=0;if(r.right>vw-12)dx=vw-12-r.right;if(r.left+dx<12)dx=12-r.left;
+p.style.left=dx+'px';var b=p.getBoundingClientRect();if(b.bottom>innerHeight-8&&t.getBoundingClientRect().top>b.height+24)t.classList.add('up');p.style.display='';}
+function close(x){ts.forEach(function(t){if(t!==x&&t.classList.contains('open')){t.classList.remove('open');t.querySelector('.term-btn').setAttribute('aria-expanded','false');}});}
+ts.forEach(function(t){var b=t.querySelector('.term-btn');t.addEventListener('mouseenter',function(){place(t);});b.addEventListener('focus',function(){place(t);});
+b.addEventListener('click',function(ev){ev.stopPropagation();var o=!t.classList.contains('open');close(t);if(o)place(t);t.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');});
+t.querySelector('.term-pop').addEventListener('click',function(ev){ev.stopPropagation();});});
+document.addEventListener('click',function(){close(null);});
+document.addEventListener('keydown',function(ev){if(ev.key==='Escape'){var a=document.activeElement;close(null);if(a&&a.classList.contains('term-btn'))a.blur();}});
+addEventListener('resize',function(){document.querySelectorAll('.term.open').forEach(place);});})();</script><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script>(function(){var B='../';
+try{if('clearAppBadge' in navigator)Promise.resolve(navigator.clearAppBadge()).catch(function(){});}catch(_){}
+if(!('serviceWorker' in navigator))return;
+navigator.serviceWorker.register(B+'sw.js').then(function(r){
+ if(!r||!r.pushManager||!r.pushManager.getSubscription)return;
+ return r.pushManager.getSubscription().then(function(s){if(s)return s.unsubscribe();});}).catch(function(){});
+})();</script></body></html>
