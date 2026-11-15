@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="da"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111213" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Nyheder">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="../icons/favicon-64.png">
+<title>Nyheder · søndag 15. november 2026</title>
+<link rel="preload" href="../fonts/InterVariable.latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url("../fonts/InterVariable.latin.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-style:italic;font-weight:100 900;font-display:swap;src:url("../fonts/InterVariable-Italic.latin.woff2") format("woff2")}
+:root{--bg:#fbfaf7;--fg:#151515;--fg2:#2b2a27;--muted:#5b5850;--rule:#e2ddd2;--accent:#b8431a;--card:#fff;--link:#174f9c;--hl:#f3efe6}
+@media (prefers-color-scheme:dark){:root{--bg:#111213;--fg:#eeece7;--fg2:#d9d6cf;--muted:#a7a39a;--rule:#2e2d2a;--accent:#f59a62;--card:#1a1b1c;--link:#93bdf2;--hl:#1d1e20}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-padding-top:16px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size:18px;line-height:1.65;font-optical-sizing:auto;font-feature-settings:"cv11","ss01";-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px 64px}
+a{color:var(--link)}
+header.mast{text-align:center;border-bottom:1px solid var(--fg);padding:34px 0 16px;margin-bottom:22px}
+.mast h1{font-size:clamp(2.5rem,9vw,4.4rem);line-height:1;margin:0;letter-spacing:-.04em;font-weight:800}
+.mast h1 a{color:inherit;text-decoration:none}
+.mast .greet{font-size:.95rem;font-weight:500;line-height:1.3;letter-spacing:-.005em;color:var(--muted);margin:0 0 10px}
+.mast .greet[hidden]{display:none}
+.mast .meta{font-size:.74rem;font-weight:600;line-height:1.4;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-top:12px}
+.intro{font-size:1.06em;color:var(--fg2);margin:0 0 22px;line-height:1.6}
+.layout{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"intro" "toc" "main"}
+.layout>.intro{grid-area:intro}.layout>nav.toc{grid-area:toc}.layout>main{grid-area:main;min-width:0}
+nav.toc{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:4px 0;margin-bottom:28px;font-size:.9rem;line-height:1.4}
+nav.toc summary{cursor:pointer;list-style:none;padding:10px 0;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--accent)}
+nav.toc summary::-webkit-details-marker{display:none}
+nav.toc summary::after{content:" ▾";color:var(--muted)}nav.toc details[open] summary::after{content:" ▴"}
+nav.toc summary .cnt{color:var(--muted);font-weight:600;letter-spacing:.08em}
+nav.toc ol{list-style:none;margin:0 0 10px;padding:0}
+nav.toc li{margin:0}
+nav.toc a{display:flex;gap:10px;color:var(--fg);text-decoration:none;padding:7px 10px 7px 0;border-left:2px solid transparent}
+nav.toc a:hover .h{text-decoration:underline}
+nav.toc .n{flex:0 0 1.7em;text-align:right;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+nav.toc .t{display:block;font-size:.78em;color:var(--muted);margin-top:2px}
+nav.toc li.sec a .n{color:var(--accent)}
+nav.toc a.on{border-left-color:var(--accent);background:var(--hl)}nav.toc a.on .n,nav.toc a.on .h{color:var(--accent)}
+nav.toc a.read .n{color:var(--muted);opacity:.5;font-weight:500}nav.toc a.read:not(.on) .h{color:var(--muted)}
+h2.sect,.nyt h2,.radar>h2{font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;margin:6px 0 12px;color:var(--accent)}
+article{border-bottom:1px solid var(--rule);padding:4px 0 30px;margin-bottom:28px;scroll-margin-top:16px}
+.kick{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:.7rem;font-weight:700;line-height:1.5;text-transform:uppercase;letter-spacing:.1em}
+.num{background:var(--fg);color:var(--bg);border-radius:4px;padding:1px 7px;font-variant-numeric:tabular-nums}
+.tag{border:1px solid currentColor;border-radius:4px;padding:0 6px}
+.t-ai{color:#2563a8}.t-kode{color:#0b7480}.t-inv{color:#25784a}.t-sund{color:#9a6510}.t-ivk{color:#8e2a8e}.t-tank{color:#52529a}.t-egne{color:#a84b14}.t-verden{color:#4a5568}.t-frem{color:#6440b8}.t-crea{color:#b4185a}.t-samf{color:#7c6232}.t-dk{color:#b42828}.t-godt{color:#1f8a5b}
+@media (prefers-color-scheme:dark){.t-ai{color:#82b6f2}.t-kode{color:#62d2da}.t-inv{color:#72d19a}.t-sund{color:#f0c264}.t-ivk{color:#e391e3}.t-tank{color:#adadf2}.t-egne{color:#f2a676}.t-verden{color:#bac4d2}.t-frem{color:#bba2f6}.t-crea{color:#f594b6}.t-samf{color:#dcc390}.t-dk{color:#f28a8a}.t-godt{color:#7fe0b0}}
+.unc{background:#9a6510;color:#fff;border-radius:4px;padding:1px 6px}
+article h2{font-size:clamp(1.5rem,5.2vw,2.15rem);line-height:1.18;letter-spacing:-.022em;font-weight:750;margin:12px 0 10px;text-wrap:balance}
+.sum{font-size:1.1em;line-height:1.5;font-weight:500;color:var(--fg2);margin:0 0 16px}
+.body p{margin:0 0 1em}.body p:last-child{margin-bottom:14px}
+figure.fig{margin:4px 0 20px}
+figure.fig img{display:block;width:100%;height:auto;border-radius:8px;background:var(--hl)}
+figure.fig figcaption{font-size:.76rem;line-height:1.45;color:var(--muted);margin-top:7px}
+.src{font-size:.85rem;color:var(--muted)}
+.src a{font-weight:600}
+.extra{font-size:.85rem;margin:8px 0 0;padding-left:1.1em;color:var(--muted)}
+.video{position:relative;width:100%;aspect-ratio:16/9;margin:4px 0 20px;background:#000;border-radius:8px;overflow:hidden}
+.video.short{aspect-ratio:9/16;max-width:340px;margin-left:auto;margin-right:auto}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.xembed{margin:4px 0 20px;display:flex;justify-content:center}
+.car{position:relative;margin:4px 0 20px}
+.car-track{position:relative;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+  overscroll-behavior-x:contain;scrollbar-width:none;border-radius:8px;outline:none}
+.car-track::-webkit-scrollbar{display:none}
+.car-track:focus-visible{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--link)}
+.car-slide{flex:0 0 100%;min-width:0;margin:0;scroll-snap-align:start;scroll-snap-stop:always}
+.car-frame{position:relative;width:100%;aspect-ratio:16/9;background:var(--hl);border-radius:8px;overflow:hidden}
+.car-frame.v{background:#000}
+.car-frame img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain}
+.car-frame iframe,.car-frame video{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000}
+.car-frame.x{overflow-y:auto;-webkit-overflow-scrolling:touch;background:var(--hl)}
+.car-frame.x>*{margin:0 auto!important}.car-frame.x .twitter-tweet{max-width:100%}
+.vcap{font-size:.76rem;line-height:1.45;color:var(--muted);margin:-12px 0 20px}
+.car-slide figcaption{font-size:.76rem;line-height:1.45;color:var(--muted);margin-top:7px}
+.car-nav{position:absolute;left:0;right:0;top:0;aspect-ratio:16/9;pointer-events:none}
+.car-btn{position:absolute;top:50%;transform:translateY(-50%);pointer-events:auto;display:flex;align-items:center;justify-content:center;
+  width:40px;height:40px;padding:0;border:1px solid var(--rule);border-radius:50%;background:var(--card);color:var(--fg);cursor:pointer;
+  font:inherit;font-size:1.2rem;line-height:1;box-shadow:0 2px 10px rgba(0,0,0,.18);opacity:.92;transition:opacity .15s}
+.car-btn:hover{opacity:1}.car-btn:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+.car-btn[disabled]{opacity:0;pointer-events:none}
+.car-prev{left:10px}.car-next{right:10px}
+.car-bar{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:8px;font-size:.72rem;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums}
+.car-dots{display:flex;gap:2px}
+.car-dot{width:22px;height:22px;padding:7px;border:0;margin:0;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.car-dot::before{content:"";display:block;width:8px;height:8px;border-radius:50%;background:var(--rule)}
+.car-dot[aria-current="true"]::before{background:var(--accent)}
+.car-dot:focus-visible{outline:2px solid var(--link);outline-offset:-2px;border-radius:50%}
+@media (hover:none) and (pointer:coarse){.car-btn{display:none}}
+.nyt{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:16px 20px;margin:10px 0 28px;scroll-margin-top:16px}
+.nyt ul{margin:0;padding-left:1.1em}.nyt li{margin:8px 0}.nyt a{font-weight:600}
+.radar{margin:10px 0 28px;scroll-margin-top:16px}
+.radar>p.lede{font-size:.88rem;color:var(--muted);margin:0 0 12px}
+.rcard{background:var(--card);border:1px solid var(--rule);border-left:4px solid #8e2a8e;border-radius:10px;padding:14px 20px;margin:0 0 16px;scroll-margin-top:16px}
+@media (prefers-color-scheme:dark){.rcard{border-left-color:#e391e3}}
+.rcard h3{font-size:clamp(1.25rem,4vw,1.55rem);line-height:1.2;letter-spacing:-.018em;margin:8px 0 8px}
+.rcard h3 a{color:inherit;text-decoration:none}.rcard h3 a:hover{text-decoration:underline}
+.rcard dl{margin:0 0 8px}
+.rcard dt{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:12px}
+.rcard dd{margin:2px 0 0}
+.term{position:relative;display:inline}
+.term-btn{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;cursor:help;text-align:inherit;
+  text-decoration:underline dotted;text-decoration-color:var(--muted);text-decoration-thickness:1.5px;text-underline-offset:.22em;-webkit-tap-highlight-color:transparent}
+.term-btn:hover,.term.open .term-btn{text-decoration-color:var(--accent)}
+.term-btn:focus-visible{outline:2px solid var(--link);outline-offset:2px;border-radius:3px}
+.term .ti{display:none;align-items:center;justify-content:center;width:1.05em;height:1.05em;margin-left:.18em;vertical-align:.12em;
+  border:1.2px solid currentColor;border-radius:50%;font-size:.62em;font-weight:700;font-style:normal;line-height:1;color:var(--muted)}
+.term-btn:hover .ti,.term.open .ti{color:var(--accent)}
+.term-pop{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 10px);width:min(23rem,calc(100vw - 24px));
+  background:var(--card);color:var(--fg);border:1px solid var(--rule);border-radius:10px;padding:12px 14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.14),0 2px 6px rgba(0,0,0,.08);font-size:.8em;font-weight:400;line-height:1.55;text-align:left;white-space:normal;letter-spacing:0}
+.term-pop::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+.term.up .term-pop{top:auto;bottom:calc(100% + 10px)}.term.up .term-pop::before{top:auto;bottom:-12px}
+.term-pop strong{display:block;font-weight:700;margin-bottom:3px;color:var(--accent)}
+.term.open .term-pop,.term-btn:focus-visible+.term-pop{display:block}
+@media (hover:hover) and (pointer:fine){.term:hover .term-pop{display:block}}
+@media (prefers-color-scheme:dark){.term-pop{box-shadow:0 10px 30px rgba(0,0,0,.55);border-color:#3a3936}}
+.wrap{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right));padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+header.mast{padding-top:calc(34px + env(safe-area-inset-top))}
+footer{font-size:.8rem;color:var(--muted);text-align:center;padding-top:12px}
+footer .ed-no{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+ul.arkiv{list-style:none;padding:0}ul.arkiv li{border-bottom:1px solid var(--rule);padding:12px 0}
+ul.arkiv a{color:var(--fg);font-weight:700;text-decoration:none}ul.arkiv span{display:block;color:var(--muted);font-size:.92rem}
+@media (min-width:1000px){
+  body{font-size:20px}
+  .wrap{max-width:1260px;padding-left:max(40px,env(safe-area-inset-left));padding-right:max(40px,env(safe-area-inset-right));padding-bottom:calc(80px + env(safe-area-inset-bottom))}
+  .layout{grid-template-columns:290px minmax(0,70ch);grid-template-areas:"toc intro" "toc main";column-gap:64px;justify-content:center}
+  nav.toc{position:sticky;top:20px;align-self:start;max-height:calc(100vh - 40px);overflow:auto;border:0;margin:0;padding:0 4px 0 0;font-size:.78rem}
+  nav.toc summary{pointer-events:none;padding:4px 0 10px}nav.toc summary::after{content:none}
+  nav.toc a{padding:7px 10px 7px 6px}
+  .intro{margin-top:4px}
+}
+</style></head>
+<body><div class="wrap"><header class="mast"><p class="greet" id="greet" data-name="Kasper" aria-live="off" hidden></p><script>(function(){var g=document.getElementById('greet');if(!g)return;var N=g.getAttribute('data-name');
+function upd(){var h=new Date().getHours();
+ var t=h>=5&&h<10?'Godmorgen':h>=10&&h<12?'God formiddag':h>=12&&h<18?'God eftermiddag':'God aften';
+ t=N?t+', '+N:t;if(g.textContent!==t)g.textContent=t;g.hidden=false;}
+upd();addEventListener('pageshow',upd);addEventListener('focus',upd);
+document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')upd();});
+setInterval(function(){if(document.visibilityState==='visible')upd();},60000);
+})();</script><h1><a href="../index.html">Nyheder</a></h1><div class="meta">søndag 15. november 2026</div></header>
+<div class="layout">
+<p class="intro">SpaceX greb for første gang selve Starship-rumskibet i tårnets arme efter 22 timer i kredsløb. Zelenskyj fortæller, at USA har luftet NATO-medlemskab mod Donbas, og årsagen til USA&#x27;s store flystop viser sig at være én router. Derudover Nvidias tomrum efter Jensen Huang, Lovable-apps der lækker data, Amazons hemmelige produktplan, en Meta-bøde på 805 mio. euro, det første AI-musikprisshow, hvad der faktisk bremser aldring, Pieter Levels&#x27; IKEA-katalog i 3D, Twitchs nye værktøjer og et fransk protestlørdag. Til sidst: Voyager 1 bliver onsdag den første menneskeskabte ting et helt lysdøgn fra Jorden.</p>
+<nav class="toc" aria-label="Indhold"><details open><summary>Indhold <span class="cnt">· 14 historier</span></summary><ol>
+<li><a href="#1"><span class="n">1</span><span><span class="h">SpaceX griber Starship-rumskibet i tårnet for første gang – efter 14 omløb om Jorden</span><span class="t">Fremtid</span></span></a></li>
+<li><a href="#2"><span class="n">2</span><span><span class="h">Zelenskyj: USA har spurgt, om Ukraine vil opgive Donbas mod at komme i NATO</span><span class="t">Verden</span></span></a></li>
+<li><a href="#3"><span class="n">3</span><span><span class="h">Én router fik USA&#x27;s flytrafik til at gå i stå</span><span class="t">Verden</span></span></a></li>
+<li><a href="#4"><span class="n">4</span><span><span class="h">Uden Jensen Huang mister AI-startups deres største pengemand</span><span class="t">Investering</span></span></a></li>
+<li><a href="#5"><span class="n">5</span><span><span class="h">Undersøgelse: Tusindvis af Lovable-apps lader persondata ligge åbent</span><span class="t">AI-kodning</span></span></a></li>
+<li><a href="#6"><span class="n">6</span><span><span class="h">Amazon vil samle data om alle varer på Jorden – også dem, de ikke sælger</span><span class="t">AI &amp; tech</span></span></a></li>
+<li><a href="#7"><span class="n">7</span><span><span class="h">Italien giver Meta en bøde på 805 millioner euro for at kigge i Android-brugeres fotos</span><span class="t">AI &amp; tech</span></span></a></li>
+<li><a href="#8"><span class="n">8</span><span><span class="h">Det første AI-musikprisshow: AI-figuren Xania Monet vandt de tre store priser</span><span class="t">Musik</span></span></a></li>
+<li><a href="#9"><span class="n">9</span><span><span class="h">Yale gennemgik 51 studier: Kost og motion skruer ned for den biologiske alder – kosttilskud gør ikke</span><span class="t">Sundhed</span></span></a></li>
+<li><a href="#10"><span class="n">10</span><span><span class="h">Pieter Levels importerer hele IKEA&#x27;s katalog i 3D – og lader dig uploade dine egne møbler</span><span class="t">Iværksætteri</span></span></a></li>
+<li><a href="#11"><span class="n">11</span><span><span class="h">Twitch giver plads til 5-minutters klip og bringer hosting tilbage</span><span class="t">Creatorøkonomi</span></span></a></li>
+<li><a href="#12"><span class="n">12</span><span><span class="h">Femte lørdag med protester i Frankrig – mindst 106.000 på gaden</span><span class="t">Verden</span></span></a></li>
+<li><a href="#13"><span class="n">13</span><span><span class="h">Danmark ydmygede Portugal 4-1 på udebane</span><span class="t">Danmark</span></span></a></li>
+<li><a href="#14"><span class="n">14</span><span><span class="h">På onsdag bliver Voyager 1 det første menneskeskabte objekt et helt lysdøgn fra Jorden</span><span class="t">Spændende</span></span></a></li>
+<li class="sec"><a href="#nyt"><span class="n">+</span><span><span class="h">Nyt til dig</span></span></a></li>
+</ol></details></nav><main data-date="2026-11-15" data-total="14" data-latest="1">
+<article id="1"><div class="kick"><span class="num">1</span><span class="tag t-frem">Fremtid</span></div><h2>SpaceX griber Starship-rumskibet i tårnet for første gang – efter 14 omløb om Jorden</h2><p class="sum">Lørdag kl. 22.21 dansk tid landede Ship 42 i »<span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-1-1" aria-describedby="term-1-1">Mechazilla<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-1-1" role="tooltip"><strong>Mechazilla</strong> SpaceX&#x27; kælenavn for affyringstårnet med to store mekaniske arme (»spisepinde«), der griber raketten i luften, så den ikke skal lande på ben. Her greb armene for første gang selve rumskibet efter 22 timer i rummet.</span></span>«-tårnets arme på Starbase – boosteren var forinden eksploderet i havet.</p>
+<section class="car" aria-roledescription="karrusel" aria-label="Billeder og video: SpaceX griber Starship-rumskibet i tårnet for første gang – efter 14 omløb om Jorden"><div class="car-track" id="car-1" tabindex="0" aria-label="Brug piletasterne for at bladre"><figure class="car-slide" role="group" aria-roledescription="dias" aria-label="1 af 2"><div class="car-frame x" data-x="&lt;blockquote class=&quot;twitter-tweet&quot; data-media-max-width=&quot;560&quot; data-dnt=&quot;true&quot;&gt;&lt;a href=&quot;https://x.com/SpaceX/status/2121715216597827756&quot;&gt;Video på X&lt;/a&gt;&lt;/blockquote&gt;"><blockquote class="twitter-tweet" data-media-max-width="560" data-dnt="true"><a href="https://x.com/SpaceX/status/2121715216597827756">Video på X</a></blockquote></div><figcaption>Mechazilla griber Starship · Video: SpaceX på X</figcaption></figure><figure class="car-slide" role="group" aria-roledescription="dias" aria-label="2 af 2"><div class="car-frame"><img src="../img/2026-11-15/starship-return-reuters.jpg" alt="Starship 42 på vej ned mod affyringstårnet efter 14 omløb om Jorden" loading="lazy" decoding="async" width="1200" height="675"></div><figcaption>Billede: Joe Skipper/Reuters via CNBC</figcaption></figure></div><div class="car-nav"><button type="button" class="car-btn car-prev" aria-label="Forrige" aria-controls="car-1" disabled><span aria-hidden="true">‹</span></button><button type="button" class="car-btn car-next" aria-label="Næste" aria-controls="car-1"><span aria-hidden="true">›</span></button></div><div class="car-bar"><div class="car-dots"><button type="button" class="car-dot" aria-label="Vis 1 af 2" aria-controls="car-1" aria-current="true"></button><button type="button" class="car-dot" aria-label="Vis 2 af 2" aria-controls="car-1" aria-current="false"></button></div><span class="car-count" aria-live="polite">1/2</span></div></section>
+<div class="body"><p>Starships 15. testflyvning endte lørdag aften med, at det 52 meter høje overtrin vendte tilbage fra kredsløb og blev grebet af affyringstårnets mekaniske »spisepinde« i Starbase, Texas. Det er første gang, SpaceX har grebet selve rumskibet; hidtil er kun boostere blevet grebet.</p><p>Skibet var i rummet i cirka 22 timer, fløj 14 gange rundt om Jorden og satte fredag 26 Starlink V3-satellitter ud. Det var kun anden gang, Starship har været i kredsløb.</p><p>Planen om en dobbelt fangst glippede dog: <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-1-2" aria-describedby="term-1-2">Super Heavy<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-1-2" role="tooltip"><strong>Super Heavy</strong> Starships nederste trin – den store booster, der løfter raketten de første minutter. Denne gang skulle den også gribes, men endte med at eksplodere over havet.</span></span>-boosteren blev fredag omdirigeret af styresystemet, fordi den ikke var det rigtige sted til en fangst, og eksploderede over Den Mexicanske Golf. Musk siger, at den også var lidt lav på brændstof.</p><p>Genbrug af hele raketten er kernen i SpaceX&#x27; plan om billigere opsendelser, flere Starlink-satellitter og NASA&#x27;s månelanding, der er planlagt til 2028. NASA-chef Jared Isaacman skrev på X: »Making more believers by the day«.</p></div>
+<p class="src">Kilde: CNBC · <a href="https://www.cnbc.com/2026/11/14/spacex-plans-to-try-first-ever-catch-of-starship-rocket-from-orbit.html" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.theguardian.com/science/2026/nov/14/spacex-starship-double-catch" rel="noopener">The Guardian: Starship returns to launch pad from orbit</a></li></ul>
+</article>
+<article id="2"><div class="kick"><span class="num">2</span><span class="tag t-verden">Verden</span></div><h2>Zelenskyj: USA har spurgt, om Ukraine vil opgive Donbas mod at komme i NATO</h2><p class="sum">Det er første gang, idéen er rejst, siger Ukraines præsident – han vil i givet fald lade befolkningen stemme om en samlet pakke.</p>
+<div class="body"><p>Ifølge Volodymyr Zelenskyj stillede de amerikanske udsendinge Steve Witkoff og Jared Kushner spørgsmålet ved et møde i Dublin: »Hvad hvis Ukraine kommer med i NATO? Ville Ukraine så trække sig ud af Donbas?« »Det var første gang, det blev rejst,« sagde han fredag.</p><p>Donbas i det østlige Ukraine er langt overvejende besat af Rusland, som erklærede området annekteret i 2022. At Ukraine opgiver Donbas har længe været en del af Trump-regeringens forslag, mens Putin har krævet, at Ukraine dropper NATO-ambitionerne.</p><p>Zelenskyj gentog, at Ukraine ikke giver land væk, men sagde, at en samlet pakke med sikkerhedsgarantier fra NATO og EU, en stærk hær og finansieret genopbygning kunne komme til folkeafstemning – uden at anerkende de besatte områder som russiske. Det Hvide Hus har ikke kommenteret.</p></div>
+<p class="src">Kilde: Politico Europe · <a href="https://www.politico.eu/article/us-suggested-ukraine-could-give-up-donbas-for-nato-membership-zelenskyy-says/" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.bbc.com/news/articles/cwvg2l312ylqo" rel="noopener">BBC: US has floated Ukraine ceding Donbas for Nato membership</a></li></ul>
+</article>
+<article id="3"><div class="kick"><span class="num">3</span><span class="tag t-verden">Verden</span></div><h2>Én router fik USA&#x27;s flytrafik til at gå i stå</h2><p class="sum">Et udskiftningsarbejde fra kobber til fiber hos en <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-3-1" aria-describedby="term-3-1">FAA<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-3-1" role="tooltip"><strong>FAA</strong> Den amerikanske luftfartsmyndighed, der bl.a. driver flyvelederne. Her måtte FAA stoppe alle afgange i fem timer, fordi 17 af dens 22 kontrolcentre fik forstyrrelser.</span></span>-entreprenør oversvømmede flyveledernes netværk – næsten 10.000 fly blev aflyst.</p>
+<div class="body"><p>Fredagens landsdækkende flystop i USA startede med en router, der blev installeret under rutinearbejde på et afsides FAA-anlæg, oplyser transportminister Sean Duffy. Ifølge Reuters kan der have været problemer med routere i både Arkansas og Texas.</p><p>Arbejdet blev udført af forsvars- og teknologikoncernen L3Harris, der er ved at skifte flysystemets gamle kobberforbindelser ud med fiber. Den nye router begyndte at oversvømme andre dele af netværket, så kommunikation og radarbilleder blev forstyrret. Da FAA stoppede afgangene, var der forstyrrelser på 17 af de 22 centre, der styrer fly i luften.</p><p>Det fem timer lange stop førte til næsten 10.000 aflysninger og over 7.000 forsinkelser. Det er endnu uklart, om fejlen skyldtes installationen eller selve routeren. Duffy siger, at flytrafikken nu er tilbage på fuld drift.</p></div>
+<p class="src">Kilde: USA Today · <a href="https://www.usatoday.com/story/news/nation/2026/11/14/faa-ground-stop-probe-l3harris/92780406007/" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.nbcnews.com/news/us-news/router-problem-one-faa-site-led-nationwide-ground-stop-rcna609325" rel="noopener">NBC News: How a router problem at one FAA site led to a nationwide ground stop</a></li><li><a href="https://www.wsj.com/business/airlines/the-single-router-in-southern-arkansas-that-ground-air-travel-to-a-halt-eedc326c" rel="noopener">WSJ: The single router in southern Arkansas that ground air travel to a halt</a></li></ul>
+</article>
+<article id="4"><div class="kick"><span class="num">4</span><span class="tag t-inv">Investering</span></div><h2>Uden Jensen Huang mister AI-startups deres største pengemand</h2><p class="sum">Nvidia var med i 105 finansieringsrunder i år – investorer frygter, at den nye topchef lukker for pengene.</p>
+<div class="body"><p>Jensen Huangs exit fra Nvidia efterlader et stort hul i finansieringen af AI-startups, siger investorer og stiftere til TechCrunch. »Det var som om, en bombe sprang,« siger en <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-4-1" aria-describedby="term-4-1">neocloud<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-4-1" role="tooltip"><strong>neocloud</strong> Nye cloud-firmaer, der primært udlejer GPU-computerkraft til AI, fx CoreWeave og Lambda. De har brug for enorme summer til datacentre – og Nvidia har ofte været med til at finansiere dem.</span></span>-stifter.</p><p>Ifølge PitchBook har Nvidia i år deltaget i 105 runder, ofte som største investor, og beslutningerne kom typisk fra Huang selv. Nvidia har bl.a. backet CoreWeave, Crusoe, Mistral AI, Lambda og Black Forest Labs og købt Hugging Face for 13 mia. dollar.</p><p>Fungerende topchef Colette Kress beskrives som »meget mere konservativ«, og investorer venter mindre checks, lavere værdiansættelser og færre handler – især for neoclouds, <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-4-2" aria-describedby="term-4-2">inferensudbydere<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-4-2" role="tooltip"><strong>inferensudbydere</strong> Firmaer, der kører færdigtrænede AI-modeller for kunder og tager betaling pr. forespørgsel. Ligesom neoclouds er de dyre at bygge op og har nydt godt af Nvidias penge.</span></span> og åbne modeller, og især i Europa.</p><p>Samtidig har danske private investorer ifølge Børsen købt massivt op i Nvidia-aktien efter torsdagens kursfald.</p></div>
+<p class="src">Kilde: TechCrunch · <a href="https://techcrunch.com/2026/11/13/jensen-huangs-departure-blasts-big-hole-in-ai-startup-funding-vcs-and-founders-say/" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://borsen.dk/nyheder/investor/private-investorer-gik-pa-aktierov-i-nvidia-efter-dramatisk-kursfald" rel="noopener">Børsen: Private investorer gik på aktierov i Nvidia efter dramatisk kursfald</a></li><li><a href="https://pitchbook.com/news/articles/can-nvidia-keep-writing-ais-checks-without-jensen-huang" rel="noopener">PitchBook: Can Nvidia keep writing AI&#x27;s checks without Jensen Huang?</a></li></ul>
+</article>
+<article id="5"><div class="kick"><span class="num">5</span><span class="tag t-kode">AI-kodning</span></div><h2>Undersøgelse: Tusindvis af Lovable-apps lader persondata ligge åbent</h2><p class="sum">Et tysk firma fandt pasoplysninger, over 200.000 chatbeskeder og kundedata, der kunne hentes uden login.</p>
+<div class="body"><p>Hamburg-firmaet Crissy Field har sammen med Handelsblatt gennemgået 159.041 apps bygget med den svenske AI-platform Lovable. 34.545 brugte databasen <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-5-1" aria-describedby="term-5-1">Supabase<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-5-1" role="tooltip"><strong>Supabase</strong> En populær færdig database- og login-tjeneste, som mange AI-byggede apps kobles på. Adgangsreglerne skal sættes op korrekt; her var de så løse, at data fra 7.403 sites kunne hentes uden login.</span></span>, og på 7.403 af 24.664 nærmere undersøgte sites kunne man hente tabeller med e-mailadresser uden at logge ind.</p><p>Blandt fundene: et tysk livsstilsforum med over 80.000 profiler og mere end 200.000 chatbeskeder, billet- og madsalg med telefonnumre og betalingsoplysninger, over 1.000 poster med pasnumre samt kontrakter, fakturaer og WhatsApp-beskeder. I ét tilfælde lå 280.000 udsendte kundemails åbent.</p><p>Fejlen ligger i adgangsreglerne, som Lovables vilkår lægger ansvaret for hos kunderne selv. Fordi apps på platformen er bygget efter samme mønster, kan én fejl let findes igen i mange apps. Det vides ikke, om data er misbrugt.</p></div>
+<p class="src">Kilde: Crissy Field · <a href="https://www.crissyfield.de/research/lovable-en/" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="6"><div class="kick"><span class="num">6</span><span class="tag t-ai">AI &amp; tech</span></div><h2>Amazon vil samle data om alle varer på Jorden – også dem, de ikke sælger</h2><p class="sum">Et internt dokument viser planen »World Product Graph«, der skal holde kunder og AI-agenter væk fra Google og konkurrenterne.</p>
+<div class="body"><p>Ifølge et internt dokument, som Reuters har set, arbejder Amazon på »World Product Graph«: en database med oplysninger om stort set alle varer til salg i verden, uanset om Amazon fører dem. Data skal komme fra brands selv og fra Amazons egen gennemsøgning af andre butikkers sites.</p><p>Formålet er, at kunderne ikke længere skal forlade Amazon for at researche på Google, brandsites og anmeldelsessider. Dokumentet nævner også, at Amazons egen AI-shoppingagent har givet unøjagtige svar, og planen ses som et værn mod AI-agenter, der handler på tværs af butikker.</p><p>Dokumentet har en »ønsket« lanceringsdato 1. oktober 2027. Amazon kalder det et udkast og siger, at det ikke nødvendigvis afspejler de nuværende planer.</p></div>
+<p class="src">Kilde: Reuters via CNA · <a href="https://www.channelnewsasia.com/business/exclusive-amazons-plan-own-worlds-product-data-and-fight-ai-shopping-agents-6549286" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.theverge.com/tech/1033697/amazon-world-product-graph-ai-search" rel="noopener">The Verge: Amazon has a plan to index the world&#x27;s online shopping data</a></li></ul>
+</article>
+<article id="7"><div class="kick"><span class="num">7</span><span class="tag t-ai">AI &amp; tech</span></div><h2>Italien giver Meta en bøde på 805 millioner euro for at kigge i Android-brugeres fotos</h2><p class="sum">Facebooks forslag fra kamerarullen fik adgang til billeder, videoer og metadata uden et specifikt samtykke, siger datatilsynet.</p>
+<div class="body"><p>Italiens datatilsyn (Garante) har givet Meta en bøde på 805 mio. euro (887 mio. dollar). Gennem Facebook-appen til Android fik Meta adgang til italienske brugeres fotos, videoer og tilhørende metadata uden specifikt samtykke og uden at informere dem ordentligt.</p><p>Sagen handler om funktionen, der siden 2023 har foreslået billeder fra telefonens galleri som idéer til opslag. Adgangen blev givet med én samlet tilladelse til hele appen. Inden for 60 dage skal funktionen være slået fra som standard, og samtykke skal indhentes separat.</p><p>Det er en af de største bøder, en italiensk myndighed har givet et techfirma. Meta siger, at selskabet »er meget uenig« og vil anke.</p></div>
+<p class="src">Kilde: The Guardian · <a href="https://www.theguardian.com/technology/2026/nov/15/italy-fines-meta-887m-for-accessing-android-users-photos-and-videos" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.garanteprivacy.it/home/docweb/-/docweb-display/docweb/10321080" rel="noopener">Garante Privacy (italiensk): afgørelsen</a></li></ul>
+</article>
+<article id="8"><div class="kick"><span class="num">8</span><span class="tag t-egne">Musik</span></div><h2>Det første AI-musikprisshow: AI-figuren Xania Monet vandt de tre store priser</h2><p class="sum">Ved AI Music Awards i Los Angeles argumenterede vinderne for, at AI-musik er en ny genre med rigtige mennesker bag.</p>
+<div class="body"><p>Fredag blev de første AI Music Awards i USA afholdt i Los Angeles for sange skabt helt eller delvist med AI. Årets AI-artist, sang og album gik alle til Xania Monet – en AI-genereret avatar, hvis R&amp;B-sang »How Was I Supposed to Know?« ifølge Billboard var den første fra en AI-baseret akt på en af deres radiohitlister.</p><p>Monet er skabt af Telisha »Nikki« Jones, der selv skriver teksterne og sætter dem til musik med AI. »I en verden, hvor alle kalder AI falsk, er mennesket bag ægte,« sagde produceren Drake Murphy fra scenen.</p><p>Vinderne blev valgt af AI-artister i Sonic Intelligence Academy, et firma der laver AI-hitlister og værktøjer til at spotte AI-sange. Imens kører pladeselskabernes søgsmål mod AI-firmaer som Anthropic og OpenAI om træning på ophavsretligt beskyttet musik.</p></div>
+<p class="src">Kilde: Reuters via Investing.com · <a href="https://www.investing.com/news/world-news/new-awards-show-celebrates-ai-music-and-its-creators-5027247" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://variety.com/2026/music/features/inside-first-ai-music-awards-sonic-intelligence-academy-1236947847/" rel="noopener">Variety: Inside the first AI Music Awards</a></li></ul>
+</article>
+<article id="9"><div class="kick"><span class="num">9</span><span class="tag t-sund">Sundhed</span></div><h2>Yale gennemgik 51 studier: Kost og motion skruer ned for den biologiske alder – kosttilskud gør ikke</h2><p class="sum">Kombinationen af regelmæssig træning og sund kost sænkede konsekvent alderen målt på DNA-tests; populære anti-aging-tilskud viste ingen målbar effekt.</p>
+<div class="body"><p>Forskere fra Yale har samlet resultaterne fra 51 kliniske studier af forskellige forsøg på at bremse aldring og målt effekten med over 110 DNA-markører, herunder 16 store <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-9-1" aria-describedby="term-9-1">epigenetiske ure<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-9-1" role="tooltip"><strong>epigenetiske ure</strong> Blodtests, der måler kemiske mærker (methylgrupper) på DNA&#x27;et, som ændrer sig med alderen, og ud fra dem beregner en »biologisk alder«. Her blev 16 af dem brugt til at se, om kost, motion og tilskud rykkede den alder.</span></span>. Studiet er udgivet i Nature Medicine.</p><p>Et af de klareste fund: Regelmæssig motion kombineret med en sund kost – fx middelhavskost, fedtfattig eller lavkulhydrat – sænkede konsekvent den epigenetiske alder. Håndkøbstilskud og visse medicinske indgreb gav derimod ingen målbar nedgang. Også enkelte receptpligtige lægemidler gav store udslag.</p><p>Forskerne understreger, at en lavere biologisk alder på en test ikke beviser, at man lever længere. Nyere ure virkede bedre end ældre, og syge forsøgspersoner rykkede sig mere end raske.</p></div>
+<p class="src">Kilde: ScienceDaily (Yale University) · <a href="https://www.sciencedaily.com/releases/2026/11/261112230452.htm" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="10"><div class="kick"><span class="num">10</span><span class="tag t-ivk">Iværksætteri</span></div><h2>Pieter Levels importerer hele IKEA&#x27;s katalog i 3D – og lader dig uploade dine egne møbler</h2><p class="sum">Dag 4 af genopbygningen af Interior AI: upload en plantegning eller en video af dit hjem, og indret det om med rigtige møbler.</p>
+<div class="body"><p>Den hollandske solo-iværksætter Pieter Levels er i gang med at bygge sit AI-indretningsprodukt Interior AI om, nu hvor AI-modellerne ifølge ham er gode nok til 3D. Lørdag skrev han, at han har importeret hele IKEA&#x27;s katalog i 3D, og at flere møbelmærker skal følge.</p><p>Brugerne kan uploade en plantegning af deres hjem eller en video, hvor de går rundt, hvorefter værktøjet genskaber hjemmet i 3D, så det kan indrettes om. Senere samme aften kom en ny funktion: tag et billede af et møbel, og et billede-til-3D-model laver det til et 3D-objekt på under 30 sekunder.</p><p>Levels kalder selv resultatet »lidt klodset«, men opslaget med IKEA-kataloget er set næsten 69.000 gange.</p></div>
+<div class="xembed"><blockquote class="twitter-tweet" data-media-max-width="560" data-dnt="true"><a href="https://x.com/levelsio/status/2121661063007773081">Video på X</a></blockquote></div><p class="vcap">Interior AI med IKEA&#x27;s katalog i 3D · Video: Pieter Levels på X</p>
+<p class="src">Kilde: Pieter Levels på X · <a href="https://x.com/levelsio/status/2121661063007773081" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://x.com/levelsio/status/2121712181125525706" rel="noopener">Levels: upload dine egne møbler som foto</a></li></ul>
+</article>
+<article id="11"><div class="kick"><span class="num">11</span><span class="tag t-crea">Creatorøkonomi</span></div><h2>Twitch giver plads til 5-minutters klip og bringer hosting tilbage</h2><p class="sum">På TwitchCon i San Diego kom også browser-streaming, pause og spol tilbage for alle seere og samlekort-emotes.</p>
+<div class="body"><p>Twitch vil hæve den maksimale længde på klip fra 60 sekunder til fem minutter, og streamere kan samle flere korte klip til ét og uploade videoer optaget uden for livestreams. Ifølge Twitch er visningerne i klip-feedet fordoblet siden januar.</p><p>»Hosting«, som blev fjernet i oktober 2022, kommer tilbage i test senere i år: En streamer kan vise en anden kanal på sin side, mens han er offline, nu med fælles chat. Twitch tester også »Host Trains« og automatiske raids.</p><p>Streamere får mulighed for at sende direkte fra browseren, og »Stream Rewind« – pause og spol tilbage i en livestream – udvides til alle seere. Over 400.000 kanaler har lavet en »Recap« i de to uger, siden funktionen kom tilbage.</p></div>
+<p class="src">Kilde: Net Influencer · <a href="https://www.netinfluencer.com/twitch-twitchcon-san-diego-2026-five-minute-clips-hosting-returns-legendary-emotes/" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="12"><div class="kick"><span class="num">12</span><span class="tag t-verden">Verden</span></div><h2>Femte lørdag med protester i Frankrig – mindst 106.000 på gaden</h2><p class="sum">Leveomkostninger, politivold og et forslag om større retsbeskyttelse til politiet driver bevægelsen, der har stået på i over en måned.</p>
+<div class="body"><p>Mellem 106.000 (indenrigsministeriet) og 200.000 (elevorganisationerne) demonstrerede lørdag i Frankrig – femte lørdag i træk. Heraf var 24.000 eller næsten 100.000 i Paris, afhængigt af hvem der tæller. Det er det laveste fremmøde i flere uger.</p><p>Protesterne begyndte som skoleblokader og handler nu om høje leveomkostninger, dårligere offentlig service, politivold og et forslag om at give politiet større retsbeskyttelse. Nogle råbte på Macrons afgang, og en gruppe bar en kæmpedukke med teksten »Lord Macron«.</p><p>219 blev anholdt på landsplan – markant færre end ved tidligere store protester. Ved den mest voldsomme bølge i oktober var der plyndringer i Paris, Marseille og Lyon. Yderste højre fører i målingerne før næste års præsidentvalg.</p></div>
+<p class="src">Kilde: France 24 · <a href="https://www.france24.com/en/france/20261114-no-justice-no-peace-fifth-round-of-protests-sweep-across-france" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.rfi.fr/en/france/20261114-how-france-s-student-protests-grew-into-a-broader-movement-amid-police-violence" rel="noopener">RFI: How France&#x27;s student protests grew into a broader movement</a></li></ul>
+</article>
+<article id="13"><div class="kick"><span class="num">13</span><span class="tag t-dk">Danmark</span></div><h2>Danmark ydmygede Portugal 4-1 på udebane</h2><p class="sum">Landsholdet spillede en af sine bedste kampe i flere år og gav Portugal dets første nederlag i Nations League.</p>
+<div class="body"><p>Det danske fodboldlandshold vandt lørdag aften 4-1 over Portugal i Braga i Nations League. Pierre-Emile Højbjerg scorede på straffespark, Rasmus Højlund scorede to gange, og Joachim Andersen headede ét ind. Bernardo Silva reducerede sent for Portugal, der spillede uden Cristiano Ronaldo.</p><p>Politiken kalder det en af holdets bedste kampe i flere år, og Højlund kalder sejren »ubeskrivelig«. Landstræner Brian Riemer sagde efter kampen: »Vi fik portugiserne til at se dårlige ud.«</p></div>
+<p class="src">Kilde: Politiken · <a href="https://politiken.dk/sport/fodbold/art11060610/Danmark-udspiller-Portugal-med-champagnebold-i-Braga" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.bbc.com/sport/football/live/cmgj9jnvxx2qt" rel="noopener">BBC Sport: Portugal 1-4 Denmark</a></li></ul>
+</article>
+<article id="14"><div class="kick"><span class="num">14</span><span class="tag t-godt">Spændende</span></div><h2>På onsdag bliver Voyager 1 det første menneskeskabte objekt et helt lysdøgn fra Jorden</h2><p class="sum">Næsten 50 år efter opsendelsen når sonden 25,9 milliarder km ud – et signal er 24 timer om at nå frem.</p>
+<div class="body"><p>Onsdag 18. november kl. 11.16 dansk tid er Voyager 1 præcis ét <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-14-1" aria-describedby="term-14-1">lysdøgn<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-14-1" role="tooltip"><strong>lysdøgn</strong> Den afstand, lyset når på 24 timer – cirka 25,9 milliarder km. Det betyder, at radiosignaler til og fra Voyager 1 hver vej tager et helt døgn.</span></span> fra Jorden: den afstand lyset tilbagelægger på 24 timer, cirka 25,9 milliarder km. Ingen anden menneskeskabt ting har været så langt væk. En besked fra Jorden er et døgn om at nå frem – og svaret et døgn om at komme tilbage.</p><p>Til sammenligning er lyset 1,3 sekunder om at nå Månen og 8 minutter og 20 sekunder om at komme fra Solen.</p><p>Voyager 1 blev opsendt i 1977 sammen med tvillingen Voyager 2, som først når samme milepæl i november 2035. NASA opfordrer alle i verden til at »lyse for Voyager« efter solnedgang tirsdag 17. november med telefoner, lommelygter og oplyste bygninger – en symbolsk bølge af lys rundt om kloden.</p></div>
+<p class="src">Kilde: NASA Science · <a href="https://science.nasa.gov/mission/voyager/voyager-1/voyager-1-what-is-a-light-day/" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://apnews.com/article/nasa-voyager-interstellar-space-light-day-67f53a0e274157c92305e0b03d4b800d" rel="noopener">AP: NASA&#x27;s Voyager 1 closes in on a light-day</a></li></ul>
+</article>
+<section class="nyt" id="nyt"><h2>Nyt til dig</h2><ul>
+<li><a href="https://www.stripeeconomics.com/" rel="noopener">Stripe Economics</a> – Stripes økonomer analyserer betalingsdata fra titusindvis af virksomheder, bl.a. det ugentlige Stripe SaaS Index over SaaS-omsætning.</li>
+<li><a href="https://www.garbageday.email/" rel="noopener">Garbage Day (Ryan Broderick)</a> – Populært nyhedsbrev om internetkultur, platforme og hvad der går viralt.</li>
+</ul></section>
+</main></div>
+<footer><div class="ed-no">Udgave nr. 19</div><a href="../index.html">Seneste udgave</a> · <a href="../arkiv/index.html">Arkiv</a> · Nyheder for Kasper</footer>
+</div><script>(function(){var d=document.querySelector('nav.toc details');if(!d)return;var mq=matchMedia('(min-width:1000px)');
+function fit(){d.open=mq.matches?true:d.dataset.u==='1';}d.querySelector('summary').addEventListener('click',function(){d.dataset.u=d.open?'0':'1';});
+fit();mq.addEventListener&&mq.addEventListener('change',fit);
+var links={};d.querySelectorAll('a[href^="#"]').forEach(function(a){links[decodeURIComponent(a.getAttribute('href').slice(1))]=a;});
+var cur;function on(id){if(cur)cur.classList.remove('on');cur=links[id];if(cur){cur.classList.add('on');if(mq.matches&&cur.scrollIntoView){var r=cur.getBoundingClientRect(),p=d.parentNode.getBoundingClientRect();if(r.top<p.top||r.bottom>p.bottom)cur.scrollIntoView({block:'nearest'});}}}
+if(!('IntersectionObserver' in window))return;var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)on(e.target.id);});},{rootMargin:'-20% 0px -70% 0px'});
+Object.keys(links).forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el);});})();</script><script>(function(){var m=document.querySelector('main[data-date]');if(!m)return;
+var D=m.dataset.date,LATEST=m.dataset.latest==='1',K='nyheder-read-'+D,arts=[].slice.call(document.querySelectorAll('main article[id]')),N=arts.length;
+var ls=null;try{ls=window.localStorage;ls.getItem(K);}catch(_){ls=null;}
+var read={};try{(JSON.parse((ls&&ls.getItem(K))||'[]')||[]).forEach(function(i){read[i]=1;});}catch(_){}
+function save(){if(!ls)return;try{ls.setItem(K,JSON.stringify(Object.keys(read).map(Number).sort(function(a,b){return a-b;})));
+ var ks=[];for(var i=0;i<ls.length;i++){var k=ls.key(i);if(k&&k.indexOf('nyheder-read-')===0)ks.push(k);}ks.sort();while(ks.length>30)ls.removeItem(ks.shift());}catch(_){}}
+var toc={};document.querySelectorAll('nav.toc a[href^="#"]').forEach(function(a){toc[a.getAttribute('href').slice(1)]=a;});
+function paint(i){var a=toc[i];if(a){a.classList.add('read');var n=a.querySelector('.n');if(n)n.setAttribute('aria-label',i+', læst');}}
+function mark(i){i=String(i);if(read[i]||!document.getElementById(i))return;read[i]=1;save();paint(i);}
+Object.keys(read).forEach(function(i){paint(i);});
+Object.keys(toc).forEach(function(i){if(/^\d+$/.test(i))toc[i].addEventListener('click',function(){mark(i);});});
+/* Read = ~60 % of the story (or of the screen, for stories taller than it) visible for 3 s while the page is visible. */
+if('IntersectionObserver' in window){var tm={};
+ var th=[];for(var t=0;t<=20;t++)th.push(t/20);
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){var id=e.target.id;if(read[id])return;
+  var need=0.6*Math.min(e.boundingClientRect.height,(e.rootBounds&&e.rootBounds.height)||innerHeight);
+  var ok=e.isIntersecting&&e.intersectionRect.height>=need;
+  if(ok&&!tm[id])tm[id]=setTimeout(function(){tm[id]=0;if(document.visibilityState!=='hidden')mark(id);else io.unobserve(e.target),io.observe(e.target);},3000);
+  else if(!ok&&tm[id]){clearTimeout(tm[id]);tm[id]=0;}});},{threshold:th});
+ arts.forEach(function(a){if(!read[a.id])io.observe(a);});
+ document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden'){Object.keys(tm).forEach(function(id){if(tm[id]){clearTimeout(tm[id]);tm[id]=0;}});}
+  else{arts.forEach(function(a){if(!read[a.id]){io.unobserve(a);io.observe(a);}});}});}
+if(location.hash){var h=location.hash;addEventListener('load',function(){var el=document.getElementById(decodeURIComponent(h.slice(1)));if(el&&location.hash===h)setTimeout(function(){el.scrollIntoView();},60);});}
+})();</script><script>(function(){var ts=document.querySelectorAll('.term');if(!ts.length)return;
+function place(t){var p=t.querySelector('.term-pop');t.classList.remove('up');p.style.left='0px';p.style.display='block';
+var vw=document.documentElement.clientWidth,r=p.getBoundingClientRect(),dx=0;if(r.right>vw-12)dx=vw-12-r.right;if(r.left+dx<12)dx=12-r.left;
+p.style.left=dx+'px';var b=p.getBoundingClientRect();if(b.bottom>innerHeight-8&&t.getBoundingClientRect().top>b.height+24)t.classList.add('up');p.style.display='';}
+function close(x){ts.forEach(function(t){if(t!==x&&t.classList.contains('open')){t.classList.remove('open');t.querySelector('.term-btn').setAttribute('aria-expanded','false');}});}
+ts.forEach(function(t){var b=t.querySelector('.term-btn');t.addEventListener('mouseenter',function(){place(t);});b.addEventListener('focus',function(){place(t);});
+b.addEventListener('click',function(ev){ev.stopPropagation();var o=!t.classList.contains('open');close(t);if(o)place(t);t.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');});
+t.querySelector('.term-pop').addEventListener('click',function(ev){ev.stopPropagation();});});
+document.addEventListener('click',function(){close(null);});
+document.addEventListener('keydown',function(ev){if(ev.key==='Escape'){var a=document.activeElement;close(null);if(a&&a.classList.contains('term-btn'))a.blur();}});
+addEventListener('resize',function(){document.querySelectorAll('.term.open').forEach(place);});})();</script><script>(function(){var cs=document.querySelectorAll('.car');if(!cs.length)return;
+var RM=matchMedia('(prefers-reduced-motion: reduce)');
+function load(sl){if(!sl||sl.dataset.ld)return;sl.dataset.ld='1';sl.querySelectorAll('[data-src]').forEach(function(m){m.setAttribute('src',m.getAttribute('data-src'));m.removeAttribute('data-src');});
+ sl.querySelectorAll('img[loading="lazy"]').forEach(function(i){i.loading='eager';});}
+function pause(sl){if(!sl)return;
+ sl.querySelectorAll('iframe.yt').forEach(function(f){try{f.contentWindow.postMessage(JSON.stringify({event:'command',func:'pauseVideo',args:[]}),'*');}catch(_){}});
+ sl.querySelectorAll('video').forEach(function(v){try{v.pause();}catch(_){}});
+ sl.querySelectorAll('.car-frame.x[data-x]').forEach(function(f){if(f.querySelector('iframe')){f.innerHTML=f.getAttribute('data-x');if(window.twttr&&twttr.widgets)twttr.widgets.load(f);}});}
+cs.forEach(function(c){var t=c.querySelector('.car-track'),ss=[].slice.call(t.querySelectorAll('.car-slide')),n=ss.length,cur=-1,raf=0;
+ var cnt=c.querySelector('.car-count'),ds=[].slice.call(c.querySelectorAll('.car-dot')),pv=c.querySelector('.car-prev'),nx=c.querySelector('.car-next');
+ function set(i){i=Math.max(0,Math.min(n-1,i));if(i===cur)return;if(cur>=0)pause(ss[cur]);cur=i;load(ss[i]);load(ss[i+1]);
+  if(cnt)cnt.textContent=(i+1)+'/'+n;ds.forEach(function(d,k){d.setAttribute('aria-current',k===i?'true':'false');});
+  if(pv)pv.disabled=i===0;if(nx)nx.disabled=i===n-1;
+  ss.forEach(function(s,k){var off=k!==i;s.setAttribute('aria-hidden',off?'true':'false');if('inert' in s)s.inert=off;});}
+ function go(i){i=Math.max(0,Math.min(n-1,i));load(ss[i]);t.scrollTo({left:ss[i].offsetLeft,behavior:RM.matches?'auto':'smooth'});set(i);}
+ t.addEventListener('scroll',function(){if(raf)return;raf=requestAnimationFrame(function(){raf=0;set(Math.round(t.scrollLeft/(t.clientWidth||1)));});},{passive:true});
+ if(pv)pv.addEventListener('click',function(){go(cur-1);});if(nx)nx.addEventListener('click',function(){go(cur+1);});
+ ds.forEach(function(d,k){d.addEventListener('click',function(){go(k);});});
+ c.addEventListener('keydown',function(ev){if(ev.altKey||ev.ctrlKey||ev.metaKey)return;
+  if(ev.key==='ArrowLeft'){ev.preventDefault();go(cur-1);}else if(ev.key==='ArrowRight'){ev.preventDefault();go(cur+1);}
+  else if(ev.key==='Home'&&ev.target===t){ev.preventDefault();go(0);}else if(ev.key==='End'&&ev.target===t){ev.preventDefault();go(n-1);}});
+ addEventListener('resize',function(){if(cur>=0)t.scrollLeft=ss[cur].offsetLeft;});
+ set(0);
+ if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){load(ss[1]);io.disconnect();}},{rootMargin:'300px 0px'});io.observe(c);}
+ else load(ss[1]);
+});
+document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden')cs.forEach(function(c){c.querySelectorAll('.car-slide').forEach(pause);});});
+})();</script><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script>(function(){var B='../';
+try{if('clearAppBadge' in navigator)Promise.resolve(navigator.clearAppBadge()).catch(function(){});}catch(_){}
+if(!('serviceWorker' in navigator))return;
+navigator.serviceWorker.register(B+'sw.js').then(function(r){
+ if(!r||!r.pushManager||!r.pushManager.getSubscription)return;
+ return r.pushManager.getSubscription().then(function(s){if(s)return s.unsubscribe();});}).catch(function(){});
+})();</script></body></html>
