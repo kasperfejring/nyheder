@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="da"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111213" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Nyheder">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="../icons/favicon-64.png">
+<title>Nyheder · torsdag 19. november 2026</title>
+<link rel="preload" href="../fonts/InterVariable.latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url("../fonts/InterVariable.latin.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-style:italic;font-weight:100 900;font-display:swap;src:url("../fonts/InterVariable-Italic.latin.woff2") format("woff2")}
+:root{--bg:#fbfaf7;--fg:#151515;--fg2:#2b2a27;--muted:#5b5850;--rule:#e2ddd2;--accent:#b8431a;--card:#fff;--link:#174f9c;--hl:#f3efe6}
+@media (prefers-color-scheme:dark){:root{--bg:#111213;--fg:#eeece7;--fg2:#d9d6cf;--muted:#a7a39a;--rule:#2e2d2a;--accent:#f59a62;--card:#1a1b1c;--link:#93bdf2;--hl:#1d1e20}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-padding-top:16px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size:18px;line-height:1.65;font-optical-sizing:auto;font-feature-settings:"cv11","ss01";-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px 64px}
+a{color:var(--link)}
+header.mast{text-align:center;border-bottom:1px solid var(--fg);padding:34px 0 16px;margin-bottom:22px}
+.mast h1{font-size:clamp(2.5rem,9vw,4.4rem);line-height:1;margin:0;letter-spacing:-.04em;font-weight:800}
+.mast h1 a{color:inherit;text-decoration:none}
+.mast .greet{font-size:.95rem;font-weight:500;line-height:1.3;letter-spacing:-.005em;color:var(--muted);margin:0 0 10px}
+.mast .greet[hidden]{display:none}
+.mast .meta{font-size:.74rem;font-weight:600;line-height:1.4;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-top:12px}
+.intro{font-size:1.06em;color:var(--fg2);margin:0 0 22px;line-height:1.6}
+.layout{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"intro" "toc" "main"}
+.layout>.intro{grid-area:intro}.layout>nav.toc{grid-area:toc}.layout>main{grid-area:main;min-width:0}
+nav.toc{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:4px 0;margin-bottom:28px;font-size:.9rem;line-height:1.4}
+nav.toc summary{cursor:pointer;list-style:none;padding:10px 0;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--accent)}
+nav.toc summary::-webkit-details-marker{display:none}
+nav.toc summary::after{content:" ▾";color:var(--muted)}nav.toc details[open] summary::after{content:" ▴"}
+nav.toc summary .cnt{color:var(--muted);font-weight:600;letter-spacing:.08em}
+nav.toc ol{list-style:none;margin:0 0 10px;padding:0}
+nav.toc li{margin:0}
+nav.toc a{display:flex;gap:10px;color:var(--fg);text-decoration:none;padding:7px 10px 7px 0;border-left:2px solid transparent}
+nav.toc a:hover .h{text-decoration:underline}
+nav.toc .n{flex:0 0 1.7em;text-align:right;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+nav.toc .t{display:block;font-size:.78em;color:var(--muted);margin-top:2px}
+nav.toc li.sec a .n{color:var(--accent)}
+nav.toc a.on{border-left-color:var(--accent);background:var(--hl)}nav.toc a.on .n,nav.toc a.on .h{color:var(--accent)}
+nav.toc a.read .n{color:var(--muted);opacity:.5;font-weight:500}nav.toc a.read:not(.on) .h{color:var(--muted)}
+h2.sect,.nyt h2,.radar>h2{font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;margin:6px 0 12px;color:var(--accent)}
+article{border-bottom:1px solid var(--rule);padding:4px 0 30px;margin-bottom:28px;scroll-margin-top:16px}
+.kick{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:.7rem;font-weight:700;line-height:1.5;text-transform:uppercase;letter-spacing:.1em}
+.num{background:var(--fg);color:var(--bg);border-radius:4px;padding:1px 7px;font-variant-numeric:tabular-nums}
+.tag{border:1px solid currentColor;border-radius:4px;padding:0 6px}
+.t-ai{color:#2563a8}.t-kode{color:#0b7480}.t-inv{color:#25784a}.t-sund{color:#9a6510}.t-ivk{color:#8e2a8e}.t-tank{color:#52529a}.t-egne{color:#a84b14}.t-verden{color:#4a5568}.t-frem{color:#6440b8}.t-crea{color:#b4185a}.t-samf{color:#7c6232}.t-dk{color:#b42828}.t-godt{color:#1f8a5b}
+@media (prefers-color-scheme:dark){.t-ai{color:#82b6f2}.t-kode{color:#62d2da}.t-inv{color:#72d19a}.t-sund{color:#f0c264}.t-ivk{color:#e391e3}.t-tank{color:#adadf2}.t-egne{color:#f2a676}.t-verden{color:#bac4d2}.t-frem{color:#bba2f6}.t-crea{color:#f594b6}.t-samf{color:#dcc390}.t-dk{color:#f28a8a}.t-godt{color:#7fe0b0}}
+.unc{background:#9a6510;color:#fff;border-radius:4px;padding:1px 6px}
+article h2{font-size:clamp(1.5rem,5.2vw,2.15rem);line-height:1.18;letter-spacing:-.022em;font-weight:750;margin:12px 0 10px;text-wrap:balance}
+.sum{font-size:1.1em;line-height:1.5;font-weight:500;color:var(--fg2);margin:0 0 16px}
+.body p{margin:0 0 1em}.body p:last-child{margin-bottom:14px}
+figure.fig{margin:4px 0 20px}
+figure.fig img{display:block;width:100%;height:auto;border-radius:8px;background:var(--hl)}
+figure.fig figcaption{font-size:.76rem;line-height:1.45;color:var(--muted);margin-top:7px}
+.src{font-size:.85rem;color:var(--muted)}
+.src a{font-weight:600}
+.extra{font-size:.85rem;margin:8px 0 0;padding-left:1.1em;color:var(--muted)}
+.video{position:relative;width:100%;aspect-ratio:16/9;margin:4px 0 20px;background:#000;border-radius:8px;overflow:hidden}
+.video.short{aspect-ratio:9/16;max-width:340px;margin-left:auto;margin-right:auto}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.xembed{margin:4px 0 20px;display:flex;justify-content:center}
+.car{position:relative;margin:4px 0 20px}
+.car-track{position:relative;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+  overscroll-behavior-x:contain;scrollbar-width:none;border-radius:8px;outline:none}
+.car-track::-webkit-scrollbar{display:none}
+.car-track:focus-visible{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--link)}
+.car-slide{flex:0 0 100%;min-width:0;margin:0;scroll-snap-align:start;scroll-snap-stop:always}
+.car-frame{position:relative;width:100%;aspect-ratio:16/9;background:var(--hl);border-radius:8px;overflow:hidden}
+.car-frame.v{background:#000}
+.car-frame img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain}
+.car-frame iframe,.car-frame video{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000}
+.car-frame.x{overflow-y:auto;-webkit-overflow-scrolling:touch;background:var(--hl)}
+.car-frame.x>*{margin:0 auto!important}.car-frame.x .twitter-tweet{max-width:100%}
+.vcap{font-size:.76rem;line-height:1.45;color:var(--muted);margin:-12px 0 20px}
+.car-slide figcaption{font-size:.76rem;line-height:1.45;color:var(--muted);margin-top:7px}
+.car-nav{position:absolute;left:0;right:0;top:0;aspect-ratio:16/9;pointer-events:none}
+.car-btn{position:absolute;top:50%;transform:translateY(-50%);pointer-events:auto;display:flex;align-items:center;justify-content:center;
+  width:40px;height:40px;padding:0;border:1px solid var(--rule);border-radius:50%;background:var(--card);color:var(--fg);cursor:pointer;
+  font:inherit;font-size:1.2rem;line-height:1;box-shadow:0 2px 10px rgba(0,0,0,.18);opacity:.92;transition:opacity .15s}
+.car-btn:hover{opacity:1}.car-btn:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+.car-btn[disabled]{opacity:0;pointer-events:none}
+.car-prev{left:10px}.car-next{right:10px}
+.car-bar{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:8px;font-size:.72rem;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums}
+.car-dots{display:flex;gap:2px}
+.car-dot{width:22px;height:22px;padding:7px;border:0;margin:0;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.car-dot::before{content:"";display:block;width:8px;height:8px;border-radius:50%;background:var(--rule)}
+.car-dot[aria-current="true"]::before{background:var(--accent)}
+.car-dot:focus-visible{outline:2px solid var(--link);outline-offset:-2px;border-radius:50%}
+@media (hover:none) and (pointer:coarse){.car-btn{display:none}}
+.nyt{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:16px 20px;margin:10px 0 28px;scroll-margin-top:16px}
+.nyt ul{margin:0;padding-left:1.1em}.nyt li{margin:8px 0}.nyt a{font-weight:600}
+.radar{margin:10px 0 28px;scroll-margin-top:16px}
+.radar>p.lede{font-size:.88rem;color:var(--muted);margin:0 0 12px}
+.rcard{background:var(--card);border:1px solid var(--rule);border-left:4px solid #8e2a8e;border-radius:10px;padding:14px 20px;margin:0 0 16px;scroll-margin-top:16px}
+@media (prefers-color-scheme:dark){.rcard{border-left-color:#e391e3}}
+.rcard h3{font-size:clamp(1.25rem,4vw,1.55rem);line-height:1.2;letter-spacing:-.018em;margin:8px 0 8px}
+.rcard h3 a{color:inherit;text-decoration:none}.rcard h3 a:hover{text-decoration:underline}
+.rcard dl{margin:0 0 8px}
+.rcard dt{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:12px}
+.rcard dd{margin:2px 0 0}
+.term{position:relative;display:inline}
+.term-btn{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;cursor:help;text-align:inherit;
+  text-decoration:underline dotted;text-decoration-color:var(--muted);text-decoration-thickness:1.5px;text-underline-offset:.22em;-webkit-tap-highlight-color:transparent}
+.term-btn:hover,.term.open .term-btn{text-decoration-color:var(--accent)}
+.term-btn:focus-visible{outline:2px solid var(--link);outline-offset:2px;border-radius:3px}
+.term .ti{display:none;align-items:center;justify-content:center;width:1.05em;height:1.05em;margin-left:.18em;vertical-align:.12em;
+  border:1.2px solid currentColor;border-radius:50%;font-size:.62em;font-weight:700;font-style:normal;line-height:1;color:var(--muted)}
+.term-btn:hover .ti,.term.open .ti{color:var(--accent)}
+.term-pop{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 10px);width:min(23rem,calc(100vw - 24px));
+  background:var(--card);color:var(--fg);border:1px solid var(--rule);border-radius:10px;padding:12px 14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.14),0 2px 6px rgba(0,0,0,.08);font-size:.8em;font-weight:400;line-height:1.55;text-align:left;white-space:normal;letter-spacing:0}
+.term-pop::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+.term.up .term-pop{top:auto;bottom:calc(100% + 10px)}.term.up .term-pop::before{top:auto;bottom:-12px}
+.term-pop strong{display:block;font-weight:700;margin-bottom:3px;color:var(--accent)}
+.term.open .term-pop,.term-btn:focus-visible+.term-pop{display:block}
+@media (hover:hover) and (pointer:fine){.term:hover .term-pop{display:block}}
+@media (prefers-color-scheme:dark){.term-pop{box-shadow:0 10px 30px rgba(0,0,0,.55);border-color:#3a3936}}
+.wrap{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right));padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+header.mast{padding-top:calc(34px + env(safe-area-inset-top))}
+footer{font-size:.8rem;color:var(--muted);text-align:center;padding-top:12px}
+footer .ed-no{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+ul.arkiv{list-style:none;padding:0}ul.arkiv li{border-bottom:1px solid var(--rule);padding:12px 0}
+ul.arkiv a{color:var(--fg);font-weight:700;text-decoration:none}ul.arkiv span{display:block;color:var(--muted);font-size:.92rem}
+@media (min-width:1000px){
+  body{font-size:20px}
+  .wrap{max-width:1260px;padding-left:max(40px,env(safe-area-inset-left));padding-right:max(40px,env(safe-area-inset-right));padding-bottom:calc(80px + env(safe-area-inset-bottom))}
+  .layout{grid-template-columns:290px minmax(0,70ch);grid-template-areas:"toc intro" "toc main";column-gap:64px;justify-content:center}
+  nav.toc{position:sticky;top:20px;align-self:start;max-height:calc(100vh - 40px);overflow:auto;border:0;margin:0;padding:0 4px 0 0;font-size:.78rem}
+  nav.toc summary{pointer-events:none;padding:4px 0 10px}nav.toc summary::after{content:none}
+  nav.toc a{padding:7px 10px 7px 6px}
+  .intro{margin-top:4px}
+}
+</style></head>
+<body><div class="wrap"><header class="mast"><p class="greet" id="greet" data-name="Kasper" aria-live="off" hidden></p><script>(function(){var g=document.getElementById('greet');if(!g)return;var N=g.getAttribute('data-name');
+function upd(){var h=new Date().getHours();
+ var t=h>=5&&h<10?'Godmorgen':h>=10&&h<12?'God formiddag':h>=12&&h<18?'God eftermiddag':'God aften';
+ t=N?t+', '+N:t;if(g.textContent!==t)g.textContent=t;g.hidden=false;}
+upd();addEventListener('pageshow',upd);addEventListener('focus',upd);
+document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')upd();});
+setInterval(function(){if(document.visibilityState==='visible')upd();},60000);
+})();</script><h1><a href="../index.html">Nyheder</a></h1><div class="meta">torsdag 19. november 2026</div></header>
+<div class="layout">
+<p class="intro">Anthropic slår SpaceX&#x27; rekord med verdens største børsnotering og handles fra i dag på Nasdaq, mens Trump, Xi og Putin sætter sig ved samme bord for første gang. Plus: GTA VI er ude og har fået den højeste karakter nogensinde, Jensen Huang skal i forhør i Senatet, Musk vil bygge en Model Y uden rat – og en flodhest, der slugte en hue.</p>
+<nav class="toc" aria-label="Indhold"><details open><summary>Indhold <span class="cnt">· 14 historier</span></summary><ol>
+<li><a href="#1"><span class="n">1</span><span><span class="h">Anthropic henter 81 milliarder dollar – verdens største børsnotering nogensinde</span><span class="t">Investering</span></span></a></li>
+<li><a href="#2"><span class="n">2</span><span><span class="h">I dag sætter Trump, Xi og Putin sig ved samme bord for første gang</span><span class="t">Verden</span></span></a></li>
+<li><a href="#3"><span class="n">3</span><span><span class="h">GTA VI er ude – og er nu det højest bedømte spil nogensinde</span><span class="t">Samfund</span></span></a></li>
+<li><a href="#4"><span class="n">4</span><span><span class="h">Jensen Huang skal forklare sig for Senatet – og Moody&#x27;s sænker udsigten for Nvidia</span><span class="t">Investering</span></span></a></li>
+<li><a href="#5"><span class="n">5</span><span><span class="h">Musk: Tesla bygger en Model Y uden rat og pedaler</span><span class="t">Investering</span></span></a></li>
+<li><a href="#6"><span class="n">6</span><span><span class="h">Googles Gemini 4 Neon er klar i Cursor og GitHub Copilot</span><span class="t">AI-kodning</span></span></a></li>
+<li><a href="#7"><span class="n">7</span><span><span class="h">Amerikanske storbanker: Bruger du en AI-agent, er det din egen risiko – også hvis den bliver hacket</span><span class="t">AI &amp; tech</span></span></a></li>
+<li><a href="#8"><span class="n">8</span><span><span class="h">Ukraine fældede Krimbroen med et flyvende netværk af droner – uden Starlink</span><span class="t">Verden</span></span></a></li>
+<li><a href="#9"><span class="n">9</span><span><span class="h">Iran angriber Kuwait for første gang i to måneder efter amerikansk bombning</span><span class="t">Verden</span></span></a></li>
+<li><a href="#10"><span class="n">10</span><span><span class="h">DistroKid udleverer data om AI-musik i pladeselskabernes sag mod Suno</span><span class="t">Musik</span></span></a></li>
+<li><a href="#11"><span class="n">11</span><span><span class="h">Sangerinde mistede sin egen folkesang på YouTube til et firma med 500 AI-kanaler</span><span class="t">Musik</span></span></a></li>
+<li><a href="#12"><span class="n">12</span><span><span class="h">Instagram lader dig nu rette en story, efter den er delt</span><span class="t">Creatorøkonomi</span></span></a></li>
+<li><a href="#13"><span class="n">13</span><span><span class="h">Velux lukker de fleste hjemmesider og webshops efter it-sikkerhedshændelse</span><span class="t">Danmark</span></span></a></li>
+<li><a href="#14"><span class="n">14</span><span><span class="h">Flodhesten Fiona slugte en hue – efter at en loftsventilator kastede den ind til hende</span><span class="t">Sjovt</span></span></a></li>
+<li class="sec"><a href="#nyt"><span class="n">+</span><span><span class="h">Nyt til dig</span></span></a></li>
+</ol></details></nav><main data-date="2026-11-19" data-total="14" data-latest="1">
+<article id="1"><div class="kick"><span class="num">1</span><span class="tag t-inv">Investering</span></div><h2>Anthropic henter 81 milliarder dollar – verdens største børsnotering nogensinde</h2><p class="sum">Aktien blev prissat til 83 dollar, over intervallet, og handles fra i dag på Nasdaq under navnet ANT.</p>
+<figure class="fig"><img src="../img/2026-11-19/anthropic.jpg" alt="Fodgængere foran Anthropic-skiltning hos Morgan Stanley" loading="lazy" decoding="async" width="1200" height="675"><figcaption>Billede: Getty Images via CNBC</figcaption></figure>
+<div class="body"><p>Anthropic og selskabets syv medstiftere solgte omkring 980 millioner aktier til 83 dollar stykket – over det forventede interval på 70-78 dollar og flere aktier end de planlagte 825 millioner. Det giver 81,3 mia. dollar og slår SpaceX, der i juni rejste 75 mia. (85,7 mia. efter <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-1-1" aria-describedby="term-1-1">overtildelingen<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-1-1" role="tooltip"><strong>overtildelingen</strong> En aftale, der lader bankerne sælge ekstra aktier, når efterspørgslen er stor. For SpaceX løftede den provenuet fra 75 til 85,7 mia. dollar.</span></span>). <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-1-2" aria-describedby="term-1-2">Fuldt udvandet<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-1-2" role="tooltip"><strong>Fuldt udvandet</strong> Værdien beregnet med alle aktier, inklusive optioner og andre rettigheder, der kan blive til aktier. Her giver det en samlet værdi på omkring 1.500 mia. dollar.</span></span> er Claude-firmaet vurderet til omkring 1.500 mia. dollar.</p><p>Ifølge prospektet omsatte Anthropic for 33,24 mia. dollar i årets første ni måneder, op ca. 1.200 %, drevet især af Claude Code. <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-1-3" aria-describedby="term-1-3">Run-rate-omsætningen<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-1-3" role="tooltip"><strong>Run-rate-omsætningen</strong> Den aktuelle månedsomsætning ganget op til et helt år. Her svarer 81 mia. dollar til, at Anthropic i oktober omsatte for omkring 6,75 mia. dollar.</span></span> var omkring 81 mia. dollar ved udgangen af oktober. Nettounderskuddet var 104 mia. dollar, mest på grund af regnskabsmæssige værdireguleringer af konvertible lån.</p><p>Google, Microsoft, Nvidia og AMD investerer tilsammen 26 mia. dollar til introkursen, og Amazon og Google ejer hver andele til over 100 mia. dollar. Ifølge FT kalder SoftBanks Masayoshi Son det nu en »fejl«, at han ikke investerede i Anthropic.</p></div>
+<p class="src">Kilde: CNBC · <a href="https://www.cnbc.com/2026/11/18/anthropic-ipo-ai-offering-price.html" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.bloomberg.com/news/articles/2026-11-18/anthropic-is-said-to-price-ipo-at-83-per-share" rel="noopener">Bloomberg: 107,3 mia. inkl. privat placering</a></li><li><a href="https://www.ft.com/content/08086201-6359-47ec-8854-70462ad5a4c0" rel="noopener">FT: SoftBank fortryder</a></li></ul>
+</article>
+<article id="2"><div class="kick"><span class="num">2</span><span class="tag t-verden">Verden</span></div><h2>I dag sætter Trump, Xi og Putin sig ved samme bord for første gang</h2><p class="sum">Det historiske trepartsmøde i Shenzhen kan handle om Ukraine og atomnedrustning – uden Ukraine og Europa i rummet.</p>
+<figure class="fig"><img src="../img/2026-11-19/putin.jpg" alt="Vladimir Putin taler ved Apec-topmødet i Shenzhen" loading="lazy" decoding="async" width="1200" height="675"><figcaption>Billede: Reuters via BBC</figcaption></figure>
+<div class="body"><p>Det er første gang nogensinde, at lederne af USA, Kina og Rusland mødes alene, tre sammen. Mødet holdes i dag på sidelinjen af Apec-topmødet i Shenzhen, efter at de tre i går aftes gav hånd ved Xi Jinpings gallamiddag. Trump har også planlagt et separat møde med Putin.</p><p>Trump har sagt, at han vil tale om sit »yndlingsemne«, krigen i Ukraine, og atomnedrustning kan også komme på bordet. Zelenskyj har advaret om, at mødet kan minde om Jalta-konferencen i 1945, hvor stormagterne delte Europa mellem sig, og siger, at Ukraine skal være med i alle forhandlinger om landets fremtid.</p><p>BBC&#x27;s Rusland-redaktør Steve Rosenberg kalder mødet en sejr for Kreml uanset udfaldet: Fem år efter invasionen gjorde Putin til paria, sidder han nu ved det øverste bord.</p></div>
+<p class="src">Kilde: BBC · <a href="https://www.bbc.co.uk/news/articles/c9n70gd320mpo" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.dr.dk/nyheder/udland/topmoede-i-kina-trump-putin-og-xi-ventes-moedes" rel="noopener">DR: Liveblog fra topmødet</a></li></ul>
+</article>
+<article id="3"><div class="kick"><span class="num">3</span><span class="tag t-samf">Samfund</span></div><h2>GTA VI er ude – og er nu det højest bedømte spil nogensinde</h2><p class="sum">99 ud af 100 på <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-3-1" aria-describedby="term-3-1">Metacritic<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-3-1" role="tooltip"><strong>Metacritic</strong> En hjemmeside, der samler anmeldelser og regner et gennemsnit ud på en skala fra 0 til 100. 99 betyder, at stort set alle anmeldere har givet topkarakter.</span></span>, rekorder på Twitch og YouTube, og Take-Two-aktien steg 7 %.</p>
+<div class="body"><p>Efter 13 års ventetid er Grand Theft Auto VI udkommet til PlayStation 5 og Xbox Series X|S – i Danmark ved midnat. Med 99/100 på Metacritic ligger spillet nu øverst på listen over de bedste spil nogensinde, foran The Legend of Zelda: Ocarina of Time fra 1998 og GTA V (97).</p><p>Ifølge Streams Charts er GTA VI allerede den mest sete spilkategori i Twitchs historie med op til 3,29 millioner samtidige seere. YouTube toppede med 3,19 mio. og Kick med 1,5 mio. Twitch har bygget ny AI-teknik, der lader annoncører køre reklamer på GTA-streams uden at havne ved siden af spillets voksenindhold.</p><p>Take-Two-aktien steg 7 % onsdag. Analysefirmaet M Science anslår, at forudsalget nåede op mod 20 millioner eksemplarer, omkring 26 millioner på lanceringsdagen og op til 50 millioner i kvartalet.</p></div>
+<p class="src">Kilde: The Guardian · <a href="https://www.theguardian.com/games/2026/nov/19/gta-6-grand-theft-auto-vi-release-launch-australia-first-to-play-game" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.tubefilter.com/2026/11/18/twitch-builds-new-tech-for-gta-streaming-ads/" rel="noopener">Tubefilter: Streamingrekorderne</a></li><li><a href="https://finance.yahoo.com/markets/stocks/articles/ttwo-stock-rallies-gta-vi-201531709.html" rel="noopener">Yahoo Finance: Take-Two og salgstal</a></li><li><a href="https://www.dr.dk/nyheder/kultur/i-nat-bliver-hypen-udloest-gta-rammer-danmark" rel="noopener">DR: GTA har ramt Danmark</a></li></ul>
+</article>
+<article id="4"><div class="kick"><span class="num">4</span><span class="tag t-inv">Investering</span></div><h2>Jensen Huang skal forklare sig for Senatet – og Moody&#x27;s sænker udsigten for Nvidia</h2><p class="sum">Den afsatte topchef skal i høring før jul, mens Musk kalder fyringen »som at smide Michael Jordan af holdet«.</p>
+<div class="body"><p>Formanden for Senatets bankudvalg, Tim Scott, siger, at Jensen Huang og handelsminister Howard Lutnick begge har sagt ja til at vidne, »forhåbentlig før jul«. Scott vil vide, om Huangs forhold til en kvinde, der mistænkes for at være kinesisk spion, påvirkede Nvidias kontrol med, at avancerede chips nåede Kina. Den 1. december skal Huang også til en lukket afhøring hos tre udvalg i Repræsentanternes Hus.</p><p>Kreditvurderingsbureauet <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-4-1" aria-describedby="term-4-1">Moody&#x27;s<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-4-1" role="tooltip"><strong>Moody&#x27;s</strong> Et af verdens største kreditvurderingsbureauer, der vurderer, hvor sikkert det er at låne penge til et selskab. At udsigten går fra positiv til stabil betyder, at Moody&#x27;s ikke længere regner med at opgradere Nvidia foreløbig.</span></span> har sænket udsigten for Nvidias rating fra positiv til stabil med henvisning til ledelsesforholdene. Aktien faldt over 2 % efter regnskabet. Fungerende topchef Colette Kress sagde til sit første personalemøde »lad os komme videre« og fremrykkede lønstigningerne.</p><p>På DealBook-konferencen kaldte Elon Musk Huang »Michael Jordan på sit højeste« og sagde, at han selv ville ansætte ham. Over 200.000 har skrevet under på et opråb om at genindsætte Huang.</p></div>
+<p class="src">Kilde: CNBC · <a href="https://www.cnbc.com/2026/11/18/jensen-huang-nvidia-tim-scott-congress.html" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.bloomberg.com/news/articles/2026-11-18/moody-s-lowers-nvidia-s-ratings-outlook-to-stable-from-positive" rel="noopener">Bloomberg: Moody&#x27;s sænker udsigten</a></li><li><a href="https://www.cnbc.com/2026/11/18/nvidia-interim-ceo-kress-addresses-staff-after-jensen-huang-exit-.html" rel="noopener">CNBC: Kress&#x27; første personalemøde</a></li><li><a href="https://techcrunch.com/2026/11/18/elon-musk-says-ousting-jensen-huang-is-like-kicking-michael-jordan-off-your-team/" rel="noopener">TechCrunch: Musk om Huang</a></li></ul>
+</article>
+<article id="5"><div class="kick"><span class="num">5</span><span class="tag t-inv">Investering</span></div><h2>Musk: Tesla bygger en Model Y uden rat og pedaler</h2><p class="sum">En selvkørende familie-robotaxa til seks-syv personer – og Musk kalder sit valgbidrag på 446 mio. dollar »temmelig tåbeligt«.</p>
+<div class="body"><p>På New York Times&#x27; DealBook-konference sagde Elon Musk, at Tesla vil lave en fuldt selvkørende version af Model Y uden rat og pedaler, som Cybercab, men med plads til grupper på seks eller syv. Ifølge Musk skal den dække de omkring 10 % af turene, hvor der er brug for mere end to sæder. Han nævnte hverken dato eller pris.</p><p>Musk sagde også, at han følte sig »temmelig tåbelig« over at have givet 446 mio. dollar til Republikanerne ved midtvejsvalget, hvor Demokraterne vandt begge kamre i Kongressen. »Jeg er ikke MAGA,« sagde han.</p><p>Tesla har i forvejen registreret 773 Cybercabs i Texas og åbnede i sidste uge salget af dem til udvalgte kunder til 29.990 dollar plus 299 dollar om måneden.</p></div>
+<p class="src">Kilde: InsideEVs · <a href="https://insideevs.com/news/815960/tesla-model-y-steering-wheel-remove/" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.bbc.co.uk/news/articles/cm9q8j2z3gg8o" rel="noopener">BBC: Musk fortryder valgbidraget</a></li></ul>
+</article>
+<article id="6"><div class="kick"><span class="num">6</span><span class="tag t-kode">AI-kodning</span></div><h2>Googles Gemini 4 Neon er klar i Cursor og GitHub Copilot</h2><p class="sum">Ny topmodel til kodning og agentarbejde: 63,7 % på CursorBench og samme pris som før.</p>
+<div class="body"><p>Google DeepMind har lanceret Gemini 4 Neon, en model til softwareudvikling, videnarbejde og videnskab. Den ligger nummer tre på Artificial Analysis&#x27; intelligensindeks med 61 point og nummer to på Vals-indekset, og Google melder om sin laveste andel af opdigtede svar til dato.</p><p>Cursor har allerede tilføjet modellen og skriver, at den på standardindstillingen scorer 63,7 % på CursorBench mod 57,3 % for Gemini 4 Hydrogen, der kom i sidste uge. Den er også frigivet i GitHub Copilot.</p><p>Prisen er 3 dollar pr. million input-<span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-6-1" aria-describedby="term-6-1">tokens<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-6-1" role="tooltip"><strong>tokens</strong> De små tekststykker (ofte dele af ord), som AI-modeller læser og skriver i, og som prisen beregnes ud fra. Her koster en million tokens ind 3 dollar og en million ud 15 dollar.</span></span> og 15 dollar pr. million output-tokens, med et <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-6-2" aria-describedby="term-6-2">kontekstvindue<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-6-2" role="tooltip"><strong>kontekstvindue</strong> Hvor meget tekst modellen kan have i hovedet på én gang. 1 million tokens svarer groft sagt til flere tykke bøger eller en stor kodebase.</span></span> på 1 million tokens. Modellen findes også i Gemini-appen for Pro- og Ultra-abonnenter og i Googles kodeværktøj Antigravity.</p></div>
+<p class="src">Kilde: Google · <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://x.com/cursor_ai/status/2123198346802450926" rel="noopener">Cursor på X</a></li><li><a href="https://github.blog/changelog/2026-11-18-gemini-4-neon-in-github-copilot" rel="noopener">GitHub: Gemini 4 Neon i Copilot</a></li></ul>
+</article>
+<article id="7"><div class="kick"><span class="num">7</span><span class="tag t-ai">AI &amp; tech</span></div><h2>Amerikanske storbanker: Bruger du en AI-agent, er det din egen risiko – også hvis den bliver hacket</h2><p class="sum">Citi, JPMorgan, Bank of America og PNC fraskriver sig ansvaret for, hvad AI-assistenter gør på kundernes konti.</p>
+<div class="body"><p>Citibank har ændret sine vilkår, så kunder, der giver AI-værktøjer adgang til deres netbank, selv hæfter for alt, hvad agenterne gør. Lækker værktøjet loginoplysningerne eller bliver det hacket, hæfter kunden også for, hvad hackerne gør med kontoen.</p><p>JPMorgan og Bank of America, USA&#x27;s to største banker, indførte lignende regler i sidste måned, og PNC og Citizens har netop fulgt efter. Bankerne vil ikke tilbageføre overførsler, som en automatisk assistent har lavet, hvad enten det var meningen eller ej.</p><p>Samtidig har delstaten Arizona ifølge Reuters indledt en undersøgelse af OpenAI og andre firmaer for mulige »løbske« AI-agenter, efter at Californien i denne uge sagsøgte OpenAI.</p></div>
+<p class="src">Kilde: TechCrunch · <a href="https://techcrunch.com/2026/11/18/more-banks-says-customers-using-ai-agents-are-on-their-own-even-if-they-get-hacked/" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="8"><div class="kick"><span class="num">8</span><span class="tag t-verden">Verden</span></div><h2>Ukraine fældede Krimbroen med et flyvende netværk af droner – uden Starlink</h2><p class="sum">Relæ-droner styrede missilerne fra over 250 km væk, og droneangreb har næsten halveret Ruslands olieraffinering.</p>
+<div class="body"><p>Ukraines angreb natten til 15. og 16. november fik den ene af to stålbuer under Krimbroens vejbane til at styrte sammen. Ifølge Financial Times brugte Ukraine droner med <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-8-1" aria-describedby="term-8-1">mesh-radioer<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-8-1" role="tooltip"><strong>mesh-radioer</strong> Radioer, der sender signalet videre fra den ene til den næste, så de tilsammen danner et net. Her fungerede hver drone som et relæ, så forbindelsen rakte over 250 km.</span></span> som et luftbåret kommunikationsnet, så operatører over 250 km væk kunne styre missiler og droner uden om det russiske luftforsvar. Teknikken er kopieret fra Rusland og gjorde Ukraine uafhængig af den militære udgave af Starlink.</p><p>En russisk indsat guvernør siger, at broen i går blev angrebet igen.</p><p>Ifølge Reuters har ukrainske droneangreb siden slutningen af oktober skåret 45 % af de russiske raffinaderiers samlede forarbejdning af råolie, og 15 af Ruslands 35 store raffinaderier er ramt eller lukket. Flere regioner mangler allerede brændstof.</p></div>
+<p class="src">Kilde: Ars Technica · <a href="https://arstechnica.com/gadgets/2026/11/ukraine-blew-up-putins-bridge-using-relay-drones-to-bypass-starlink-limits/" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.straitstimes.com/world/europe/drone-attacks-nearly-halve-russias-november-oil-refining-sources-say" rel="noopener">Reuters via Straits Times: Raffinering næsten halveret</a></li><li><a href="https://www.bbc.co.uk/news/articles/cm879dqn3e1jo" rel="noopener">BBC: Broen angrebet igen</a></li></ul>
+</article>
+<article id="9"><div class="kick"><span class="num">9</span><span class="tag t-verden">Verden</span></div><h2>Iran angriber Kuwait for første gang i to måneder efter amerikansk bombning</h2><p class="sum">Droner mod en amerikansk luftbase i Kuwait og nye angreb på Bahrain – og et tankskib mangler et besætningsmedlem.</p>
+<div class="body"><p>Kuwait og Bahrain melder, at de natten til onsdag skød iranske angreb ned. Angrebet på Kuwait var det første i over to måneder og var ifølge Irans hær rettet mod Ali Al Salem-basen, hvor der er amerikanske styrker. Kuwait meldte ingen skader. Bahrain, hvor den amerikanske 5. flåde ligger, er blevet angrebet fire gange på seks dage.</p><p>Angrebene kom, efter at amerikanske fly bombede en iransk affyringsrampe for missiler på øen Qeshm i Hormuzstrædet. Det statslige olieselskab i De Forenede Arabiske Emirater siger, at et besætningsmedlem er savnet, efter at et af dets tankskibe blev ramt i strædet.</p><p>Qatar, der har mæglet i de fastlåste forhandlinger, kalder angrebene en »farlig optrapning« af den ni måneder lange krig.</p></div>
+<p class="src">Kilde: BBC · <a href="https://www.bbc.co.uk/news/articles/cw4gn9jeqjq7o" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="10"><div class="kick"><span class="num">10</span><span class="tag t-egne">Musik</span></div><h2>DistroKid udleverer data om AI-musik i pladeselskabernes sag mod Suno</h2><p class="sum">Tal for, hvor meget AI-musik der flyder gennem distributøren, skal vise, om Suno æder af markedet – mens Tencent siger, at næsten ingen lytter.</p>
+<div class="body"><p>Efter først at have nægtet har DistroKid nu givet Universal og Sony data om, hvor stor en del af den musik, der går gennem tjenesten, der menes at være lavet med Suno og andre AI-generatorer. Pladeselskaberne trak derfor deres retssag for at tvinge dataene frem.</p><p>Tallene skal bruges i deres sag mod Suno om træning på millioner af ulicenserede numre. Konkurrencen mellem AI-sange og menneskeskabt musik er en central del af vurderingen af »<span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-10-1" aria-describedby="term-10-1">fair use<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-10-1" role="tooltip"><strong>fair use</strong> En regel i amerikansk ophavsret, der tillader brug af beskyttet materiale uden tilladelse i visse tilfælde. Dommeren skal bl.a. vurdere, om Sunos sange konkurrerer med de originale numre, og det er derfor, DistroKids data er vigtige.</span></span>«. Universal har desuden en separat sag mod DistroKid om den voksende mængde AI-musik på Spotify.</p><p>Kinesiske Tencent Music sagde samtidig på sin regnskabskonference, at lytningen af AI-musik på QQ Music, Kugou og Kuwo er »ubetydelig« og faldende, selv om mængden af uploads er enorm.</p></div>
+<p class="src">Kilde: Billboard · <a href="https://www.billboard.com/pro/distrokid-ai-data-umg-sony-lawsuit-suno/" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.digitalmusicnews.com/2026/11/17/tencent-music-ai-consumption-comments/" rel="noopener">Digital Music News: Tencent om AI-musik</a></li></ul>
+</article>
+<article id="11"><div class="kick"><span class="num">11</span><span class="tag t-egne">Musik</span></div><h2>Sangerinde mistede sin egen folkesang på YouTube til et firma med 500 AI-kanaler</h2><p class="sum">Hendes video blev fjernet efter et ophavsretskrav, og YouTube afviste begge hendes indsigelser.</p>
+<div class="body"><p>Samantha Shokin lagde for fire år siden en 50 sekunder lang a cappella-version af den bulgarske folkesang »Bre Petrunko« på YouTube, hvor den fik omkring 125.000 visninger. Sangen er fra 1800-tallet og har ingen kendt forfatter.</p><p>I oktober fjernede YouTube videoen efter et krav fra Media Nov Records, der ifølge 404 Media driver omkring 500 YouTube-kanaler med gentagende elektronisk musik og AI-billeder og reklamerer med automatiske nedtagninger og <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-11-1" aria-describedby="term-11-1">Content ID<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-11-1" role="tooltip"><strong>Content ID</strong> YouTubes automatiske system, der finder genbrug af lyd og video og lader rettighedshavere fjerne eller tjene penge på videoerne. Her blev det brugt til at gøre krav på en optagelse, som sangerinden selv havde lavet.</span></span>-styring. YouTube afviste begge Shokins indsigelser, mens hendes optagelse dukkede op i DJ- og AI-remixes.</p><p>Videoen kom først tilbage, da 404 Media kontaktede firmaet, som så trak kravet tilbage få minutter efter, at hun havde sendt bevis for sin optagelse.</p></div>
+<p class="src">Kilde: Digital Music News · <a href="https://www.digitalmusicnews.com/2026/11/18/musician-copyright-claim-loop-ai-company/" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="12"><div class="kick"><span class="num">12</span><span class="tag t-crea">Creatorøkonomi</span></div><h2>Instagram lader dig nu rette en story, efter den er delt</h2><p class="sum">Tekst, musik, klistermærker og tegninger kan ændres i 15 minutter – uden at miste visninger og svar.</p>
+<figure class="fig"><img src="../img/2026-11-19/insta.jpg" alt="Instagram-menuen med »Edit story« og en story markeret som redigeret" loading="lazy" decoding="async" width="900" height="469"><figcaption>Billede: Instagram via The Verge</figcaption></figure>
+<div class="body"><p>Indtil nu skulle man slette og genudgive en story for at rette en tastefejl eller tilføje en glemt sang. Nu kan tekst, musik, stickers og tegninger redigeres i op til 15 minutter efter deling, uden at visninger, likes og svar forsvinder, meddeler Instagram-chef Adam Mosseri.</p><p>Funktionen findes i menuen med de tre prikker under »Rediger story«. Samtidig får stickers nye skrifttyper, farver og former, og der kommer nye muligheder for sløring, farver og gradienter i baggrunden.</p></div>
+<p class="src">Kilde: The Verge · <a href="https://www.theverge.com/tech/1036941/instagram-now-lets-you-edit-your-stories-after-you-post-them" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="13"><div class="kick"><span class="num">13</span><span class="tag t-dk">Danmark</span></div><h2>Velux lukker de fleste hjemmesider og webshops efter it-sikkerhedshændelse</h2><p class="sum">Vinduesproducenten med 12.000 ansatte i over 30 lande undersøger et muligt cyberangreb.</p>
+<div class="body"><p>Den danske vinduesproducent Velux har midlertidigt lukket størstedelen af sine hjemmesider og webshops i flere lande, bekræfter selskabet over for Ekstra Bladet. På hjemmesiden skriver Velux, at man undersøger »en it-sikkerhedshændelse«, og at de fleste onlineløsninger er lukket som en sikkerhedsforanstaltning.</p><p>Velux har omkring 12.000 ansatte og opererer i over 30 lande. Det kommer efter en uge, hvor hackere også har ramt Mærsk og Danmarks største a-kasse.</p></div>
+<p class="src">Kilde: DR · <a href="https://www.dr.dk/nyheder/seneste/velux-lukker-hjemmesider-i-flere-lande-efter-cyberhaendelse" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="14"><div class="kick"><span class="num">14</span><span class="tag t-godt">Sjovt</span></div><h2>Flodhesten Fiona slugte en hue – efter at en loftsventilator kastede den ind til hende</h2><p class="sum">Den berømte flodhest i Cincinnati Zoo får nu væske og ultralyd, mens alle håber, huen kommer ud af sig selv.</p>
+<figure class="fig"><img src="../img/2026-11-19/fiona.jpg" alt="Flodhesten Fiona hviler hovedet på en træstamme" loading="lazy" decoding="async" width="1200" height="675"><figcaption>Billede: Cincinnati Zoo via BBC</figcaption></figure>
+<div class="body"><p>En besøgende i Cincinnati Zoo kastede en strikhue op i luften. Den ramte en loftsventilator, der slyngede den gennem en lille åbning og direkte ind i Fionas indhegning, hvor hun slugte den. »Vi kunne nok ikke få det til at ske igen, selv hvis vi prøvede,« siger zooens talsperson.</p><p>I starten mærkede Fiona intet, men efter nogle dage faldt appetitten. Kirurgi er ikke muligt på en voksen flodhest, så dyrepasserne giver væske og ultralyd, og den seneste scanning viser, at huen er på vej gennem tyndtarmen.</p><p>Fiona blev verdensberømt, da hun i 2017 blev født seks uger for tidligt og vejede 13 kg, omkring halvdelen af den laveste fødselsvægt, der tidligere var målt for arten. Hun har siden fået både en isvariant og en figur i byens ballet opkaldt efter sig.</p></div>
+<p class="src">Kilde: BBC · <a href="https://www.bbc.co.uk/news/articles/cm2d93z0e9gjo" rel="noopener">Læs mere →</a></p>
+</article>
+<section class="nyt" id="nyt"><h2>Nyt til dig</h2><ul>
+<li><a href="https://streamscharts.com/" rel="noopener">Streams Charts</a> – Data om livestreaming på Twitch, YouTube og Kick – kilden bag mange af tallene om rekordseere.</li>
+<li><a href="https://www.gamefile.news/" rel="noopener">Game File (Stephen Totilo)</a> – Nyhedsbrev om spilbranchen fra en af de mest respekterede spiljournalister.</li>
+<li><a href="https://understandingwar.org/" rel="noopener">Institute for the Study of War (ISW)</a> – Daglige, kildebaserede analyser af krigen i Ukraine, som store medier citerer.</li>
+</ul></section>
+</main></div>
+<footer><div class="ed-no">Udgave nr. 23</div><a href="../index.html">Seneste udgave</a> · <a href="../arkiv/index.html">Arkiv</a> · Nyheder for Kasper</footer>
+</div><script>(function(){var d=document.querySelector('nav.toc details');if(!d)return;var mq=matchMedia('(min-width:1000px)');
+function fit(){d.open=mq.matches?true:d.dataset.u==='1';}d.querySelector('summary').addEventListener('click',function(){d.dataset.u=d.open?'0':'1';});
+fit();mq.addEventListener&&mq.addEventListener('change',fit);
+var links={};d.querySelectorAll('a[href^="#"]').forEach(function(a){links[decodeURIComponent(a.getAttribute('href').slice(1))]=a;});
+var cur;function on(id){if(cur)cur.classList.remove('on');cur=links[id];if(cur){cur.classList.add('on');if(mq.matches&&cur.scrollIntoView){var r=cur.getBoundingClientRect(),p=d.parentNode.getBoundingClientRect();if(r.top<p.top||r.bottom>p.bottom)cur.scrollIntoView({block:'nearest'});}}}
+if(!('IntersectionObserver' in window))return;var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)on(e.target.id);});},{rootMargin:'-20% 0px -70% 0px'});
+Object.keys(links).forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el);});})();</script><script>(function(){var m=document.querySelector('main[data-date]');if(!m)return;
+var D=m.dataset.date,LATEST=m.dataset.latest==='1',K='nyheder-read-'+D,arts=[].slice.call(document.querySelectorAll('main article[id]')),N=arts.length;
+var ls=null;try{ls=window.localStorage;ls.getItem(K);}catch(_){ls=null;}
+var read={};try{(JSON.parse((ls&&ls.getItem(K))||'[]')||[]).forEach(function(i){read[i]=1;});}catch(_){}
+function save(){if(!ls)return;try{ls.setItem(K,JSON.stringify(Object.keys(read).map(Number).sort(function(a,b){return a-b;})));
+ var ks=[];for(var i=0;i<ls.length;i++){var k=ls.key(i);if(k&&k.indexOf('nyheder-read-')===0)ks.push(k);}ks.sort();while(ks.length>30)ls.removeItem(ks.shift());}catch(_){}}
+var toc={};document.querySelectorAll('nav.toc a[href^="#"]').forEach(function(a){toc[a.getAttribute('href').slice(1)]=a;});
+function paint(i){var a=toc[i];if(a){a.classList.add('read');var n=a.querySelector('.n');if(n)n.setAttribute('aria-label',i+', læst');}}
+function mark(i){i=String(i);if(read[i]||!document.getElementById(i))return;read[i]=1;save();paint(i);}
+Object.keys(read).forEach(function(i){paint(i);});
+Object.keys(toc).forEach(function(i){if(/^\d+$/.test(i))toc[i].addEventListener('click',function(){mark(i);});});
+/* Read = ~60 % of the story (or of the screen, for stories taller than it) visible for 3 s while the page is visible. */
+if('IntersectionObserver' in window){var tm={};
+ var th=[];for(var t=0;t<=20;t++)th.push(t/20);
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){var id=e.target.id;if(read[id])return;
+  var need=0.6*Math.min(e.boundingClientRect.height,(e.rootBounds&&e.rootBounds.height)||innerHeight);
+  var ok=e.isIntersecting&&e.intersectionRect.height>=need;
+  if(ok&&!tm[id])tm[id]=setTimeout(function(){tm[id]=0;if(document.visibilityState!=='hidden')mark(id);else io.unobserve(e.target),io.observe(e.target);},3000);
+  else if(!ok&&tm[id]){clearTimeout(tm[id]);tm[id]=0;}});},{threshold:th});
+ arts.forEach(function(a){if(!read[a.id])io.observe(a);});
+ document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden'){Object.keys(tm).forEach(function(id){if(tm[id]){clearTimeout(tm[id]);tm[id]=0;}});}
+  else{arts.forEach(function(a){if(!read[a.id]){io.unobserve(a);io.observe(a);}});}});}
+if(location.hash){var h=location.hash;addEventListener('load',function(){var el=document.getElementById(decodeURIComponent(h.slice(1)));if(el&&location.hash===h)setTimeout(function(){el.scrollIntoView();},60);});}
+})();</script><script>(function(){var ts=document.querySelectorAll('.term');if(!ts.length)return;
+function place(t){var p=t.querySelector('.term-pop');t.classList.remove('up');p.style.left='0px';p.style.display='block';
+var vw=document.documentElement.clientWidth,r=p.getBoundingClientRect(),dx=0;if(r.right>vw-12)dx=vw-12-r.right;if(r.left+dx<12)dx=12-r.left;
+p.style.left=dx+'px';var b=p.getBoundingClientRect();if(b.bottom>innerHeight-8&&t.getBoundingClientRect().top>b.height+24)t.classList.add('up');p.style.display='';}
+function close(x){ts.forEach(function(t){if(t!==x&&t.classList.contains('open')){t.classList.remove('open');t.querySelector('.term-btn').setAttribute('aria-expanded','false');}});}
+ts.forEach(function(t){var b=t.querySelector('.term-btn');t.addEventListener('mouseenter',function(){place(t);});b.addEventListener('focus',function(){place(t);});
+b.addEventListener('click',function(ev){ev.stopPropagation();var o=!t.classList.contains('open');close(t);if(o)place(t);t.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');});
+t.querySelector('.term-pop').addEventListener('click',function(ev){ev.stopPropagation();});});
+document.addEventListener('click',function(){close(null);});
+document.addEventListener('keydown',function(ev){if(ev.key==='Escape'){var a=document.activeElement;close(null);if(a&&a.classList.contains('term-btn'))a.blur();}});
+addEventListener('resize',function(){document.querySelectorAll('.term.open').forEach(place);});})();</script><script>(function(){var B='../';
+try{if('clearAppBadge' in navigator)Promise.resolve(navigator.clearAppBadge()).catch(function(){});}catch(_){}
+if(!('serviceWorker' in navigator))return;
+navigator.serviceWorker.register(B+'sw.js').then(function(r){
+ if(!r||!r.pushManager||!r.pushManager.getSubscription)return;
+ return r.pushManager.getSubscription().then(function(s){if(s)return s.unsubscribe();});}).catch(function(){});
+})();</script></body></html>
