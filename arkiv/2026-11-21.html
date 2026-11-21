@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="da"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111213" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Nyheder">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="../icons/favicon-64.png">
+<title>Nyheder · lørdag 21. november 2026</title>
+<link rel="preload" href="../fonts/InterVariable.latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url("../fonts/InterVariable.latin.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-style:italic;font-weight:100 900;font-display:swap;src:url("../fonts/InterVariable-Italic.latin.woff2") format("woff2")}
+:root{--bg:#fbfaf7;--fg:#151515;--fg2:#2b2a27;--muted:#5b5850;--rule:#e2ddd2;--accent:#b8431a;--card:#fff;--link:#174f9c;--hl:#f3efe6}
+@media (prefers-color-scheme:dark){:root{--bg:#111213;--fg:#eeece7;--fg2:#d9d6cf;--muted:#a7a39a;--rule:#2e2d2a;--accent:#f59a62;--card:#1a1b1c;--link:#93bdf2;--hl:#1d1e20}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-padding-top:16px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size:18px;line-height:1.65;font-optical-sizing:auto;font-feature-settings:"cv11","ss01";-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px 64px}
+a{color:var(--link)}
+header.mast{text-align:center;border-bottom:1px solid var(--fg);padding:34px 0 16px;margin-bottom:22px}
+.mast h1{font-size:clamp(2.5rem,9vw,4.4rem);line-height:1;margin:0;letter-spacing:-.04em;font-weight:800}
+.mast h1 a{color:inherit;text-decoration:none}
+.mast .greet{font-size:.95rem;font-weight:500;line-height:1.3;letter-spacing:-.005em;color:var(--muted);margin:0 0 10px}
+.mast .greet[hidden]{display:none}
+.mast .meta{font-size:.74rem;font-weight:600;line-height:1.4;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-top:12px}
+.intro{font-size:1.06em;color:var(--fg2);margin:0 0 22px;line-height:1.6}
+.layout{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"intro" "toc" "main"}
+.layout>.intro{grid-area:intro}.layout>nav.toc{grid-area:toc}.layout>main{grid-area:main;min-width:0}
+nav.toc{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:4px 0;margin-bottom:28px;font-size:.9rem;line-height:1.4}
+nav.toc summary{cursor:pointer;list-style:none;padding:10px 0;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--accent)}
+nav.toc summary::-webkit-details-marker{display:none}
+nav.toc summary::after{content:" ▾";color:var(--muted)}nav.toc details[open] summary::after{content:" ▴"}
+nav.toc summary .cnt{color:var(--muted);font-weight:600;letter-spacing:.08em}
+nav.toc ol{list-style:none;margin:0 0 10px;padding:0}
+nav.toc li{margin:0}
+nav.toc a{display:flex;gap:10px;color:var(--fg);text-decoration:none;padding:7px 10px 7px 0;border-left:2px solid transparent}
+nav.toc a:hover .h{text-decoration:underline}
+nav.toc .n{flex:0 0 1.7em;text-align:right;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+nav.toc .t{display:block;font-size:.78em;color:var(--muted);margin-top:2px}
+nav.toc li.sec a .n{color:var(--accent)}
+nav.toc a.on{border-left-color:var(--accent);background:var(--hl)}nav.toc a.on .n,nav.toc a.on .h{color:var(--accent)}
+nav.toc a.read .n{color:var(--muted);opacity:.5;font-weight:500}nav.toc a.read:not(.on) .h{color:var(--muted)}
+h2.sect,.nyt h2,.radar>h2{font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;margin:6px 0 12px;color:var(--accent)}
+article{border-bottom:1px solid var(--rule);padding:4px 0 30px;margin-bottom:28px;scroll-margin-top:16px}
+.kick{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:.7rem;font-weight:700;line-height:1.5;text-transform:uppercase;letter-spacing:.1em}
+.num{background:var(--fg);color:var(--bg);border-radius:4px;padding:1px 7px;font-variant-numeric:tabular-nums}
+.tag{border:1px solid currentColor;border-radius:4px;padding:0 6px}
+.t-ai{color:#2563a8}.t-kode{color:#0b7480}.t-inv{color:#25784a}.t-sund{color:#9a6510}.t-ivk{color:#8e2a8e}.t-tank{color:#52529a}.t-egne{color:#a84b14}.t-verden{color:#4a5568}.t-frem{color:#6440b8}.t-crea{color:#b4185a}.t-samf{color:#7c6232}.t-dk{color:#b42828}.t-godt{color:#1f8a5b}
+@media (prefers-color-scheme:dark){.t-ai{color:#82b6f2}.t-kode{color:#62d2da}.t-inv{color:#72d19a}.t-sund{color:#f0c264}.t-ivk{color:#e391e3}.t-tank{color:#adadf2}.t-egne{color:#f2a676}.t-verden{color:#bac4d2}.t-frem{color:#bba2f6}.t-crea{color:#f594b6}.t-samf{color:#dcc390}.t-dk{color:#f28a8a}.t-godt{color:#7fe0b0}}
+.unc{background:#9a6510;color:#fff;border-radius:4px;padding:1px 6px}
+article h2{font-size:clamp(1.5rem,5.2vw,2.15rem);line-height:1.18;letter-spacing:-.022em;font-weight:750;margin:12px 0 10px;text-wrap:balance}
+.sum{font-size:1.1em;line-height:1.5;font-weight:500;color:var(--fg2);margin:0 0 16px}
+.body p{margin:0 0 1em}.body p:last-child{margin-bottom:14px}
+figure.fig{margin:4px 0 20px}
+figure.fig img{display:block;width:100%;height:auto;border-radius:8px;background:var(--hl)}
+figure.fig figcaption{font-size:.76rem;line-height:1.45;color:var(--muted);margin-top:7px}
+.src{font-size:.85rem;color:var(--muted)}
+.src a{font-weight:600}
+.extra{font-size:.85rem;margin:8px 0 0;padding-left:1.1em;color:var(--muted)}
+.video{position:relative;width:100%;aspect-ratio:16/9;margin:4px 0 20px;background:#000;border-radius:8px;overflow:hidden}
+.video.short{aspect-ratio:9/16;max-width:340px;margin-left:auto;margin-right:auto}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.xembed{margin:4px 0 20px;display:flex;justify-content:center}
+.car{position:relative;margin:4px 0 20px}
+.car-track{position:relative;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+  overscroll-behavior-x:contain;scrollbar-width:none;border-radius:8px;outline:none}
+.car-track::-webkit-scrollbar{display:none}
+.car-track:focus-visible{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--link)}
+.car-slide{flex:0 0 100%;min-width:0;margin:0;scroll-snap-align:start;scroll-snap-stop:always}
+.car-frame{position:relative;width:100%;aspect-ratio:16/9;background:var(--hl);border-radius:8px;overflow:hidden}
+.car-frame.v{background:#000}
+.car-frame img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain}
+.car-frame iframe,.car-frame video{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000}
+.car-frame.x{overflow-y:auto;-webkit-overflow-scrolling:touch;background:var(--hl)}
+.car-frame.x>*{margin:0 auto!important}.car-frame.x .twitter-tweet{max-width:100%}
+.vcap{font-size:.76rem;line-height:1.45;color:var(--muted);margin:-12px 0 20px}
+.car-slide figcaption{font-size:.76rem;line-height:1.45;color:var(--muted);margin-top:7px}
+.car-nav{position:absolute;left:0;right:0;top:0;aspect-ratio:16/9;pointer-events:none}
+.car-btn{position:absolute;top:50%;transform:translateY(-50%);pointer-events:auto;display:flex;align-items:center;justify-content:center;
+  width:40px;height:40px;padding:0;border:1px solid var(--rule);border-radius:50%;background:var(--card);color:var(--fg);cursor:pointer;
+  font:inherit;font-size:1.2rem;line-height:1;box-shadow:0 2px 10px rgba(0,0,0,.18);opacity:.92;transition:opacity .15s}
+.car-btn:hover{opacity:1}.car-btn:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+.car-btn[disabled]{opacity:0;pointer-events:none}
+.car-prev{left:10px}.car-next{right:10px}
+.car-bar{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:8px;font-size:.72rem;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums}
+.car-dots{display:flex;gap:2px}
+.car-dot{width:22px;height:22px;padding:7px;border:0;margin:0;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.car-dot::before{content:"";display:block;width:8px;height:8px;border-radius:50%;background:var(--rule)}
+.car-dot[aria-current="true"]::before{background:var(--accent)}
+.car-dot:focus-visible{outline:2px solid var(--link);outline-offset:-2px;border-radius:50%}
+@media (hover:none) and (pointer:coarse){.car-btn{display:none}}
+.nyt{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:16px 20px;margin:10px 0 28px;scroll-margin-top:16px}
+.nyt ul{margin:0;padding-left:1.1em}.nyt li{margin:8px 0}.nyt a{font-weight:600}
+.radar{margin:10px 0 28px;scroll-margin-top:16px}
+.radar>p.lede{font-size:.88rem;color:var(--muted);margin:0 0 12px}
+.rcard{background:var(--card);border:1px solid var(--rule);border-left:4px solid #8e2a8e;border-radius:10px;padding:14px 20px;margin:0 0 16px;scroll-margin-top:16px}
+@media (prefers-color-scheme:dark){.rcard{border-left-color:#e391e3}}
+.rcard h3{font-size:clamp(1.25rem,4vw,1.55rem);line-height:1.2;letter-spacing:-.018em;margin:8px 0 8px}
+.rcard h3 a{color:inherit;text-decoration:none}.rcard h3 a:hover{text-decoration:underline}
+.rcard dl{margin:0 0 8px}
+.rcard dt{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:12px}
+.rcard dd{margin:2px 0 0}
+.term{position:relative;display:inline}
+.term-btn{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;cursor:help;text-align:inherit;
+  text-decoration:underline dotted;text-decoration-color:var(--muted);text-decoration-thickness:1.5px;text-underline-offset:.22em;-webkit-tap-highlight-color:transparent}
+.term-btn:hover,.term.open .term-btn{text-decoration-color:var(--accent)}
+.term-btn:focus-visible{outline:2px solid var(--link);outline-offset:2px;border-radius:3px}
+.term .ti{display:none;align-items:center;justify-content:center;width:1.05em;height:1.05em;margin-left:.18em;vertical-align:.12em;
+  border:1.2px solid currentColor;border-radius:50%;font-size:.62em;font-weight:700;font-style:normal;line-height:1;color:var(--muted)}
+.term-btn:hover .ti,.term.open .ti{color:var(--accent)}
+.term-pop{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 10px);width:min(23rem,calc(100vw - 24px));
+  background:var(--card);color:var(--fg);border:1px solid var(--rule);border-radius:10px;padding:12px 14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.14),0 2px 6px rgba(0,0,0,.08);font-size:.8em;font-weight:400;line-height:1.55;text-align:left;white-space:normal;letter-spacing:0}
+.term-pop::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+.term.up .term-pop{top:auto;bottom:calc(100% + 10px)}.term.up .term-pop::before{top:auto;bottom:-12px}
+.term-pop strong{display:block;font-weight:700;margin-bottom:3px;color:var(--accent)}
+.term.open .term-pop,.term-btn:focus-visible+.term-pop{display:block}
+@media (hover:hover) and (pointer:fine){.term:hover .term-pop{display:block}}
+@media (prefers-color-scheme:dark){.term-pop{box-shadow:0 10px 30px rgba(0,0,0,.55);border-color:#3a3936}}
+.wrap{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right));padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+header.mast{padding-top:calc(34px + env(safe-area-inset-top))}
+footer{font-size:.8rem;color:var(--muted);text-align:center;padding-top:12px}
+footer .ed-no{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+ul.arkiv{list-style:none;padding:0}ul.arkiv li{border-bottom:1px solid var(--rule);padding:12px 0}
+ul.arkiv a{color:var(--fg);font-weight:700;text-decoration:none}ul.arkiv span{display:block;color:var(--muted);font-size:.92rem}
+@media (min-width:1000px){
+  body{font-size:20px}
+  .wrap{max-width:1260px;padding-left:max(40px,env(safe-area-inset-left));padding-right:max(40px,env(safe-area-inset-right));padding-bottom:calc(80px + env(safe-area-inset-bottom))}
+  .layout{grid-template-columns:290px minmax(0,70ch);grid-template-areas:"toc intro" "toc main";column-gap:64px;justify-content:center}
+  nav.toc{position:sticky;top:20px;align-self:start;max-height:calc(100vh - 40px);overflow:auto;border:0;margin:0;padding:0 4px 0 0;font-size:.78rem}
+  nav.toc summary{pointer-events:none;padding:4px 0 10px}nav.toc summary::after{content:none}
+  nav.toc a{padding:7px 10px 7px 6px}
+  .intro{margin-top:4px}
+}
+</style></head>
+<body><div class="wrap"><header class="mast"><p class="greet" id="greet" data-name="Kasper" aria-live="off" hidden></p><script>(function(){var g=document.getElementById('greet');if(!g)return;var N=g.getAttribute('data-name');
+function upd(){var h=new Date().getHours();
+ var t=h>=5&&h<10?'Godmorgen':h>=10&&h<12?'God formiddag':h>=12&&h<18?'God eftermiddag':'God aften';
+ t=N?t+', '+N:t;if(g.textContent!==t)g.textContent=t;g.hidden=false;}
+upd();addEventListener('pageshow',upd);addEventListener('focus',upd);
+document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')upd();});
+setInterval(function(){if(document.visibilityState==='visible')upd();},60000);
+})();</script><h1><a href="../index.html">Nyheder</a></h1><div class="meta">lørdag 21. november 2026</div></header>
+<div class="layout">
+<p class="intro">En Anthropic-matematiker siger, at han har bevist Riemann-hypotesen med Claude. Samtidig gik amerikanske tech-aktier i bjørnemarked. I Danmark udvises Ruslands forsvarsattaché efter et planlagt attentat, og russiske missiler er landet i Polen.</p>
+<nav class="toc" aria-label="Indhold"><details open><summary>Indhold <span class="cnt">· 12 historier</span></summary><ol>
+<li><a href="#1"><span class="n">1</span><span><span class="h">Anthropic-matematiker: Claude har hjulpet med at bevise Riemann-hypotesen – verdens mest berømte matematikproblem</span><span class="t">AI &amp; tech</span></span></a></li>
+<li><a href="#2"><span class="n">2</span><span><span class="h">Tech-aktierne er i bjørnemarked: Nvidia faldt 14 procent, og Anthropic gav 8,5 procent tilbage på dag to</span><span class="t">Investering</span></span></a></li>
+<li><a href="#3"><span class="n">3</span><span><span class="h">PET: Russisk efterretningstjeneste stod bag planlagt drab på ukrainsk-amerikansk rapper ved København – forsvarsattachéen udvises</span><span class="t">Danmark</span></span></a></li>
+<li><a href="#4"><span class="n">4</span><span><span class="h">Russiske missiler og en drone er faldet ned tre steder i Polen – Tusk: »En bevidst provokation«</span><span class="t">Verden</span></span></a></li>
+<li><a href="#5"><span class="n">5</span><span><span class="h">Trump truer med en »enorm skat« på amerikanske firmaer, der bygger AI-datacentre i udlandet</span><span class="t">AI &amp; tech</span></span></a></li>
+<li><a href="#6"><span class="n">6</span><span><span class="h">GTA VI solgte for 3,79 milliarder dollar på første dag – den største underholdningslancering nogensinde</span><span class="t">Samfund</span></span></a></li>
+<li><a href="#7"><span class="n">7</span><span><span class="h">Signal blokerer nu skærmbilleder, så Siri og Gemini ikke kan læse dine beskeder</span><span class="t">AI &amp; tech</span></span></a></li>
+<li><a href="#8"><span class="n">8</span><span><span class="h">YouTube skal efter sigende betale 3 milliarder dollar for at lukke sagerne om afhængighedsskabende design</span><span class="t">Creatorøkonomi</span></span></a></li>
+<li><a href="#9"><span class="n">9</span><span><span class="h">Kongresmedlem truer SpaceX&#x27;s militærkontrakter efter Starshield-sagen i Ukraine</span><span class="t">Investering</span></span></a></li>
+<li><a href="#10"><span class="n">10</span><span><span class="h">Cognition, firmaet bag kodeagenten Devin, er i forhandlinger om en værdi på 75 milliarder dollar</span><span class="t">AI-kodning</span></span></a></li>
+<li><a href="#11"><span class="n">11</span><span><span class="h">Cambridge-forskere: Læsning for fornøjelsens skyld er forbundet med mindre stress og 33 procent lavere risiko for Alzheimers</span><span class="t">Sundhed</span></span></a></li>
+<li><a href="#12"><span class="n">12</span><span><span class="h">Queen-guitaristen Brian May har gjort ESA&#x27;s asteroidebilleder til 3D</span><span class="t">Spændende</span></span></a></li>
+<li class="sec"><a href="#nyt"><span class="n">+</span><span><span class="h">Nyt til dig</span></span></a></li>
+</ol></details></nav><main data-date="2026-11-21" data-total="12" data-latest="1">
+<article id="1"><div class="kick"><span class="num">1</span><span class="tag t-ai">AI &amp; tech</span></div><h2>Anthropic-matematiker: Claude har hjulpet med at bevise Riemann-hypotesen – verdens mest berømte matematikproblem</h2><p class="sum">Levent Alpöge har lagt et bevis frem i <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-1-1" aria-describedby="term-1-1">Lean<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-1-1" role="tooltip"><strong>Lean</strong> Et programmeringssprog, hvor matematiske beviser skrives som kode, så en computer kan tjekke hvert eneste logiske skridt. At beviset kompilerer betyder, at maskinen ikke har fundet fejl i de 250.000 sider. Det siger dog ikke noget om, hvorvidt mennesker forstår det.</span></span>. Uafhængige matematikere har fået det til at kompilere, men det vil tage tid, før nogen forstår det.</p>
+<div class="body"><p>Matematikeren Levent Alpöge, der arbejder hos Anthropic, oplyste fredag, at han over cirka seks uger har brugt en ikke-offentlig version af Claude til at bygge et bevis for Riemann-hypotesen. Det 167 år gamle problem om primtallenes skjulte orden er et af de syv <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-1-2" aria-describedby="term-1-2">Millennium-problemer<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-1-2" role="tooltip"><strong>Millennium-problemer</strong> Syv berømte uløste matematikproblemer, som Clay-instituttet i 2000 udlovede 1 million dollar for at løse. Riemann-hypotesen fra 1859 er det mest kendte af dem.</span></span>.</p><p>Beviset er skrevet i Lean, og den samlede tekst fylder over 250.000 sider. Ifølge TechCrunch har flere matematikere, bl.a. Andrew Sutherland fra MIT, bekræftet, at det kompilerer. Terence Tao siger dog, at det vil tage tid at »fordøje« det.</p><p>Alpöge kalder timingen dagen efter Anthropics børsnotering »forfærdelig«, men afviser, at den er kynisk. Samme dag lagde Stanford-postdoc Alessandro Masullo et rent menneskeligt bevis for den generaliserede hypotese frem efter 12 års arbejde. Det er endnu ikke verificeret.</p></div>
+<p class="src">Kilde: BBC · <a href="https://www.bbc.co.uk/news/articles/c6pqr2g7w059o" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://techcrunch.com/2026/11/20/ai-claimed-a-solution-to-the-167-year-old-riemann-hypothesis-and-a-human-did-too/" rel="noopener">TechCrunch: Og et menneske gjorde det også</a></li><li><a href="https://www.ft.com/content/fa8eeb49-2cb4-4286-8131-03db15383d87" rel="noopener">FT</a></li><li><a href="https://www.bloomberg.com/news/articles/2026-11-21/anthropic-researcher-claims-to-solve-riemann-problem-with-claude" rel="noopener">Bloomberg</a></li></ul>
+</article>
+<article id="2"><div class="kick"><span class="num">2</span><span class="tag t-inv">Investering</span></div><h2>Tech-aktierne er i bjørnemarked: Nvidia faldt 14 procent, og Anthropic gav 8,5 procent tilbage på dag to</h2><p class="sum">Ifølge FT var det den værste uge siden covid-krakket. Nasdaq har nu tabt hele årets stigning.</p>
+<div class="body"><p>Ifølge AP faldt S&amp;P 500 3,7 procent fredag, og Nasdaq ligger nu i minus for året. FT skriver, at amerikanske tech-aktier er gået i <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-2-1" aria-describedby="term-2-1">bjørnemarked<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-2-1" role="tooltip"><strong>bjørnemarked</strong> Når et marked er faldet mindst 20 procent fra sin top. Her gælder det de amerikanske tech-aktier efter ugens kraftige fald.</span></span> i den værste uge siden covid-19-krisen.</p><p>Nvidia faldt 14 procent. Aktien er faldet syv uger i træk, den længste stribe siden 2008, og er i perioden faldet 46 procent, svarende til omkring 2.600 milliarder dollar i markedsværdi. Reuters skriver samtidig, at det amerikanske finanstilsyn SEC undersøger Nvidias regnskabspraksis. Aktien handles nu til 8,4 gange den <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-2-2" aria-describedby="term-2-2">forventede indtjening<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-2-2" role="tooltip"><strong>forventede indtjening</strong> Hvor mange gange analytikernes forventede overskud for de næste 12 måneder aktien koster. 8,4 betyder, at Nvidia er prissat til omkring 8 års forventet overskud, hvor AMD til sammenligning koster 29 gange.</span></span>.</p><p>Anthropic lukkede sin første hele handelsdag 8,5 procent lavere i 97,17 dollar. Det er stadig 17 procent over <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-2-3" aria-describedby="term-2-3">emissionskursen<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-2-3" role="tooltip"><strong>emissionskursen</strong> Den pris, aktierne blev solgt til ved børsnoteringen. For Anthropic var det 83 dollar pr. aktie.</span></span> på 83 dollar. Ifølge Yahoo Finance købte Cathie Woods ARK Anthropic-aktier for 90,8 millioner dollar.</p></div>
+<p class="src">Kilde: CNBC · <a href="https://www.cnbc.com/2026/11/20/anthropic-stock-ai-amd-nvidia.html" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.cnbc.com/2026/11/20/nvidias-7-week-losing-streak-is-longest-since-2008-financial-crisis.html" rel="noopener">CNBC: Nvidias længste nedtur siden 2008</a></li><li><a href="https://www.ft.com/content/9f3c6ed6-c08f-4710-9683-ee2f5eb25841" rel="noopener">FT: Bjørnemarked</a></li></ul>
+</article>
+<article id="3"><div class="kick"><span class="num">3</span><span class="tag t-dk">Danmark</span></div><h2>PET: Russisk efterretningstjeneste stod bag planlagt drab på ukrainsk-amerikansk rapper ved København – forsvarsattachéen udvises</h2><p class="sum">Ifølge PET var personer med tilknytning til LTF på vej til koncerten med våben. Lars Løkke Rasmussen siger: »Nok er nok.«</p>
+<div class="body"><p>PET siger, at russiske efterretningstjenester »planlagde« og »igangsatte« et forsøg på at dræbe rapperen Kyivstoner (Albert Vasiliev) ved en koncert nær København den 25. september. Tre personer blev stoppet i en bil nær spillestedet med skydevåben og knive.</p><p>Ifølge PET har de tilknytning til den forbudte bande Loyal to Familia. To er sigtet for drabsforsøg og for at hjælpe en fremmed efterretningstjeneste. Begge nægter sig skyldige.</p><p>Udenrigsminister Lars Løkke Rasmussen har udvist Ruslands forsvarsattaché, som skal forlade landet inden for syv dage. Den russiske ambassade kalder anklagerne grundløse, og Moskva vil svare igen. Europæiske ledere bakker op om Danmark.</p></div>
+<p class="src">Kilde: DR · <a href="https://www.dr.dk/nyheder/indland/russisk-diplomat-bliver-udvist-af-danmark-efter-sag-om-attentatforsoeg" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.bbc.co.uk/news/articles/cmde1lj4yjxno" rel="noopener">BBC</a></li></ul>
+</article>
+<article id="4"><div class="kick"><span class="num">4</span><span class="tag t-verden">Verden</span></div><h2>Russiske missiler og en drone er faldet ned tre steder i Polen – Tusk: »En bevidst provokation«</h2><p class="sum">Ingen kom til skade, men Polen beder Nato om mere støtte på østflanken. Ifølge AP kalder Nato det en krænkelse.</p>
+<figure class="fig"><img src="../img/2026-11-21/polen-missil.jpg" alt="Overvågningskamera fanger nedslaget fra et russisk missil i det østlige Polen" loading="lazy" decoding="async" width="750" height="486"><figcaption>Et overvågningskamera fangede et af nedslagene i det østlige Polen. · Billede: AFP/Ritzau Scanpix via Politiken</figcaption></figure>
+<div class="body"><p>Ifølge Polens forsvarsminister, Władysław Kosiniak-Kamysz, er tre russiske objekter, formentlig to missiler og en drone, landet på polsk jord. Der efterforskes på alle tre nedslagssteder. Ingen er kommet til skade, og der er ingen skader på infrastruktur.</p><p>Premierminister Donald Tusk siger, at det ikke ligner en ulykke, og at Polens udenlandske partnere er enige. Ifølge AP skete det, mens europæiske tropper fra 11 lande holdt øvelse i Polen til en mulig fredsbevarende mission i Ukraine efter krigen.</p></div>
+<p class="src">Kilde: Politiken · <a href="https://politiken.dk/internationalt/art11068795/Russiske-objekter-rammer-tre-steder-i-Polen-%C2%BBHele-huset-rystede.-Der-var-et-brag-som-om-et-lyn-ramte%C2%AB" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="5"><div class="kick"><span class="num">5</span><span class="tag t-ai">AI &amp; tech</span></div><h2>Trump truer med en »enorm skat« på amerikanske firmaer, der bygger AI-datacentre i udlandet</h2><p class="sum">»Ellers tager Kina dem alle«, sagde præsidenten efter topmødet med Xi og Putin. Planen har han ikke forklaret nærmere.</p>
+<div class="body"><p>»Vi vil ikke tillade, at vores firmaer bygger datacentre uden for vores land«, sagde Donald Trump fredag på et pressemøde efter topmødet med Xi Jinping og Vladimir Putin. Han sammenlignede det med, at chipproduktionen tidligere flyttede ud.</p><p>Ifølge BBC gav Trump kun få detaljer, og flere i hans eget team hørte om idéen for første gang. Udmeldingen kommer, mens flere amerikanske delstater og byer indfører restriktioner på nye datacentre.</p></div>
+<p class="src">Kilde: The Verge · <a href="https://www.theverge.com/policy/1038892/trump-foreign-data-centers-tax" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.bbc.co.uk/news/articles/cmde1lw9y54ko" rel="noopener">BBC</a></li></ul>
+</article>
+<article id="6"><div class="kick"><span class="num">6</span><span class="tag t-samf">Samfund</span></div><h2>GTA VI solgte for 3,79 milliarder dollar på første dag – den største underholdningslancering nogensinde</h2><p class="sum">Ifølge Rockstar er det rekord på tværs af alle medier, og 32,5 millioner eksemplarer var forudbestilt.</p>
+<div class="body"><p>Rockstar Games oplyser, at Grand Theft Auto VI indtjente 3,79 milliarder dollar, omkring 26 milliarder kroner, på udgivelsesdagen torsdag. Ifølge Rockstar er det »en ny rekord for underholdning i noget medie«. Spillet var forudbestilt i 32,5 millioner eksemplarer.</p><p>Bloomberg kalder det både det bedst anmeldte og det hurtigst sælgende spil nogensinde. Ifølge Bloomberg gav lanceringen også rekordforbrug hos internetudbyderne. Spillet har over 700 sange fordelt på 20 radiokanaler. PC-versionen kommer senere.</p></div>
+<p class="src">Kilde: The Verge · <a href="https://www.theverge.com/games/1036279/gta-vi-sales" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.bloomberg.com/news/articles/2026-11-20/-grand-theft-auto-vi-sells-3-79-billion-making-it-biggest-entertainment-launch-ever" rel="noopener">Bloomberg</a></li></ul>
+</article>
+<article id="7"><div class="kick"><span class="num">7</span><span class="tag t-ai">AI &amp; tech</span></div><h2>Signal blokerer nu skærmbilleder, så Siri og Gemini ikke kan læse dine beskeder</h2><p class="sum">Signal siger, at <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-7-1" aria-describedby="term-7-1">AI-agenterne<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-7-1" role="tooltip"><strong>AI-agenterne</strong> AI-assistenter, der selv kan udføre handlinger på telefonen, fx læse skærmen og svare på spørgsmål om den. Her er det de assistenter, der er bygget ind i iOS 27 og Android.</span></span> i iOS 27 og Android underminerer krypteringen ved at »scanne« skærmen.</p>
+<div class="body"><p>Signal-chef Meredith Whittaker skriver på Signals blog, at appen nu som standard blokerer skærmbilleder på iOS 27. Det samme gælder på Android-versioner, hvor Signal kan se, at en AI-assistent prøver at læse skærmen.</p><p>Ifølge Whittaker »scanner« de nye AI-agenter i styresystemerne det, der står på skærmen, og dermed ender Signal-samtaler hos agenterne. Signal gjorde det samme på Windows sidste år mod Microsofts Recall. Brugerne kan slå beskyttelsen fra, men får en advarsel om, at beskederne så kan ende hos AI-agenter.</p></div>
+<p class="src">Kilde: Signal-bloggen · <a href="https://signal.org/blog/protecting-your-privacy/" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.theverge.com/ai-artificial-intelligence/1038390/signal-blocking-ai-agent-screenshots-mobile-app" rel="noopener">The Verge</a></li><li><a href="https://www.investing.com/news/stock-market-news/exclusivesignal-restricts-screenshots-to-block-ai-agents-from-reading-messages-5040998" rel="noopener">Reuters via Investing.com</a></li></ul>
+</article>
+<article id="8"><div class="kick"><span class="num">8</span><span class="tag t-crea">Creatorøkonomi</span><span class="unc">Ubekræftet</span></div><h2>YouTube skal efter sigende betale 3 milliarder dollar for at lukke sagerne om afhængighedsskabende design</h2><p class="sum">Ifølge Bloomberg er der en principaftale med tusindvis af amerikanske skoledistrikter, og den kommer med nye beskyttelser for teenagere.</p>
+<div class="body"><p>Ifølge Bloombergs kilder har YouTube indgået en principaftale om at betale 3 milliarder dollar til tusindvis af amerikanske skoledistrikter. Distrikterne har sagsøgt YouTube, Meta, Snap og TikTok for at skade unges mentale helbred med »afhængighedsskabende design«. Aftalen skal også give nye sikkerhedsforanstaltninger for teenagere.</p><p>Den næste retssag starter i februar 2027 i Oakland med Meta, Snap og TikTok som sagsøgte. I august indvilligede Meta i at betale 17,1 milliarder dollar over ti år i et forlig med 47 delstater. Google har ikke kommenteret.</p></div>
+<p class="src">Kilde: The Verge (via Bloomberg) · <a href="https://www.theverge.com/streaming/1039096/youtube-social-media-addiction-school-districts-settlement" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="9"><div class="kick"><span class="num">9</span><span class="tag t-inv">Investering</span></div><h2>Kongresmedlem truer SpaceX&#x27;s militærkontrakter efter Starshield-sagen i Ukraine</h2><p class="sum">Jim Himes, der ventes at blive formand for Efterretningsudvalget, sætter spørgsmålstegn ved »hver eneste kontrakt« med SpaceX.</p>
+<div class="body"><p>Demokraten Jim Himes ventes at blive formand for Repræsentanternes Hus&#x27; efterretningsudvalg i januar. I et brev til Elon Musk kræver han svar på de ændringer, SpaceX lavede i <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-9-1" aria-describedby="term-9-1">Starshield<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-9-1" role="tooltip"><strong>Starshield</strong> SpaceX&#x27;s militære version af Starlink-satellitnettet, som den amerikanske regering bruger. Sagen handler om ændringer af tjenesten i Ukraine i oktober 2026.</span></span>-tjenesten i Ukraine i oktober 2026.</p><p>»SpaceX&#x27;s potentielt ensidige ændring af en kontrakt med den amerikanske regering, kombineret med manglende svar til Kongressen, sætter spørgsmålstegn ved hver eneste kontrakt, regeringen har med SpaceX«, skriver Himes. Ifølge CNN har han også advaret efterretningschefen om, at det bliver svært at bevilge penge til systemer, hvor SpaceX er hovedleverandør.</p><p>Ifølge Reuters har SpaceX samtidig lukket en gældsfinansiering til AI-chips på 32 milliarder dollar, hvor Apollo og Goldman Sachs fører an.</p></div>
+<p class="src">Kilde: Ars Technica · <a href="https://arstechnica.com/space/2026/11/incoming-house-chair-threatens-spacex-funding-over-ukraine-controversy/" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="10"><div class="kick"><span class="num">10</span><span class="tag t-kode">AI-kodning</span><span class="unc">Ubekræftet</span></div><h2>Cognition, firmaet bag kodeagenten Devin, er i forhandlinger om en værdi på 75 milliarder dollar</h2><p class="sum">Ifølge Bloombergs kilder kommer det bare to måneder efter firmaets seneste finansieringsrunde.</p>
+<div class="body"><p>Bloomberg skriver med henvisning til kilder, at AI-kodefirmaet Cognition AI forhandler om ny kapital til en værdiansættelse på 75 milliarder dollar. Det er kun to måneder efter, at firmaet annoncerede sin seneste runde.</p><p>Cognition står bag kodeagenten Devin og købte sidste år kodeeditoren Windsurf. Forhandlingerne foregår samtidig med, at AI-aktierne på børsen falder kraftigt.</p></div>
+<p class="src">Kilde: Bloomberg · <a href="https://www.bloomberg.com/news/articles/2026-11-20/cognition-in-talks-for-75-billion-value-with-new-funding" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="11"><div class="kick"><span class="num">11</span><span class="tag t-sund">Sundhed</span></div><h2>Cambridge-forskere: Læsning for fornøjelsens skyld er forbundet med mindre stress og 33 procent lavere risiko for Alzheimers</h2><p class="sum">Et <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-11-1" aria-describedby="term-11-1">review<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-11-1" role="tooltip"><strong>review</strong> En gennemgang af mange eksisterende studier i stedet for et nyt forsøg. Her har forskerne samlet den forskning, der findes om læsning og hjernen.</span></span> i Psychological Medicine konkluderer, at glæden ved at læse betyder mere end hvad og hvordan man læser.</p>
+<div class="body"><p>Psykiatriforskerne Barbara Sahakian og Christelle Langley fra University of Cambridge har gennemgået forskningen i læsning for fornøjelsens skyld. Reviewet er udgivet i tidsskriftet Psychological Medicine.</p><p>De fundne studier forbinder læsning med bedre hukommelse, bedre mental sundhed, mere empati og lavere risiko for demens. Ét studie fandt 33 procent lavere risiko for Alzheimers, og et andet viste, at bare fem minutters skønlitteratur kan sænke stress med op til 20 procent. Det er sammenhænge og ikke beviste årsager, og forskerne påpeger, at der findes overraskende lidt forskning på området.</p></div>
+<p class="src">Kilde: ScienceDaily / University of Cambridge · <a href="https://www.sciencedaily.com/releases/2026/11/261118065536.htm" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="12"><div class="kick"><span class="num">12</span><span class="tag t-godt">Spændende</span></div><h2>Queen-guitaristen Brian May har gjort ESA&#x27;s asteroidebilleder til 3D</h2><p class="sum">Med rød-blå briller eller skelende øjne kan man nu se asteroiden Didymos i dybden – fotograferet 197 millioner km væk.</p>
+<figure class="fig"><img src="../img/2026-11-21/didymos-3d.jpg" alt="Brian Mays 3D-billede af asteroiden Didymos" loading="lazy" decoding="async" width="1200" height="630"><figcaption>Didymos i 3D – kræver rød-blå briller. · Billede: ESA/Hera – B. May &amp; C. Manzoni</figcaption></figure>
+<div class="body"><p>Sir Brian May er astrofysiker og medlem af det videnskabelige hold bag ESA&#x27;s planetforsvarsmission Hera. Sammen med Claudia Manzoni har han lavet stereobilleder af asteroiden Didymos ud fra to optagelser, som Hera tog med få øjebliks mellemrum den 6. november. Billederne er taget fra 29,7 kilometers afstand med en opløsning på 2,8 meter pr. pixel.</p><p>De små forskelle mellem de to billeder efterligner vores to øjne. I 3D kan man tydeligt se den glatte, skarpe »ækvatorryg« rundt om asteroiden mod den stenede overflade. Billederne findes i tre versioner: til rød-blå 3D-briller, til at skele og til at stirre »ud i uendeligheden«.</p></div>
+<p class="src">Kilde: ESA · <a href="https://www.esa.int/articles/about-us/directorates/operations/space-safety/hera/sir-brian-may-adds-new-dimension-to-hera-asteroid" rel="noopener">Læs mere →</a></p>
+</article>
+<section class="nyt" id="nyt"><h2>Nyt til dig</h2><ul>
+<li><a href="https://terrytao.wordpress.com/" rel="noopener">Terence Tao – What&#x27;s new</a> – Blog af en af verdens førende matematikere, som skriver om AI i matematik og nye beviser.</li>
+<li><a href="https://leanprover.zulipchat.com/" rel="noopener">Lean Zulip-chatten</a> – Det åbne forum, hvor matematikere i realtid gennemgår formelle Lean-beviser, også Riemann-beviset.</li>
+<li><a href="https://signal.org/blog/" rel="noopener">Signal-bloggen</a> – Meredith Whittakers indlæg om privatliv og AI-agenter i styresystemerne.</li>
+</ul></section>
+</main></div>
+<footer><div class="ed-no">Udgave nr. 25</div><a href="../index.html">Seneste udgave</a> · <a href="../arkiv/index.html">Arkiv</a> · Nyheder for Kasper</footer>
+</div><script>(function(){var d=document.querySelector('nav.toc details');if(!d)return;var mq=matchMedia('(min-width:1000px)');
+function fit(){d.open=mq.matches?true:d.dataset.u==='1';}d.querySelector('summary').addEventListener('click',function(){d.dataset.u=d.open?'0':'1';});
+fit();mq.addEventListener&&mq.addEventListener('change',fit);
+var links={};d.querySelectorAll('a[href^="#"]').forEach(function(a){links[decodeURIComponent(a.getAttribute('href').slice(1))]=a;});
+var cur;function on(id){if(cur)cur.classList.remove('on');cur=links[id];if(cur){cur.classList.add('on');if(mq.matches&&cur.scrollIntoView){var r=cur.getBoundingClientRect(),p=d.parentNode.getBoundingClientRect();if(r.top<p.top||r.bottom>p.bottom)cur.scrollIntoView({block:'nearest'});}}}
+if(!('IntersectionObserver' in window))return;var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)on(e.target.id);});},{rootMargin:'-20% 0px -70% 0px'});
+Object.keys(links).forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el);});})();</script><script>(function(){var m=document.querySelector('main[data-date]');if(!m)return;
+var D=m.dataset.date,LATEST=m.dataset.latest==='1',K='nyheder-read-'+D,arts=[].slice.call(document.querySelectorAll('main article[id]')),N=arts.length;
+var ls=null;try{ls=window.localStorage;ls.getItem(K);}catch(_){ls=null;}
+var read={};try{(JSON.parse((ls&&ls.getItem(K))||'[]')||[]).forEach(function(i){read[i]=1;});}catch(_){}
+function save(){if(!ls)return;try{ls.setItem(K,JSON.stringify(Object.keys(read).map(Number).sort(function(a,b){return a-b;})));
+ var ks=[];for(var i=0;i<ls.length;i++){var k=ls.key(i);if(k&&k.indexOf('nyheder-read-')===0)ks.push(k);}ks.sort();while(ks.length>30)ls.removeItem(ks.shift());}catch(_){}}
+var toc={};document.querySelectorAll('nav.toc a[href^="#"]').forEach(function(a){toc[a.getAttribute('href').slice(1)]=a;});
+function paint(i){var a=toc[i];if(a){a.classList.add('read');var n=a.querySelector('.n');if(n)n.setAttribute('aria-label',i+', læst');}}
+function mark(i){i=String(i);if(read[i]||!document.getElementById(i))return;read[i]=1;save();paint(i);}
+Object.keys(read).forEach(function(i){paint(i);});
+Object.keys(toc).forEach(function(i){if(/^\d+$/.test(i))toc[i].addEventListener('click',function(){mark(i);});});
+/* Read = ~60 % of the story (or of the screen, for stories taller than it) visible for 3 s while the page is visible. */
+if('IntersectionObserver' in window){var tm={};
+ var th=[];for(var t=0;t<=20;t++)th.push(t/20);
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){var id=e.target.id;if(read[id])return;
+  var need=0.6*Math.min(e.boundingClientRect.height,(e.rootBounds&&e.rootBounds.height)||innerHeight);
+  var ok=e.isIntersecting&&e.intersectionRect.height>=need;
+  if(ok&&!tm[id])tm[id]=setTimeout(function(){tm[id]=0;if(document.visibilityState!=='hidden')mark(id);else io.unobserve(e.target),io.observe(e.target);},3000);
+  else if(!ok&&tm[id]){clearTimeout(tm[id]);tm[id]=0;}});},{threshold:th});
+ arts.forEach(function(a){if(!read[a.id])io.observe(a);});
+ document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden'){Object.keys(tm).forEach(function(id){if(tm[id]){clearTimeout(tm[id]);tm[id]=0;}});}
+  else{arts.forEach(function(a){if(!read[a.id]){io.unobserve(a);io.observe(a);}});}});}
+if(location.hash){var h=location.hash;addEventListener('load',function(){var el=document.getElementById(decodeURIComponent(h.slice(1)));if(el&&location.hash===h)setTimeout(function(){el.scrollIntoView();},60);});}
+})();</script><script>(function(){var ts=document.querySelectorAll('.term');if(!ts.length)return;
+function place(t){var p=t.querySelector('.term-pop');t.classList.remove('up');p.style.left='0px';p.style.display='block';
+var vw=document.documentElement.clientWidth,r=p.getBoundingClientRect(),dx=0;if(r.right>vw-12)dx=vw-12-r.right;if(r.left+dx<12)dx=12-r.left;
+p.style.left=dx+'px';var b=p.getBoundingClientRect();if(b.bottom>innerHeight-8&&t.getBoundingClientRect().top>b.height+24)t.classList.add('up');p.style.display='';}
+function close(x){ts.forEach(function(t){if(t!==x&&t.classList.contains('open')){t.classList.remove('open');t.querySelector('.term-btn').setAttribute('aria-expanded','false');}});}
+ts.forEach(function(t){var b=t.querySelector('.term-btn');t.addEventListener('mouseenter',function(){place(t);});b.addEventListener('focus',function(){place(t);});
+b.addEventListener('click',function(ev){ev.stopPropagation();var o=!t.classList.contains('open');close(t);if(o)place(t);t.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');});
+t.querySelector('.term-pop').addEventListener('click',function(ev){ev.stopPropagation();});});
+document.addEventListener('click',function(){close(null);});
+document.addEventListener('keydown',function(ev){if(ev.key==='Escape'){var a=document.activeElement;close(null);if(a&&a.classList.contains('term-btn'))a.blur();}});
+addEventListener('resize',function(){document.querySelectorAll('.term.open').forEach(place);});})();</script><script>(function(){var B='../';
+try{if('clearAppBadge' in navigator)Promise.resolve(navigator.clearAppBadge()).catch(function(){});}catch(_){}
+if(!('serviceWorker' in navigator))return;
+navigator.serviceWorker.register(B+'sw.js').then(function(r){
+ if(!r||!r.pushManager||!r.pushManager.getSubscription)return;
+ return r.pushManager.getSubscription().then(function(s){if(s)return s.unsubscribe();});}).catch(function(){});
+})();</script></body></html>
