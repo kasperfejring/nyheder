@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="da"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111213" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Nyheder">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="../icons/favicon-64.png">
+<title>Nyheder · mandag 23. november 2026</title>
+<link rel="preload" href="../fonts/InterVariable.latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url("../fonts/InterVariable.latin.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-style:italic;font-weight:100 900;font-display:swap;src:url("../fonts/InterVariable-Italic.latin.woff2") format("woff2")}
+:root{--bg:#fbfaf7;--fg:#151515;--fg2:#2b2a27;--muted:#5b5850;--rule:#e2ddd2;--accent:#b8431a;--card:#fff;--link:#174f9c;--hl:#f3efe6}
+@media (prefers-color-scheme:dark){:root{--bg:#111213;--fg:#eeece7;--fg2:#d9d6cf;--muted:#a7a39a;--rule:#2e2d2a;--accent:#f59a62;--card:#1a1b1c;--link:#93bdf2;--hl:#1d1e20}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-padding-top:16px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size:18px;line-height:1.65;font-optical-sizing:auto;font-feature-settings:"cv11","ss01";-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px 64px}
+a{color:var(--link)}
+header.mast{text-align:center;border-bottom:1px solid var(--fg);padding:34px 0 16px;margin-bottom:22px}
+.mast h1{font-size:clamp(2.5rem,9vw,4.4rem);line-height:1;margin:0;letter-spacing:-.04em;font-weight:800}
+.mast h1 a{color:inherit;text-decoration:none}
+.mast .greet{font-size:.95rem;font-weight:500;line-height:1.3;letter-spacing:-.005em;color:var(--muted);margin:0 0 10px}
+.mast .greet[hidden]{display:none}
+.mast .meta{font-size:.74rem;font-weight:600;line-height:1.4;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-top:12px}
+.intro{font-size:1.06em;color:var(--fg2);margin:0 0 22px;line-height:1.6}
+.layout{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"intro" "toc" "main"}
+.layout>.intro{grid-area:intro}.layout>nav.toc{grid-area:toc}.layout>main{grid-area:main;min-width:0}
+nav.toc{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:4px 0;margin-bottom:28px;font-size:.9rem;line-height:1.4}
+nav.toc summary{cursor:pointer;list-style:none;padding:10px 0;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--accent)}
+nav.toc summary::-webkit-details-marker{display:none}
+nav.toc summary::after{content:" ▾";color:var(--muted)}nav.toc details[open] summary::after{content:" ▴"}
+nav.toc summary .cnt{color:var(--muted);font-weight:600;letter-spacing:.08em}
+nav.toc ol{list-style:none;margin:0 0 10px;padding:0}
+nav.toc li{margin:0}
+nav.toc a{display:flex;gap:10px;color:var(--fg);text-decoration:none;padding:7px 10px 7px 0;border-left:2px solid transparent}
+nav.toc a:hover .h{text-decoration:underline}
+nav.toc .n{flex:0 0 1.7em;text-align:right;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+nav.toc .t{display:block;font-size:.78em;color:var(--muted);margin-top:2px}
+nav.toc li.sec a .n{color:var(--accent)}
+nav.toc a.on{border-left-color:var(--accent);background:var(--hl)}nav.toc a.on .n,nav.toc a.on .h{color:var(--accent)}
+nav.toc a.read .n{color:var(--muted);opacity:.5;font-weight:500}nav.toc a.read:not(.on) .h{color:var(--muted)}
+h2.sect,.nyt h2,.radar>h2{font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;margin:6px 0 12px;color:var(--accent)}
+article{border-bottom:1px solid var(--rule);padding:4px 0 30px;margin-bottom:28px;scroll-margin-top:16px}
+.kick{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:.7rem;font-weight:700;line-height:1.5;text-transform:uppercase;letter-spacing:.1em}
+.num{background:var(--fg);color:var(--bg);border-radius:4px;padding:1px 7px;font-variant-numeric:tabular-nums}
+.tag{border:1px solid currentColor;border-radius:4px;padding:0 6px}
+.t-ai{color:#2563a8}.t-kode{color:#0b7480}.t-inv{color:#25784a}.t-sund{color:#9a6510}.t-ivk{color:#8e2a8e}.t-tank{color:#52529a}.t-egne{color:#a84b14}.t-verden{color:#4a5568}.t-frem{color:#6440b8}.t-crea{color:#b4185a}.t-samf{color:#7c6232}.t-dk{color:#b42828}.t-godt{color:#1f8a5b}
+@media (prefers-color-scheme:dark){.t-ai{color:#82b6f2}.t-kode{color:#62d2da}.t-inv{color:#72d19a}.t-sund{color:#f0c264}.t-ivk{color:#e391e3}.t-tank{color:#adadf2}.t-egne{color:#f2a676}.t-verden{color:#bac4d2}.t-frem{color:#bba2f6}.t-crea{color:#f594b6}.t-samf{color:#dcc390}.t-dk{color:#f28a8a}.t-godt{color:#7fe0b0}}
+.unc{background:#9a6510;color:#fff;border-radius:4px;padding:1px 6px}
+article h2{font-size:clamp(1.5rem,5.2vw,2.15rem);line-height:1.18;letter-spacing:-.022em;font-weight:750;margin:12px 0 10px;text-wrap:balance}
+.sum{font-size:1.1em;line-height:1.5;font-weight:500;color:var(--fg2);margin:0 0 16px}
+.body p{margin:0 0 1em}.body p:last-child{margin-bottom:14px}
+figure.fig{margin:4px 0 20px}
+figure.fig img{display:block;width:100%;height:auto;border-radius:8px;background:var(--hl)}
+figure.fig figcaption{font-size:.76rem;line-height:1.45;color:var(--muted);margin-top:7px}
+.src{font-size:.85rem;color:var(--muted)}
+.src a{font-weight:600}
+.extra{font-size:.85rem;margin:8px 0 0;padding-left:1.1em;color:var(--muted)}
+.video{position:relative;width:100%;aspect-ratio:16/9;margin:4px 0 20px;background:#000;border-radius:8px;overflow:hidden}
+.video.short{aspect-ratio:9/16;max-width:340px;margin-left:auto;margin-right:auto}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.xembed{margin:4px 0 20px;display:flex;justify-content:center}
+.car{position:relative;margin:4px 0 20px}
+.car-track{position:relative;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+  overscroll-behavior-x:contain;scrollbar-width:none;border-radius:8px;outline:none}
+.car-track::-webkit-scrollbar{display:none}
+.car-track:focus-visible{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--link)}
+.car-slide{flex:0 0 100%;min-width:0;margin:0;scroll-snap-align:start;scroll-snap-stop:always}
+.car-frame{position:relative;width:100%;aspect-ratio:16/9;background:var(--hl);border-radius:8px;overflow:hidden}
+.car-frame.v{background:#000}
+.car-frame img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain}
+.car-frame iframe,.car-frame video{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000}
+.car-frame.x{overflow-y:auto;-webkit-overflow-scrolling:touch;background:var(--hl)}
+.car-frame.x>*{margin:0 auto!important}.car-frame.x .twitter-tweet{max-width:100%}
+.vcap{font-size:.76rem;line-height:1.45;color:var(--muted);margin:-12px 0 20px}
+.car-slide figcaption{font-size:.76rem;line-height:1.45;color:var(--muted);margin-top:7px}
+.car-nav{position:absolute;left:0;right:0;top:0;aspect-ratio:16/9;pointer-events:none}
+.car-btn{position:absolute;top:50%;transform:translateY(-50%);pointer-events:auto;display:flex;align-items:center;justify-content:center;
+  width:40px;height:40px;padding:0;border:1px solid var(--rule);border-radius:50%;background:var(--card);color:var(--fg);cursor:pointer;
+  font:inherit;font-size:1.2rem;line-height:1;box-shadow:0 2px 10px rgba(0,0,0,.18);opacity:.92;transition:opacity .15s}
+.car-btn:hover{opacity:1}.car-btn:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+.car-btn[disabled]{opacity:0;pointer-events:none}
+.car-prev{left:10px}.car-next{right:10px}
+.car-bar{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:8px;font-size:.72rem;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums}
+.car-dots{display:flex;gap:2px}
+.car-dot{width:22px;height:22px;padding:7px;border:0;margin:0;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.car-dot::before{content:"";display:block;width:8px;height:8px;border-radius:50%;background:var(--rule)}
+.car-dot[aria-current="true"]::before{background:var(--accent)}
+.car-dot:focus-visible{outline:2px solid var(--link);outline-offset:-2px;border-radius:50%}
+@media (hover:none) and (pointer:coarse){.car-btn{display:none}}
+.nyt{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:16px 20px;margin:10px 0 28px;scroll-margin-top:16px}
+.nyt ul{margin:0;padding-left:1.1em}.nyt li{margin:8px 0}.nyt a{font-weight:600}
+.radar{margin:10px 0 28px;scroll-margin-top:16px}
+.radar>p.lede{font-size:.88rem;color:var(--muted);margin:0 0 12px}
+.rcard{background:var(--card);border:1px solid var(--rule);border-left:4px solid #8e2a8e;border-radius:10px;padding:14px 20px;margin:0 0 16px;scroll-margin-top:16px}
+@media (prefers-color-scheme:dark){.rcard{border-left-color:#e391e3}}
+.rcard h3{font-size:clamp(1.25rem,4vw,1.55rem);line-height:1.2;letter-spacing:-.018em;margin:8px 0 8px}
+.rcard h3 a{color:inherit;text-decoration:none}.rcard h3 a:hover{text-decoration:underline}
+.rcard dl{margin:0 0 8px}
+.rcard dt{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:12px}
+.rcard dd{margin:2px 0 0}
+.term{position:relative;display:inline}
+.term-btn{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;cursor:help;text-align:inherit;
+  text-decoration:underline dotted;text-decoration-color:var(--muted);text-decoration-thickness:1.5px;text-underline-offset:.22em;-webkit-tap-highlight-color:transparent}
+.term-btn:hover,.term.open .term-btn{text-decoration-color:var(--accent)}
+.term-btn:focus-visible{outline:2px solid var(--link);outline-offset:2px;border-radius:3px}
+.term .ti{display:none;align-items:center;justify-content:center;width:1.05em;height:1.05em;margin-left:.18em;vertical-align:.12em;
+  border:1.2px solid currentColor;border-radius:50%;font-size:.62em;font-weight:700;font-style:normal;line-height:1;color:var(--muted)}
+.term-btn:hover .ti,.term.open .ti{color:var(--accent)}
+.term-pop{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 10px);width:min(23rem,calc(100vw - 24px));
+  background:var(--card);color:var(--fg);border:1px solid var(--rule);border-radius:10px;padding:12px 14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.14),0 2px 6px rgba(0,0,0,.08);font-size:.8em;font-weight:400;line-height:1.55;text-align:left;white-space:normal;letter-spacing:0}
+.term-pop::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+.term.up .term-pop{top:auto;bottom:calc(100% + 10px)}.term.up .term-pop::before{top:auto;bottom:-12px}
+.term-pop strong{display:block;font-weight:700;margin-bottom:3px;color:var(--accent)}
+.term.open .term-pop,.term-btn:focus-visible+.term-pop{display:block}
+@media (hover:hover) and (pointer:fine){.term:hover .term-pop{display:block}}
+@media (prefers-color-scheme:dark){.term-pop{box-shadow:0 10px 30px rgba(0,0,0,.55);border-color:#3a3936}}
+.wrap{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right));padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+header.mast{padding-top:calc(34px + env(safe-area-inset-top))}
+footer{font-size:.8rem;color:var(--muted);text-align:center;padding-top:12px}
+footer .ed-no{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+ul.arkiv{list-style:none;padding:0}ul.arkiv li{border-bottom:1px solid var(--rule);padding:12px 0}
+ul.arkiv a{color:var(--fg);font-weight:700;text-decoration:none}ul.arkiv span{display:block;color:var(--muted);font-size:.92rem}
+@media (min-width:1000px){
+  body{font-size:20px}
+  .wrap{max-width:1260px;padding-left:max(40px,env(safe-area-inset-left));padding-right:max(40px,env(safe-area-inset-right));padding-bottom:calc(80px + env(safe-area-inset-bottom))}
+  .layout{grid-template-columns:290px minmax(0,70ch);grid-template-areas:"toc intro" "toc main";column-gap:64px;justify-content:center}
+  nav.toc{position:sticky;top:20px;align-self:start;max-height:calc(100vh - 40px);overflow:auto;border:0;margin:0;padding:0 4px 0 0;font-size:.78rem}
+  nav.toc summary{pointer-events:none;padding:4px 0 10px}nav.toc summary::after{content:none}
+  nav.toc a{padding:7px 10px 7px 6px}
+  .intro{margin-top:4px}
+}
+</style></head>
+<body><div class="wrap"><header class="mast"><p class="greet" id="greet" data-name="Kasper" aria-live="off" hidden></p><script>(function(){var g=document.getElementById('greet');if(!g)return;var N=g.getAttribute('data-name');
+function upd(){var h=new Date().getHours();
+ var t=h>=5&&h<10?'Godmorgen':h>=10&&h<12?'God formiddag':h>=12&&h<18?'God eftermiddag':'God aften';
+ t=N?t+', '+N:t;if(g.textContent!==t)g.textContent=t;g.hidden=false;}
+upd();addEventListener('pageshow',upd);addEventListener('focus',upd);
+document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')upd();});
+setInterval(function(){if(document.visibilityState==='visible')upd();},60000);
+})();</script><h1><a href="../index.html">Nyheder</a></h1><div class="meta">mandag 23. november 2026</div></header>
+<div class="layout">
+<p class="intro">Efter den værste børsuge siden 2020 peger de amerikanske futures op, men Sydkorea styrtdykker igen. Et russisk krigsskib er sænket i Libyen, klimatopmødet COP31 brød sammen, og Trump sætter en nytårsfrist for Iran. Desuden: Satya Nadella om, hvordan Claude Code overhalede VS Code, og Cathie Woods store Anthropic-køb.</p>
+<nav class="toc" aria-label="Indhold"><details open><summary>Indhold <span class="cnt">· 14 historier</span></summary><ol>
+<li><a href="#1"><span class="n">1</span><span><span class="h">Efter den værste børsuge siden 2020: Amerikanske futures stiger 2–3 procent – men Sydkorea styrtdykker igen</span><span class="t">Investering</span></span></a></li>
+<li><a href="#2"><span class="n">2</span><span><span class="h">Russisk krigsskib sænket i Libyen – formodet ukrainsk droneangreb over 1.600 kilometer fra Ukraine</span><span class="t">Verden</span></span></a></li>
+<li><a href="#3"><span class="n">3</span><span><span class="h">Klimatopmødet COP31 brød sammen – første gang siden København i 2009</span><span class="t">Verden</span></span></a></li>
+<li><a href="#4"><span class="n">4</span><span><span class="h">Trump sætter nytårsfrist for Iran: Ingen aftale, så kommer der nye angreb</span><span class="t">Verden</span></span></a></li>
+<li><a href="#5"><span class="n">5</span><span><span class="h">Demokraterne får det største flertal i Repræsentanternes Hus siden 1992</span><span class="t">Verden</span></span></a></li>
+<li><a href="#6"><span class="n">6</span><span><span class="h">New York Times: Kvinden bag Jensen Huangs fald var i kontakt med Kinas efterretningstjeneste i over et år</span><span class="t">Investering</span></span></a></li>
+<li><a href="#7"><span class="n">7</span><span><span class="h">Satya Nadella: Claude Code fik Microsofts VS Code til at falme på seks måneder</span><span class="t">AI-kodning</span></span></a></li>
+<li><a href="#8"><span class="n">8</span><span><span class="h">Cathie Wood købte 1,6 millioner Anthropic-aktier på de to første handelsdage</span><span class="t">Investering</span></span></a></li>
+<li><a href="#9"><span class="n">9</span><span><span class="h">Musk: Teslas nye AI5-chip går til Optimus – bilerne bliver på AI4</span><span class="t">Investering</span></span></a></li>
+<li><a href="#10"><span class="n">10</span><span><span class="h">OpenAI&#x27;s chefforsker foreslår en fælles »fartgrænse« for AI – målt i perplexity</span><span class="t">AI &amp; tech</span></span></a></li>
+<li><a href="#11"><span class="n">11</span><span><span class="h">Suno-sange i The Binding of Isaac udløste anmeldelsesstorm – nu er AI-musikken fjernet</span><span class="t">Musik</span></span></a></li>
+<li><a href="#12"><span class="n">12</span><span><span class="h">Startups henter flest penge siden 2021 – men der laves 21 procent færre handler</span><span class="t">Iværksætteri</span></span></a></li>
+<li><a href="#13"><span class="n">13</span><span><span class="h">Dansk ultraløber blev bidt af en vild hund – og vandt alligevel 485 kilometer fra Athen til Sparta og retur</span><span class="t">Vildt</span></span></a></li>
+<li><a href="#14"><span class="n">14</span><span><span class="h">74-årig mand med alzheimer fundet i live efter 11 dage alene i Amazonas</span><span class="t">Godt nyt</span></span></a></li>
+<li class="sec"><a href="#nyt"><span class="n">+</span><span><span class="h">Nyt til dig</span></span></a></li>
+</ol></details></nav><main data-date="2026-11-23" data-total="14" data-latest="1">
+<article id="1"><div class="kick"><span class="num">1</span><span class="tag t-inv">Investering</span></div><h2>Efter den værste børsuge siden 2020: Amerikanske futures stiger 2–3 procent – men Sydkorea styrtdykker igen</h2><p class="sum">Nasdaq faldt 10 procent i sidste uge. Natten til mandag peger <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-1-1" aria-describedby="term-1-1">futures<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-1-1" role="tooltip"><strong>futures</strong> Terminskontrakter på et aktieindeks, der handles næsten døgnet rundt – også før børsen åbner. Her viser de, at markedet natten til mandag forventer, at S&amp;P 500 åbner ca. 2,3 procent højere end fredagens lukkekurs.</span></span> op, mens Seoul gør en redningsfond klar for første gang siden 2008.</p>
+<div class="body"><p>Fredag lukkede S&amp;P 500 i 6.910 point (−3,7 procent på dagen) og Nasdaq Composite i 22.618 point (−5,3 procent). Over hele ugen tabte S&amp;P 500 8,6 procent og Nasdaq 10 procent – det største ugefald siden coronapanikken i marts 2020. Anthropic lukkede fredag i 88,91 dollar, 8,5 procent lavere end dagen før.</p><p>Natten til mandag er stemningen vendt i USA: Omkring kl. 04.40 dansk tid lå S&amp;P 500-futures 2,3 procent og Nasdaq 100-futures 3,1 procent over fredagens niveau. Ifølge Reuters skyldes bounce&#x27;et især, at myndigheder i Asien har grebet ind: Sydkorea lemper reglerne for aktietilbagekøb, Kina sænker marginkrav og handelsgebyrer, og Taiwan strammer reglerne for <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-1-2" aria-describedby="term-1-2">short-salg<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-1-2" role="tooltip"><strong>short-salg</strong> At låne aktier og sælge dem i håb om at købe dem billigere tilbage senere – man tjener altså på fald. Taiwan strammer reglerne for at bremse spekulation i yderligere fald.</span></span>.</p><p>I Seoul hjalp det ikke: Kospi-indekset var mandag middag lokal tid nede omkring 3,9 procent i ca. 4.680 point – den laveste stand i ti måneder – efter et fald på 5,2 procent fredag. Regeringen gør sin <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-1-3" aria-describedby="term-1-3">stabiliseringsfond<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-1-3" role="tooltip"><strong>stabiliseringsfond</strong> En pulje penge, som finansielle institutioner har sat til side for at kunne købe aktier, når markedet styrtdykker. Sydkoreas fond er på 10,76 billioner won og blev sidst brugt under finanskrisen i 2008.</span></span> på 10,76 billioner won klar, men finansminister Lee Hyoung-il vil endnu ikke love at bruge den. Japan har lukket mandag på grund af en helligdag.</p></div>
+<p class="src">Kilde: Reuters via The Hindu BusinessLine · <a href="https://www.thehindubusinessline.com/markets/us-futures-bounce-as-ai-rout-rattles-asian-stocks/article71733249.ece" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.koreatimes.co.kr/economy/20261122/kospi-rout-fuels-calls-for-bolder-stabilization-measures" rel="noopener">Korea Times: Kospi-styrtet giver krav om hårdere indgreb</a></li><li><a href="https://en.yna.co.kr/view/AEN20261123004700320" rel="noopener">Yonhap: Finansministeren har en nødplan ud over fonden</a></li><li><a href="https://investinglive.com/stock-market-update/us-stock-futures-jump-over-2-in-relief-bounce-gold-rallies-but-kospi-slides-nearly-4/" rel="noopener">investingLive: Futures stiger over 2 procent</a></li></ul>
+</article>
+<article id="2"><div class="kick"><span class="num">2</span><span class="tag t-verden">Verden</span></div><h2>Russisk krigsskib sænket i Libyen – formodet ukrainsk droneangreb over 1.600 kilometer fra Ukraine</h2><p class="sum">Korvetten Merkury sank i havnen i Benghazi, og timer senere blev et russisk-forbundet fragtskib ramt af endnu en havdrone.</p>
+<figure class="fig"><img src="../img/2026-11-23/benghazi.jpg" alt="Flammer og gnister lyser nattehimlen op over havnen i Benghazi efter angrebet" loading="lazy" decoding="async" width="1024" height="576"><figcaption>Stillbillede fra video af eksplosionen i Benghazi natten til søndag. · Billede: BBC</figcaption></figure>
+<div class="body"><p>Den russiske <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-2-1" aria-describedby="term-2-1">korvet<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-2-1" role="tooltip"><strong>korvet</strong> Den mindste klasse af egentlige krigsskibe, mindre end en fregat. Merkury var en sådan korvet på vej hjem til Rusland.</span></span> Merkury lå i havnen i Benghazi for at tanke og tage forsyninger om bord, da den natten til søndag blev ramt af det, libyske myndigheder kalder ukrainske havdroner. Mindst fire droner blev skudt ned, men to ramte, og satellitbilleder viser, at skibet er sunket. Timer senere blev fragtskibet Ascalon, der angiveligt fragtede militærudstyr, ramt af en havdrone ud for Benghazi. Besætningen blev reddet.</p><p>Ingen har taget ansvar, og Rusland har ikke kommenteret angrebet. Benghazi kontrolleres af general Khalifa Haftars styrker, der står Rusland nær. FN&#x27;s mission i Libyen kræver en uafhængig undersøgelse, og den østlibyske regering kalder det en krænkelse af Libyens suverænitet.</p><p>Bekræftes det, er det et af Ukraines mest vellykkede angreb til søs i den snart fem år lange krig – og det kommer dagen efter, at et russisk fragtskib brændte efter et droneangreb i Den Finske Bugt.</p></div>
+<p class="src">Kilde: The Guardian · <a href="https://www.theguardian.com/world/2026/nov/22/blast-russian-ship-suspected-drone-attack-benghazi-libya" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.bbc.co.uk/news/articles/cr894gjz0j0yo" rel="noopener">BBC: Eksplosion på russisk skib i Libyen</a></li></ul>
+</article>
+<article id="3"><div class="kick"><span class="num">3</span><span class="tag t-verden">Verden</span></div><h2>Klimatopmødet COP31 brød sammen – første gang siden København i 2009</h2><p class="sum">Den endelige tekst nævnte slet ikke fossile brændsler. Det kunne EU, ønationerne og mange andre ikke acceptere.</p>
+<figure class="fig"><img src="../img/2026-11-23/cop31.jpg" alt="Delegerede samlet om COP31-præsident Murat Kurum under de sidste forhandlinger" loading="lazy" decoding="async" width="1024" height="575"><figcaption>Billede: BBC</figcaption></figure>
+<div class="body"><p>Efter to ugers forhandlinger i Tyrkiet og overtid til søndag – det længste FN-klimatopmøde nogensinde – endte COP31 uden en politisk hovedaftale. Det seneste udkast nævnte ikke ordene »fossile brændsler« én eneste gang; det første udkast havde gjort det seks gange, men det afviste de olieproducerende lande.</p><p>EU&#x27;s forhandler, den irske minister Darragh O&#x27;Brien, kaldte det »samvittighedsløst« at lave en klimapagt uden fossile brændsler. Fattige lande protesterede samtidig over, at teksten ikke indeholdt konkrete tal for den hjælp til klimatilpasning, de rige lande lovede at tredoble ved COP30 sidste år.</p><p>FN&#x27;s generalsekretær António Guterres, der går af, beskyldte »magtfulde fossile interesser« for at følge »tobaksindustriens drejebog«. Sidste gang et COP-topmødes hovedaftale kollapsede på denne måde, var i København i 2009.</p></div>
+<p class="src">Kilde: BBC · <a href="https://www.bbc.co.uk/news/articles/cqwy06zrd26lo" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.dr.dk/nyheder/viden/klima/klimatopmoedet-cop31-ender-uden-aftale" rel="noopener">DR: Klimatopmødet COP31 ender uden aftale</a></li></ul>
+</article>
+<article id="4"><div class="kick"><span class="num">4</span><span class="tag t-verden">Verden</span></div><h2>Trump sætter nytårsfrist for Iran: Ingen aftale, så kommer der nye angreb</h2><p class="sum">Han kalder Irans forhandlere »professionelle stepdansere« og truer med at sænke skibe, der prøver at bryde den amerikanske blokade.</p>
+<div class="body"><p>Præsident Donald Trump siger til Fox News, at han er tilbøjelig til at genoptage militære angreb på Iran efter nytår, hvis de indirekte forhandlinger ikke giver en aftale. »De taler hele tiden, men det er bare vrøvl«, sagde han og kaldte Irans forhandlere »professionelle stepdansere«. Iran er ifølge Trump »mere aggressivt nu end før valget«.</p><p>USA har i over fire måneder blokeret Irans havne, og to amerikanske hangarskibsgrupper er i regionen. Spurgt om iranske skibe vil teste blokaden, svarede Trump: »Det håber jeg, så ender de på havets bund ligesom resten af flåden.«</p><p>Irans viceudenrigsminister siger, at »vinduet for diplomati stadig er åbent«, og en delegation fra Qatar var i Teheran fredag. Ifølge Bloomberg har Storbritannien og flere golfstater i det skjulte bedt Washington om ikke at angribe igen af frygt for en lang forstyrrelse af energiforsyningen.</p></div>
+<p class="src">Kilde: Iran International · <a href="https://www.iranintl.com/en/202611226299" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.foxnews.com/politics/trump-warns-new-strikes-against-iran-after-new-year-calls-negotiators-professional-tap-dancers" rel="noopener">Fox News: Trump advarer om nye angreb efter nytår</a></li><li><a href="https://www.aa.com.tr/en/americas/trump-inclined-to-resume-strikes-on-iran-after-new-year-if-no-deal-reached/4133792" rel="noopener">Anadolu: Trump tilbøjelig til nye angreb</a></li></ul>
+</article>
+<article id="5"><div class="kick"><span class="num">5</span><span class="tag t-verden">Verden</span></div><h2>Demokraterne får det største flertal i Repræsentanternes Hus siden 1992</h2><p class="sum">En genoptælling i North Carolina gav partiet mindst 258 pladser – samme antal som i Bill Clintons valgår.</p>
+<div class="body"><p>Demokraten Chuck Hubbard slog søndag den republikanske veteran Virginia Foxx med 330 stemmer efter en genoptælling i North Carolinas 5. valgkreds, som Foxx har repræsenteret siden 2005. Dermed har Demokraterne mindst 258 pladser mod Republikanernes mindst 173, og fire løb er stadig uafgjorte.</p><p>Ingen af partierne har vundet så mange pladser siden 1992, hvor Demokraterne også fik 258. Partiet vandt ved midtvejsvalget også flertal i Senatet. Både Trump og vicepræsident JD Vance har peget på inflationen under krigen med Iran som årsag til Republikanernes nederlag.</p><p>Med flertal i begge kamre kan Demokraterne undersøge præsidenten og blokere hans udnævnelser i Senatet, men Trump kan stadig nedlægge <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-5-1" aria-describedby="term-5-1">veto<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-5-1" role="tooltip"><strong>veto</strong> Præsidentens ret til at afvise en lov, som Kongressen har vedtaget. Selv med flertal i begge kamre kan Demokraterne derfor ikke gennemføre love, Trump modsætter sig, uden et meget stort flertal til at underkende vetoet.</span></span> mod deres love.</p></div>
+<p class="src">Kilde: BBC · <a href="https://www.bbc.co.uk/news/articles/c6vg29g7dlyno" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="6"><div class="kick"><span class="num">6</span><span class="tag t-inv">Investering</span><span class="unc">Ubekræftet</span></div><h2>New York Times: Kvinden bag Jensen Huangs fald var i kontakt med Kinas efterretningstjeneste i over et år</h2><p class="sum">Alice Huang talte ifølge amerikanske efterretninger med en ansat i Kinas ministerium for statssikkerhed, mens hendes firma købte Nvidia-chips for milliarder.</p>
+<div class="body"><p>Forretningskvinden Alice Huang, som Nvidias tidligere topchef Jensen Huang havde en affære med, var ifølge unavngivne kilder med kendskab til amerikanske efterretninger i kontakt med en medarbejder fra Kinas ministerium for statssikkerhed (MSS) fra foråret 2025 til efteråret 2026, skriver New York Times.</p><p>Perioden overlapper med affæren og delvist med, at hendes tidligere firma, Singapore-baserede Megaspeed, købte store partier avancerede chips fra Nvidia. Også hendes forretningspartner Kang Wei skal have samarbejdet med MSS.</p><p>USA&#x27;s justitsministerium undersøger, om Alice Huang har fungeret som spion, og Jensen Huang skal i høring i Repræsentanternes Hus 1. december. Nvidia undersøger selv forholdet. Nvidia-aktien lukkede fredag i 125,53 dollar, 14 procent lavere end dagen før.</p></div>
+<p class="src">Kilde: Berlingske (Ritzau) · <a href="https://www.berlingske.dk/internationalt/kilder-nvidia-chefs-elskerinde-var-i-kontakt-med-efterretningstjeneste" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.ft.com/content/f3ad8a81-3890-4a8a-8853-ff0a94b08ba9" rel="noopener">Financial Times: Alice Huangs forbindelser til chip-smuglingen</a></li></ul>
+</article>
+<article id="7"><div class="kick"><span class="num">7</span><span class="tag t-kode">AI-kodning</span></div><h2>Satya Nadella: Claude Code fik Microsofts VS Code til at falme på seks måneder</h2><p class="sum">»Det, der ramte os«, var Anthropics model, som gjorde kommandolinjen til den nye måde at kode på, siger Microsofts topchef.</p>
+<div class="body"><p>I et interview med Gergely Orosz på podcasten The Pragmatic Engineer forklarer Microsofts topchef Satya Nadella, hvorfor Microsoft ikke havde et svar klar, da Claude Code kom i 2025. GitHub Copilot begyndte som kodeforslag, og Microsoft indhentede Cursors agent-tilstand, »men det, der ramte os, var det store arbejde, Anthropic gjorde med deres model, som for alvor gjorde <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-7-1" aria-describedby="term-7-1">CLI<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-7-1" role="tooltip"><strong>CLI</strong> Command line interface – et tekstbaseret vindue, hvor man skriver kommandoer i stedet for at klikke. Claude Code kører her, så man giver agenten en opgave og får færdig kode tilbage uden at skrive den selv i en editor.</span></span>&#x27;en til formatet«. På omkring seks måneder »falmede <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-7-2" aria-describedby="term-7-2">IDE<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-7-2" role="tooltip"><strong>IDE</strong> Integrated development environment – det program, udviklere skriver og retter kode i, fx VS Code. Ifølge Nadella er det netop den type værktøj, der »falmede« på cirka seks måneder.</span></span>&#x27;erne«, siger han.</p><p>»Når modellerne springer ikke-lineært, skal produktformen ændre sig hurtigt. AI-først-produktudvikling er nådesløs. Forelsk dig ikke i det, du har bygget«, siger Nadella. Han tror dog, at IDE&#x27;en kan komme tilbage.</p><p>I Stack Overflows udviklerundersøgelse for 2026 brugte 70,9 procent VS Code mod 75,9 procent året før, mens Claude Code toppede kategorien for kodeagenter med 65,5 procent, skriver Windows Latest.</p></div>
+<div class="video"><iframe class="yt" src="https://www.youtube-nocookie.com/embed/0NE89Nzfk20?enablejsapi=1&amp;playsinline=1&amp;rel=0" title="Hele interviewet med Satya Nadella." loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><p class="vcap">Hele interviewet med Satya Nadella. · Video: The Pragmatic Engineer</p>
+<p class="src">Kilde: The Next Web · <a href="https://thenextweb.com/news/satya-nadella-claude-code-ide-pragmatic-engineer" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.windowslatest.com/2026/11/23/the-thing-that-hit-us-satya-nadella-admits-vs-code-faded-in-six-months-after-a-decade-on-top-because-of-claude-code-and-some-developers-say-theyve-stopped-opening-it/" rel="noopener">Windows Latest: VS Code falmede på seks måneder</a></li></ul>
+</article>
+<article id="8"><div class="kick"><span class="num">8</span><span class="tag t-inv">Investering</span></div><h2>Cathie Wood købte 1,6 millioner Anthropic-aktier på de to første handelsdage</h2><p class="sum">ARK købte i seks ETF&#x27;er, mens aktien faldt mod <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-8-1" aria-describedby="term-8-1">emissionskursen<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-8-1" role="tooltip"><strong>emissionskursen</strong> Den pris, aktierne blev solgt til ved børsnoteringen. For Anthropic var den 83 dollar, og fredag var aktien nede på 83,05 dollar undervejs.</span></span> – positionen er cirka 146 millioner dollar værd.</p>
+<div class="body"><p>ARK Invest købte 934.968 Anthropic-aktier torsdag 19. november, børsnoteringsdagen, og 705.982 mere fredag – i alt 1.640.950 aktier fordelt på seks ETF&#x27;er. Ved fredagens lukkekurs på 88,91 dollar er de cirka 145,9 millioner dollar værd. Flagskibsfonden ARKK tog flest, 968.799 aktier.</p><p>Anthropic blev noteret til 83 dollar, steg 17 procent første dag og faldt 8,5 procent fredag, hvor den undervejs nåede ned på 83,05 dollar. »Vi har ejet Anthropic siden starten af 2023. Det er langt vores bedste investering i venturefonden«, sagde Wood til CNBC. Hun »<span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-8-2" aria-describedby="term-8-2">gennemsnitter ned<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-8-2" role="tooltip"><strong>gennemsnitter ned</strong> At købe flere aktier, når kursen falder, så den gennemsnitlige købspris bliver lavere. ARK købte både til torsdagens højere og fredagens lavere kurs.</span></span>« og kalder markedet en »mur af bekymring«, der minder om 80&#x27;erne og 90&#x27;erne.</p><p>Positionerne er små: Ingen enkelt dags køb var over 0,52 procent af en fond, og i ARK Innovation ETF udgjorde Anthropic 0,3 procent efter første dag. Samtidig skar ARK ned i Nvidia.</p></div>
+<p class="src">Kilde: Quartz · <a href="https://qz.com/cathie-wood-ark-funds-bought-anthropic-stock-112226" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.cnbc.com/2026/11/20/cathie-woods-ark-invest-was-a-big-buyer-of-anthropic-during-debut.html" rel="noopener">CNBC: Cathie Wood var storkøber af Anthropic</a></li><li><a href="https://finance.yahoo.com/markets/stocks/articles/cathie-wood-just-bought-154-213819556.html" rel="noopener">Yahoo Finance: Fordelingen på de seks fonde</a></li></ul>
+</article>
+<article id="9"><div class="kick"><span class="num">9</span><span class="tag t-inv">Investering</span></div><h2>Musk: Teslas nye AI5-chip går til Optimus – bilerne bliver på AI4</h2><p class="sum">AI4 er nok til »overmenneskelig kørsel«, siger Musk – og afslører, at computeren nu koster det dobbelte på grund af dyre hukommelseschips.</p>
+<div class="body"><p>En Tesla-ejer spurgte søndag på X, om han skulle vente på en bil med AI5. »Den går til Optimus. Bilerne bliver på AI4. Det er nok til at løse overmenneskelig kørsel«, svarede Elon Musk. I en anden tråd skrev han, at »AI4 koster det dobbelte nu på grund af prisstigninger på hukommelse og lagerplads«.</p><p>Retningen blev antydet allerede i april, da Musk prioriterede AI5 til den humanoide robot Optimus og Teslas supercomputere. Ifølge Musk har AI5 omkring 10–12 gange så meget regnekraft som AI4, og den skal ind i Optimus omkring april 2027. En mellemversion kaldet AI4.5 er ifølge Musk »en relativt lille forbedring«, der mest handler om mere <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-9-1" aria-describedby="term-9-1">RAM<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-9-1" role="tooltip"><strong>RAM</strong> Computerens korttidshukommelse, hvor chippen holder det neurale netværk og det, kameraerne lige har set. Prisstigninger på netop hukommelse er grunden til, at AI4 ifølge Musk nu koster det dobbelte.</span></span>.</p><p>Der er stadig ingen dato for den opgradering eller rabat, Musk har lovet ejere af ældre biler med Hardware 3, som Tesla selv har sagt ikke kan køre helt selvkørende. Tesla-aktien lukkede fredag i 345,82 dollar, 7,6 procent lavere end dagen før.</p></div>
+<p class="src">Kilde: Drive Tesla Canada · <a href="https://driveteslacanada.ca/news/tesla-ai5-optimus-cars-ai4/" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://evxnews.com/tesla-ai5-optimus-cars-stay-ai4-memory-costs/" rel="noopener">EVX News: Hele forløbet forklaret</a></li></ul>
+</article>
+<article id="10"><div class="kick"><span class="num">10</span><span class="tag t-ai">AI &amp; tech</span></div><h2>OpenAI&#x27;s chefforsker foreslår en fælles »fartgrænse« for AI – målt i perplexity</h2><p class="sum">Jakub Pachocki vil have AI-firmaerne til at aftale et loft for, hvor gode modellerne må blive, før man kan overvåge dem bedre. Sam Altman kalder indlægget det vigtigste fra OpenAI i lang tid.</p>
+<div class="body"><p>I et nyt blogindlæg foreslår OpenAI&#x27;s chefforsker, Jakub Pachocki, at branchen bruger målet <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-10-1" aria-describedby="term-10-1">perplexity<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-10-1" role="tooltip"><strong>perplexity</strong> Et mål for, hvor overrasket en sprogmodel er over den rigtige tekst – jo lavere, jo bedre gætter den det næste ord. OpenAI&#x27;s modeller er gået fra cirka 0,91 med GPT-4 til under 0,8 i dag.</span></span> – hvor godt en model i gennemsnit forudsiger det næste <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-10-2" aria-describedby="term-10-2">token<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-10-2" role="tooltip"><strong>token</strong> Den lille tekstbid – typisk et ord eller en del af et ord – som en sprogmodel læser og skriver ét ad gangen.</span></span> – som fælles målestok for generel intelligens. Benchmarks for konkrete evner bliver hurtigt forældede, mens perplexity ifølge ham er forblevet informativt.</p><p>GPT-4 lå på cirka 0,91, og »nu, hvor vi er under 0,8, har vi set transformative evner opstå inden for cybersikkerhed og matematik«, skriver han. Ideen er, at firmaerne forpligter sig til ikke at gå under en bestemt tærskel, før evnen til at forstå og overvåge AI&#x27;s adfærd har nået et konkret milepæl.</p><p>Forslaget kommer, efter at Anthropic-topchef Dario Amodei har foreslået at »pace the frontier« med fælles sikkerhedsstandarder og grænser for, hvor hurtigt AI må udvikle sig – en plan, som både Altman og Elon Musk har bakket op om.</p></div>
+<p class="src">Kilde: TechCrunch · <a href="https://techcrunch.com/2026/11/22/openais-chief-scientist-has-thoughts-on-how-to-limit-ai-development/" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://openai.com/index/perplexity-and-intelligence/" rel="noopener">OpenAI: Perplexity and Intelligence</a></li></ul>
+</article>
+<article id="11"><div class="kick"><span class="num">11</span><span class="tag t-egne">Musik</span></div><h2>Suno-sange i The Binding of Isaac udløste anmeldelsesstorm – nu er AI-musikken fjernet</h2><p class="sum">En spiller fandt Suno-<span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-11-1" aria-describedby="term-11-1">metadata<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-11-1" role="tooltip"><strong>metadata</strong> Skjulte oplysninger gemt i en fil, fx hvilket program den er lavet med. Her afslørede de, at numrene stammede fra AI-musiktjenesten Suno.</span></span> i lydfilerne. Spillets skaber siger, han ikke anede noget.</p>
+<div class="body"><p>Udvidelsen The Binding of Isaac: Repentance Plus er blevet »review-bombed« på Steam, efter at en Reddit-bruger opdagede, at musikken i en ny GTA-parodi var lavet med AI. Flere lydfiler indeholdt metadata, der pegede direkte på numrene på Suno.</p><p>Skaberen Edmund McMillen, der tidligere har kaldt AI i spiludvikling »uinspireret og kedelig«, undskyldte på X og siger, at han »ikke anede«, at der var brugt generativ AI. Studiet Nicalis fjernede filerne få timer efter opdagelsen.</p><p>Valve kræver, at udviklere på Steam oplyser, hvis de bruger generativ AI, men Nicalis havde ikke nævnt det. Spillets nyeste anmeldelser står stadig som »overvældende negative«.</p></div>
+<p class="src">Kilde: The Verge · <a href="https://www.theverge.com/games/1039770/binding-of-isaac-ai-music" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="12"><div class="kick"><span class="num">12</span><span class="tag t-ivk">Iværksætteri</span></div><h2>Startups henter flest penge siden 2021 – men der laves 21 procent færre handler</h2><p class="sum">Carta: Over 100 milliarder dollar på to kvartaler, højere værdiansættelser – og færre virksomheder, der får penge.</p>
+<div class="body"><p>Startups på platformen Carta rejste 49,3 milliarder dollar i tredje kvartal 2026 og over 100 milliarder på de seneste to kvartaler – mest på et halvt år siden årsskiftet 2021/22. Men antallet af prissatte runder faldt 21 procent på et år til 1.179, færre end i første kvartal 2019.</p><p>Medianværdiansættelsen ved en <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-12-1" aria-describedby="term-12-1">seed-runde<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-12-1" role="tooltip"><strong>seed-runde</strong> Den første egentlige investering i en startup, ofte før produktet tjener penge. Medianfirmaet blev i 2026 vurderet til 19,7 millioner dollar ved seed.</span></span> er 19,7 millioner dollar i 2026, 84 procent over niveauet i 2021, og ved en <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-12-2" aria-describedby="term-12-2">Series A<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-12-2" role="tooltip"><strong>Series A</strong> Den første større investeringsrunde efter seed, når firmaet skal vokse. Medianværdien er 63,3 millioner dollar, og antallet af runder faldt 22 procent.</span></span> 63,3 millioner. Antallet af seed-runder faldt 27 procent til 426, det laveste siden mindst 2023. Investorerne skriver altså større checks til færre firmaer.</p><p>Tiden fra seed til Series A er faldet til 664 dage, men hver tredje Series A-runde er stadig en <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-12-3" aria-describedby="term-12-3">bro-runde<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-12-3" role="tooltip"><strong>bro-runde</strong> En mindre finansiering, typisk fra eksisterende investorer, der skal holde firmaet i live til næste store runde. Hver tredje Series A er nu sådan en.</span></span> fra eksisterende investorer. Af firmaer, der rejste seed i 2022, havde 73 procent stadig ikke fået en Series A efter 15 kvartaler.</p></div>
+<p class="src">Kilde: SaaStr · <a href="https://www.saastr.com/5-interesting-learnings-from-cartas-q3-2026-data-100b-raised-in-six-months-21-fewer-deals-and-1-in-3-series-a-rounds-is-a-bridge/" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="13"><div class="kick"><span class="num">13</span><span class="tag t-godt">Vildt</span></div><h2>Dansk ultraløber blev bidt af en vild hund – og vandt alligevel 485 kilometer fra Athen til Sparta og retur</h2><p class="sum">Stine Rex løb i 78 timer og 24 minutter, fik en stivkrampevaccine undervejs og blev hurtigste kvinde.</p>
+<div class="body"><p>Danske Stine Rex vandt søndag formiddag det græske ultraløb Authentic Pheidippides Run, der går fra Athen til Sparta og tilbage igen – 485 kilometer med 6.400 højdemeter. Hun brugte 78 timer og 24 minutter.</p><p>Undervejs blev hun og landsmanden David Stoltenborg angrebet af en vild hund, som bed hende i benet. Hun fik en stivkrampevaccine og løb videre. Hun sluttede som hurtigste kvinde og femtehurtigste samlet, uanset køn.</p><p>Løbet er opkaldt efter Pheidippides, budbringeren, der ifølge sagnet løb fra Athen til Sparta for at bede om hjælp før slaget ved Marathon.</p></div>
+<p class="src">Kilde: DR · <a href="https://www.dr.dk/sporten/seneste-sport/dansker-vinder-485-kilometer-langt-ultraloeb-trods-hundebid" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="14"><div class="kick"><span class="num">14</span><span class="tag t-godt">Godt nyt</span></div><h2>74-årig mand med alzheimer fundet i live efter 11 dage alene i Amazonas</h2><p class="sum">Han overlevede på palmefrugter og sov på blade – to dage før eftersøgningen skulle have været indstillet.</p>
+<div class="body"><p>Ferreira dos Santos forsvandt i den brasilianske del af Amazonas-regnskoven. Ni dage efter bad hans barnebarn Sara Montes i en video på Instagram brandvæsnet om ikke at give op: »Glem os ikke. Glem ikke bedstefar.« Myndighederne havde planlagt at stoppe eftersøgningen søndag 22. november.</p><p>Fredag fandt redningsfolk ham omkring ti kilometer fra stedet, hvor han forsvandt. Han havde drukket vand og spist frugt fra buritipalmen og sovet på underlag af blade fra açaípalmer. Fodspor viste, at han havde gået i ring.</p><p>Dos Santos har tidligere arbejdet i minerne og kendte skoven godt. Han blev båret ud på en båre og er indlagt på hospitalet.</p></div>
+<p class="src">Kilde: Berlingske (Ritzau/AFP) · <a href="https://www.berlingske.dk/internationalt/74-aarig-mand-fundet-i-live-efter-11-dage-i-amazonasregnskoven" rel="noopener">Læs mere →</a></p>
+</article>
+<section class="nyt" id="nyt"><h2>Nyt til dig</h2><ul>
+<li><a href="https://www.navalnews.com/" rel="noopener">Naval News</a> – Specialmedie om flåder og krigsskibe – var først med at identificere korvetten Merkury efter angrebet i Benghazi.</li>
+<li><a href="https://carta.com/data/" rel="noopener">Carta Data (Peter Walker)</a> – Kvartalsvise data om startup-finansiering, værdiansættelser og runder fra platformen, hvor tusindvis af startups har deres ejerbog.</li>
+<li><a href="https://en.yna.co.kr/" rel="noopener">Yonhap News Agency (engelsk)</a> – Sydkoreas nationale nyhedsbureau – hurtigst på Samsung, SK Hynix, Kospi og koreansk økonomi.</li>
+</ul></section>
+</main></div>
+<footer><div class="ed-no">Udgave nr. 27</div><a href="../index.html">Seneste udgave</a> · <a href="../arkiv/index.html">Arkiv</a> · Nyheder for Kasper</footer>
+</div><script>(function(){var d=document.querySelector('nav.toc details');if(!d)return;var mq=matchMedia('(min-width:1000px)');
+function fit(){d.open=mq.matches?true:d.dataset.u==='1';}d.querySelector('summary').addEventListener('click',function(){d.dataset.u=d.open?'0':'1';});
+fit();mq.addEventListener&&mq.addEventListener('change',fit);
+var links={};d.querySelectorAll('a[href^="#"]').forEach(function(a){links[decodeURIComponent(a.getAttribute('href').slice(1))]=a;});
+var cur;function on(id){if(cur)cur.classList.remove('on');cur=links[id];if(cur){cur.classList.add('on');if(mq.matches&&cur.scrollIntoView){var r=cur.getBoundingClientRect(),p=d.parentNode.getBoundingClientRect();if(r.top<p.top||r.bottom>p.bottom)cur.scrollIntoView({block:'nearest'});}}}
+if(!('IntersectionObserver' in window))return;var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)on(e.target.id);});},{rootMargin:'-20% 0px -70% 0px'});
+Object.keys(links).forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el);});})();</script><script>(function(){var m=document.querySelector('main[data-date]');if(!m)return;
+var D=m.dataset.date,LATEST=m.dataset.latest==='1',K='nyheder-read-'+D,arts=[].slice.call(document.querySelectorAll('main article[id]')),N=arts.length;
+var ls=null;try{ls=window.localStorage;ls.getItem(K);}catch(_){ls=null;}
+var read={};try{(JSON.parse((ls&&ls.getItem(K))||'[]')||[]).forEach(function(i){read[i]=1;});}catch(_){}
+function save(){if(!ls)return;try{ls.setItem(K,JSON.stringify(Object.keys(read).map(Number).sort(function(a,b){return a-b;})));
+ var ks=[];for(var i=0;i<ls.length;i++){var k=ls.key(i);if(k&&k.indexOf('nyheder-read-')===0)ks.push(k);}ks.sort();while(ks.length>30)ls.removeItem(ks.shift());}catch(_){}}
+var toc={};document.querySelectorAll('nav.toc a[href^="#"]').forEach(function(a){toc[a.getAttribute('href').slice(1)]=a;});
+function paint(i){var a=toc[i];if(a){a.classList.add('read');var n=a.querySelector('.n');if(n)n.setAttribute('aria-label',i+', læst');}}
+function mark(i){i=String(i);if(read[i]||!document.getElementById(i))return;read[i]=1;save();paint(i);}
+Object.keys(read).forEach(function(i){paint(i);});
+Object.keys(toc).forEach(function(i){if(/^\d+$/.test(i))toc[i].addEventListener('click',function(){mark(i);});});
+/* Read = ~60 % of the story (or of the screen, for stories taller than it) visible for 3 s while the page is visible. */
+if('IntersectionObserver' in window){var tm={};
+ var th=[];for(var t=0;t<=20;t++)th.push(t/20);
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){var id=e.target.id;if(read[id])return;
+  var need=0.6*Math.min(e.boundingClientRect.height,(e.rootBounds&&e.rootBounds.height)||innerHeight);
+  var ok=e.isIntersecting&&e.intersectionRect.height>=need;
+  if(ok&&!tm[id])tm[id]=setTimeout(function(){tm[id]=0;if(document.visibilityState!=='hidden')mark(id);else io.unobserve(e.target),io.observe(e.target);},3000);
+  else if(!ok&&tm[id]){clearTimeout(tm[id]);tm[id]=0;}});},{threshold:th});
+ arts.forEach(function(a){if(!read[a.id])io.observe(a);});
+ document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden'){Object.keys(tm).forEach(function(id){if(tm[id]){clearTimeout(tm[id]);tm[id]=0;}});}
+  else{arts.forEach(function(a){if(!read[a.id]){io.unobserve(a);io.observe(a);}});}});}
+if(location.hash){var h=location.hash;addEventListener('load',function(){var el=document.getElementById(decodeURIComponent(h.slice(1)));if(el&&location.hash===h)setTimeout(function(){el.scrollIntoView();},60);});}
+})();</script><script>(function(){var ts=document.querySelectorAll('.term');if(!ts.length)return;
+function place(t){var p=t.querySelector('.term-pop');t.classList.remove('up');p.style.left='0px';p.style.display='block';
+var vw=document.documentElement.clientWidth,r=p.getBoundingClientRect(),dx=0;if(r.right>vw-12)dx=vw-12-r.right;if(r.left+dx<12)dx=12-r.left;
+p.style.left=dx+'px';var b=p.getBoundingClientRect();if(b.bottom>innerHeight-8&&t.getBoundingClientRect().top>b.height+24)t.classList.add('up');p.style.display='';}
+function close(x){ts.forEach(function(t){if(t!==x&&t.classList.contains('open')){t.classList.remove('open');t.querySelector('.term-btn').setAttribute('aria-expanded','false');}});}
+ts.forEach(function(t){var b=t.querySelector('.term-btn');t.addEventListener('mouseenter',function(){place(t);});b.addEventListener('focus',function(){place(t);});
+b.addEventListener('click',function(ev){ev.stopPropagation();var o=!t.classList.contains('open');close(t);if(o)place(t);t.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');});
+t.querySelector('.term-pop').addEventListener('click',function(ev){ev.stopPropagation();});});
+document.addEventListener('click',function(){close(null);});
+document.addEventListener('keydown',function(ev){if(ev.key==='Escape'){var a=document.activeElement;close(null);if(a&&a.classList.contains('term-btn'))a.blur();}});
+addEventListener('resize',function(){document.querySelectorAll('.term.open').forEach(place);});})();</script><script>(function(){var B='../';
+try{if('clearAppBadge' in navigator)Promise.resolve(navigator.clearAppBadge()).catch(function(){});}catch(_){}
+if(!('serviceWorker' in navigator))return;
+navigator.serviceWorker.register(B+'sw.js').then(function(r){
+ if(!r||!r.pushManager||!r.pushManager.getSubscription)return;
+ return r.pushManager.getSubscription().then(function(s){if(s)return s.unsubscribe();});}).catch(function(){});
+})();</script></body></html>
