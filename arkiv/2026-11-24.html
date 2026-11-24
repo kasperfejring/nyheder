@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="da"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111213" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Nyheder">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="../icons/favicon-64.png">
+<title>Nyheder · tirsdag 24. november 2026</title>
+<link rel="preload" href="../fonts/InterVariable.latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url("../fonts/InterVariable.latin.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-style:italic;font-weight:100 900;font-display:swap;src:url("../fonts/InterVariable-Italic.latin.woff2") format("woff2")}
+:root{--bg:#fbfaf7;--fg:#151515;--fg2:#2b2a27;--muted:#5b5850;--rule:#e2ddd2;--accent:#b8431a;--card:#fff;--link:#174f9c;--hl:#f3efe6}
+@media (prefers-color-scheme:dark){:root{--bg:#111213;--fg:#eeece7;--fg2:#d9d6cf;--muted:#a7a39a;--rule:#2e2d2a;--accent:#f59a62;--card:#1a1b1c;--link:#93bdf2;--hl:#1d1e20}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-padding-top:16px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size:18px;line-height:1.65;font-optical-sizing:auto;font-feature-settings:"cv11","ss01";-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px 64px}
+a{color:var(--link)}
+header.mast{text-align:center;border-bottom:1px solid var(--fg);padding:34px 0 16px;margin-bottom:22px}
+.mast h1{font-size:clamp(2.5rem,9vw,4.4rem);line-height:1;margin:0;letter-spacing:-.04em;font-weight:800}
+.mast h1 a{color:inherit;text-decoration:none}
+.mast .greet{font-size:.95rem;font-weight:500;line-height:1.3;letter-spacing:-.005em;color:var(--muted);margin:0 0 10px}
+.mast .greet[hidden]{display:none}
+.mast .meta{font-size:.74rem;font-weight:600;line-height:1.4;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-top:12px}
+.intro{font-size:1.06em;color:var(--fg2);margin:0 0 22px;line-height:1.6}
+.layout{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"intro" "toc" "main"}
+.layout>.intro{grid-area:intro}.layout>nav.toc{grid-area:toc}.layout>main{grid-area:main;min-width:0}
+nav.toc{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:4px 0;margin-bottom:28px;font-size:.9rem;line-height:1.4}
+nav.toc summary{cursor:pointer;list-style:none;padding:10px 0;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--accent)}
+nav.toc summary::-webkit-details-marker{display:none}
+nav.toc summary::after{content:" ▾";color:var(--muted)}nav.toc details[open] summary::after{content:" ▴"}
+nav.toc summary .cnt{color:var(--muted);font-weight:600;letter-spacing:.08em}
+nav.toc ol{list-style:none;margin:0 0 10px;padding:0}
+nav.toc li{margin:0}
+nav.toc a{display:flex;gap:10px;color:var(--fg);text-decoration:none;padding:7px 10px 7px 0;border-left:2px solid transparent}
+nav.toc a:hover .h{text-decoration:underline}
+nav.toc .n{flex:0 0 1.7em;text-align:right;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+nav.toc .t{display:block;font-size:.78em;color:var(--muted);margin-top:2px}
+nav.toc li.sec a .n{color:var(--accent)}
+nav.toc a.on{border-left-color:var(--accent);background:var(--hl)}nav.toc a.on .n,nav.toc a.on .h{color:var(--accent)}
+nav.toc a.read .n{color:var(--muted);opacity:.5;font-weight:500}nav.toc a.read:not(.on) .h{color:var(--muted)}
+h2.sect,.nyt h2,.radar>h2{font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;margin:6px 0 12px;color:var(--accent)}
+article{border-bottom:1px solid var(--rule);padding:4px 0 30px;margin-bottom:28px;scroll-margin-top:16px}
+.kick{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:.7rem;font-weight:700;line-height:1.5;text-transform:uppercase;letter-spacing:.1em}
+.num{background:var(--fg);color:var(--bg);border-radius:4px;padding:1px 7px;font-variant-numeric:tabular-nums}
+.tag{border:1px solid currentColor;border-radius:4px;padding:0 6px}
+.t-ai{color:#2563a8}.t-kode{color:#0b7480}.t-inv{color:#25784a}.t-sund{color:#9a6510}.t-ivk{color:#8e2a8e}.t-tank{color:#52529a}.t-egne{color:#a84b14}.t-verden{color:#4a5568}.t-frem{color:#6440b8}.t-crea{color:#b4185a}.t-samf{color:#7c6232}.t-dk{color:#b42828}.t-godt{color:#1f8a5b}
+@media (prefers-color-scheme:dark){.t-ai{color:#82b6f2}.t-kode{color:#62d2da}.t-inv{color:#72d19a}.t-sund{color:#f0c264}.t-ivk{color:#e391e3}.t-tank{color:#adadf2}.t-egne{color:#f2a676}.t-verden{color:#bac4d2}.t-frem{color:#bba2f6}.t-crea{color:#f594b6}.t-samf{color:#dcc390}.t-dk{color:#f28a8a}.t-godt{color:#7fe0b0}}
+.unc{background:#9a6510;color:#fff;border-radius:4px;padding:1px 6px}
+article h2{font-size:clamp(1.5rem,5.2vw,2.15rem);line-height:1.18;letter-spacing:-.022em;font-weight:750;margin:12px 0 10px;text-wrap:balance}
+.sum{font-size:1.1em;line-height:1.5;font-weight:500;color:var(--fg2);margin:0 0 16px}
+.body p{margin:0 0 1em}.body p:last-child{margin-bottom:14px}
+figure.fig{margin:4px 0 20px}
+figure.fig img{display:block;width:100%;height:auto;border-radius:8px;background:var(--hl)}
+figure.fig figcaption{font-size:.76rem;line-height:1.45;color:var(--muted);margin-top:7px}
+.src{font-size:.85rem;color:var(--muted)}
+.src a{font-weight:600}
+.extra{font-size:.85rem;margin:8px 0 0;padding-left:1.1em;color:var(--muted)}
+.video{position:relative;width:100%;aspect-ratio:16/9;margin:4px 0 20px;background:#000;border-radius:8px;overflow:hidden}
+.video.short{aspect-ratio:9/16;max-width:340px;margin-left:auto;margin-right:auto}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.xembed{margin:4px 0 20px;display:flex;justify-content:center}
+.car{position:relative;margin:4px 0 20px}
+.car-track{position:relative;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+  overscroll-behavior-x:contain;scrollbar-width:none;border-radius:8px;outline:none}
+.car-track::-webkit-scrollbar{display:none}
+.car-track:focus-visible{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--link)}
+.car-slide{flex:0 0 100%;min-width:0;margin:0;scroll-snap-align:start;scroll-snap-stop:always}
+.car-frame{position:relative;width:100%;aspect-ratio:16/9;background:var(--hl);border-radius:8px;overflow:hidden}
+.car-frame.v{background:#000}
+.car-frame img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain}
+.car-frame iframe,.car-frame video{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000}
+.car-frame.x{overflow-y:auto;-webkit-overflow-scrolling:touch;background:var(--hl)}
+.car-frame.x>*{margin:0 auto!important}.car-frame.x .twitter-tweet{max-width:100%}
+.vcap{font-size:.76rem;line-height:1.45;color:var(--muted);margin:-12px 0 20px}
+.car-slide figcaption{font-size:.76rem;line-height:1.45;color:var(--muted);margin-top:7px}
+.car-nav{position:absolute;left:0;right:0;top:0;aspect-ratio:16/9;pointer-events:none}
+.car-btn{position:absolute;top:50%;transform:translateY(-50%);pointer-events:auto;display:flex;align-items:center;justify-content:center;
+  width:40px;height:40px;padding:0;border:1px solid var(--rule);border-radius:50%;background:var(--card);color:var(--fg);cursor:pointer;
+  font:inherit;font-size:1.2rem;line-height:1;box-shadow:0 2px 10px rgba(0,0,0,.18);opacity:.92;transition:opacity .15s}
+.car-btn:hover{opacity:1}.car-btn:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+.car-btn[disabled]{opacity:0;pointer-events:none}
+.car-prev{left:10px}.car-next{right:10px}
+.car-bar{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:8px;font-size:.72rem;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums}
+.car-dots{display:flex;gap:2px}
+.car-dot{width:22px;height:22px;padding:7px;border:0;margin:0;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.car-dot::before{content:"";display:block;width:8px;height:8px;border-radius:50%;background:var(--rule)}
+.car-dot[aria-current="true"]::before{background:var(--accent)}
+.car-dot:focus-visible{outline:2px solid var(--link);outline-offset:-2px;border-radius:50%}
+@media (hover:none) and (pointer:coarse){.car-btn{display:none}}
+.nyt{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:16px 20px;margin:10px 0 28px;scroll-margin-top:16px}
+.nyt ul{margin:0;padding-left:1.1em}.nyt li{margin:8px 0}.nyt a{font-weight:600}
+.radar{margin:10px 0 28px;scroll-margin-top:16px}
+.radar>p.lede{font-size:.88rem;color:var(--muted);margin:0 0 12px}
+.rcard{background:var(--card);border:1px solid var(--rule);border-left:4px solid #8e2a8e;border-radius:10px;padding:14px 20px;margin:0 0 16px;scroll-margin-top:16px}
+@media (prefers-color-scheme:dark){.rcard{border-left-color:#e391e3}}
+.rcard h3{font-size:clamp(1.25rem,4vw,1.55rem);line-height:1.2;letter-spacing:-.018em;margin:8px 0 8px}
+.rcard h3 a{color:inherit;text-decoration:none}.rcard h3 a:hover{text-decoration:underline}
+.rcard dl{margin:0 0 8px}
+.rcard dt{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:12px}
+.rcard dd{margin:2px 0 0}
+.term{position:relative;display:inline}
+.term-btn{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;cursor:help;text-align:inherit;
+  text-decoration:underline dotted;text-decoration-color:var(--muted);text-decoration-thickness:1.5px;text-underline-offset:.22em;-webkit-tap-highlight-color:transparent}
+.term-btn:hover,.term.open .term-btn{text-decoration-color:var(--accent)}
+.term-btn:focus-visible{outline:2px solid var(--link);outline-offset:2px;border-radius:3px}
+.term .ti{display:none;align-items:center;justify-content:center;width:1.05em;height:1.05em;margin-left:.18em;vertical-align:.12em;
+  border:1.2px solid currentColor;border-radius:50%;font-size:.62em;font-weight:700;font-style:normal;line-height:1;color:var(--muted)}
+.term-btn:hover .ti,.term.open .ti{color:var(--accent)}
+.term-pop{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 10px);width:min(23rem,calc(100vw - 24px));
+  background:var(--card);color:var(--fg);border:1px solid var(--rule);border-radius:10px;padding:12px 14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.14),0 2px 6px rgba(0,0,0,.08);font-size:.8em;font-weight:400;line-height:1.55;text-align:left;white-space:normal;letter-spacing:0}
+.term-pop::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+.term.up .term-pop{top:auto;bottom:calc(100% + 10px)}.term.up .term-pop::before{top:auto;bottom:-12px}
+.term-pop strong{display:block;font-weight:700;margin-bottom:3px;color:var(--accent)}
+.term.open .term-pop,.term-btn:focus-visible+.term-pop{display:block}
+@media (hover:hover) and (pointer:fine){.term:hover .term-pop{display:block}}
+@media (prefers-color-scheme:dark){.term-pop{box-shadow:0 10px 30px rgba(0,0,0,.55);border-color:#3a3936}}
+.wrap{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right));padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+header.mast{padding-top:calc(34px + env(safe-area-inset-top))}
+footer{font-size:.8rem;color:var(--muted);text-align:center;padding-top:12px}
+footer .ed-no{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+ul.arkiv{list-style:none;padding:0}ul.arkiv li{border-bottom:1px solid var(--rule);padding:12px 0}
+ul.arkiv a{color:var(--fg);font-weight:700;text-decoration:none}ul.arkiv span{display:block;color:var(--muted);font-size:.92rem}
+@media (min-width:1000px){
+  body{font-size:20px}
+  .wrap{max-width:1260px;padding-left:max(40px,env(safe-area-inset-left));padding-right:max(40px,env(safe-area-inset-right));padding-bottom:calc(80px + env(safe-area-inset-bottom))}
+  .layout{grid-template-columns:290px minmax(0,70ch);grid-template-areas:"toc intro" "toc main";column-gap:64px;justify-content:center}
+  nav.toc{position:sticky;top:20px;align-self:start;max-height:calc(100vh - 40px);overflow:auto;border:0;margin:0;padding:0 4px 0 0;font-size:.78rem}
+  nav.toc summary{pointer-events:none;padding:4px 0 10px}nav.toc summary::after{content:none}
+  nav.toc a{padding:7px 10px 7px 6px}
+  .intro{margin-top:4px}
+}
+</style></head>
+<body><div class="wrap"><header class="mast"><p class="greet" id="greet" data-name="Kasper" aria-live="off" hidden></p><script>(function(){var g=document.getElementById('greet');if(!g)return;var N=g.getAttribute('data-name');
+function upd(){var h=new Date().getHours();
+ var t=h>=5&&h<10?'Godmorgen':h>=10&&h<12?'God formiddag':h>=12&&h<18?'God eftermiddag':'God aften';
+ t=N?t+', '+N:t;if(g.textContent!==t)g.textContent=t;g.hidden=false;}
+upd();addEventListener('pageshow',upd);addEventListener('focus',upd);
+document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')upd();});
+setInterval(function(){if(document.visibilityState==='visible')upd();},60000);
+})();</script><h1><a href="../index.html">Nyheder</a></h1><div class="meta">tirsdag 24. november 2026</div></header>
+<div class="layout">
+<p class="intro">Jensen Huang er tilbage som topchef i Nvidia efter Trumps indgriben – og det udløste den bedste børsdag siden april 2025. Ukraine bekræfter angrebet på russiske skibe i Libyen, lækkede data viser Ruslands reelle tab, og NATO svarer på rapporter om et russisk atomvåben i rummet. Desuden: Claude får en plugin-butik og et nyt værktøj, der selv kan godkende kode.</p>
+<nav class="toc" aria-label="Indhold"><details open><summary>Indhold <span class="cnt">· 13 historier</span></summary><ol>
+<li><a href="#1"><span class="n">1</span><span><span class="h">Jensen Huang er tilbage som Nvidia-chef efter Trumps indgriben – aktien steg 31 procent</span><span class="t">Investering</span></span></a></li>
+<li><a href="#2"><span class="n">2</span><span><span class="h">Tesla steg 11 procent på fusionssnak – men Anthropic faldt for anden dag i træk</span><span class="t">Investering</span></span></a></li>
+<li><a href="#3"><span class="n">3</span><span><span class="h">Ukraine bekræfter: Syv havdroner sænkede Putins prestigekorvet i Libyen</span><span class="t">Verden</span></span></a></li>
+<li><a href="#4"><span class="n">4</span><span><span class="h">Lækkede russiske dødsattester: Mindst 490.000 russiske soldater er dræbt – reelt nok over 700.000</span><span class="t">Verden</span></span></a></li>
+<li><a href="#5"><span class="n">5</span><span><span class="h">Rapporter: Rusland kan sende et atomvåben i kredsløb inden for 60 dage – NATO lover at forsvare rummet</span><span class="t">Verden</span></span></a></li>
+<li><a href="#6"><span class="n">6</span><span><span class="h">Claude får en »app-butik«: Over 10.000 plugins samlet ét sted – også for gratisbrugere</span><span class="t">AI &amp; tech</span></span></a></li>
+<li><a href="#7"><span class="n">7</span><span><span class="h">Claude Ship: Anthropics nye agenter retter fejl i koden – og kan selv godkende ændringer</span><span class="t">AI-kodning</span></span></a></li>
+<li><a href="#8"><span class="n">8</span><span><span class="h">To amerikanske delstater sagsøger SpaceX: Grok laver stadig seksualiserede billeder af børn</span><span class="t">AI &amp; tech</span></span></a></li>
+<li><a href="#9"><span class="n">9</span><span><span class="h">Mobilforbud i alle folkeskoler fra skoleåret 2027/2028 – også i pauser og SFO</span><span class="t">Danmark</span></span></a></li>
+<li><a href="#10"><span class="n">10</span><span><span class="h">TikTok giver alle creators et værktøj, der finder deepfakes af dem selv</span><span class="t">Creatorøkonomi</span></span></a></li>
+<li><a href="#11"><span class="n">11</span><span><span class="h">YouTube: Nu kan alle sætte egne thumbnails på Shorts – også fra telefonen</span><span class="t">Creatorøkonomi</span></span></a></li>
+<li><a href="#12"><span class="n">12</span><span><span class="h">Stor gennemgang: Træning og kondition betyder mere for et langt liv end kosten</span><span class="t">Sundhed</span></span></a></li>
+<li><a href="#13"><span class="n">13</span><span><span class="h">Det burde ikke kunne ske: Robot finder spor efter et eksplosivt vulkanudbrud 6,1 kilometer under havet</span><span class="t">Spændende</span></span></a></li>
+<li class="sec"><a href="#nyt"><span class="n">+</span><span><span class="h">Nyt til dig</span></span></a></li>
+</ol></details></nav><main data-date="2026-11-24" data-total="13" data-latest="1">
+<article id="1"><div class="kick"><span class="num">1</span><span class="tag t-inv">Investering</span></div><h2>Jensen Huang er tilbage som Nvidia-chef efter Trumps indgriben – aktien steg 31 procent</h2><p class="sum">Mindre end en uge efter at bestyrelsen sagde nej, genindsatte den Huang enstemmigt mandag. Nasdaq fik sin bedste dag siden april 2025.</p>
+<div class="body"><p>Nvidias bestyrelse genindsatte mandag Jensen Huang som topchef og bestyrelsesmedlem med øjeblikkelig virkning. Huang trådte tilbage midt i november efter afsløringer af flere udenomsægteskabelige forhold, bl.a. med en kvinde, der mistænkes for at være kinesisk spion. Bestyrelsen skriver, at den har fået »input fra de øverste niveauer i den amerikanske regering«, og Trump siger selv: »I made the deal.«</p><p>Nvidia-aktien lukkede mandag i 165,05 dollar, 31,5 procent over fredagens 125,53 dollar – selskabets bedste dag siden 2003 og næsten 1.000 milliarder dollar tilbage i <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-1-1" aria-describedby="term-1-1">markedsværdi<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-1-1" role="tooltip"><strong>markedsværdi</strong> Hvad alle et selskabs aktier tilsammen er værd på børsen (kurs gange antal aktier). Nvidias kursstigning på 31,5 procent mandag svarede til, at selskabet blev næsten 1.000 milliarder dollar mere værd på én dag.</span></span>. Nasdaq Composite steg 6,51 procent til 24.089,56 og S&amp;P 500 4,73 procent til 7.237,17 – begge den bedste dag siden april 2025. Det danske C25-indeks steg 1,5 procent til 1.949,61.</p><p>Sagen er ikke slut: Bestyrelsens egen undersøgelse fortsætter, Nvidia skal ansætte en <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-1-2" aria-describedby="term-1-2">compliance-chef<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-1-2" role="tooltip"><strong>compliance-chef</strong> En direktør, der skal sikre, at virksomheden overholder love og regler – her især eksportreglerne for avancerede AI-chips til Kina, som Nvidia er under undersøgelse for.</span></span>, og Huang skal forklare sig for Kongressen 1. og 3. december om påstået chipsmugling til Kina. Samme nat satte USA&#x27;s handelsministerium firmaet Megaspeed, der står i centrum af skandalen, og seks andre selskaber på eksportsortlisten.</p></div>
+<div class="video"><iframe class="yt" src="https://www.youtube-nocookie.com/embed/N9XrPQi9ZTA?enablejsapi=1&amp;playsinline=1&amp;rel=0" title="CNBC om genindsættelsen af Jensen Huang" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><p class="vcap">CNBC om genindsættelsen af Jensen Huang · Video: CNBC Television</p>
+<p class="src">Kilde: CNBC · <a href="https://www.cnbc.com/2026/11/24/nvidia-jensen-huang-politics-market.html" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://nvidianews.nvidia.com/news/nvidia-board-reinstates-jensen-huang-as-president-ceo-and-board-director" rel="noopener">Nvidias pressemeddelelse</a></li><li><a href="https://www.reuters.com/3fec1b0a85a0/technology/nvidia-reinstates-jensen-huang-ceo-2026-11-23/" rel="noopener">Reuters: Huang tilbage efter Trumps indgriben</a></li><li><a href="https://www.cnbc.com/2026/11/22/stock-market-today-live-updates.html" rel="noopener">CNBC: Dagens markeder</a></li><li><a href="https://www.cnbc.com/2026/11/24/us-adds-megaspeed-to-trade-blacklist-over-export-control-concerns-.html" rel="noopener">CNBC: Megaspeed sat på sortlisten</a></li></ul>
+</article>
+<article id="2"><div class="kick"><span class="num">2</span><span class="tag t-inv">Investering</span></div><h2>Tesla steg 11 procent på fusionssnak – men Anthropic faldt for anden dag i træk</h2><p class="sum">Mens næsten hele techsektoren steg mandag, lukkede Anthropic 1,4 procent lavere i 87,64 dollar.</p>
+<div class="body"><p>Tesla lukkede mandag i 385,46 dollar, 11,5 procent højere end fredag. Ud over den brede AI-rally blev aktien løftet af spekulation om en fusion med SpaceX – ifølge Bloomberg kan en aftale komme allerede i december – og af udrulningen af FSD v15. HSBC opjusterede aktien til »hold« og regner med, at en købspris fra SpaceX kan ligge omkring 507 dollar pr. aktie; som selvstændigt selskab vurderer banken Tesla til kun 212 dollar.</p><p>Anthropic gik den anden vej: Aktien åbnede omkring 93,65 dollar, men lukkede i 87,64 dollar, 1,43 procent under fredagens 88,91 dollar. Det er tredje handelsdag, efter at aktien steg 17 procent på sin første dag torsdag og faldt 8,5 procent fredag. Investor&#x27;s Business Daily kalder forholdet mellem Anthropic og Nvidia »kompliceret«, og Børsen skriver, at fokus nu flytter til Anthropics <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-2-1" aria-describedby="term-2-1">kreditværdighed<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-2-1" role="tooltip"><strong>kreditværdighed</strong> Hvor sikre långivere vurderer, at et selskab kan betale sin gæld tilbage. Jo dårligere, desto dyrere bliver det at låne – vigtigt for Anthropic, der planlægger investeringer for omkring 900 milliarder dollar.</span></span>, fordi selskabet planlægger investeringer for omkring 900 milliarder dollar de kommende år.</p></div>
+<p class="src">Kilde: The Motley Fool · <a href="https://www.fool.com/investing/2026/11/23/why-tesla-stock-stepped-on-the-gas-today/" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.investors.com/news/technology/anthropic-stock-ai-stocks-jensen-huang-nvidia/" rel="noopener">Investor&#x27;s Business Daily: Anthropic misser AI-rallyet</a></li><li><a href="https://finance.yahoo.com/quote/ANT/history/" rel="noopener">Yahoo Finance: Anthropic-kurshistorik</a></li><li><a href="https://borsen.dk/nyheder/virksomheder/anthropics-investeringsplaner-rammer-kreditvaerdigheden" rel="noopener">Børsen: Anthropics investeringsplaner rammer kreditværdigheden</a></li></ul>
+</article>
+<article id="3"><div class="kick"><span class="num">3</span><span class="tag t-verden">Verden</span></div><h2>Ukraine bekræfter: Syv havdroner sænkede Putins prestigekorvet i Libyen</h2><p class="sum">Zelenskyj har lagt videoen ud fra dronerne, der ramte korvetten Merkury i Benghazi og et fragtskib, som ifølge Ukraine fragtede våben.</p>
+<div class="body"><p>Ukraines sikkerhedstjeneste SBU bekræfter, at syv ukrainskproducerede havdroner blev sendt ud fra et moderskib og ramte den russiske korvet Merkury ved flådebasen i Benghazi og fragtskibet MV Angara ud for Libyen natten til søndag. Merkury sank, og ifølge Zelenskyj blev også en Ka-27-helikopter ødelagt. Angrebet skete omkring 2.400 kilometer fra fronten i Ukraine.</p><p>Merkury var et af Ruslands nyeste skibe, og Putin havde personligt fremhævet det ved flådeparaden i 2023. Skibet lå i Benghazi for at tanke og eskortere russiske fragtskibe under en aftale med Khalifa Haftars styre i det østlige Libyen. Den FN-anerkendte regering i Tripoli fordømmer, at fremmede magter fører krig i libysk farvand, og FN&#x27;s mission kræver en uafhængig undersøgelse. Rusland har endnu ikke kommenteret.</p></div>
+<div class="video"><iframe class="yt" src="https://www.youtube-nocookie.com/embed/w1wFM7wftt8?enablejsapi=1&amp;playsinline=1&amp;rel=0" title="Optagelser fra de ukrainske havdroner under angrebet i Benghazi" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><p class="vcap">Optagelser fra de ukrainske havdroner under angrebet i Benghazi · Video: FRANCE 24 English</p>
+<p class="src">Kilde: The Guardian · <a href="https://www.theguardian.com/world/2026/nov/23/ukraine-naval-drones-strike-russian-warship-libya" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.bbc.com/news/articles/cr894gjz0j0yo" rel="noopener">BBC: Hvad angrebet siger om krigens spredning</a></li></ul>
+</article>
+<article id="4"><div class="kick"><span class="num">4</span><span class="tag t-verden">Verden</span></div><h2>Lækkede russiske dødsattester: Mindst 490.000 russiske soldater er dræbt – reelt nok over 700.000</h2><p class="sum">Hackere stjal data fra Ruslands statistikbureau. Meduza og Mediazona vurderer, at materialet er ægte.</p>
+<div class="body"><p>Hackergrupperne Belarusian Cyber Partisans og Silent Crow brød i begyndelsen af november ind hos Rosstat, Ruslands statistikbureau, og fik fat i omkring 11,7 millioner dødsregistreringer. De uafhængige russiske medier Meduza og Mediazona har gennemgået databasen, sammenholdt den med navnelister og offentlig statistik og konkluderer, at den næsten sikkert er ægte.</p><p>Alene de registrerede dødsfald viser, at mindst 490.000 russiske soldater var dræbt ved udgangen af september 2026. Medregnes de savnede, hvis død endnu ikke er registreret, når medierne frem til over 700.000 – langt over deres tidligere skøn på 350.000 frem til udgangen af 2025. The Guardian finder i samme data mere end 1.000 selvmord blandt russiske soldater. Kreml offentliggør ikke egne tabstal.</p></div>
+<p class="src">Kilde: Meduza · <a href="https://meduza.io/en/feature/2026/11/23/more-than-700-000-russian-troops-died-in-the-war-in-ukraine-by-late-september-2026-meduza-and-mediazona-estimate" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.theguardian.com/world/2026/nov/23/leaked-data-shows-more-than-1000-russian-military-suicides-during-ukraine-war" rel="noopener">The Guardian: Over 1.000 selvmord i den russiske hær</a></li><li><a href="https://en.zona.media/article/2026/11/23/rosstat_leaked" rel="noopener">Mediazona: Rosstat-lækket er ægte</a></li></ul>
+</article>
+<article id="5"><div class="kick"><span class="num">5</span><span class="tag t-verden">Verden</span></div><h2>Rapporter: Rusland kan sende et atomvåben i kredsløb inden for 60 dage – NATO lover at forsvare rummet</h2><p class="sum">Tyske medier skriver om satellitten »Sputnik-S« med atomsprænghoved. Merz og Rutte afviser ikke oplysningerne.</p>
+<div class="body"><p>Ifølge NDR, WDR og Süddeutsche Zeitung, der citerer anonyme tyske militær- og efterretningskilder, er der i november delt efterretninger blandt NATO-landene om, at Rusland inden for 60 dage kan opsende en satellit med et atomsprænghoved, kaldet »Sputnik-S«. Den skal kunne forstyrre eller ødelægge andre satellitter, fx til kommunikation og overvågning.</p><p>NATO&#x27;s generalsekretær Mark Rutte sagde mandag i Berlin, at alliancen vil forsvare »hver tomme af NATO&#x27;s territorium – også i rummet«. Kansler Friedrich Merz hverken bekræftede eller afviste, men sagde, at rapporterne viser, hvor langt Rusland er villig til at eskalere. Kreml kalder oplysningerne »næppe værd at tage alvorligt«. Rusland har skrevet under på rumtraktaten fra 1967, der forbyder masseødelæggelsesvåben i kredsløb.</p></div>
+<p class="src">Kilde: BBC · <a href="https://www.bbc.com/news/articles/c9x2er1ry2mzo" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.theguardian.com/world/2026/nov/23/russia-nuclear-weapons-space-german-intelligence" rel="noopener">The Guardian: Tyskland tager rapporterne alvorligt</a></li><li><a href="https://www.nato.int/en/news-and-events/events/transcripts/2026/11/23/joint-press-conference-by-the-secretary-general-with-the-federal-chancellor-of-germany" rel="noopener">NATO: Pressemødet med Rutte og Merz</a></li></ul>
+</article>
+<article id="6"><div class="kick"><span class="num">6</span><span class="tag t-ai">AI &amp; tech</span></div><h2>Claude får en »app-butik«: Over 10.000 plugins samlet ét sted – også for gratisbrugere</h2><p class="sum"><span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-6-1" aria-describedby="term-6-1">Connectors<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-6-1" role="tooltip"><strong>connectors</strong> Forbindelser, der giver Claude adgang til andre tjenester som mail, kalender eller filer. Derfor er det vigtigt, at man selv afbryder connectoren, når man fjerner et plugin, der indeholder den.</span></span> og skills er slået sammen til plugins, og fanen »Customize« hedder nu »Plugins«.</p>
+<div class="body"><p>Anthropic har samlet Claudes tre slags tilføjelser – connectors, der kobler Claude til fx mail, kalender og databaser, skills, der lærer Claude bestemte opgaver, og plugins, der kan rumme begge dele – på én Plugins-side. Kataloget har over 10.000 plugins, som er mærket enten »Verified« eller »Community«, og kan filtreres efter type, emne og branche. En skill bruges ved at trykke på »+« eller skrive »/« i chatten.</p><p>Ændringen er live nu på Free, Pro, Max og Ultra; Team-planer får den fra 30. november og Enterprise i de følgende uger. Allerede installerede tilføjelser bliver liggende. Et vigtigt forbehold fra Anthropics hjælpeside: Fjerner man et plugin, der indeholder en connector, bliver connectoren ikke afbrudt – det skal gøres særskilt.</p></div>
+<p class="src">Kilde: Claude Help Center · <a href="https://support.claude.com/en/articles/17740565-manage-plugins-skills-and-connectors-from-one-plugins-page" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://x.com/claudeai/status/2124970294523945328" rel="noopener">Claude på X</a></li><li><a href="https://www.fathom.news/claude-plugins-free-users/" rel="noopener">Fathom: Claude får en app-butik</a></li></ul>
+</article>
+<article id="7"><div class="kick"><span class="num">7</span><span class="tag t-kode">AI-kodning</span></div><h2>Claude Ship: Anthropics nye agenter retter fejl i koden – og kan selv godkende ændringer</h2><p class="sum">Det nye værktøj automatiserer det sidste led efter AI-skrevet kode: review, rettelser og godkendelse.</p>
+<div class="body"><p>Anthropic har lanceret Claude Ship, en pakke af AI-agenter til arbejdet, efter at koden er skrevet. Den består af Code Review, som allerede er frigivet, og to nye agenter i beta: PR Steward, der selv retter fejlende <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-7-1" aria-describedby="term-7-1">CI-tjek<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-7-1" role="tooltip"><strong>CI-tjek</strong> Automatiske tests, der kører, hver gang nogen foreslår en kodeændring (CI = continuous integration). PR Steward forsøger selv at rette koden, når de tests fejler.</span></span>, <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-7-2" aria-describedby="term-7-2">merge-konflikter<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-7-2" role="tooltip"><strong>merge-konflikter</strong> Når to ændringer har rettet i de samme linjer kode, så de ikke automatisk kan flettes sammen. Det løser PR Steward nu selv.</span></span> og kommentarer fra Code Review og skriver, hvordan hver ændring kan rulles tilbage, og Claude Approvals, der godkender rutineændringer efter en politik, teamet skriver i almindeligt sprog som en fil i repoet.</p><p>Anthropic skriver, at Claude på Claude Code-teamet skriver det meste af koden, og at flaskehalsen nu er at nå at gennemgå den. Firmaet anbefaler at køre godkendelserne i »observe-only«-tilstand først, starte med ét repo og sætte månedlige udgiftslofter. Claude Ship rulles ud til Team- og Enterprise-planer for repositories på GitHub.</p></div>
+<p class="src">Kilde: TechCrunch · <a href="https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://claude.com/resources/articles/introducing-claude-ship" rel="noopener">Anthropic: Introducing Claude Ship</a></li></ul>
+</article>
+<article id="8"><div class="kick"><span class="num">8</span><span class="tag t-ai">AI &amp; tech</span></div><h2>To amerikanske delstater sagsøger SpaceX: Grok laver stadig seksualiserede billeder af børn</h2><p class="sum">Virginia og Oregon kræver et forbud og bøder for hver overtrædelse. SpaceX ejer xAI og dermed Grok.</p>
+<div class="body"><p>Virginia og Oregon er de første delstater, der sagsøger SpaceX, som købte xAI i februar. Ifølge stævningerne kan Grok stadig lave seksualiserede billeder af rigtige kvinder og børn ud fra almindelige fotos, og chatbotten hjælper endda brugere med at formulere prompts, der snyder dens egne filtre. Delstaterne mener, at Musks selskaber vildledte offentligheden om sikkerheden, og at teamet, der skulle teste Grok, var skåret ned til to-tre personer.</p><p>Delstaterne beder domstolene om et <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-8-1" aria-describedby="term-8-1">påbud<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-8-1" role="tooltip"><strong>påbud</strong> En retskendelse, der pålægger et selskab at gøre eller stoppe noget. Her vil delstaterne have en domstol til at forbyde SpaceX at drive Grok uden effektive sikkerhedsfiltre.</span></span> og civile bøder på tusindvis af dollar pr. overtrædelse. Virginia oplyser, at Grok-appen er hentet 986.624 gange fra Virginia. X Safety svarer, at virksomheden har »nultolerance«, at hver prompt og hvert billede screenes, og at forsøg på at lave den slags materiale meldes til politiet.</p></div>
+<p class="src">Kilde: Ars Technica · <a href="https://arstechnica.com/tech-policy/2026/11/states-sue-spacex-to-stop-grok-from-generating-child-sex-images-revenge-porn/" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="9"><div class="kick"><span class="num">9</span><span class="tag t-dk">Danmark</span></div><h2>Mobilforbud i alle folkeskoler fra skoleåret 2027/2028 – også i pauser og SFO</h2><p class="sum">Regeringen, Enhedslisten og Alternativet har lavet en aftale, der gør mobilfri skole til lov i hele landet.</p>
+<div class="body"><p>Mobiltelefoner bliver forbudt i grundskolen, 10. klasse og fritidstilbud som SFO fra skoleåret 2027/2028. Forbuddet gælder både i undervisningen og i pauserne – på folkeskoler, frie grundskoler, efterskoler, kommunale internationale skoler og ungdomsskoler. Aftalen er indgået mellem regeringen, Enhedslisten og Alternativet.</p><p>I dag skal skolerne selv lave en lokal mobilpolitik, og efter en aftale fra 2025 skal skoler og fritidstilbud kun være mobilfri op til 3. klasse. »Børn skal kunne gå i skole uden hele tiden at blive forstyrret af for eksempel sociale medier, onlineshopping og gaming,« siger undervisningsminister Magnus Heunicke (S). Regeringen vil samtidig have indholdsfiltre på skolernes net, men en it-ekspert siger til DR, at det er umuligt helt at blokere elevernes adgang.</p></div>
+<p class="src">Kilde: DR · <a href="https://www.dr.dk/nyheder/politik/mobiltelefoner-forbydes-i-landets-folkeskoler-fra-naeste-skoleaar" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.dr.dk/nyheder/indland/it-ekspert-umuligt-fuldstaendig-blokere-elevers-adgang-til-dele-af-nettet-i-skolerne" rel="noopener">DR: It-ekspert om indholdsfiltre</a></li></ul>
+</article>
+<article id="10"><div class="kick"><span class="num">10</span><span class="tag t-crea">Creatorøkonomi</span></div><h2>TikTok giver alle creators et værktøj, der finder deepfakes af dem selv</h2><p class="sum">»Likeness Detection« er nu global, og alle kan tjekke, om en video er lavet med TikToks egne AI-værktøjer.</p>
+<div class="body"><p>TikTok har gjort »Likeness Detection« tilgængelig for kvalificerede creators og offentlige personer i hele verden. Man verificerer sit ID hos en ekstern partner (i den amerikanske test var det Jumio) og får derefter besked, når TikTok finder videoer, der ser ud til at bruge ens ansigt uden samtykke, så man kan få dem fjernet.</p><p>Samtidig lancerer TikTok et offentligt tjek, hvor alle – også uden konto – kan uploade video, billeder eller lyd og se, om det er lavet eller redigeret med AI fra TikTok, CapCut, Dreamina, Hypic eller Pippit. Tjekket læser »<span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-10-1" aria-describedby="term-10-1">Content Credentials<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-10-1" role="tooltip"><strong>Content Credentials</strong> En åben standard, hvor oplysninger om, hvordan et billede eller en video er lavet – fx med hvilket AI-værktøj – gemmes i selve filen. TikToks nye tjek bruger dem til at afsløre indhold fra TikTok, CapCut og søsterapps.</span></span>«-metadata og usynlige vandmærker. TikTok oplyser, at platformen indtil nu har mærket omkring fem milliarder uploads som AI-indhold.</p></div>
+<p class="src">Kilde: Digital Music News · <a href="https://www.digitalmusicnews.com/2026/11/23/tiktok-likeness-detection-release/" rel="noopener">Læs mere →</a></p>
+</article>
+<article id="11"><div class="kick"><span class="num">11</span><span class="tag t-crea">Creatorøkonomi</span></div><h2>YouTube: Nu kan alle sætte egne thumbnails på Shorts – også fra telefonen</h2><p class="sum">Samtidig kan man kommentere med stemmen, mens man ser YouTube på tv.</p>
+<div class="body"><p>Alle creators kan nu uploade et selvvalgt thumbnail-billede til deres Shorts, både på computer og direkte i YouTube Studio-appen på telefonen. Det kan gøres ved upload eller bagefter ved at trykke på blyant-ikonet på en Short. Har man ikke et billede, kan YouTubes AI-assistent Ask Studio hjælpe med at finde på idéer.</p><p>Samme dag lancerede YouTube stemmekommentarer på understøttede smart-tv&#x27;er i hele verden: Ifølge YouTube-chef Neal Mohan er det et af de mest efterspurgte ønsker: Man åbner kommentarerne med fjernbetjeningen, vælger »Use Voice« og siger, hvad man vil skrive.</p></div>
+<p class="src">Kilde: YouTube Creator Insider · <a href="https://www.youtube.com/shorts/cF8fJ1AGdA0" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://x.com/nealmohan/status/2124992445608075268" rel="noopener">Neal Mohan om Shorts-thumbnails</a></li><li><a href="https://x.com/nealmohan/status/2124964946329084112" rel="noopener">Neal Mohan om stemmekommentarer på tv</a></li></ul>
+</article>
+<article id="12"><div class="kick"><span class="num">12</span><span class="tag t-sund">Sundhed</span></div><h2>Stor gennemgang: Træning og kondition betyder mere for et langt liv end kosten</h2><p class="sum">Stillesiddende har 46 til over 163 procent højere dødelighed – dårlig kost »kun« 3 til 20 procent.</p>
+<div class="body"><p>Professor Glenn Gaesser fra Arizona State University og lægen Robert Sallis fra Kaiser Permanente har gennemgået <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-12-1" aria-describedby="term-12-1">metaanalyser<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-12-1" role="tooltip"><strong>metaanalyser</strong> Studier, der samler og regner på resultaterne fra mange tidligere undersøgelser for at få et mere sikkert samlet svar. Gennemgangen bygger på sådanne samlinger frem for på ét nyt forsøg.</span></span> og langtidsstudier af kost, fysisk aktivitet og kondition. Folk med dårlig kost (meget forarbejdet mad, rødt kød og sukker) havde 3–20 procent højere risiko for at dø af alle årsager, mens folk, der sad det meste af tiden, havde 46 til over 163 procent højere risiko.</p><p>Folk, der gik 11.000–16.000 skridt om dagen, havde 45–67 procent lavere dødelighed end dem med 2.000–5.000 skridt, og blandt inaktive var bare 2.000 ekstra skridt forbundet med 25–50 procent lavere risiko. Træning ser ud til delvist at opveje dårlig kost, men ikke omvendt. Forskerne understreger, at tallene kommer fra forskellige studier og ikke kan sammenlignes direkte – og at det bedste er begge dele. Studiet er udgivet i Mayo Clinic Proceedings.</p></div>
+<p class="src">Kilde: Health Chosun · <a href="https://health.chosun.com/english/site/data/html_dir/2026/11/21/2026112100674.html" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://doi.org/10.1016/j.mayocp.2026.10.010" rel="noopener">Studiet i Mayo Clinic Proceedings</a></li></ul>
+</article>
+<article id="13"><div class="kick"><span class="num">13</span><span class="tag t-godt">Spændende</span></div><h2>Det burde ikke kunne ske: Robot finder spor efter et eksplosivt vulkanudbrud 6,1 kilometer under havet</h2><p class="sum">I Marianergraven, hvor trykket er 1.000 gange højere end ved havoverfladen, har en robotubåd fundet resterne af en <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-13-1" aria-describedby="term-13-1">pyroklastisk strøm<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-13-1" role="tooltip"><strong>pyroklastisk strøm</strong> En lynhurtig lavine af glohed sten, aske og gas fra et eksplosivt vulkanudbrud. At finde rester af én 6.148 meter under havet overrasker, fordi vandtrykket burde forhindre den slags eksplosioner.</span></span>.</p>
+<figure class="fig"><img src="../img/2026-11-24/challenger-deep.jpg" alt="Lagdelte, sprækkede klippeplader på havbunden i Challenger Deep, fotograferet af robotubåden Jason" loading="lazy" decoding="async" width="1200" height="675"><figcaption>Klippelagene fra udbruddet, ca. 6.150 meter under havoverfladen · Billede: Woods Hole Oceanographic Institution / NSF via National Geographic</figcaption></figure>
+<div class="body"><p>Robotubåden Jason/Medea fra Woods Hole Oceanographic Institution fandt på et dyk i Challenger Deep tynde, flade klippelag i 6.148 meters dybde (20.170 fod), som stammer fra en pyroklastisk strøm – den slags lavine af glohed sten, aske og gas, der begravede Pompeji. Det er langt det dybeste eksplosive vulkanudbrud, der nogensinde er fundet; den tidligere rekord var omkring 4.000 meter.</p><p>Problemet er, at det i teorien er umuligt: Det enorme vandtryk burde forhindre gassen i magmaen i at udvide sig og sprænge den. »Fuldstændig uventet,« siger geologen Robert Stern fra University of Texas at Dallas. Udbruddet skete for nylig i geologisk forstand, og forskerne mener, det nok mere lignede en splintrende strøm end en eksplosion. Robotten var kun omkring 350 meter over sin maksimale dykkedybde, da den gjorde fundet, som er offentliggjort i Frontiers in Earth Science.</p></div>
+<p class="src">Kilde: National Geographic · <a href="https://www.nationalgeographic.com/science/article/challenger-deep-explosive-volcanic-eruption-discovery" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://phys.org/news/2026-11-robot-submarine-exploring-world-deepest.html" rel="noopener">Phys.org: Robotubåd finder hidtil uset vulkansk aktivitet</a></li></ul>
+</article>
+<section class="nyt" id="nyt"><h2>Nyt til dig</h2><ul>
+<li><a href="https://meduza.io/en" rel="noopener">Meduza (engelsk)</a> – Uafhængigt russisk eksilmedie i Riga med datadrevne undersøgelser af Ruslands krig og samfund.</li>
+<li><a href="https://support.claude.com/en/articles/12138966-release-notes" rel="noopener">Claude Help Center – Release notes</a> – Anthropics egne løbende noter om nye funktioner, planændringer og regler i Claude-apps.</li>
+<li><a href="https://www.frontiersin.org/journals/earth-science" rel="noopener">Frontiers in Earth Science</a> – Open access-tidsskrift om geologi, vulkaner og havbund – her blev fundet fra Challenger Deep offentliggjort.</li>
+</ul></section>
+</main></div>
+<footer><div class="ed-no">Udgave nr. 28</div><a href="../index.html">Seneste udgave</a> · <a href="../arkiv/index.html">Arkiv</a> · Nyheder for Kasper</footer>
+</div><script>(function(){var d=document.querySelector('nav.toc details');if(!d)return;var mq=matchMedia('(min-width:1000px)');
+function fit(){d.open=mq.matches?true:d.dataset.u==='1';}d.querySelector('summary').addEventListener('click',function(){d.dataset.u=d.open?'0':'1';});
+fit();mq.addEventListener&&mq.addEventListener('change',fit);
+var links={};d.querySelectorAll('a[href^="#"]').forEach(function(a){links[decodeURIComponent(a.getAttribute('href').slice(1))]=a;});
+var cur;function on(id){if(cur)cur.classList.remove('on');cur=links[id];if(cur){cur.classList.add('on');if(mq.matches&&cur.scrollIntoView){var r=cur.getBoundingClientRect(),p=d.parentNode.getBoundingClientRect();if(r.top<p.top||r.bottom>p.bottom)cur.scrollIntoView({block:'nearest'});}}}
+if(!('IntersectionObserver' in window))return;var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)on(e.target.id);});},{rootMargin:'-20% 0px -70% 0px'});
+Object.keys(links).forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el);});})();</script><script>(function(){var m=document.querySelector('main[data-date]');if(!m)return;
+var D=m.dataset.date,LATEST=m.dataset.latest==='1',K='nyheder-read-'+D,arts=[].slice.call(document.querySelectorAll('main article[id]')),N=arts.length;
+var ls=null;try{ls=window.localStorage;ls.getItem(K);}catch(_){ls=null;}
+var read={};try{(JSON.parse((ls&&ls.getItem(K))||'[]')||[]).forEach(function(i){read[i]=1;});}catch(_){}
+function save(){if(!ls)return;try{ls.setItem(K,JSON.stringify(Object.keys(read).map(Number).sort(function(a,b){return a-b;})));
+ var ks=[];for(var i=0;i<ls.length;i++){var k=ls.key(i);if(k&&k.indexOf('nyheder-read-')===0)ks.push(k);}ks.sort();while(ks.length>30)ls.removeItem(ks.shift());}catch(_){}}
+var toc={};document.querySelectorAll('nav.toc a[href^="#"]').forEach(function(a){toc[a.getAttribute('href').slice(1)]=a;});
+function paint(i){var a=toc[i];if(a){a.classList.add('read');var n=a.querySelector('.n');if(n)n.setAttribute('aria-label',i+', læst');}}
+function mark(i){i=String(i);if(read[i]||!document.getElementById(i))return;read[i]=1;save();paint(i);}
+Object.keys(read).forEach(function(i){paint(i);});
+Object.keys(toc).forEach(function(i){if(/^\d+$/.test(i))toc[i].addEventListener('click',function(){mark(i);});});
+/* Read = ~60 % of the story (or of the screen, for stories taller than it) visible for 3 s while the page is visible. */
+if('IntersectionObserver' in window){var tm={};
+ var th=[];for(var t=0;t<=20;t++)th.push(t/20);
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){var id=e.target.id;if(read[id])return;
+  var need=0.6*Math.min(e.boundingClientRect.height,(e.rootBounds&&e.rootBounds.height)||innerHeight);
+  var ok=e.isIntersecting&&e.intersectionRect.height>=need;
+  if(ok&&!tm[id])tm[id]=setTimeout(function(){tm[id]=0;if(document.visibilityState!=='hidden')mark(id);else io.unobserve(e.target),io.observe(e.target);},3000);
+  else if(!ok&&tm[id]){clearTimeout(tm[id]);tm[id]=0;}});},{threshold:th});
+ arts.forEach(function(a){if(!read[a.id])io.observe(a);});
+ document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden'){Object.keys(tm).forEach(function(id){if(tm[id]){clearTimeout(tm[id]);tm[id]=0;}});}
+  else{arts.forEach(function(a){if(!read[a.id]){io.unobserve(a);io.observe(a);}});}});}
+if(location.hash){var h=location.hash;addEventListener('load',function(){var el=document.getElementById(decodeURIComponent(h.slice(1)));if(el&&location.hash===h)setTimeout(function(){el.scrollIntoView();},60);});}
+})();</script><script>(function(){var ts=document.querySelectorAll('.term');if(!ts.length)return;
+function place(t){var p=t.querySelector('.term-pop');t.classList.remove('up');p.style.left='0px';p.style.display='block';
+var vw=document.documentElement.clientWidth,r=p.getBoundingClientRect(),dx=0;if(r.right>vw-12)dx=vw-12-r.right;if(r.left+dx<12)dx=12-r.left;
+p.style.left=dx+'px';var b=p.getBoundingClientRect();if(b.bottom>innerHeight-8&&t.getBoundingClientRect().top>b.height+24)t.classList.add('up');p.style.display='';}
+function close(x){ts.forEach(function(t){if(t!==x&&t.classList.contains('open')){t.classList.remove('open');t.querySelector('.term-btn').setAttribute('aria-expanded','false');}});}
+ts.forEach(function(t){var b=t.querySelector('.term-btn');t.addEventListener('mouseenter',function(){place(t);});b.addEventListener('focus',function(){place(t);});
+b.addEventListener('click',function(ev){ev.stopPropagation();var o=!t.classList.contains('open');close(t);if(o)place(t);t.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');});
+t.querySelector('.term-pop').addEventListener('click',function(ev){ev.stopPropagation();});});
+document.addEventListener('click',function(){close(null);});
+document.addEventListener('keydown',function(ev){if(ev.key==='Escape'){var a=document.activeElement;close(null);if(a&&a.classList.contains('term-btn'))a.blur();}});
+addEventListener('resize',function(){document.querySelectorAll('.term.open').forEach(place);});})();</script><script>(function(){var B='../';
+try{if('clearAppBadge' in navigator)Promise.resolve(navigator.clearAppBadge()).catch(function(){});}catch(_){}
+if(!('serviceWorker' in navigator))return;
+navigator.serviceWorker.register(B+'sw.js').then(function(r){
+ if(!r||!r.pushManager||!r.pushManager.getSubscription)return;
+ return r.pushManager.getSubscription().then(function(s){if(s)return s.unsubscribe();});}).catch(function(){});
+})();</script></body></html>
