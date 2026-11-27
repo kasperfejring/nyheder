@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="da"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111213" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Nyheder">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="../icons/favicon-64.png">
+<title>Nyheder · fredag 27. november 2026</title>
+<link rel="preload" href="../fonts/InterVariable.latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url("../fonts/InterVariable.latin.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-style:italic;font-weight:100 900;font-display:swap;src:url("../fonts/InterVariable-Italic.latin.woff2") format("woff2")}
+:root{--bg:#fbfaf7;--fg:#151515;--fg2:#2b2a27;--muted:#5b5850;--rule:#e2ddd2;--accent:#b8431a;--card:#fff;--link:#174f9c;--hl:#f3efe6}
+@media (prefers-color-scheme:dark){:root{--bg:#111213;--fg:#eeece7;--fg2:#d9d6cf;--muted:#a7a39a;--rule:#2e2d2a;--accent:#f59a62;--card:#1a1b1c;--link:#93bdf2;--hl:#1d1e20}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-padding-top:16px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size:18px;line-height:1.65;font-optical-sizing:auto;font-feature-settings:"cv11","ss01";-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px 64px}
+a{color:var(--link)}
+header.mast{text-align:center;border-bottom:1px solid var(--fg);padding:34px 0 16px;margin-bottom:22px}
+.mast h1{font-size:clamp(2.5rem,9vw,4.4rem);line-height:1;margin:0;letter-spacing:-.04em;font-weight:800}
+.mast h1 a{color:inherit;text-decoration:none}
+.mast .greet{font-size:.95rem;font-weight:500;line-height:1.3;letter-spacing:-.005em;color:var(--muted);margin:0 0 10px}
+.mast .greet[hidden]{display:none}
+.mast .meta{font-size:.74rem;font-weight:600;line-height:1.4;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-top:12px}
+.intro{font-size:1.06em;color:var(--fg2);margin:0 0 22px;line-height:1.6}
+.layout{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"intro" "toc" "main"}
+.layout>.intro{grid-area:intro}.layout>nav.toc{grid-area:toc}.layout>main{grid-area:main;min-width:0}
+nav.toc{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:4px 0;margin-bottom:28px;font-size:.9rem;line-height:1.4}
+nav.toc summary{cursor:pointer;list-style:none;padding:10px 0;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--accent)}
+nav.toc summary::-webkit-details-marker{display:none}
+nav.toc summary::after{content:" ▾";color:var(--muted)}nav.toc details[open] summary::after{content:" ▴"}
+nav.toc summary .cnt{color:var(--muted);font-weight:600;letter-spacing:.08em}
+nav.toc ol{list-style:none;margin:0 0 10px;padding:0}
+nav.toc li{margin:0}
+nav.toc a{display:flex;gap:10px;color:var(--fg);text-decoration:none;padding:7px 10px 7px 0;border-left:2px solid transparent}
+nav.toc a:hover .h{text-decoration:underline}
+nav.toc .n{flex:0 0 1.7em;text-align:right;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+nav.toc .t{display:block;font-size:.78em;color:var(--muted);margin-top:2px}
+nav.toc li.sec a .n{color:var(--accent)}
+nav.toc a.on{border-left-color:var(--accent);background:var(--hl)}nav.toc a.on .n,nav.toc a.on .h{color:var(--accent)}
+nav.toc a.read .n{color:var(--muted);opacity:.5;font-weight:500}nav.toc a.read:not(.on) .h{color:var(--muted)}
+h2.sect,.nyt h2,.radar>h2{font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;margin:6px 0 12px;color:var(--accent)}
+article{border-bottom:1px solid var(--rule);padding:4px 0 30px;margin-bottom:28px;scroll-margin-top:16px}
+.kick{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:.7rem;font-weight:700;line-height:1.5;text-transform:uppercase;letter-spacing:.1em}
+.num{background:var(--fg);color:var(--bg);border-radius:4px;padding:1px 7px;font-variant-numeric:tabular-nums}
+.tag{border:1px solid currentColor;border-radius:4px;padding:0 6px}
+.t-ai{color:#2563a8}.t-kode{color:#0b7480}.t-inv{color:#25784a}.t-sund{color:#9a6510}.t-ivk{color:#8e2a8e}.t-tank{color:#52529a}.t-egne{color:#a84b14}.t-verden{color:#4a5568}.t-frem{color:#6440b8}.t-crea{color:#b4185a}.t-samf{color:#7c6232}.t-dk{color:#b42828}.t-godt{color:#1f8a5b}
+@media (prefers-color-scheme:dark){.t-ai{color:#82b6f2}.t-kode{color:#62d2da}.t-inv{color:#72d19a}.t-sund{color:#f0c264}.t-ivk{color:#e391e3}.t-tank{color:#adadf2}.t-egne{color:#f2a676}.t-verden{color:#bac4d2}.t-frem{color:#bba2f6}.t-crea{color:#f594b6}.t-samf{color:#dcc390}.t-dk{color:#f28a8a}.t-godt{color:#7fe0b0}}
+.unc{background:#9a6510;color:#fff;border-radius:4px;padding:1px 6px}
+article h2{font-size:clamp(1.5rem,5.2vw,2.15rem);line-height:1.18;letter-spacing:-.022em;font-weight:750;margin:12px 0 10px;text-wrap:balance}
+.sum{font-size:1.1em;line-height:1.5;font-weight:500;color:var(--fg2);margin:0 0 16px}
+.body p{margin:0 0 1em}.body p:last-child{margin-bottom:14px}
+figure.fig{margin:4px 0 20px}
+figure.fig img{display:block;width:100%;height:auto;border-radius:8px;background:var(--hl)}
+figure.fig figcaption{font-size:.76rem;line-height:1.45;color:var(--muted);margin-top:7px}
+.src{font-size:.85rem;color:var(--muted)}
+.src a{font-weight:600}
+.extra{font-size:.85rem;margin:8px 0 0;padding-left:1.1em;color:var(--muted)}
+.video{position:relative;width:100%;aspect-ratio:16/9;margin:4px 0 20px;background:#000;border-radius:8px;overflow:hidden}
+.video.short{aspect-ratio:9/16;max-width:340px;margin-left:auto;margin-right:auto}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.xembed{margin:4px 0 20px;display:flex;justify-content:center}
+.car{position:relative;margin:4px 0 20px}
+.car-track{position:relative;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+  overscroll-behavior-x:contain;scrollbar-width:none;border-radius:8px;outline:none}
+.car-track::-webkit-scrollbar{display:none}
+.car-track:focus-visible{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--link)}
+.car-slide{flex:0 0 100%;min-width:0;margin:0;scroll-snap-align:start;scroll-snap-stop:always}
+.car-frame{position:relative;width:100%;aspect-ratio:16/9;background:var(--hl);border-radius:8px;overflow:hidden}
+.car-frame.v{background:#000}
+.car-frame img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain}
+.car-frame iframe,.car-frame video{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000}
+.car-frame.x{overflow-y:auto;-webkit-overflow-scrolling:touch;background:var(--hl)}
+.car-frame.x>*{margin:0 auto!important}.car-frame.x .twitter-tweet{max-width:100%}
+.vcap{font-size:.76rem;line-height:1.45;color:var(--muted);margin:-12px 0 20px}
+.car-slide figcaption{font-size:.76rem;line-height:1.45;color:var(--muted);margin-top:7px}
+.car-nav{position:absolute;left:0;right:0;top:0;aspect-ratio:16/9;pointer-events:none}
+.car-btn{position:absolute;top:50%;transform:translateY(-50%);pointer-events:auto;display:flex;align-items:center;justify-content:center;
+  width:40px;height:40px;padding:0;border:1px solid var(--rule);border-radius:50%;background:var(--card);color:var(--fg);cursor:pointer;
+  font:inherit;font-size:1.2rem;line-height:1;box-shadow:0 2px 10px rgba(0,0,0,.18);opacity:.92;transition:opacity .15s}
+.car-btn:hover{opacity:1}.car-btn:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+.car-btn[disabled]{opacity:0;pointer-events:none}
+.car-prev{left:10px}.car-next{right:10px}
+.car-bar{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:8px;font-size:.72rem;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums}
+.car-dots{display:flex;gap:2px}
+.car-dot{width:22px;height:22px;padding:7px;border:0;margin:0;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.car-dot::before{content:"";display:block;width:8px;height:8px;border-radius:50%;background:var(--rule)}
+.car-dot[aria-current="true"]::before{background:var(--accent)}
+.car-dot:focus-visible{outline:2px solid var(--link);outline-offset:-2px;border-radius:50%}
+@media (hover:none) and (pointer:coarse){.car-btn{display:none}}
+.nyt{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:16px 20px;margin:10px 0 28px;scroll-margin-top:16px}
+.nyt ul{margin:0;padding-left:1.1em}.nyt li{margin:8px 0}.nyt a{font-weight:600}
+.radar{margin:10px 0 28px;scroll-margin-top:16px}
+.radar>p.lede{font-size:.88rem;color:var(--muted);margin:0 0 12px}
+.rcard{background:var(--card);border:1px solid var(--rule);border-left:4px solid #8e2a8e;border-radius:10px;padding:14px 20px;margin:0 0 16px;scroll-margin-top:16px}
+@media (prefers-color-scheme:dark){.rcard{border-left-color:#e391e3}}
+.rcard h3{font-size:clamp(1.25rem,4vw,1.55rem);line-height:1.2;letter-spacing:-.018em;margin:8px 0 8px}
+.rcard h3 a{color:inherit;text-decoration:none}.rcard h3 a:hover{text-decoration:underline}
+.rcard dl{margin:0 0 8px}
+.rcard dt{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:12px}
+.rcard dd{margin:2px 0 0}
+.term{position:relative;display:inline}
+.term-btn{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;cursor:help;text-align:inherit;
+  text-decoration:underline dotted;text-decoration-color:var(--muted);text-decoration-thickness:1.5px;text-underline-offset:.22em;-webkit-tap-highlight-color:transparent}
+.term-btn:hover,.term.open .term-btn{text-decoration-color:var(--accent)}
+.term-btn:focus-visible{outline:2px solid var(--link);outline-offset:2px;border-radius:3px}
+.term .ti{display:none;align-items:center;justify-content:center;width:1.05em;height:1.05em;margin-left:.18em;vertical-align:.12em;
+  border:1.2px solid currentColor;border-radius:50%;font-size:.62em;font-weight:700;font-style:normal;line-height:1;color:var(--muted)}
+.term-btn:hover .ti,.term.open .ti{color:var(--accent)}
+.term-pop{display:none;position:absolute;z-index:50;left:0;top:calc(100% + 10px);width:min(23rem,calc(100vw - 24px));
+  background:var(--card);color:var(--fg);border:1px solid var(--rule);border-radius:10px;padding:12px 14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.14),0 2px 6px rgba(0,0,0,.08);font-size:.8em;font-weight:400;line-height:1.55;text-align:left;white-space:normal;letter-spacing:0}
+.term-pop::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+.term.up .term-pop{top:auto;bottom:calc(100% + 10px)}.term.up .term-pop::before{top:auto;bottom:-12px}
+.term-pop strong{display:block;font-weight:700;margin-bottom:3px;color:var(--accent)}
+.term.open .term-pop,.term-btn:focus-visible+.term-pop{display:block}
+@media (hover:hover) and (pointer:fine){.term:hover .term-pop{display:block}}
+@media (prefers-color-scheme:dark){.term-pop{box-shadow:0 10px 30px rgba(0,0,0,.55);border-color:#3a3936}}
+.wrap{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right));padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+header.mast{padding-top:calc(34px + env(safe-area-inset-top))}
+footer{font-size:.8rem;color:var(--muted);text-align:center;padding-top:12px}
+footer .ed-no{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+ul.arkiv{list-style:none;padding:0}ul.arkiv li{border-bottom:1px solid var(--rule);padding:12px 0}
+ul.arkiv a{color:var(--fg);font-weight:700;text-decoration:none}ul.arkiv span{display:block;color:var(--muted);font-size:.92rem}
+@media (min-width:1000px){
+  body{font-size:20px}
+  .wrap{max-width:1260px;padding-left:max(40px,env(safe-area-inset-left));padding-right:max(40px,env(safe-area-inset-right));padding-bottom:calc(80px + env(safe-area-inset-bottom))}
+  .layout{grid-template-columns:290px minmax(0,70ch);grid-template-areas:"toc intro" "toc main";column-gap:64px;justify-content:center}
+  nav.toc{position:sticky;top:20px;align-self:start;max-height:calc(100vh - 40px);overflow:auto;border:0;margin:0;padding:0 4px 0 0;font-size:.78rem}
+  nav.toc summary{pointer-events:none;padding:4px 0 10px}nav.toc summary::after{content:none}
+  nav.toc a{padding:7px 10px 7px 6px}
+  .intro{margin-top:4px}
+}
+</style></head>
+<body><div class="wrap"><header class="mast"><p class="greet" id="greet" data-name="Kasper" aria-live="off" hidden></p><script>(function(){var g=document.getElementById('greet');if(!g)return;var N=g.getAttribute('data-name');
+function upd(){var h=new Date().getHours();
+ var t=h>=5&&h<10?'Godmorgen':h>=10&&h<12?'God formiddag':h>=12&&h<18?'God eftermiddag':'God aften';
+ t=N?t+', '+N:t;if(g.textContent!==t)g.textContent=t;g.hidden=false;}
+upd();addEventListener('pageshow',upd);addEventListener('focus',upd);
+document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')upd();});
+setInterval(function(){if(document.visibilityState==='visible')upd();},60000);
+})();</script><h1><a href="../index.html">Nyheder</a></h1><div class="meta">fredag 27. november 2026</div></header>
+<div class="layout">
+<p class="intro">Et droneangreb i Kuwait har dræbt to italienske teknikere, og Iran melder om flere mineramte tankskibe i Hormuzstrædet. OpenAI skærer i, hvor meget ChatGPT-brugere får for pengene, EU-topmødet endte uden aftale om Ukraine, men med en ny ECB-chef, og Europas børser fik en god dag, mens USA holdt Thanksgiving. SAP overvejer store fyringer, og Google vil have solo-udvikleres adresser frem i lyset. Til sidst en lille blå papegøje, der bærer håbet for en hel art.</p>
+<nav class="toc" aria-label="Indhold"><details open><summary>Indhold <span class="cnt">· 11 historier</span></summary><ol>
+<li><a href="#1"><span class="n">1</span><span><span class="h">To italienske teknikere dræbt ved droneangreb i Kuwait – Italien og Kuwait peger på Iran</span><span class="t">Verden</span></span></a></li>
+<li><a href="#2"><span class="n">2</span><span><span class="h">OpenAI skruer ned: ChatGPT-brugere rammer nu loftet 40 procent hurtigere med GPT-6.2</span><span class="t">AI &amp; tech</span></span></a></li>
+<li><a href="#3"><span class="n">3</span><span><span class="h">EU-topmødet sluttede en dag for tidligt uden aftale om Ukraine-lån – men Europa har fået en ny centralbankchef</span><span class="t">Verden</span></span></a></li>
+<li><a href="#4"><span class="n">4</span><span><span class="h">Europas børser steg 2 procent, mens USA holdt Thanksgiving – C25 op 1,4 procent</span><span class="t">Investering</span></span></a></li>
+<li><a href="#5"><span class="n">5</span><span><span class="h">SAP overvejer at fyre mindst 10.000 – Europas største softwarefirma bygger sig om til AI</span><span class="t">AI &amp; tech</span></span></a></li>
+<li><a href="#6"><span class="n">6</span><span><span class="h">Google tvinger solo-udviklere til at offentliggøre adresse og telefonnummer i Play Store</span><span class="t">Iværksætteri</span></span></a></li>
+<li><a href="#7"><span class="n">7</span><span><span class="h">Pieter Levels&#x27; sorte liste over AI-svarbots på X: Over 500 konti er allerede lukket</span><span class="t">Creatorøkonomi</span></span></a></li>
+<li><a href="#8"><span class="n">8</span><span><span class="h">ElevenLabs vil hente penge til en værdi af 33 milliarder dollar – seks gange så meget som Suno</span><span class="t">Musik</span></span></a></li>
+<li><a href="#9"><span class="n">9</span><span><span class="h">Medievirksomheden Every henter 17,5 millioner dollar – og stifteren skifter titel til »filosof-konge«</span><span class="t">Iværksætteri</span></span></a></li>
+<li><a href="#10"><span class="n">10</span><span><span class="h">Flyselskabet Norse Atlantic har stoppet alle fly – konkurs truer inden for få dage</span><span class="t">Investering</span></span></a></li>
+<li><a href="#11"><span class="n">11</span><span><span class="h">Hun hedder Hope: Første Spix-ara-unge født i en brasiliansk zoo – arten er uddød i naturen</span><span class="t">Godt nyt</span></span></a></li>
+<li class="sec"><a href="#nyt"><span class="n">+</span><span><span class="h">Nyt til dig</span></span></a></li>
+</ol></details></nav><main data-date="2026-11-27" data-total="11" data-latest="1">
+<article id="1"><div class="kick"><span class="num">1</span><span class="tag t-verden">Verden</span></div><h2>To italienske teknikere dræbt ved droneangreb i Kuwait – Italien og Kuwait peger på Iran</h2><p class="sum">Mændene arbejdede for våbenfirmaet Rheinmetall på en luftforsvarsstation. Iran afviser at stå bag.</p>
+<div class="body"><p>To italienere blev torsdag dræbt, da droner ramte en luftforsvarsstation i Kuwait. De var 36 og 65 år og arbejdede for Rheinmetall Italia, den italienske del af den tyske våbenkoncern Rheinmetall, med vedligehold af Skyguard-antiluftskytssystemet. En kuwaitisk kaptajn og en pakistaner blev såret.</p><p>Kuwaits forsvarsministerium kalder det et iransk angreb, og Italiens udenrigsminister Antonio Tajani siger, at dronerne var fremstillet i Iran. Iran afviser og tilbyder en fælles undersøgelse. Italien vil klage til Irans ambassade.</p><p>Samme dag hævdede Irans Revolutionsgarde, at to tankskibe, heriblandt et supertankskib med over 2 millioner tønder råolie, eksploderede efter at have ramt søminer i Hormuzstrædet. Det britiske <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-1-1" aria-describedby="term-1-1">UKMTO<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-1-1" role="tooltip"><strong>UKMTO</strong> United Kingdom Maritime Trade Operations, den britiske flådes center, der registrerer angreb og hændelser mod skibe i regionen. Her har det bekræftet to angreb på tankskibe, men ikke Irans påstand om søminer.</span></span> bekræfter to angreb med »ukendte projektiler« mod tankskibe, men ikke minerne.</p></div>
+<p class="src">Kilde: BBC · <a href="https://www.bbc.com/news/articles/c39w9y5dx4k5o" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.nbcnews.com/world/middle-east/two-italians-killed-attack-kuwait-site-iran-denies-involvement-rcna611491" rel="noopener">Reuters via NBC News</a></li></ul>
+</article>
+<article id="2"><div class="kick"><span class="num">2</span><span class="tag t-ai">AI &amp; tech</span></div><h2>OpenAI skruer ned: ChatGPT-brugere rammer nu loftet 40 procent hurtigere med GPT-6.2</h2><p class="sum">En »faktureringsfejl« gav brugerne mere forbrug end meningen. Som undskyldning får alle én ekstra nulstilling.</p>
+<div class="body"><p>OpenAI erkendte torsdag, at en fejl ved lanceringen af GPT-6.2 den 17. november gav de fleste abonnenter rabat på forbruget. Fejlen er rettet, så samme arbejde nu bruger mere af kvoten: Med GPT-6.2 Astra rammer man grænsen 40 procent hurtigere end i sidste uge, og med den billigere Sol 25 procent hurtigere.</p><p>OpenAI kræver ikke penge tilbage, og andre modeller er ikke berørt. Som »lille undskyldning« får alle på Go, Plus, Pro og Business én »<span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-2-1" aria-describedby="term-2-1">banked reset<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-2-1" role="tooltip"><strong>banked reset</strong> En gemt nulstilling, man selv kan bruge, når man vil. Her fylder den ens forbrugskvote op én gang før den normale fornyelse, men gør ikke kvoten større bagefter.</span></span>«. Nyheden fik over 470 point og 260 kommentarer på Hacker News.</p><p>Samtidig slår OpenAI ChatGPT&#x27;s Chat og Work sammen. Fra december skal tunge samtaler og agentopgaver som kodning og research for Plus, Pro og Business dele én fælles <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-2-2" aria-describedby="term-2-2">kvote<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-2-2" role="tooltip"><strong>kvote</strong> Den mængde brug, et abonnement giver inden for en periode. Her bruger det samme stykke arbejde på GPT-6.2 Astra nu 40 procent mere af kvoten end i sidste uge.</span></span>, men OpenAI har ikke sagt, hvor stor den bliver.</p></div>
+<p class="src">Kilde: Decrypt · <a href="https://decrypt.co/384053/openai-fixes-chatgpt-billing-error-promises-to-make-it-40-worse" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://x.com/thsottiaux" rel="noopener">Thibault Sottiaux på X</a></li></ul>
+</article>
+<article id="3"><div class="kick"><span class="num">3</span><span class="tag t-verden">Verden</span></div><h2>EU-topmødet sluttede en dag for tidligt uden aftale om Ukraine-lån – men Europa har fået en ny centralbankchef</h2><p class="sum">24 af 27 lande støtter et nyt lån på 45 milliarder euro til Ukraine, men beslutningen er skudt til december. Spanieren Pablo Hernández de Cos afløser Lagarde i <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-3-1" aria-describedby="term-3-1">ECB<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-3-1" role="tooltip"><strong>ECB</strong> Den Europæiske Centralbank, der fastsætter renten for de lande, der bruger euro. Den nye chef skal bl.a. få inflationen ned fra de 4 procent i oktober.</span></span>.</p>
+<div class="body"><p>EU&#x27;s stats- og regeringschefer afbrød torsdag aften topmødet i Bruxelles, der skulle have fortsat i dag. De kunne ikke blive enige om EU&#x27;s <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-3-2" aria-describedby="term-3-2">langtidsbudget<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-3-2" role="tooltip"><strong>langtidsbudget</strong> EU&#x27;s flerårige finansielle ramme, der fastlægger, hvor mange penge EU må bruge på hvad i syv år ad gangen. Her handler striden om budgettet for 2028–2034.</span></span> for 2028–2034, og beslutningen om et nyt lån til Ukraine for 2027 blev udskudt til topmødet i december.</p><p>Lånet på 45 milliarder euro er delt i 25 milliarder til våben og ammunition og 20 milliarder til Ukraines statsbudget. Ifølge rådsformand António Costa støtter 24 lande det. Bulgarien vil kun være med på den civile del, mens Ungarn, Slovakiet og Tjekkiet vil holde sig ude.</p><p>Tysklands kansler Friedrich Merz kræver, at alle 27 lande er med, og har truet med at blokere budgettet. Ukraine skal først betale lånet tilbage, når Rusland betaler krigsskadeerstatning.</p><p>Topmødet nåede dog én aftale: Spanieren Pablo Hernández de Cos, tidligere chef for Spaniens centralbank, bliver ny formand for Den Europæiske Centralbank, ECB, når Christine Lagarde går af i februar. Han slog hollænderen Klaas Knot og regnes for et kontinuitetsvalg, der hælder mod lavere renter. Inflationen i euroområdet var 4 procent i oktober.</p></div>
+<p class="src">Kilde: DW · <a href="https://www.dw.com/en/at-odds-over-the-eu-budget-european-leaders-cut-summit-short/live-80056415" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://agenceurope.eu/en/bulletin/article/13991/3/24-eu-member-states-support-proposal-of-a-eur45-billion-loan-to-ukraine" rel="noopener">Agence Europe</a></li><li><a href="https://www.euronews.com/2026/11/26/after-initial-reluctance-bulgaria-says-its-ready-to-join-45-billion-ukraine-loan" rel="noopener">Euronews: Bulgarien</a></li><li><a href="https://www.theguardian.com/business/2026/nov/26/spain-pablo-hernandez-de-cos-next-ecb-president" rel="noopener">The Guardian: Ny ECB-chef</a></li></ul>
+</article>
+<article id="4"><div class="kick"><span class="num">4</span><span class="tag t-inv">Investering</span></div><h2>Europas børser steg 2 procent, mens USA holdt Thanksgiving – C25 op 1,4 procent</h2><p class="sum">Investorerne vurderede, at USA&#x27;s nye toldforslag er mildere end frygtet. Tech, råvarer og forsvar førte an.</p>
+<div class="body"><p>Med de amerikanske børser lukket for Thanksgiving steg Europa torsdag kraftigt. <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-4-1" aria-describedby="term-4-1">Stoxx 600<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-4-1" role="tooltip"><strong>Stoxx 600</strong> Et indeks over 600 store og mellemstore børsnoterede selskaber i Europa, som bruges som mål for hele det europæiske aktiemarked. Her steg det samlet 1,8 procent på én dag.</span></span> lukkede 1,8 procent højere i 636,98, tyske DAX steg 2,1 procent til 25.215,52 og franske CAC 40 1,6 procent. Det danske C25 steg 1,4 procent til 1.955,27 med kabelproducenten NKT som dagens vinder.</p><p>Ifølge Sharecast fik toldplanerne fra onsdag markederne til at ånde lettet op: Den nye told på 14 lande lægges ikke oven i den eksisterende, nogle tech-varer undtages, og en høring først 25. januar betyder, at intet træder i kraft før februar eller marts. SAP, Infineon og Capgemini steg, og råvaresektoren steg 3,5 procent.</p><p>De amerikanske børser åbner igen i dag med en halv handelsdag. Seneste amerikanske lukkekurser er derfor stadig fra onsdag.</p></div>
+<p class="src">Kilde: Sharecast · <a href="https://www.sharecast.com/news/market-report-europe-close/stoxx-600-us-tariffs-banks-tech-stocks-defence-imperial-brands-altria-group--24302068.html" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://npinvestor.dk/nyheder/saadan-gik-c25-torsdag-op-144-pct-med-nkt-a-s-oeverst/" rel="noopener">NP Investor: Sådan gik C25 torsdag</a></li></ul>
+</article>
+<article id="5"><div class="kick"><span class="num">5</span><span class="tag t-ai">AI &amp; tech</span></div><h2>SAP overvejer at fyre mindst 10.000 – Europas største softwarefirma bygger sig om til AI</h2><p class="sum">Det svarer til mindst 9 procent af de over 110.000 ansatte. Især produkt, udvikling og salg er i søgelyset.</p>
+<div class="body"><p>Det tyske softwarefirma SAP forbereder at nedlægge mindst 10.000 stillinger som led i en omstilling til AI, skriver Bloomberg med henvisning til kilder. Alle afdelinger er blevet bedt om at finde besparelser, og det endelige tal kan ændre sig efter forhandlinger med medarbejderne. SAP vil ikke bekræfte, men siger, at selskabet »løbende gennemgår sin organisation«.</p><p>Topchef Christian Klein har to gange i år lavet direktionen om for at sætte AI først, og to af de seks direktionsmedlemmer er væk i marts. SAP indførte ansættelses- og rejsestop i juli. I Tyskland, hvor de fleste ansatte arbejder, gælder en jobgaranti til 2028.</p><p>Sidste store omstrukturering i 2024 fjernede også omkring 10.000 stillinger og kostede cirka 3 milliarder euro.</p></div>
+<p class="src">Kilde: The Next Web / Bloomberg · <a href="https://thenextweb.com/news/sap-job-cuts-10000-ai-restructuring-bloomberg" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.bloomberg.com/news/articles/2026-11-26/sap-weighs-cutting-at-least-10-000-positions-in-ai-restructuring" rel="noopener">Bloomberg</a></li></ul>
+</article>
+<article id="6"><div class="kick"><span class="num">6</span><span class="tag t-ivk">Iværksætteri</span></div><h2>Google tvinger solo-udviklere til at offentliggøre adresse og telefonnummer i Play Store</h2><p class="sum">Alle, der tjener penge på Android-apps i EU eller Storbritannien, skal fra 1. marts vise kontaktoplysninger – for hele verden.</p>
+<div class="body"><p>Google har meddelt, at Android-udviklere inden 1. februar 2027 skal erklære, om de er »erhvervsdrivende« efter EU&#x27;s og Storbritanniens regler. Det gælder groft sagt alle, der tjener penge på deres apps. Hobbyprojekter og apps, der ikke udgives i Europa, er undtaget.</p><p>For dem, der er erhvervsdrivende, bliver telefonnummer og adresse vist offentligt fra 1. marts. Google accepterer ikke postboks-adresser, så mange solo-udviklere uden kontor må enten vise deres privatadresse eller betale for en erhvervsadresse. En udvikler overvejer ifølge The Elec at leje et kontor alene for at overholde reglerne.</p><p>Kravet kommer fra EU&#x27;s <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-6-1" aria-describedby="term-6-1">Digital Services Act<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-6-1" role="tooltip"><strong>Digital Services Act</strong> EU&#x27;s lov om digitale tjenester, der bl.a. kræver, at forbrugere kan se, hvem de handler med på online markedspladser. Her er det grunden til, at Android-udviklere, der tjener penge, skal vise adresse og telefonnummer.</span></span>. Apple er underlagt samme regler, men viser kun adressen i de berørte europæiske lande og tillader postbokse.</p></div>
+<p class="src">Kilde: The Verge · <a href="https://www.theverge.com/tech/1043228/android-play-store-google-developer-address-eu" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://support.google.com/googleplay/android-developer/answer/17594752?hl=en" rel="noopener">Google Play Console Help</a></li></ul>
+</article>
+<article id="7"><div class="kick"><span class="num">7</span><span class="tag t-crea">Creatorøkonomi</span></div><h2>Pieter Levels&#x27; sorte liste over AI-svarbots på X: Over 500 konti er allerede lukket</h2><p class="sum">Listen over 3.728 konti, der spammer automatiske AI-svar, kan blokeres med ét klik – og nu siger han, at X er ved at blive renere.</p>
+<div class="body"><p>Iværksætteren Pieter Levels har lanceret »Blocked for AI Reply«, en offentlig og løbende opdateret liste over konti på X, der spammer automatiske AI-svar for at høste engagement. Listen havde ved lanceringen 3.728 konti med dokumentation for hver, en knap til at blokere dem alle og et åbent <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-7-1" aria-describedby="term-7-1">JSON-API<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-7-1" role="tooltip"><strong>JSON-API</strong> En adresse, hvor andre programmer automatisk kan hente data i et fast maskinlæsbart format. Her kan andre værktøjer hente den opdaterede liste over de 3.728 konti uden at kopiere den i hånden.</span></span>.</p><p>Torsdag skrev Levels, at over 500 af kontiene er blevet suspenderet af X, og at der kun var fire fejlagtige træf blandt omkring 4.000 konti, altså cirka 0,1 procent. Han har sendt listen til X, så den kan bruges til at træne platformens spamfiltre.</p><p>Ideen er, at hans egen profil fungerer som »<span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-7-2" aria-describedby="term-7-2">honningkrukke<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-7-2" role="tooltip"><strong>honningkrukke</strong> En lokkedue, der bevidst tiltrækker angribere eller spammere, så de kan fanges. Her tiltrækker Levels&#x27; store profil AI-bots, og hver bot, han blokerer, bliver blokeret af alle, der bruger listen.</span></span>«: Når han blokerer en bot, bliver den blokeret af alle, der bruger listen. Konti kan klage og blive fjernet, hvis de lover aldrig at bruge AI-svar igen.</p></div>
+<div class="xembed"><blockquote class="twitter-tweet" data-media-max-width="560" data-dnt="true"><a href="https://x.com/levelsio/status/2125923307002470407">Video på X</a></blockquote></div><p class="vcap">Video: @levelsio på X</p>
+<p class="src">Kilde: levels.io · <a href="https://levels.io/x-spammers-list-ai-replies" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://blockedforaireply.levels.io" rel="noopener">Blocked for AI Reply</a></li></ul>
+</article>
+<article id="8"><div class="kick"><span class="num">8</span><span class="tag t-egne">Musik</span></div><h2>ElevenLabs vil hente penge til en værdi af 33 milliarder dollar – seks gange så meget som Suno</h2><p class="sum">AI-stemmefirmaet, der også laver AI-musik, har nu en årlig tilbagevendende omsætning på 700 millioner dollar.</p>
+<div class="body"><p>ElevenLabs er i tidlige forhandlinger om en ny investeringsrunde til en værdi af 33 milliarder dollar, skriver Bloomberg. Runden ventes at starte i første kvartal 2027. Det er 50 procent mere end de 22 milliarder dollar, firmaet blev vurderet til ved et aktiesalg for medarbejderne i september, og ti gange værdien i januar 2025.</p><p>Ifølge en kilde er <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-8-1" aria-describedby="term-8-1">ARR<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-8-1" role="tooltip"><strong>ARR</strong> Annual recurring revenue: den årlige omsætning fra faste abonnementer og aftaler, regnet ud fra det nuværende niveau. Her svarer 700 millioner dollar til, at ElevenLabs&#x27; faste indtægter er steget med 100 millioner dollar på omkring to måneder.</span></span> nået op på 700 millioner dollar, mod 600 millioner i september. Erhvervskunder står for 55 procent af omsætningen, især via firmaets stemmeagenter.</p><p>ElevenLabs konkurrerer også med Suno gennem AI-musiktjenesten ElevenMusic, som har licensaftaler med bl.a. Merlin, Kobalt og Universal Music. Suno blev i juni vurderet til 5,4 milliarder dollar. ElevenLabs blev grundlagt i 2022 af polakkerne Mati Staniszewski og Piotr Dąbkowski.</p></div>
+<p class="src">Kilde: Music Business Worldwide · <a href="https://www.musicbusinessworldwide.com/elevenlabs-in-early-talks-to-raise-at-33b-valuation-more-than-six-times-that-of-ai-music-rival-suno-report/" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.bloomberg.com/news/articles/2026-11-25/elevenlabs-in-early-talks-for-2027-funding-at-33-billion-value" rel="noopener">Bloomberg</a></li></ul>
+</article>
+<article id="9"><div class="kick"><span class="num">9</span><span class="tag t-ivk">Iværksætteri</span></div><h2>Medievirksomheden Every henter 17,5 millioner dollar – og stifteren skifter titel til »filosof-konge«</h2><p class="sum">Dan Shippers AI-medie er nu vurderet til 110 millioner dollar. Han beholder fuld kontrol.</p>
+<div class="body"><p>Every, der skriver om, hvordan man bruger AI i arbejdet, har rejst 17,5 millioner dollar i en <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-9-1" aria-describedby="term-9-1">Series A<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-9-1" role="tooltip"><strong>Series A</strong> Den første store investeringsrunde fra professionelle investorer efter de tidlige startpenge. Her betalte investorerne 17,5 millioner dollar for en andel af Every.</span></span> til en <span class="term"><button type="button" class="term-btn" aria-expanded="false" aria-controls="term-9-2" aria-describedby="term-9-2">værdi af 110 millioner dollar efter investeringen<span class="ti" aria-hidden="true">i</span></button><span class="term-pop" id="term-9-2" role="tooltip"><strong>værdi af 110 millioner dollar efter investeringen</strong> Det, der kaldes post-money-værdi: hvad hele selskabet er vurderet til, når de nye penge er lagt i. Her svarer de 17,5 millioner dollar til cirka 16 procent af Every.</span></span>. Runden blev ledet af Jesse Beyroutey fra IA Ventures, en studiekammerat af stifteren Dan Shipper, med Betaworks og The Atlantics topchef Nicholas Thompson som medinvestorer.</p><p>Every har omkring 130.000 gratis og knap 10.000 betalende abonnenter og 35 ansatte. Forretningen kombinerer abonnement, konsulentarbejde for store firmaer, konferencer og egne AI-værktøjer.</p><p>Shipper, 35 år, siger til Fortune, at venturefinansierede medier historisk »aldrig« er gået godt. Derfor shoppede han ikke runden rundt, men gik direkte til én investor, han stoler på. Han beholder alle beslutninger og ændrer sin titel til »Philosopher King«.</p></div>
+<p class="src">Kilde: Fortune · <a href="https://fortune.com/2026/11/25/every-raises-17-5-million-110-million-valuation-betting-venture-backed-media-can-work/" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://every.to/on-every/we-raised-17-5-million-to-make-you-and-your-team-ai-native" rel="noopener">Every: We Raised $17.5 Million</a></li></ul>
+</article>
+<article id="10"><div class="kick"><span class="num">10</span><span class="tag t-inv">Investering</span></div><h2>Flyselskabet Norse Atlantic har stoppet alle fly – konkurs truer inden for få dage</h2><p class="sum">Det norske langdistanceselskab mangler akut penge efter et år med rekordhøje brændstofpriser.</p>
+<div class="body"><p>Norse Atlantic Airways aflyste torsdag alle flyvninger og meddelte Oslo Børs, at bestyrelsen vil indgive konkursbegæring, hvis der ikke hurtigt findes en kortsigtet finansiering. Selskabet forhandler med investorer om et muligt opkøb, men skriver, at der »ingen sikkerhed« er for en løsning.</p><p>Norse blev grundlagt i 2021 og overtog de transatlantiske ruter, som Norwegian opgav, med 12 Boeing 787 Dreamliner-fly og mange tidligere Norwegian-ansatte. Ifølge The Guardian er selskabet ramt af de stigende priser på flybrændstof siden krigen mod Iran begyndte i februar.</p><p>Aktien faldt onsdag fra 0,215 til 0,032 norske kroner, svarende til omkring 85 procent. I sommer flyttede selskabet hovedkontoret til Letland, og stifteren og topchefen Bjørn Tore Larsen forlod selskabet.</p></div>
+<p class="src">Kilde: The Guardian · <a href="https://www.theguardian.com/business/2026/nov/26/norse-atlantic-airways-suspends-all-flights-urgent-funding-plea" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://news.cision.com/norse-atlantic-airways-as/r/norse-atlantic-asa--update-on-financial-situation---suspension-of-operations,c4429581" rel="noopener">Norse Atlantic: børsmeddelelse</a></li></ul>
+</article>
+<article id="11"><div class="kick"><span class="num">11</span><span class="tag t-godt">Godt nyt</span></div><h2>Hun hedder Hope: Første Spix-ara-unge født i en brasiliansk zoo – arten er uddød i naturen</h2><p class="sum">Den lille blå papegøje, kendt fra filmen »Rio«, skulle hjælpes ud af ægget. Kun omkring 330 findes i verden.</p>
+<figure class="fig"><img src="../img/2026-11-27/spix.jpg" alt="Spix-ara-ungen Hope nipper til en dyrepassers blå handske i São Paulo Zoo" loading="lazy" decoding="async" width="1200" height="600"><figcaption>Billede: Paulo Pinto/Agência Brasil</figcaption></figure>
+<div class="body"><p>I São Paulo Zoo er en hununge af Spix-ara kommet til verden, som den første af sin art i en brasiliansk zoologisk have. Hun klækkede 18. oktober, vejede kun 12,4 gram og blev vist frem for pressen i denne uge. Biologerne døbte hende Hope, fordi de »håber at kunne give arten en bedre fremtid«.</p><p>Ungen lå forkert i ægget og måtte hjælpes ud af biologerne efter 28 dage i rugemaskine. Hun bliver nu håndfodret og holdt under konstant opsyn. Som voksen vil hun veje 300–400 gram.</p><p>Spix-araen forsvandt fra naturen i det nordøstlige Brasilien omkring år 2000 på grund af skovrydning og ulovlig handel med kæledyr. Den er kendt fra animationsfilmen »Rio« fra 2011. Der findes nu kun omkring 330 i verden, og målet er at sætte arten ud i naturen igen.</p></div>
+<p class="src">Kilde: Agência Brasil · <a href="https://agenciabrasil.ebc.com.br/en/meio-ambiente/noticia/2026-11/extinct-wild-spixs-macaw-chick-hatches-sao-paulo-zoo" rel="noopener">Læs mere →</a></p>
+<ul class="extra"><li><a href="https://www.bbc.com/newsround/articles/ckpdw186w24no" rel="noopener">BBC Newsround</a></li></ul>
+</article>
+<section class="nyt" id="nyt"><h2>Nyt til dig</h2><ul>
+<li><a href="https://www.ukmto.org/" rel="noopener">UKMTO</a> – Den britiske flådes løbende meldinger om angreb og hændelser mod skibe i Hormuz, Det Røde Hav og Adenbugten.</li>
+<li><a href="https://www.bruegel.org/" rel="noopener">Bruegel</a> – Uafhængig økonomisk tænketank i Bruxelles med analyser af EU&#x27;s budget, ECB og handelspolitik.</li>
+<li><a href="https://agenciabrasil.ebc.com.br/en" rel="noopener">Agência Brasil (engelsk)</a> – Brasiliens statslige nyhedsbureau på engelsk, med nyheder om bl.a. Amazonas, natur og brasiliansk politik.</li>
+</ul></section>
+</main></div>
+<footer><div class="ed-no">Udgave nr. 31</div><a href="../index.html">Seneste udgave</a> · <a href="../arkiv/index.html">Arkiv</a> · Nyheder for Kasper</footer>
+</div><script>(function(){var d=document.querySelector('nav.toc details');if(!d)return;var mq=matchMedia('(min-width:1000px)');
+function fit(){d.open=mq.matches?true:d.dataset.u==='1';}d.querySelector('summary').addEventListener('click',function(){d.dataset.u=d.open?'0':'1';});
+fit();mq.addEventListener&&mq.addEventListener('change',fit);
+var links={};d.querySelectorAll('a[href^="#"]').forEach(function(a){links[decodeURIComponent(a.getAttribute('href').slice(1))]=a;});
+var cur;function on(id){if(cur)cur.classList.remove('on');cur=links[id];if(cur){cur.classList.add('on');if(mq.matches&&cur.scrollIntoView){var r=cur.getBoundingClientRect(),p=d.parentNode.getBoundingClientRect();if(r.top<p.top||r.bottom>p.bottom)cur.scrollIntoView({block:'nearest'});}}}
+if(!('IntersectionObserver' in window))return;var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)on(e.target.id);});},{rootMargin:'-20% 0px -70% 0px'});
+Object.keys(links).forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el);});})();</script><script>(function(){var m=document.querySelector('main[data-date]');if(!m)return;
+var D=m.dataset.date,LATEST=m.dataset.latest==='1',K='nyheder-read-'+D,arts=[].slice.call(document.querySelectorAll('main article[id]')),N=arts.length;
+var ls=null;try{ls=window.localStorage;ls.getItem(K);}catch(_){ls=null;}
+var read={};try{(JSON.parse((ls&&ls.getItem(K))||'[]')||[]).forEach(function(i){read[i]=1;});}catch(_){}
+function save(){if(!ls)return;try{ls.setItem(K,JSON.stringify(Object.keys(read).map(Number).sort(function(a,b){return a-b;})));
+ var ks=[];for(var i=0;i<ls.length;i++){var k=ls.key(i);if(k&&k.indexOf('nyheder-read-')===0)ks.push(k);}ks.sort();while(ks.length>30)ls.removeItem(ks.shift());}catch(_){}}
+var toc={};document.querySelectorAll('nav.toc a[href^="#"]').forEach(function(a){toc[a.getAttribute('href').slice(1)]=a;});
+function paint(i){var a=toc[i];if(a){a.classList.add('read');var n=a.querySelector('.n');if(n)n.setAttribute('aria-label',i+', læst');}}
+function mark(i){i=String(i);if(read[i]||!document.getElementById(i))return;read[i]=1;save();paint(i);}
+Object.keys(read).forEach(function(i){paint(i);});
+Object.keys(toc).forEach(function(i){if(/^\d+$/.test(i))toc[i].addEventListener('click',function(){mark(i);});});
+/* Read = ~60 % of the story (or of the screen, for stories taller than it) visible for 3 s while the page is visible. */
+if('IntersectionObserver' in window){var tm={};
+ var th=[];for(var t=0;t<=20;t++)th.push(t/20);
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){var id=e.target.id;if(read[id])return;
+  var need=0.6*Math.min(e.boundingClientRect.height,(e.rootBounds&&e.rootBounds.height)||innerHeight);
+  var ok=e.isIntersecting&&e.intersectionRect.height>=need;
+  if(ok&&!tm[id])tm[id]=setTimeout(function(){tm[id]=0;if(document.visibilityState!=='hidden')mark(id);else io.unobserve(e.target),io.observe(e.target);},3000);
+  else if(!ok&&tm[id]){clearTimeout(tm[id]);tm[id]=0;}});},{threshold:th});
+ arts.forEach(function(a){if(!read[a.id])io.observe(a);});
+ document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden'){Object.keys(tm).forEach(function(id){if(tm[id]){clearTimeout(tm[id]);tm[id]=0;}});}
+  else{arts.forEach(function(a){if(!read[a.id]){io.unobserve(a);io.observe(a);}});}});}
+if(location.hash){var h=location.hash;addEventListener('load',function(){var el=document.getElementById(decodeURIComponent(h.slice(1)));if(el&&location.hash===h)setTimeout(function(){el.scrollIntoView();},60);});}
+})();</script><script>(function(){var ts=document.querySelectorAll('.term');if(!ts.length)return;
+function place(t){var p=t.querySelector('.term-pop');t.classList.remove('up');p.style.left='0px';p.style.display='block';
+var vw=document.documentElement.clientWidth,r=p.getBoundingClientRect(),dx=0;if(r.right>vw-12)dx=vw-12-r.right;if(r.left+dx<12)dx=12-r.left;
+p.style.left=dx+'px';var b=p.getBoundingClientRect();if(b.bottom>innerHeight-8&&t.getBoundingClientRect().top>b.height+24)t.classList.add('up');p.style.display='';}
+function close(x){ts.forEach(function(t){if(t!==x&&t.classList.contains('open')){t.classList.remove('open');t.querySelector('.term-btn').setAttribute('aria-expanded','false');}});}
+ts.forEach(function(t){var b=t.querySelector('.term-btn');t.addEventListener('mouseenter',function(){place(t);});b.addEventListener('focus',function(){place(t);});
+b.addEventListener('click',function(ev){ev.stopPropagation();var o=!t.classList.contains('open');close(t);if(o)place(t);t.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');});
+t.querySelector('.term-pop').addEventListener('click',function(ev){ev.stopPropagation();});});
+document.addEventListener('click',function(){close(null);});
+document.addEventListener('keydown',function(ev){if(ev.key==='Escape'){var a=document.activeElement;close(null);if(a&&a.classList.contains('term-btn'))a.blur();}});
+addEventListener('resize',function(){document.querySelectorAll('.term.open').forEach(place);});})();</script><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><script>(function(){var B='../';
+try{if('clearAppBadge' in navigator)Promise.resolve(navigator.clearAppBadge()).catch(function(){});}catch(_){}
+if(!('serviceWorker' in navigator))return;
+navigator.serviceWorker.register(B+'sw.js').then(function(r){
+ if(!r||!r.pushManager||!r.pushManager.getSubscription)return;
+ return r.pushManager.getSubscription().then(function(s){if(s)return s.unsubscribe();});}).catch(function(){});
+})();</script></body></html>
